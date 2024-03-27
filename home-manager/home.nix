@@ -136,27 +136,20 @@
   # programs.direnv.nix-direnv.enable = true;
 
   # Symlink dotfiles (managed this way so i can easily move back to stow if i want)
-  home.file.".config/bat/themes/tokyonight_night.tmTheme".source = ./dotfiles/.config/bat/themes/tokyonight_night.tmTheme;
-  # xdg.configFile."fastfetch".source = ./dotfiles/.config/fastfetch;
-  # xdg.configFile."helix".source = ./dotfiles/.config/helix;
-  # xdg.configFile."hypr".source = ./dotfiles/.config/hypr;
-  # xdg.configFile."kitty".source = ./dotfiles/.config/kitty;
-  # xdg.configFile."micro".source = ./dotfiles/.config/micro;
-  # xdg.configFile."nix".source = ./dotfiles/.config/nix;
-  # xdg.configFile."nushell".source = ./dotfiles/.config/nushell;
-  # xdg.configFile."nvim".source = ./dotfiles/.config/nvim;
-  # xdg.configFile."pypoetry".source = ./dotfiles/.config/pypoetry;
-  # xdg.configFile."starship.toml".source = ./dotfiles/.config/starship.toml;
-  # xdg.configFile."waybar".source = dotfiles/.config/waybar;
-  # home.file.".local".source = ~/.local;
-  # system.activationScripts = {
-    # profile-init.text =
-      # ''
-        #!/usr/bin/env sh
-
-        # stow --verbose -d $"$HOME/.dotfiles" -t $"$HOME" .
-      # '';
-  # };
+  xdg.configFile."bat".source = ./dotfiles/.config/bat;
+  xdg.configFile."fastfetch".source = ./dotfiles/.config/fastfetch;
+  xdg.configFile."helix".source = ./dotfiles/.config/helix;
+  xdg.configFile."hypr".source = ./dotfiles/.config/hypr;
+  xdg.configFile."kitty".source = ./dotfiles/.config/kitty;
+  xdg.configFile."micro".source = ./dotfiles/.config/micro;
+  xdg.configFile."nushell".source = ./dotfiles/.config/nushell;
+  xdg.configFile."nvim".source = ./dotfiles/.config/nvim;
+  xdg.configFile."pypoetry".source = ./dotfiles/.config/pypoetry;
+  xdg.configFile."starship.toml".source = ./dotfiles/.config/starship.toml;
+  xdg.configFile."waybar".source = dotfiles/.config/waybar;
+  home.file.".bashrc".source = ./dotfiles/.bashrc;
+  home.file.".gitconfig".source = ./dotfiles/.gitconfig;
+  home.file.".local/share/fonts/Monaspace-Nerd-Font".source = ./dotfiles/.local/share/fonts/Monaspace-Nerd-Font;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
