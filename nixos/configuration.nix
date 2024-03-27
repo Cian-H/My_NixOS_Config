@@ -1,14 +1,18 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+{ 
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
+  imports =
+    [ # Include the results of the hardware scan.
+      ./hardware-configuration.nix
+    ];
 
-{ config, pkgs, ...}:
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 
-{
-  # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # First, enable nvidia specific config settings
   # Enable OpenGL
   hardware.opengl = {
     enable = true;
@@ -23,41 +27,14 @@
 
     # Modesetting is required.
     modesetting.enable = true;
-
-    # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-    # Enable this if you have graphical corruption issues or application crashes after waking
-    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
-    # of just the bare essentials.
     powerManagement.enable = false;
-
-    # Fine-grained power management. Turns off GPU when not in use.
-    # Experimental and only works on modern Nvidia GPUs (Turing or newer).
     powerManagement.finegrained = false;
-
-    # Use the NVidia open source kernel module (not to be confused with the
-    # independent third-party "nouveau" open source driver).
-    # Support is limited to the Turing and later architectures. Full list of 
-    # supported GPUs is at: 
-    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
-    # Only available from driver 515.43.04+
-    # Currently alpha-quality/buggy, so false is currently the recommended setting.
     open = false;
-
-    # Enable the Nvidia settings menu,
-	# accessible via `nvidia-settings`.
     nvidiaSettings = true;
-
-    # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
-
   # Bootloader.
-  # boot.loader.systemd-boot.enable = true;
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.device = "nodev";
@@ -68,11 +45,6 @@
   boot.resumeDevice = "/dev/disk/by-uuid/526c41a3-66ec-4c6e-ad28-a32dfa99933e";
 
   networking.hostName = "worklaptop"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -93,6 +65,28 @@
     LC_PAPER = "en_IE.UTF-8";
     LC_TELEPHONE = "en_IE.UTF-8";
     LC_TIME = "en_IE.UTF-8";
+  };
+
+  # Add each flake input as a registry
+  # This makes nix3 commands consistent with your flake
+  nix.registry = (lib.mapAttrs (_: flake: {inherit flake;})) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
+
+  # This will additionally add the inputs to the system's legacy channels
+  # Making legacy nix commands consistent as well
+  nix.nixPath = ["/etc/nix/path"];
+  environment.etc =
+    lib.mapAttrs'
+    (name: value: {
+      name = "nix/path/${name}";
+      value.source = value.flake;
+    })
+    config.nix.registry;
+
+  nix.settings = {
+    # Enable flakes and new 'nix' command
+    experimental-features = "nix-command flakes";
+    # Deduplicate and optimize nix store
+    auto-optimise-store = true;
   };
 
   # Enable the X11 windowing system.
@@ -123,22 +117,18 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
 
-  # Apply overrides
-  # nixpkgs.config.packageOverrides = pkgs: {
-  #   # For data science, python optimisations are important # NOTE: Scratch that, the 3hr+ compilation time isnt worth it
-  #   python3 = pkgs.python3.override {
-  #     enableOptimizations = true;
-  #     reproducibleBuild = false;
-  #   };
-  # };
+  users.users.cianh = {
+    isNormalUser = true;
+    hashedPasswordFile = "/etc/hashedPasswordFile";
+    description = "Cian Hughes";
+    extraGroups = [ "networkmanager" "wheel" ];
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   # users.users.cianh = {
@@ -250,9 +240,6 @@
   #   ];
   # };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -324,18 +311,11 @@
     xwayland.enable = true;
     enableNvidiaPatches = true;
   };
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+
   programs.direnv.package = true;
   programs.direnv.nix-direnv.enable = true;
 
-  # List services that you want to enable:
-  
+  # Enable flatpaks
   services.flatpak.enable = true;
 
   # Enable the OpenSSH daemon and other remote tools.
@@ -344,33 +324,19 @@
   services.gnome.gnome-remote-desktop.enable = true;
   services.gnome.gnome-user-share.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
   virtualisation = {
     containers.enable = true;
 
     podman = {
       enable = true;
       enableNvidia = true;
-
       # Create a `docker` alias for podman, to use it as a drop-in replacement
       dockerCompat = true;
-
       # Required for containers under podman-compose to be able to talk to each other.
       defaultNetwork.settings.dns_enabled = true;
     };
   };
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
   system.autoUpgrade.enable = true;
 
