@@ -1,0 +1,1 @@
+/home/cianh/.dotfiles/.config/nushell/nu_scripts/custom-completions/gh/gh-completions.nu

@@ -1,0 +1,1 @@
+/home/cianh/.dotfiles/.config/nushell/nu_scripts/modules/data_extraction/ultimate_extractor.nu

@@ -1,0 +1,1 @@
+// This is a dummy file to make cargo build the "plugin". The real meat and potatoes is in the build.rs file.
