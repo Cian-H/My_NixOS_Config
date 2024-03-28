@@ -136,17 +136,52 @@
   # programs.direnv.nix-direnv.enable = true;
 
   # Symlink dotfiles (managed this way so i can easily move back to stow if i want)
-  xdg.configFile."bat".source = ./dotfiles/.config/bat;
-  xdg.configFile."fastfetch".source = ./dotfiles/.config/fastfetch;
-  xdg.configFile."helix".source = ./dotfiles/.config/helix;
-  xdg.configFile."hypr".source = ./dotfiles/.config/hypr;
-  xdg.configFile."kitty".source = ./dotfiles/.config/kitty;
-  xdg.configFile."micro".source = ./dotfiles/.config/micro;
-  xdg.configFile."nushell".source = ./dotfiles/.config/nushell;
-  xdg.configFile."nvim".source = ./dotfiles/.config/nvim;
-  xdg.configFile."pypoetry".source = ./dotfiles/.config/pypoetry;
+  xdg.configFile."bat" = {
+    source = ./dotfiles/.config/bat;
+    recursive = true;
+  };
+  xdg.configFile."fastfetch" = {
+    source = ./dotfiles/.config/fastfetch;
+    recursive = true;
+  };
+  xdg.configFile."helix" = {
+    source = ./dotfiles/.config/helix;
+    recursive = true;
+  };
+  xdg.configFile."hypr" = {
+    source = ./dotfiles/.config/hypr;
+    recursive = true;
+  };
+  xdg.configFile."kitty" = {
+    source = ./dotfiles/.config/kitty;
+    recursive = true;
+  };
+  xdg.configFile."micro" = {
+    source = ./dotfiles/.config/micro;
+    recursive = true;
+  };
+  # We enable nushell using `home.file` instead because this makes it mutable.
+  # `xdg.configFile` makes the dir readonly, causing the shell to crash as it can't write to history.
+  home.file."nushell" = {
+    source = ./dotfiles/.config/nushell;
+    target = ".config/nushell";
+    recursive = true;
+  };
+  # Neovim also needs to be mutable, since we're managing it using lazy.
+  home.file."nvim" = {
+    source = ./dotfiles/.config/nvim;
+    target = ".config/nvim";
+    recursive = true;
+  };
+  xdg.configFile."pypoetry" = {
+    source = ./dotfiles/.config/pypoetry;
+    recursive = true;
+  };
   xdg.configFile."starship.toml".source = ./dotfiles/.config/starship.toml;
-  xdg.configFile."waybar".source = dotfiles/.config/waybar;
+  xdg.configFile."waybar" = {
+    source = dotfiles/.config/waybar;
+    recursive = true;
+  };
   home.file.".bashrc".source = ./dotfiles/.bashrc;
   home.file.".gitconfig".source = ./dotfiles/.gitconfig;
   home.file.".local/share/fonts/Monaspace-Nerd-Font".source = ./dotfiles/.local/share/fonts/Monaspace-Nerd-Font;
