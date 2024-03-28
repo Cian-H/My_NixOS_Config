@@ -62,7 +62,6 @@
       slack
       spice-vdagent
       spotify
-      stow
       tmux
       vivaldi
       vscode

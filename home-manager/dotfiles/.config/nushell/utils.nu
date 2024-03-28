@@ -22,10 +22,6 @@ export def 'sysfetch' [] {
     }
 }
 
-export def 'update-dotfiles' [] {
-    stow --verbose -d $"($env.HOME)/.dotfiles" -t $"($env.HOME)" .
-}
-
 export def 'register-plugins' [] {
     for plugin_dir in $env.NU_PLUGIN_DIRS {
         for plugin_path in (ls $"($env.NU_PLUGIN_DIRS.0)/nu_plugin_*").name {
