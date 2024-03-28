@@ -168,11 +168,11 @@
     recursive = true;
   };
   # Neovim also needs to be mutable, since we're managing it using lazy.
-  home.file."nvim" = {
-    source = ./dotfiles/.config/nvim;
-    target = ".config/nvim";
-    recursive = true;
-  };
+  # home.file."nvim" = {
+  #   source = ./dotfiles/.config/nvim;
+  #   target = ".config/nvim";
+  #   recursive = true;
+  # };
   xdg.configFile."pypoetry" = {
     source = ./dotfiles/.config/pypoetry;
     recursive = true;
