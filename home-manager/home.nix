@@ -185,6 +185,7 @@
   home.file.".bashrc".source = ./dotfiles/.bashrc;
   home.file.".gitconfig".source = ./dotfiles/.gitconfig;
   home.file.".local/share/fonts/Monaspace-Nerd-Font".source = ./dotfiles/.local/share/fonts/Monaspace-Nerd-Font;
+  home.file.".local/share/icons/phinger-hyprcursor".source = ./dotfiles/.local/share/icons/phinger-hyprcursor;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
