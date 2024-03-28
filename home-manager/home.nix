@@ -131,10 +131,7 @@
   programs.home-manager.enable = true;
   programs.git.enable = true;
 
-  # programs.direnv.enable = true;
-  # programs.direnv.nix-direnv.enable = true;
-
-  # Symlink dotfiles (managed this way so i can easily move back to stow if i want)
+  # Symlink detfiles (managed this way so i can easily move back to stow if i want)
   xdg.configFile."bat" = {
     source = ./dotfiles/.config/bat;
     recursive = true;

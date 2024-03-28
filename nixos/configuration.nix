@@ -205,7 +205,7 @@
     enableNvidiaPatches = true;
   };
 
-  programs.direnv.package = true;
+  programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
 
   # Enable flatpaks
