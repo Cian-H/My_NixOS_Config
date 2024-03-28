@@ -23,7 +23,10 @@
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       worklaptop = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {
+            inherit inputs outputs;
+            unstablePkgs = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux;
+        };
         modules = [
           # > Our main nixos configuration file <
           ./nixos/configuration.nix

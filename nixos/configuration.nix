@@ -3,6 +3,7 @@
   lib,
   config,
   pkgs,
+  unstablePkgs,
   ...
 }: {
   imports =
@@ -132,7 +133,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = (with pkgs; [
     # shell env programs
     atuin
     bat
@@ -173,18 +174,20 @@
     noto-fonts-color-emoji
     vistafonts
     winePackages.fonts
+    # front-end dev environment
+    kitty
+    micro
+    neovim
+  ]) ++ (with unstablePkgs; [
     # alternative DEs and accompanying tools
+    hyprcursor
     hyprland
     hyprpaper
     qt6ct
     swaynotificationcenter
     waybar
     wofi
-    # front-end dev environment
-    kitty
-    micro
-    neovim
-  ];
+  ]);
 
   # Remove unwanted gnome packages
   environment.gnome.excludePackages = with pkgs; [
