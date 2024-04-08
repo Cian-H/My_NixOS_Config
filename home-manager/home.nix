@@ -147,6 +147,13 @@
   xdg.configFile."hypr" = {
     source = ./dotfiles/.config/hypr;
     recursive = true;
+    # Here, we use OnChange, because we don't want the config to be mutable but we do want it to
+    #   manage modifiable state at runtime
+    onChange = ''
+      rm -f ${config.xdg.configHome}/hypr/inputs.conf
+      cp ${config.xdg.configHome}/hypr/HomeManagerInit_inputs.conf ${config.xdg.configHome}/hypr/inputs.conf
+      chmod u+w ${config.xdg.configHome}/hypr/inputs.conf
+    '';
   };
   xdg.configFile."kitty" = {
     source = ./dotfiles/.config/kitty;

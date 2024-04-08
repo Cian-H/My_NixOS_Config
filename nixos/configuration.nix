@@ -145,6 +145,7 @@
     fzf
     gh
     git
+    git-extras
     grub2_efi
     htop
     jq
