@@ -1,6 +1,8 @@
 [user]
 	name = Cian Hughes
 	email = chughes000@gmail.com
+[init]
+	defaultBranch = "main"
 [credential "https://github.com"]
 	username = Cian-H
 	helper = store
