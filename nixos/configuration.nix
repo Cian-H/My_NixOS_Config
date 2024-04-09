@@ -188,6 +188,7 @@
     swaynotificationcenter
     waybar
     wofi
+    xdg-desktop-portal-hyprland
   ]);
 
   # Remove unwanted gnome packages
