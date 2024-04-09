@@ -30,22 +30,8 @@ return {
     },
     { "folke/neoconf.nvim", cmd = "Neoconf" },
     "folke/neodev.nvim",
-    "jiangmiao/auto-pairs", -- Automatic bracket closing is 110% a QOL upgrade
     -- Privilege escalation plugin
     "lambdalisue/suda.vim",
-    -- WARN: Not sure if this plugin was helping or hurting... "tpope/vim-sleuth", -- Helps control indentation
-    {
-        "numToStr/Comment.nvim", -- Adds more modern commenting functionality
-        opts = {
-            padding = true,
-            sticky = true,
-            toggler = {
-                line = "<C-/>",
-                block = "<C-]>",
-            }
-        },
-        lazy = false,
-    },
     {
         "folke/todo-comments.nvim",
         event = "VimEnter",
@@ -589,6 +575,17 @@ return {
             statusline.section_location = function()
                 return "%2l:%-2v"
             end
+
+            -- Some other mini.nvim plugins that look useful to me
+            require("mini.starter").setup()
+            require("mini.notify").setup()
+            require("mini.clue").setup()
+            require("mini.visits").setup()
+            require("mini.sessions").setup()
+            require("mini.pairs").setup()
+            require("mini.comment").setup()
+            require("mini.splitjoin").setup()
+            require("mini.trailspace").setup()
 
             -- ... and there is more!
             --  Check out: https://github.com/echasnovski/mini.nvim
