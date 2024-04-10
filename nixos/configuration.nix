@@ -1,4 +1,4 @@
-{ 
+{
   inputs,
   lib,
   config,
@@ -152,6 +152,7 @@
     less
     mosh
     netcat-gnu
+    nmap
     nodejs_21
     nushell
     onefetch

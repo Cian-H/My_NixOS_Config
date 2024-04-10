@@ -78,6 +78,8 @@
       # kitty extensions
       kitty-img
       kitty-themes
+      # Neovim extensions
+      vimPlugins.mason-lspconfig-nvim
       # Python packages
       pypy3
       (python3.withPackages(
