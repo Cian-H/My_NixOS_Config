@@ -62,6 +62,7 @@
       slack
       spice-vdagent
       spotify
+      steam-run
       tmux
       vivaldi
       vscode
@@ -95,7 +96,6 @@
       # Backend dev tools
       cmake
       elixir
-      elixir-ls
       erlang_26
       evcxr
       fortran-fpm
@@ -106,7 +106,6 @@
       go
       jujutsu
       julia
-      lua-language-server
       luajitPackages.luarocks
       mypy
       nil
@@ -117,8 +116,6 @@
       pre-commit
       rm-improved
       ruff
-      ruff-lsp
-      # rust-analyzer
       rustup
       starship
       stylua
@@ -126,6 +123,15 @@
       wget
       xclip
       zulu
+      # Language Server Protocols
+      elixir-ls
+      fortls
+      nodePackages_latest.bash-language-server
+      lua-language-server
+      ruff-lsp
+      # rust-analyzer
+      taplo
+      yaml-language-server
     ];
   };
 
