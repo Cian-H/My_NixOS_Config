@@ -50,6 +50,33 @@ return {
 			},
 		},
 	},
+	-- Definitely need to add a plugin for quickly making notes in obsidian
+	{
+		"epwalsh/obsidian.nvim",
+		version = "*",
+		lazy = true,
+		event = {
+			"BufReadPre " .. vim.fn.expand("~") .. "Documents/Work_Notes/**.md",
+			"BufNewFile " .. vim.fn.expand("~") .. "Documents/Work_Notes/**.md",
+		},
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		opts = {
+			workspaces = {
+				{
+					name = "work",
+					path = "~/Documents/Work_Notes/",
+				},
+			},
+			completion = {
+				nvim_cmp = true,
+				min_chars = 2,
+			},
+		},
+	},
 	-- A file explorer, because i'm not used to the vim workflow yet
 	{
 		"nvim-neo-tree/neo-tree.nvim",
