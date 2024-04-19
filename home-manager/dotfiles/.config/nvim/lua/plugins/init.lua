@@ -696,8 +696,6 @@ return {
 			"nvim-lua/plenary.nvim",
 		},
 	},
-	-- And, the pathfinder plugin looks super handy for improving my motions
-	"danth/pathfinder.vim",
 	-- Finally, a little game for practising so i can get quicker at vim
 	"ThePrimeagen/vim-be-good",
 }, {
