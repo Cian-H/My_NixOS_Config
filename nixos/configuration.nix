@@ -156,6 +156,7 @@
     nodejs_21
     nushell
     onefetch
+    podman-compose
     powertop
     ranger
     ripgrep
