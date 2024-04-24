@@ -54,6 +54,7 @@
       marker
       mendeley
       mermaid-cli
+      midori
       nwg-look
       obs-studio
       pandoc
@@ -92,6 +93,7 @@
       (python3.withPackages(
         python-pkgs: [
           python-pkgs.pip
+          python-pkgs.pkginfo
           python-pkgs.python-lsp-server
           python-pkgs.pynvim
         ]
