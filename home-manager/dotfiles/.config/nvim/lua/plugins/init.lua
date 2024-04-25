@@ -673,8 +673,9 @@ return {
 	--  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
 	--    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
 	-- { import = 'custom.plugins' },
-	-- Annoyingly: Mason doesn't have a plugin for nushell yet and i use a lot of that, so add the following
+	-- Annoyingly: Mason doesn't have a plugin for nushell or kitty yet and i use a lot of those, so add the following
 	"LhKipp/nvim-nu",
+	"fladson/vim-kitty",
 	-- A plugin to integrate tests is helpful, so i'm adding neotest
 	{
 		"nvim-neotest/neotest",
