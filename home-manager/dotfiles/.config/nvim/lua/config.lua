@@ -16,7 +16,7 @@ vim.opt.timeoutlen = 300
 -- Configure how new splits should be opened
 vim.opt.splitright = true
 vim.opt.splitbelow = true
--- Render markers so we don't mistakenly out tabs (and other whitespace) where we dont want them
+-- Render markers so we don't mistakenly put tabs (and other whitespace) where we dont want them
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 -- Also, while we're at it: let's set the tab widths

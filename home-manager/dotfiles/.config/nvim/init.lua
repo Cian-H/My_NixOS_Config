@@ -1,4 +1,5 @@
 require("config")
+require("keybindings")
 
 -- Then, i want to load lazy as my plugin manager and have it load my plugins
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
