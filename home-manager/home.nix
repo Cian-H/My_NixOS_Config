@@ -121,6 +121,9 @@
       php83
       php83Packages.composer
       poetry
+      poetryPlugins.poetry-plugin-up
+      poetryPlugins.poetry-plugin-export
+      poetryPlugins.poetry-audit-plugin
       pre-commit
       rm-improved
       ruff
@@ -129,6 +132,7 @@
       stylua
       tree-sitter
       wget
+      wl-clipboard
       xclip
       zulu
       # Language Server Protocols
@@ -143,7 +147,7 @@
     ];
   };
 
-  # Enable home-manager and git
+  # Enable programs
   programs.home-manager.enable = true;
   programs.git.enable = true;
 
@@ -192,13 +196,16 @@
     target = ".config/nvim";
     recursive = true;
   };
-  xdg.configFile."pypoetry" = {
+  # Similar situation to nushell here. Needs to be read/write so we can manage plugins
+  # However, in this case the files themselves also need to be read/write so making a symlink
+  home.file."pypoetry" = {
     source = ./dotfiles/.config/pypoetry;
+    target = ".config/pypoetry";
     recursive = true;
   };
   xdg.configFile."starship.toml".source = ./dotfiles/.config/starship.toml;
   xdg.configFile."waybar" = {
-    source = dotfiles/.config/waybar;
+    source = ./dotfiles/.config/waybar;
     recursive = true;
   };
   home.file.".bashrc".source = ./dotfiles/.bashrc;

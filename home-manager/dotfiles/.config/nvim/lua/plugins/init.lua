@@ -50,6 +50,7 @@ return {
 			},
 		},
 	},
+	"tpope/vim-fugitive", -- Also want to add fugitive, since it's apparently a great git plugin
 	-- Definitely need to add a plugin for quickly making notes in obsidian
 	{
 		"epwalsh/obsidian.nvim",
@@ -676,6 +677,16 @@ return {
 	-- Annoyingly: Mason doesn't have a plugin for nushell or kitty yet and i use a lot of those, so add the following
 	"LhKipp/nvim-nu",
 	"fladson/vim-kitty",
+	-- Add Overseer as a task running tool
+	{
+		"stevearc/overseer.nvim",
+		opts = {},
+		-- config = function()
+		-- 	vim.keymap.set("n", "<leader>tt", function()
+		-- 		vim.api.nvim_command("Neotree toggle")
+		-- 	end, { desc = "[T]ree [T]oggle" })
+		-- end,
+	},
 	-- A plugin to integrate tests is helpful, so i'm adding neotest
 	{
 		"nvim-neotest/neotest",
