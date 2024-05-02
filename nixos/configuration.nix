@@ -137,7 +137,6 @@
     # shell env programs
     atuin
     bat
-    byobu
     du-dust
     duf
     fastfetch

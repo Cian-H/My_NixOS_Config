@@ -64,7 +64,6 @@
       spice-vdagent
       spotify
       steam-run
-      tmux
       # vivaldi
       (vivaldi.override {
         proprietaryCodecs = true;
