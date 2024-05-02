@@ -13,6 +13,7 @@ export alias rm = rip
 export alias free = free -m
 export alias npkg = nano -w PKGBUILD
 export alias q = exit
+export alias ":q" = exit
 export alias c = clear
 export alias h = history
 export alias lsa = ls -a
@@ -32,6 +33,9 @@ export alias jupyterpoem = poetry run jupyter
 export alias fuck = with-env {TF_ALIAS: "fuck", PYTHONIOENCODING: "utf-8"} {
     thefuck (history | last 2 | get command.0)
 }
+
+# Aliases for custom git commands
+export "git ammend" = git commit -a --amend -C HEAD
 
 # NixOS specific aliases
 export alias nix-nu = nix-shell --command nu
