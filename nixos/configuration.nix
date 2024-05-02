@@ -171,7 +171,7 @@
     # fonts
     corefonts
     liberation_ttf
-    # monaspace
+    monaspace
     nerdfonts
     noto-fonts
     noto-fonts-color-emoji
