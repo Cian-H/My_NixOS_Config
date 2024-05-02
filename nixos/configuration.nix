@@ -246,7 +246,7 @@
       defaultFonts = {
         serif = [ "NotoSerifNerdFont" ];
         sansSerif = [ "NotoSansNerdFont" ];
-        monospace = [ "MonaspiceNeNerdFontMono" ];
+        monospace = [ "MonaspiceArNerdFontMono" ];
       };
     };
   };
