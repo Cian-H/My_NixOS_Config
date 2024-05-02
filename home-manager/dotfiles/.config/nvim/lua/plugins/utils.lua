@@ -210,4 +210,6 @@ return { -- General programming utilities go here
 	},
 	-- Github copilot, cos its pretty handy
 	"github/copilot.vim",
+	-- Rust tools like inlay hints are absolutely essential
+	"simrat39/rust-tools.nvim",
 }
