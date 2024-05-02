@@ -6,10 +6,9 @@
   unstablePkgs,
   ...
 }: {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -177,6 +176,7 @@
     noto-fonts-color-emoji
     vistafonts
     winePackages.fonts
+    (callPackage ../fonts/monaspice_nerd_font.nix {})
     # front-end dev environment
     kitty
     micro
@@ -238,4 +238,16 @@
 
   # Set user config settings
   users.defaultUserShell = pkgs.nushell;
+  fonts = {
+    enableDefaultPackages = true;
+    fontDir.enable = true;
+
+    fontconfig = {
+      defaultFonts = {
+        serif = [ "NotoSerifNerdFont" ];
+        sansSerif = [ "NotoSansNerdFont" ];
+        monospace = [ "MonaspiceNeNerdFontMono" ];
+      };
+    };
+  };
 }

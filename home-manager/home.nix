@@ -7,7 +7,12 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  MonaspiceTarball = pkgs.fetchTarball {
+    url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Monaspace.tar.xz";
+    sha256 = lib.fakeSha256;
+  };
+in {
   # You can import other home-manager modules here
   # imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
