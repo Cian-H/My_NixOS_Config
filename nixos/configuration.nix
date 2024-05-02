@@ -172,6 +172,7 @@
     liberation_ttf
     monaspace
     nerdfonts
+    nerd-font-patcher
     noto-fonts
     noto-fonts-color-emoji
     vistafonts
@@ -182,7 +183,6 @@
     neovim
   ]) ++ (with unstablePkgs; [
     # alternative DEs and accompanying tools
-    hyprcursor
     hyprland
     hyprpaper
     qt6ct
