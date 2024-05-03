@@ -32,7 +32,7 @@
         "format": {},
         "format-en": "🇺🇸",
         "format-ie": "🇮🇪",
-        "on-click": "$XDG_CONFIG_HOME/hypr/utils/cycle_kb_layout -c $XDG_CONFIG_HOME/hypr/inputs.conf -l $XDG_CONFIG_HOME/hypr/kb_layouts.txt"
+        "on-click": "$XDG_CONFIG_HOME/hypr/utils/cycle_kb_layout -c ../inputs.conf -l ../kb_layouts.txt"
     },
     "clock": {
         "format": "{:%a %d %b - %H:%M}",
