@@ -10,6 +10,7 @@ export def 'sysfetch' [] {
             fastfetch
         }
     } else if (exists neofetch) {
+        print "Why are you still using neofetch? It's deprecated!"
         neofetch
     } else if (exists screenfetch) {
         screenfetch
