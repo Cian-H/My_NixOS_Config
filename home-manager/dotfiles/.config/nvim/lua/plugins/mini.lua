@@ -38,7 +38,7 @@ return { -- Mini is so varied it's hard to categorise. So i dumped my mini insta
 			require("mini.clue").setup()
 			require("mini.visits").setup()
 			require("mini.sessions").setup()
-			require("mini.pairs").setup()
+			require("mini.pairs").setup({ mappings = { ["`"] = false } })
 			require("mini.comment").setup()
 			require("mini.splitjoin").setup()
 			require("mini.trailspace").setup()

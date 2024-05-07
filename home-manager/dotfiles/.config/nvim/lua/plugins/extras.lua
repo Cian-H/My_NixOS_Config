@@ -3,10 +3,11 @@ return { -- Non programming quality of life utilities go here
 		"epwalsh/obsidian.nvim",
 		version = "*",
 		cmd = "Obsidian",
-		event = {
-			"BufReadPre " .. vim.fn.expand("~") .. "Documents/Work_Notes/**.md",
-			"BufNewFile " .. vim.fn.expand("~") .. "Documents/Work_Notes/**.md",
-		},
+		-- event = {
+		-- 	"BufReadPre " .. vim.fn.expand("~") .. "Documents/Work_Notes/**.md",
+		-- 	"BufNewFile " .. vim.fn.expand("~") .. "Documents/Work_Notes/**.md",
+		-- },
+		lazy = false,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope.nvim",
