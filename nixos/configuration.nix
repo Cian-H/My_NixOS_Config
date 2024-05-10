@@ -208,8 +208,10 @@
     enableNvidiaPatches = true;
   };
 
+  # Lets also activate some handy devenv tools
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
+  programs.nix-ld.enable = true;
 
   # Enable flatpaks
   services.flatpak.enable = true;

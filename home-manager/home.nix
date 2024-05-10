@@ -62,6 +62,7 @@ in {
       midori
       nwg-look
       obs-studio
+      obsidian
       pandoc
       podman-desktop
       podman-tui
@@ -212,6 +213,7 @@ in {
     source = ./dotfiles/.config/waybar;
     recursive = true;
   };
+  xdg.configFile."electron-flags.conf".source = ./dotfiles/.config/electron-flags.conf;
   home.file.".bashrc".source = ./dotfiles/.bashrc;
   home.file.".gitconfig".source = ./dotfiles/.gitconfig;
 
