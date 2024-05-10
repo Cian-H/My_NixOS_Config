@@ -6,6 +6,7 @@
   lib,
   config,
   pkgs,
+  unstablePkgs,
   ...
 }: let
   MonaspiceTarball = pkgs.fetchTarball {
@@ -25,20 +26,10 @@ in {
     # ./nvim.nix
   # ];
 
-  nixpkgs = {
-    # Configure your nixpkgs instance
-    config = {
-      # Disable if you don't want unfree packages
-      allowUnfree = true;
-      # Workaround for https://github.com/nix-community/home-manager/issues/2942
-      allowUnfreePredicate = _: true;
-    };
-  };
-
   home = {
     username = "cianh";
     homeDirectory = "/home/cianh";
-    packages = with pkgs; [
+    packages = (with pkgs; [
       bitwarden
       bitwarden-cli
       caffeine-ng
@@ -62,7 +53,6 @@ in {
       midori
       nwg-look
       obs-studio
-      obsidian
       pandoc
       podman-desktop
       podman-tui
@@ -149,7 +139,9 @@ in {
       # rust-analyzer
       taplo
       yaml-language-server
-    ];
+    ]) ++ (with unstablePkgs; [
+      obsidian
+    ]);
   };
 
   # Enable programs
