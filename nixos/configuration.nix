@@ -150,6 +150,7 @@
     less
     mosh
     netcat-gnu
+    nix-ld
     nmap
     nodejs_21
     nushell
