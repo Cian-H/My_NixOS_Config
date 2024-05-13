@@ -91,11 +91,9 @@ in {
           python-pkgs.pkginfo
           python-pkgs.python-lsp-server
           python-pkgs.pynvim
+          python-pkgs.setuptools
         ]
       ))
-      # python310
-      # python311
-      # python312
       # Backend dev tools
       cmake
       elixir
@@ -112,6 +110,7 @@ in {
       luajitPackages.luarocks
       mypy
       nil
+      niv
       nixpkgs-fmt
       php83
       php83Packages.composer
