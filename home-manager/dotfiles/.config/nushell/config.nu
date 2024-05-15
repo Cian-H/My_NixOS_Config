@@ -6,8 +6,8 @@ $env.config = (
     (default_config) | merge (theme) | merge (my_config)
 )
 # Then, initialise the completion plugins
-source ~/.config/nushell/atuin.nu
-source ~/.config/nushell/zoxide.nu
-source ~/.config/nushell/jj.nu
+source ~/.config/nushell/completions/atuin.nu
+source ~/.config/nushell/completions/zoxide.nu
+source ~/.config/nushell/completions/jj.nu
 # Finally, we run a system info fetch
 sysfetch
