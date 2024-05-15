@@ -105,7 +105,6 @@ in {
       gleam
       gnumake
       go
-      jujutsu
       julia
       luajitPackages.luarocks
       mypy
@@ -140,6 +139,7 @@ in {
       yaml-language-server
     ]) ++ (with unstablePkgs; [
       obsidian
+      jujutsu
     ]);
   };
 
