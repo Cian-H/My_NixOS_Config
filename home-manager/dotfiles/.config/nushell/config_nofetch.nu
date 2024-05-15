@@ -6,6 +6,6 @@ $env.config = (
     (default_config) | merge (theme) | merge (my_config)
 )
 # Finally, initialise the completion plugins
-source ~/.local/share/atuin/init.nu
+source ~/.config/nushell/atuin/init.nu
 source ~/.config/nushell/zoxide.nu
 source ~/.config/nushell/jj.nu
