@@ -34,9 +34,11 @@ in {
       bitwarden-cli
       caffeine-ng
       cinnamon.warpinator
+      delta
       feh
       ferdium
       gimp-with-plugins
+      git-extras
       github-desktop
       glow
       gnome.gnome-boxes
