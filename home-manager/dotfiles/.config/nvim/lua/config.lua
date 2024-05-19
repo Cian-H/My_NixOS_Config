@@ -6,6 +6,11 @@ vim.opt.mouse = "a" -- enable mouse mode for window resizing
 vim.opt.clipboard = "unnamedplus" -- share system and nvim clipboard
 vim.g.have_nerd_font = true
 vim.opt.undofile = true -- Save undo history
+-- Add custom commentstring definitions
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "nix,flake",
+	command = "setlocal commentstring=#\\ %s",
+})
 -- Case-insensitive searching UNLESS \C or capital in search
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
