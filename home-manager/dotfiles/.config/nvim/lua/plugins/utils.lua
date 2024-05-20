@@ -29,9 +29,7 @@ return { -- General programming utilities go here
 		opts = {},
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		callback = function()
-			vim.keymap.set("n", "<leader>te", function()
-				vim.api.nvim_command("Oil")
-			end, { desc = "[T]ree [E]dit" })
+			vim.keymap.set("n", "<leader>te", vim.cmd.Oil, { desc = "[T]ree [E]dit" })
 		end,
 	},
 	-- Snippets
@@ -194,22 +192,21 @@ return { -- General programming utilities go here
 			--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 		end,
 	},
+	{ -- Undo tree
+		"mbbill/undotree",
+		opts = {},
+		config = function()
+			vim.keymap.set("n", "U", vim.cmd.UndotreeToggle, { desc = "[U]ndotree" })
+		end,
+	},
 	{ -- Add Overseer as a task running tool
 		"stevearc/overseer.nvim",
 		opts = {},
 		config = function()
-			vim.keymap.set("n", "<leader>ob", function()
-				vim.api.nvim_command("OverseerBuild")
-			end, { desc = "[O]verseer [B]uild" })
-			vim.keymap.set("n", "<leader>oc", function()
-				vim.api.nvim_command("OverseerRunCmd")
-			end, { desc = "[O]verseer Run [C]ommand" })
-			vim.keymap.set("n", "<leader>or", function()
-				vim.api.nvim_command("OverseerRun")
-			end, { desc = "[O]verseer [R]un" })
-			vim.keymap.set("n", "<leader>ot", function()
-				vim.api.nvim_command("OverseerToggle")
-			end, { desc = "[O]verseer [T]oggle" })
+			vim.keymap.set("n", "<leader>ob", vim.cmd.OverseerBuild, { desc = "[O]verseer [B]uild" })
+			vim.keymap.set("n", "<leader>oc", vim.cmd.OverseerRunCmd, { desc = "[O]verseer Run [C]ommand" })
+			vim.keymap.set("n", "<leader>or", vim.cmd.OverseerRun, { desc = "[O]verseer [R]un" })
+			vim.keymap.set("n", "<leader>ot", vim.cmd.OverseerToggle, { desc = "[O]verseer [T]oggle" })
 		end,
 	},
 	{ -- A plugin to integrate tests is helpful, so i'm adding neotest
