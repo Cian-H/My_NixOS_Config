@@ -83,8 +83,6 @@ in {
       # kitty extensions
       kitty-img
       kitty-themes
-      # Neovim extensions
-      vimPlugins.mason-lspconfig-nvim
       # Python packages
       pypy3
       (python3.withPackages(
@@ -140,6 +138,7 @@ in {
       taplo
       yaml-language-server
     ]) ++ (with unstablePkgs; [
+      vimPlugins.mason-lspconfig-nvim
       obsidian
       jujutsu
     ]);
@@ -150,6 +149,12 @@ in {
   programs.git.enable = true;
 
   # Symlink detfiles (managed this way so i can easily move back to stow if i want)
+  # First, symlink home-manager to where it expects to be
+  xdg.configFile."home-manager" = {
+    source = ../home-manager;
+    recursive = true;
+  };
+  # Then, the rest of the dotfiles
   xdg.configFile."bat" = {
     source = ./dotfiles/.config/bat;
     recursive = true;

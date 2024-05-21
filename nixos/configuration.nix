@@ -157,11 +157,15 @@
     onefetch
     podman-compose
     powertop
+    qmk
+    qmk_hid
+    qmk-udev-rules
     ranger
     ripgrep
     tealdeer
     thefuck
     unzip
+    vial
     xcp
     zoxide
     # package managers
@@ -181,8 +185,8 @@
     # front-end dev environment
     kitty
     micro
-    neovim
   ]) ++ (with unstablePkgs; [
+    neovim
     # alternative DEs and accompanying tools
     hyprland
     hyprpaper
@@ -201,6 +205,8 @@
     gnome-tour
     gnome.yelp
   ];
+
+  hardware.keyboard.qmk.enable = true;
 
   # Activate alternative DEs
   programs.hyprland = {

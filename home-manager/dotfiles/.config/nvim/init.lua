@@ -1,3 +1,6 @@
+-- Enable experimental fast lua module loader
+vim.loader.enable()
+
 require("config")
 require("keybindings")
 
