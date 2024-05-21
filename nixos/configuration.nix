@@ -136,6 +136,7 @@
     # shell env programs
     atuin
     bat
+    bottom
     du-dust
     duf
     fastfetch
@@ -145,7 +146,6 @@
     git
     git-extras
     grub2_efi
-    htop
     jq
     less
     mosh

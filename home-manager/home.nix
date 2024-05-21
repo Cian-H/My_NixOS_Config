@@ -211,6 +211,14 @@ in {
     source = ./dotfiles/.config/waybar;
     recursive = true;
   };
+  xdg.configFile."euporie" = {
+    source = ./dotfiles/.config/euporie;
+    recursive = true;
+  };
+  xdg.configFile."bottom" = {
+    source = ./dotfiles/.config/bottom;
+    recursive = true;
+  };
   xdg.configFile."electron-flags.conf".source = ./dotfiles/.config/electron-flags.conf;
   home.file.".bashrc".source = ./dotfiles/.bashrc;
   home.file.".gitconfig".source = ./dotfiles/.gitconfig;

@@ -1,0 +1,16 @@
+{
+  "edit_mode": "vi",
+  "external_editor": "nvim",
+  "color_scheme": "default",
+  "syntax_theme": "inkpot",
+  "autoformat": true,
+  "autoinspect": true,
+  "autocomplete": true,
+  "enable_language_servers": true,
+  "accent_color": "#7aa2f7",
+  "show_file_icons": true,
+  "notebook": {
+    "show_side_bar": true,
+    "background_pattern": 5
+  }
+}

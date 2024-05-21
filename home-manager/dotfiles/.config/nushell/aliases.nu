@@ -6,7 +6,8 @@ export alias df = duf
 export alias grep = rg
 export alias cp = xcp
 export alias find = fd
-export alias top = htop
+export alias top = btm
+export alias htop = btm
 export alias rm = rip
 
 # Personal convenience aliases
