@@ -1,28 +1,30 @@
 /* Define constants for stylesheet */
-@define-color base           #1e242f;
+@define-color base           rgb(26, 27, 38);
+@define-color text-color     #7aa2f7;
+@define-color text-color-2   rgba(169, 177, 214, 1);
 @define-color urgent         #b02c36;
 @define-color primary_orange #fe9000;
 @define-color primary_yellow #ffdd4a;
 @define-color primary_red    #da1b2b;
 @define-color primary_blue   #afd2e9;
 @define-color primary_blue_2 #6fadd6;
- 
+
 @keyframes blink-warning {
     70% {
         color: white;
     }
- 
+
     to {
         color: white;
         background-color: orange;
     }
 }
- 
+
 @keyframes blink-critical {
     70% {
       color: white;
     }
- 
+
     to {
         color: white;
         background-color: red;
@@ -31,14 +33,23 @@
 
 /* Base style */
 * {
-    font-family: "MonaspaceArgon Nerd Font, Medium", Cantarell, Noto Sans, sans-serif;
+    font-family: "MonaspaceArgon Nerd Font, Bold", Cantarell, Noto Sans, sans-serif;
     font-size: 16px;
-    border: none; 
+    border: none;
     border-radius: 0;
     margin: 1px;
     min-height: 0;
     padding: 0;
     background: transparent;
+}
+
+tooltip {
+     border-radius: 8px;
+     background-color: @base;
+}
+
+.modules-center {
+    color: @text-color-2;
 }
 
 /* Custom font size for builtin display */
@@ -50,15 +61,19 @@ window.eDP-1 * { font-size: 12px; }
 
 #waybar {
     background: transparent;
-    color: @primary_blue;
+    color: @text-color;
     background-color: @base;
     font-family: "MonaspaceArgon Nerd Font";
     font-size: 16px;
-    border-radius: 15px;
+    font-weight: bold;
+    border-radius: 8px;
 }
 
 #workspaces {
-    margin: 0 5px;
+    margin-top: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-bottom: 0;
 }
 
 #workspaces button {
@@ -70,7 +85,7 @@ window.eDP-1 * { font-size: 12px; }
 }
 
 #workspaces button.visible {
-    color: #a9b1d6;
+    color: #34548a;
 }
 
 #workspaces button.urgent {
@@ -85,7 +100,7 @@ window.eDP-1 * { font-size: 12px; }
 }
 
 #workspaces button.active {
-    color: cyan;
+    color: @text-color;
 }
 
 #workspaces button {
@@ -93,13 +108,13 @@ window.eDP-1 * { font-size: 12px; }
     margin-bottom: 0px;
     padding:0px;
 }
- 
+
 #workspaces button.focused {
     border-bottom: 3px solid  @primary_yellow;
     margin-bottom: 0px;
     padding-left:0;
 }
- 
+
 #workspaces button.urgent {
     border-color: @primary_red;
     color: @primary_red;
@@ -123,16 +138,13 @@ window.eDP-1 * { font-size: 12px; }
 #custom-spotify,
 #custom-weather,
 #custom-mail,
-#custom-media {
+#custom-media,
+#hyprland-language,
+#custom-notification {
     padding:0.5rem 0.6rem;
     margin: 1px 0px;
     /* border-top: 3px solid rgba(217, 216, 216, 0.5); */
 }
-
-/* #clock {
-    margin:     0px 16px 0px 10px;
-    min-width:  140px;
-} */
 
 /* Widget specific theming */
 #battery {

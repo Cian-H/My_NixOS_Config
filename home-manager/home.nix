@@ -32,6 +32,7 @@ in {
     packages = (with pkgs; [
       bitwarden
       bitwarden-cli
+      blueman
       caffeine-ng
       cinnamon.warpinator
       delta
@@ -217,6 +218,10 @@ in {
   };
   xdg.configFile."bottom" = {
     source = ./dotfiles/.config/bottom;
+    recursive = true;
+  };
+  xdg.configFile."swaync" = {
+    source = ./dotfiles/.config/swaync;
     recursive = true;
   };
   xdg.configFile."electron-flags.conf".source = ./dotfiles/.config/electron-flags.conf;

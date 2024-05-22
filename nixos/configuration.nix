@@ -147,6 +147,7 @@
     git-extras
     grub2_efi
     jq
+    killall
     less
     mosh
     netcat-gnu
@@ -190,7 +191,10 @@
     # alternative DEs and accompanying tools
     hyprland
     hyprpaper
+    iwgtk
+    libnotify
     qt6ct
+    swaylock
     swaynotificationcenter
     waybar
     wofi
