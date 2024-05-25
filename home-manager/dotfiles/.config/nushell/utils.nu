@@ -4,7 +4,7 @@ export def 'exists' [ app: string ] {
 
 export def 'sysfetch' [] {
     if (exists fastfetch) {
-        if ("kitty" in $env.TERM) and ($"($env.HOME)/.config/fastfetch/kitty.conf" | path exists) {
+        if ("kitty" in $env.MAIN_TERM) and ($"($env.HOME)/.config/fastfetch/kitty.conf" | path exists) {
             fastfetch --load-config $"($env.HOME)/.config/fastfetch/kitty.conf"
         } else {
             fastfetch

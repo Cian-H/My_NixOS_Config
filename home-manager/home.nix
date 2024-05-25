@@ -107,6 +107,7 @@ in {
       gnumake
       go
       julia
+      lazygit
       luajitPackages.luarocks
       mypy
       nil
@@ -128,7 +129,7 @@ in {
       wget
       wl-clipboard
       xclip
-      zulu
+      zellij
       # Language Server Protocols
       elixir-ls
       fortls
@@ -222,6 +223,10 @@ in {
   };
   xdg.configFile."swaync" = {
     source = ./dotfiles/.config/swaync;
+    recursive = true;
+  };
+  xdg.configFile."zellij" = {
+    source = ./dotfiles/.config/zellij;
     recursive = true;
   };
   xdg.configFile."electron-flags.conf".source = ./dotfiles/.config/electron-flags.conf;
