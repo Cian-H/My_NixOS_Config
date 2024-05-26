@@ -113,6 +113,7 @@ in {
       nil
       niv
       nixpkgs-fmt
+      ouch
       php83
       php83Packages.composer
       poetry
@@ -227,6 +228,10 @@ in {
   };
   xdg.configFile."zellij" = {
     source = ./dotfiles/.config/zellij;
+    recursive = true;
+  };
+  xdg.configFile."lazygit" = {
+    source = ./dotfiles/.config/lazygit;
     recursive = true;
   };
   xdg.configFile."electron-flags.conf".source = ./dotfiles/.config/electron-flags.conf;
