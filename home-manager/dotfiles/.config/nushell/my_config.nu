@@ -1,8 +1,9 @@
 export def main [] {
     {
         show_banner: false # disable the welcome banner at startup
-        shell_integration: true # enable shell integration
-        use_kitty_protocol: ("kitty" in $env.TERM) # use kitty protocol when running inside kitty
+        # For some reason wezterm adds a newline every keypress
+        shell_integration: (not ("WEZTERM_EXECUTABLE" in $env)) # true # enable shell integration
+        use_kitty_protocol: (("TERM" in $env) and ("kitty" in $env.TERM)) # use kitty protocol when running inside kitty
         history: {
             file_format: "sqlite"
         }

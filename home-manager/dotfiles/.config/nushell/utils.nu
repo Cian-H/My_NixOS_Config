@@ -1,10 +1,10 @@
-export def 'exists' [ app: string ] {
+export def 'exists' [ app: string ] -> bool {
     not (which $app | is-empty)
 }
 
 export def 'sysfetch' [] {
     if (exists fastfetch) {
-        if ("kitty" in $env.MAIN_TERM) and ($"($env.HOME)/.config/fastfetch/kitty.conf" | path exists) {
+        if ("MAIN_TERM" in $env) and ("kitty" in $env.MAIN_TERM) and ($"($env.HOME)/.config/fastfetch/kitty.conf" | path exists) {
             fastfetch --load-config $"($env.HOME)/.config/fastfetch/kitty.conf"
         } else {
             fastfetch
@@ -19,7 +19,7 @@ export def 'sysfetch' [] {
     } else if (exists lsb_release) {
         lsb_release -a
     } else if (exists uname) {
-        uname -a
+        uname
     }
 }
 

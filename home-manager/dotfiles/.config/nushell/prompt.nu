@@ -1,5 +1,5 @@
-export def create_left_prompt [] {
-    (
+export def create_left_prompt [] -> string  {
+    canonicalize_linefeeds (
         ^starship prompt
             --cmd-duration $env.CMD_DURATION_MS
             $"--status=($env.LAST_EXIT_CODE)"
@@ -7,8 +7,8 @@ export def create_left_prompt [] {
     )
 }
 
-export def create_right_prompt [] {
-    (
+export def create_right_prompt [] -> string  {
+    canonicalize_linefeeds (
         ^starship prompt
             --right
             --cmd-duration $env.CMD_DURATION_MS
@@ -17,8 +17,8 @@ export def create_right_prompt [] {
     )
 }
 
-export def create_continuation_prompt [] {
-    (
+export def create_continuation_prompt [] -> string  {
+    canonicalize_linefeeds (
         ^starship prompt
             --continuation
             --cmd-duration $env.CMD_DURATION_MS
@@ -27,7 +27,7 @@ export def create_continuation_prompt [] {
     )
 }
 
-def parse_ms_to_human_readable [ms] {
+def parse_ms_to_human_readable [ms: string] -> string  {
     let $time_in_ms = $ms | into int;
     if $time_in_ms < 1000 {
         $"($time_in_ms | into string)ms"
@@ -42,13 +42,21 @@ def parse_ms_to_human_readable [ms] {
     } | into string
 }
 
-export def create_transient_prompt_left [] {
+export def create_transient_prompt_left [] -> string  {
     if $env.LAST_EXIT_CODE == 0 {
         $"(ansi green_bold)├(ansi reset)"
     } else {
         $"(ansi red_bold)┬(ansi reset)"
     }
 }
-export def create_transient_prompt_indicator [] {
+export def create_transient_prompt_indicator [] -> string {
     $"(ansi blue_bold) ⏲(parse_ms_to_human_readable $env.CMD_DURATION_MS) (if $env.LAST_EXIT_CODE == 0 { ansi green_bold } else { ansi red_bold })➜(ansi reset) "
+}
+
+def canonicalize_linefeeds (x: string) -> string {
+    if $env.OS == "Windows_NT" {
+        $x | str replace "\n" "\r\n"
+    } else {
+        $x
+    }
 }
