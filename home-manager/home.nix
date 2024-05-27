@@ -234,6 +234,10 @@ in {
     source = ./dotfiles/.config/lazygit;
     recursive = true;
   };
+  xdg.configFile."wezterm" = {
+    source = ./dotfiles/.config/wezterm;
+    recursive = true;
+  };
   xdg.configFile."electron-flags.conf".source = ./dotfiles/.config/electron-flags.conf;
   home.file.".bashrc".source = ./dotfiles/.bashrc;
   home.file.".gitconfig".source = ./dotfiles/.gitconfig;
