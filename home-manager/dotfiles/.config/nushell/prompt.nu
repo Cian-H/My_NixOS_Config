@@ -54,7 +54,7 @@ export def create_transient_prompt_indicator [] -> string {
 }
 
 def canonicalize_linefeeds (x: string) -> string {
-    if $env.OS == "Windows_NT" {
+    if ("OS" in $env) and ($env.OS == "Windows_NT") {
         $x | str replace "\n" "\r\n"
     } else {
         $x
