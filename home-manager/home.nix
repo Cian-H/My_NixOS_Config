@@ -47,7 +47,6 @@ in {
       hyperfine
       imagemagick
       inkscape-with-extensions
-      keymapviz
       krita
       libreoffice
       lynx
