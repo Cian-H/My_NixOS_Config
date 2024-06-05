@@ -32,6 +32,59 @@ return { -- General programming utilities go here
 			vim.keymap.set("n", "<leader>te", vim.cmd.Oil, { desc = "[T]ree [E]dit" })
 		end,
 	},
+	{ -- Harpoon, because i keep losing track of my markers
+		"theprimeagen/harpoon",
+		branch = "harpoon2",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("harpoon"):setup({})
+		end,
+		keys = {
+			{
+				"<leader>ha",
+				function()
+					require("harpoon"):list():add()
+				end,
+				desc = "[a]dd file",
+			},
+			{
+				"<leader>hq",
+				function()
+					local harpoon = require("harpoon")
+					harpoon.ui:toggle_quick_menu(harpoon:list())
+				end,
+				desc = "[q]uick menu",
+			},
+			{
+				"<C-h>",
+				function()
+					require("harpoon"):list():select(1)
+				end,
+				desc = "Harpoon file 1",
+			},
+			{
+				"<C-j>",
+				function()
+					require("harpoon"):list():select(2)
+				end,
+				desc = "Harpoon file 2",
+			},
+			{
+				"<C-k>",
+				function()
+					require("harpoon"):list():select(3)
+				end,
+				desc = "Harpoon file 3",
+			},
+			{
+				"<C-l>",
+				function()
+					require("harpoon"):list():select(4)
+				end,
+				desc = "Harpoon file 4",
+			},
+		},
+	},
 	-- Snippets
 	"SirVer/ultisnips",
 	"honza/vim-snippets",
@@ -147,14 +200,14 @@ return { -- General programming utilities go here
 					--    $body
 					--  end
 					--
-					-- <c-l> will move you to the right of each of the expansion locations.
-					-- <c-h> is similar, except moving you backwards.
-					["<C-l>"] = cmp.mapping(function()
+					-- <c-,> will move you to the right of each of the expansion locations.
+					-- <c-.> is similar, except moving you backwards.
+					["<C-,>"] = cmp.mapping(function()
 						if luasnip.expand_or_locally_jumpable() then
 							luasnip.expand_or_jump()
 						end
 					end, { "i", "s" }),
-					["<C-h>"] = cmp.mapping(function()
+					["<C-.>"] = cmp.mapping(function()
 						if luasnip.locally_jumpable(-1) then
 							luasnip.jump(-1)
 						end
