@@ -256,6 +256,8 @@ return { -- General programming utilities go here
 		"stevearc/overseer.nvim",
 		opts = {},
 		config = function()
+			require("overseer").setup()
+
 			vim.keymap.set("n", "<leader>ob", vim.cmd.OverseerBuild, { desc = "[O]verseer [B]uild" })
 			vim.keymap.set("n", "<leader>oc", vim.cmd.OverseerRunCmd, { desc = "[O]verseer Run [C]ommand" })
 			vim.keymap.set("n", "<leader>or", vim.cmd.OverseerRun, { desc = "[O]verseer [R]un" })
