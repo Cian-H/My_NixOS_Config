@@ -45,7 +45,7 @@ return { -- General programming utilities go here
 				function()
 					require("harpoon"):list():add()
 				end,
-				desc = "[A]dd file",
+				desc = "[H]arpoon [A]dd file",
 			},
 			{
 				"<leader>hq",
@@ -53,7 +53,7 @@ return { -- General programming utilities go here
 					local harpoon = require("harpoon")
 					harpoon.ui:toggle_quick_menu(harpoon:list())
 				end,
-				desc = "[Q]uick menu",
+				desc = "[H]arpoon [Q]uick menu",
 			},
 			{
 				"<C-h>",
