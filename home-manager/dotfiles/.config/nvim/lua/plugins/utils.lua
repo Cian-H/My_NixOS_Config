@@ -257,12 +257,13 @@ return { -- General programming utilities go here
 		opts = {},
 		config = function()
 			require("overseer").setup()
-
-			vim.keymap.set("n", "<leader>ob", vim.cmd.OverseerBuild, { desc = "[O]verseer [B]uild" })
-			vim.keymap.set("n", "<leader>oc", vim.cmd.OverseerRunCmd, { desc = "[O]verseer Run [C]ommand" })
-			vim.keymap.set("n", "<leader>or", vim.cmd.OverseerRun, { desc = "[O]verseer [R]un" })
-			vim.keymap.set("n", "<leader>ot", vim.cmd.OverseerToggle, { desc = "[O]verseer [T]oggle" })
 		end,
+		keys = {
+			{ "<leader>ob", vim.cmd.OverseerBuild, desc = "[O]verseer [B]uild" },
+			{ "<leader>oc", vim.cmd.OverseerRunCmd, desc = "[O]verseer Run [C]ommand" },
+			{ "<leader>or", vim.cmd.OverseerRun, desc = "[O]verseer [R]un" },
+			{ "<leader>ot", vim.cmd.OverseerToggle, desc = "[O]verseer [T]oggle" },
+		},
 	},
 	{ -- A plugin to integrate tests is helpful, so i'm adding neotest
 		"nvim-neotest/neotest",
