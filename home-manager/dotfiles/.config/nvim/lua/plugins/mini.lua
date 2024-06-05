@@ -41,6 +41,38 @@ return { -- Mini is so varied it's hard to categorise. So i dumped my mini insta
 			require("mini.comment").setup()
 			require("mini.splitjoin").setup()
 			require("mini.trailspace").setup()
+
+			-- My custom mini.starter config
+
+			-- This function runs a vim command then exits the buffer that called it
+			function _Launch_Vim_Cmd(cmd)
+				local startbuf = vim.api.nvim_get_current_buf()
+				vim.cmd(cmd)
+				vim.api.nvim_buf_delete(startbuf, {})
+			end
+
+			local custom_items = {
+				{
+					name = "Status",
+					action = "Git status",
+					section = "Git",
+				},
+				{
+					name = "Log",
+					action = [[lua _Launch_Vim_Cmd("Git log --graph --pretty=oneline --abbrev-commit")]],
+					section = "Git",
+				},
+				{
+					name = "Lazygit",
+					action = [[lua _Launch_Vim_Cmd("terminal lazygit")]],
+					section = "Git",
+				},
+				{
+					name = "Harpoon Quickmenu",
+					action = [[lua require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())]],
+					section = "Misc",
+				},
+			}
 			require("mini.starter").setup({
 				header = "⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\
 ⠀⠀⠀⠀⠀⠀⢀⣴⣾⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\
@@ -59,6 +91,7 @@ return { -- Mini is so varied it's hard to categorise. So i dumped my mini insta
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠀⠀⠀⠀⠀",
 				items = {
 					require("mini.starter").sections.telescope(),
+					custom_items,
 				},
 				footer = "",
 			})
