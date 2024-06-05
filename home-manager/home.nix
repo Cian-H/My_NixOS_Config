@@ -54,6 +54,7 @@ in {
       mendeley
       mermaid-cli
       midori
+      navi
       nwg-look
       obs-studio
       pandoc

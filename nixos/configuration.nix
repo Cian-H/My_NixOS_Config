@@ -151,6 +151,7 @@
     less
     mosh
     netcat-gnu
+    nix-index
     nix-ld
     nmap
     nodejs_21
