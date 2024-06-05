@@ -64,7 +64,7 @@ return { -- Mini is so varied it's hard to categorise. So i dumped my mini insta
 				},
 				{
 					name = "Lazygit",
-					action = [[lua _Launch_Vim_Cmd("terminal lazygit")]],
+					action = "LazyGit",
 					section = "Git",
 				},
 				{

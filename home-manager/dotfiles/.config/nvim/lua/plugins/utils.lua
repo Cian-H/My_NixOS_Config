@@ -24,6 +24,23 @@ return { -- General programming utilities go here
 		opts = { signs = false },
 	},
 	"tpope/vim-fugitive", -- Also want to add fugitive, since it's apparently a great git plugin
+	{
+		"kdheepak/lazygit.nvim",
+		cmd = {
+			"LazyGit",
+			"LazyGitConfig",
+			"LazyGitCurrentFile",
+			"LazyGitFilter",
+			"LazyGitFilterCurrentFile",
+		},
+		-- optional for floating window border decoration
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		keys = {
+			{ "<leader>l", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+		},
+	},
 	{ -- Oil is a very nice buffer-based filetree editor
 		"stevearc/oil.nvim",
 		opts = {},
