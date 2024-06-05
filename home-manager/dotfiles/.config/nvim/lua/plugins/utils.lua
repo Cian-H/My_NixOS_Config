@@ -38,7 +38,7 @@ return { -- General programming utilities go here
 			"nvim-lua/plenary.nvim",
 		},
 		keys = {
-			{ "<leader>l", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+			{ "<leader>l", "<cmd>LazyGit<cr>", desc = "[L]azyGit" },
 		},
 	},
 	{ -- Oil is a very nice buffer-based filetree editor
