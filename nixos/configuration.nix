@@ -190,6 +190,7 @@
   ]) ++ (with unstablePkgs; [
     neovim
     # alternative DEs and accompanying tools
+    hyprcursor
     hyprland
     hyprpaper
     iwgtk

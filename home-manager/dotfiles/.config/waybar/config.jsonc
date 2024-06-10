@@ -1,4 +1,5 @@
-{
+[{
+    "output": "!DP-6",
     "layer": "top",
     "position": "top",
     "height": 28,
@@ -135,4 +136,92 @@
         "on-click-right": "swaync-client -d -sw",
         "escape": true
     }
-}
+}, {
+    "output": "DP-6",
+    "layer": "top",
+    "position": "top",
+    "height": 28,
+    "margin-top": 6,
+    "margin-left": 6,
+    "margin-right": 6,
+    "margin-bottom": 0,
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["wireplumber", "hyprland/language", "custom/notification"],
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "disable-markup": false,
+        "format": "{icon}",
+        "format-icons": {
+            "1":  "1 ",
+            "2":  "2 ",
+            "3":  "3 ",
+            "4":  "4 ",
+            "5":  "5 ",
+            "6":  "6 ",
+            "7":  "7 ",
+            "8":  "8 ",
+            "9":  "9 ",
+            "10": "0 "
+        }
+    },
+    "hyprland/language": {
+        "format": {},
+        "format-en": "  ",
+        "format-ie": " 󰠖 ",
+        "on-click": "$HOME/.config/hypr/utils/cycle_kb_layout -c ../inputs.conf -l ../kb_layouts.txt"
+    },
+    "clock": {
+        "format": "{:%a %d %b - %H:%M}",
+        "tooltip": true,
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+    "wireplumber": {
+        "format": "<span font='MonaspaceArgon Nerd Font 10'>{icon}</span>  ",
+        "format-muted": "󰝟",
+        "format-icons": [ "", "", "" ],
+        "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "org.pipewire.Helvum",
+    },
+    "custom/notification": { // This button allows access to the swaync panel
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "<span foreground='red'><sup></sup></span>",
+            "none": "",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": "",
+            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    }
+}]

@@ -9,13 +9,14 @@
   unstablePkgs,
   ...
 }: let
+  # Add my monaspice font from tarbll
   MonaspiceTarball = pkgs.fetchTarball {
     url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Monaspace.tar.xz";
     sha256 = lib.fakeSha256;
   };
 in {
   # You can import other home-manager modules here
-  # imports = [
+  imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
     # outputs.homeManagerModules.example
 
@@ -24,7 +25,9 @@ in {
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
-  # ];
+
+    inputs.hyprcursor-phinger.homeManagerModules.hyprcursor-phinger
+  ];
 
   home = {
     username = "cianh";
@@ -148,9 +151,10 @@ in {
     ]);
   };
 
-  # Enable programs
+  # Enable programs and modules
   programs.home-manager.enable = true;
   programs.git.enable = true;
+  programs.hyprcursor-phinger.enable = true;
 
   # Symlink detfiles (managed this way so i can easily move back to stow if i want)
   # First, symlink home-manager to where it expects to be
