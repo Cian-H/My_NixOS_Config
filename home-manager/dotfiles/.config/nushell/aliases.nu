@@ -38,5 +38,9 @@ export alias fuck = with-env {TF_ALIAS: "fuck", PYTHONIOENCODING: "utf-8"} {
 # Aliases for custom git commands
 export alias "git-ammend" = git commit -a --amend -C HEAD
 
+# Who even uses vim or *especially* vi in this day and age?
+export alias vim = nvim
+export alias vi = nvim
+
 # NixOS specific aliases
 export alias nix-nu = nix-shell --command nu
