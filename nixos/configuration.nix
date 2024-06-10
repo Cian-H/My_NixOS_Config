@@ -24,7 +24,6 @@
   services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
 
   hardware.nvidia = {
-
     # Modesetting is required.
     modesetting.enable = true;
     powerManagement.enable = false;
@@ -33,6 +32,7 @@
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
+  hardware.nvidia-container-toolkit.enable = true;
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -97,9 +97,9 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "ie";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Configure console keymap
@@ -154,7 +154,7 @@
     nix-index
     nix-ld
     nmap
-    nodejs_21
+    nodejs_22
     nushell
     onefetch
     podman-compose
@@ -217,7 +217,7 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-    enableNvidiaPatches = true;
+    # enableNvidiaPatches = true; # <- no longer necessary, apparently
   };
 
   # Lets also activate some handy devenv tools
@@ -239,7 +239,6 @@
 
     podman = {
       enable = true;
-      enableNvidia = true;
       # Create a `docker` alias for podman, to use it as a drop-in replacement
       dockerCompat = true;
       # Required for containers under podman-compose to be able to talk to each other.

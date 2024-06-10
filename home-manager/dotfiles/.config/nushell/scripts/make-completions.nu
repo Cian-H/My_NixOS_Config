@@ -1,1 +1,0 @@
-/home/cianh/.dotfiles/.config/nushell/nu_scripts/custom-completions/make/make-completions.nu
