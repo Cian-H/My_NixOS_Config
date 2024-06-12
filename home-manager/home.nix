@@ -1,4 +1,4 @@
-# This is your home-manager configuration file
+# This Is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 {
   inputs,
@@ -9,11 +9,7 @@
   unstablePkgs,
   ...
 }: let
-  # Add my monaspice font from tarbll
-  MonaspiceTarball = pkgs.fetchTarball {
-    url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Monaspace.tar.xz";
-    sha256 = lib.fakeSha256;
-  };
+  monaspaceFont = pkgs.callPackage ../modules/monaspice_font.nix {};
 in {
   # You can import other home-manager modules here
   imports = [
@@ -148,7 +144,9 @@ in {
       vimPlugins.mason-lspconfig-nvim
       obsidian
       jujutsu
-    ]);
+    ]) ++ [
+      monaspaceFont
+    ];
   };
 
   # Enable programs and modules
@@ -156,7 +154,14 @@ in {
   programs.git.enable = true;
   programs.hyprcursor-phinger.enable = true;
 
-  # Symlink detfiles (managed this way so i can easily move back to stow if i want)
+  # Properly install custom fonts
+  home.file."monaspice" = {
+    source = "${monaspaceFont}/.local/share/fonts/monaspace-nerd-font";
+    target = ".local/share/fonts/monaspace-nerd-font";
+    recursive = true;
+  };
+
+  # Symlink dotfiles (managed this way so i can easily move back to stow if i want)
   # First, symlink home-manager to where it expects to be
   xdg.configFile."home-manager" = {
     source = ../home-manager;

@@ -183,7 +183,6 @@
     noto-fonts-color-emoji
     vistafonts
     winePackages.fonts
-    (callPackage ../fonts/monaspice_nerd_font.nix {})
     # front-end dev environment
     kitty
     micro
