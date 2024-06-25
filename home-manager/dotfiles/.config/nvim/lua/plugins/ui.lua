@@ -127,6 +127,16 @@ return { -- UI components and other visual elements are declared here
 	{
 		"tris203/precognition.nvim",
 		event = "VimEnter",
-		config = {},
+		config = function()
+			local function toggle()
+				if require("precognition").toggle() then
+					vim.notify("precognition on")
+				else
+					vim.notify("precognition off")
+				end
+			end
+
+			vim.keymap.set("n", "<leader>p", toggle, { desc = "[P]recognition" })
+		end,
 	},
 }
