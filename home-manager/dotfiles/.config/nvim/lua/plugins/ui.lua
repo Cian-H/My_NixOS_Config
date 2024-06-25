@@ -130,9 +130,9 @@ return { -- UI components and other visual elements are declared here
 		config = function()
 			local function toggle()
 				if require("precognition").toggle() then
-					vim.notify("precognition on")
+					vim.notify("Precognition ON")
 				else
-					vim.notify("precognition off")
+					vim.notify("Precognition OFF")
 				end
 			end
 
