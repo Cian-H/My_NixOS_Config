@@ -7,7 +7,7 @@ return { -- Non programming quality of life utilities go here
 		-- 	"BufReadPre " .. vim.fn.expand("~") .. "Documents/Work_Notes/**.md",
 		-- 	"BufNewFile " .. vim.fn.expand("~") .. "Documents/Work_Notes/**.md",
 		-- },
-		lazy = false,
+		lazy = vim.fn.executable("obsidian") == 0,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope.nvim",

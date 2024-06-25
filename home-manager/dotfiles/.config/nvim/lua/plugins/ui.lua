@@ -76,10 +76,31 @@ return { -- UI components and other visual elements are declared here
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
+			local hl_color = require("tokyonight.colors").default.orange
+			vim.cmd("highlight LualineHarpoonActive guifg=" .. hl_color)
+
 			require("lualine").setup({
 				options = {
 					component_separators = { left = "", right = "" },
 					section_separators = { left = "", right = "" },
+				},
+				sections = {
+					lualine_c = {
+						{
+							"harpoon2",
+							icon = "󰛢",
+							indicators = { "H", "J", "K", "L" },
+							active_indicators = {
+								"%#LualineHarpoonActive#H%*",
+								"%#LualineHarpoonActive#J%*",
+								"%#LualineHarpoonActive#K%*",
+								"%#LualineHarpoonActive#L%*",
+							},
+							_separator = "∙",
+							no_harpoon = "Harpoon not loaded",
+						},
+						"filename",
+					},
 				},
 				extensions = {
 					"fugitive",
@@ -93,5 +114,19 @@ return { -- UI components and other visual elements are declared here
 				},
 			})
 		end,
+	},
+	{
+		"letieu/harpoon-lualine",
+		dependencies = {
+			{
+				"ThePrimeagen/harpoon",
+				branch = "harpoon2",
+			},
+		},
+	},
+	{
+		"tris203/precognition.nvim",
+		event = "VimEnter",
+		config = {},
 	},
 }
