@@ -144,6 +144,7 @@ in {
       vimPlugins.mason-lspconfig-nvim
       obsidian
       jujutsu
+      zotero
     ]) ++ [
       monaspaceFont
     ];
