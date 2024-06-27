@@ -131,6 +131,7 @@ in {
       wl-clipboard
       xclip
       zellij
+      zettlr
       # Language Server Protocols
       elixir-ls
       fortls
