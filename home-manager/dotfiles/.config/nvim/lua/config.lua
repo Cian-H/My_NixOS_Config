@@ -11,6 +11,10 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = "nix,flake",
 	command = "setlocal commentstring=#\\ %s",
 })
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "scallop",
+	command = "setlocal commentstring=//%s",
+})
 -- Add custom file types
 vim.filetype.add({
 	extension = {
