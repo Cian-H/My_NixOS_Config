@@ -27,6 +27,21 @@ return { -- UI components and other visual elements are declared here
 			})
 		end,
 	},
+	{
+		"nvim-tree/nvim-web-devicons",
+		config = function()
+			require("nvim-web-devicons").setup({
+				override_by_extension = {
+					["scl"] = {
+						icon = "",
+						color = "#ffa6c9",
+						cterm_color = "225",
+						name = "scallop",
+					},
+				},
+			})
+		end,
+	},
 	{ -- A file explorer, because i'm not used to the vim workflow yet
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v3.x",

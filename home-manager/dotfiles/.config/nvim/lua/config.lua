@@ -11,6 +11,12 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = "nix,flake",
 	command = "setlocal commentstring=#\\ %s",
 })
+-- Add custom file types
+vim.filetype.add({
+	extension = {
+		scl = "scallop",
+	},
+})
 -- Case-insensitive searching UNLESS \C or capital in search
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
