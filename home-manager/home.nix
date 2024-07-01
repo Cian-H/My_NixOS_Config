@@ -33,6 +33,7 @@ in {
       bitwarden-cli
       blueman
       caffeine-ng
+      chromium
       cinnamon.warpinator
       delta
       feh
@@ -52,7 +53,6 @@ in {
       marker
       mendeley
       mermaid-cli
-      midori
       navi
       nwg-look
       obs-studio
@@ -63,13 +63,6 @@ in {
       spice-vdagent
       spotify
       steam-run
-      # vivaldi
-      (vivaldi.override {
-        proprietaryCodecs = true;
-        enableWidevine = true;
-      })
-      vivaldi-ffmpeg-codecs
-      widevine-cdm
       vscode
       # theming
       phinger-cursors
@@ -142,6 +135,12 @@ in {
       taplo
       yaml-language-server
     ]) ++ (with unstablePkgs; [
+      (vivaldi.override {
+        proprietaryCodecs = true;
+        enableWidevine = true;
+      })
+      vivaldi-ffmpeg-codecs
+      widevine-cdm
       vimPlugins.mason-lspconfig-nvim
       obsidian
       jujutsu
