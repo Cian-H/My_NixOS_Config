@@ -122,6 +122,12 @@ in {
       tree-sitter
       wget
       wl-clipboard
+      (vivaldi.override {
+        proprietaryCodecs = true;
+        enableWidevine = true;
+      })
+      vivaldi-ffmpeg-codecs
+      widevine-cdm
       xclip
       zellij
       zettlr
@@ -135,12 +141,6 @@ in {
       taplo
       yaml-language-server
     ]) ++ (with unstablePkgs; [
-      (vivaldi.override {
-        proprietaryCodecs = true;
-        enableWidevine = true;
-      })
-      vivaldi-ffmpeg-codecs
-      widevine-cdm
       vimPlugins.mason-lspconfig-nvim
       obsidian
       jujutsu
