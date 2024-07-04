@@ -49,6 +49,7 @@ in {
       inkscape-with-extensions
       krita
       libreoffice
+      lua51Packages.lua
       lynx
       marker
       mendeley

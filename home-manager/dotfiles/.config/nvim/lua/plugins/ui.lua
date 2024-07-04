@@ -97,7 +97,7 @@ return { -- UI components and other visual elements are declared here
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
-			local hl_color = require("tokyonight.colors").default.orange
+			local hl_color = require("tokyonight").load({ style = "night" }).orange
 			vim.cmd("highlight LualineHarpoonActive guifg=" .. hl_color)
 
 			require("lualine").setup({
