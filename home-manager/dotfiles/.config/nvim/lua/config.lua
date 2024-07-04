@@ -21,6 +21,7 @@ vim.filetype.add({
 		scl = "scallop",
 		prolog = "prolog",
 		pro = "prolog",
+		pl = "prolog",
 		nu = "nu",
 	},
 })
