@@ -36,7 +36,13 @@ return { -- UI components and other visual elements are declared here
 						icon = "",
 						color = "#ffa6c9",
 						cterm_color = "225",
-						name = "scallop",
+						name = "Scallop",
+					},
+					["prolog"] = {
+						icon = "",
+						color = "#e4b854",
+						cterm_color = "179",
+						name = "Prolog",
 					},
 				},
 			})
