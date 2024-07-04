@@ -100,7 +100,7 @@
         "format-muted": "󰝟",
         "format-icons": [ "", "", "" ],
         "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
-        "on-click-right": "org.pipewire.Helvum",
+        "on-click-right": "pavucontrol",
     },
     "temperature": {
         "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",

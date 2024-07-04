@@ -57,6 +57,7 @@ in {
       nwg-look
       obs-studio
       pandoc
+      pavucontrol
       podman-desktop
       podman-tui
       slack
