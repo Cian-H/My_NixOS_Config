@@ -129,6 +129,7 @@ in {
       vivaldi-ffmpeg-codecs
       widevine-cdm
       xclip
+      zathura
       zellij
       zettlr
       # Language Server Protocols
