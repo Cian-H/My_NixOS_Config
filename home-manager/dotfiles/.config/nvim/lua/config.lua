@@ -19,6 +19,8 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.filetype.add({
 	extension = {
 		scl = "scallop",
+		prolog = "prolog",
+		nu = "nu",
 	},
 })
 -- Case-insensitive searching UNLESS \C or capital in search
