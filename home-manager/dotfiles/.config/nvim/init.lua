@@ -20,3 +20,5 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins", opts)
+
+require("nvim-web-devicons").refresh() -- This fixes screwiness with the devicon colors

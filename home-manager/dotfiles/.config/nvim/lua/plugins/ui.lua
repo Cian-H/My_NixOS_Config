@@ -30,7 +30,14 @@ return { -- UI components and other visual elements are declared here
 	{
 		"nvim-tree/nvim-web-devicons",
 		config = function()
+			local prolog_icon = {
+				icon = "",
+				color = "#e4b854",
+				cterm_color = "179",
+				name = "Prolog",
+			}
 			require("nvim-web-devicons").setup({
+				color_icons = true,
 				override_by_extension = {
 					["scl"] = {
 						icon = "",
@@ -38,12 +45,9 @@ return { -- UI components and other visual elements are declared here
 						cterm_color = "225",
 						name = "Scallop",
 					},
-					["prolog"] = {
-						icon = "",
-						color = "#e4b854",
-						cterm_color = "179",
-						name = "Prolog",
-					},
+					["prolog"] = prolog_icon,
+					["pro"] = prolog_icon,
+					["pl"] = prolog_icon,
 				},
 			})
 		end,
