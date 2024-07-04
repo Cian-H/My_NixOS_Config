@@ -20,6 +20,7 @@ vim.filetype.add({
 	extension = {
 		scl = "scallop",
 		prolog = "prolog",
+		pro = "prolog",
 		nu = "nu",
 	},
 })
