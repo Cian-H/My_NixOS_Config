@@ -55,6 +55,7 @@ in {
       mendeley
       mermaid-cli
       navi
+      nixd
       nwg-look
       obs-studio
       pandoc

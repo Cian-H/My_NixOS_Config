@@ -21,4 +21,10 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins", opts)
 
+-- Next, set up custom LSPs
+local lspconfig = require("lspconfig")
+lspconfig.nushell.setup({})
+lspconfig.prolog_ls.setup({})
+lspconfig.nixd.setup({})
+
 require("nvim-web-devicons").refresh() -- This fixes screwiness with the devicon colors

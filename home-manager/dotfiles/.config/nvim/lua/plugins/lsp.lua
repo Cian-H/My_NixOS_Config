@@ -204,7 +204,8 @@ return { -- LSP Config should be a standalone function, hence this module
 			})
 		end,
 	},
-	-- Annoyingly: Mason doesn't have a plugin for kitty yet, so add the following
+	-- Finally: add language and filetype specific plugins
+	{ "LhKipp/nvim-nu", event = "FileType nu" },
 	{ "fladson/vim-kitty", event = "FileType kitty" },
 	{ "scallop-lang/vim-scallop", event = "FileType scallop" },
 }
