@@ -47,7 +47,6 @@ return { -- UI components and other visual elements are declared here
 					},
 					["prolog"] = prolog_icon,
 					["pro"] = prolog_icon,
-					["pl"] = prolog_icon,
 				},
 			})
 		end,

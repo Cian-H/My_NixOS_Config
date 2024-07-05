@@ -15,7 +15,7 @@ configs.prolog_lsp = {
 			"stdio",
 		},
 		filetypes = { "prolog" },
-		root_dir = util.root_pattern("pack.pl"),
+		root_dir = util.root_pattern("pack.pro"),
 	},
 	docs = {
 		description = [[
