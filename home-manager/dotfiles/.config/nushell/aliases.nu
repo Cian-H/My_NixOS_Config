@@ -33,7 +33,7 @@ export alias nupoem = poetry run nu
 export alias jupyterpoem = poetry run jupyter
 
 # Aliases for custom git commands
-export alias "git-ammend" = git commit -a --amend -C HEAD
+export alias git-ammend = git commit -a --amend -C HEAD
 
 # Who even uses vim or *especially* vi in this day and age?
 export alias vim = nvim
