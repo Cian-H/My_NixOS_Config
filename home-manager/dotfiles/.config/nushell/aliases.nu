@@ -35,6 +35,11 @@ export alias jupyterpoem = poetry run jupyter
 # Aliases for custom git commands
 export alias git-ammend = git commit -a --amend -C HEAD
 
+# Conditional alias for fixing ssh in kitty
+if ("kitty" in $env.TERM) {
+    export alias ssh = kitty +kitten ssh
+}
+
 # Who even uses vim or *especially* vi in this day and age?
 export alias vim = nvim
 export alias vi = nvim
