@@ -31,9 +31,6 @@ export alias poem = poetry run python
 export alias bashpoem = poetry run bash
 export alias nupoem = poetry run nu
 export alias jupyterpoem = poetry run jupyter
-export alias fuck = with-env {TF_ALIAS: "fuck", PYTHONIOENCODING: "utf-8"} {
-    thefuck (history | last 2 | get command.0)
-}
 
 # Aliases for custom git commands
 export alias "git-ammend" = git commit -a --amend -C HEAD
