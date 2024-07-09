@@ -24,7 +24,7 @@ require("lazy").setup("plugins", opts)
 -- Next, set up custom LSPs
 local lspconfig = require("lspconfig")
 lspconfig.nushell.setup({})
-lspconfig.prolog_ls.setup({})
+lspconfig.prolog_ls.setup({ root_dir = lspconfig.util.root_pattern(".git") })
 lspconfig.nixd.setup({})
 
 require("nvim-web-devicons").refresh() -- This fixes screwiness with the devicon colors
