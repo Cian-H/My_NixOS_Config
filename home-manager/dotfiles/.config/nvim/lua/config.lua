@@ -22,6 +22,7 @@ vim.filetype.add({
 		prolog = "prolog",
 		pro = "prolog",
 		nu = "nu",
+		mojo = "mojo",
 	},
 })
 
