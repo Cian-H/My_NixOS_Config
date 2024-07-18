@@ -36,6 +36,12 @@ return { -- UI components and other visual elements are declared here
 				cterm_color = "179",
 				name = "Prolog",
 			}
+			local lisp_icon = {
+				icon = "",
+				color = "#c40904",
+				cterm_color = "160",
+				name = "Lisp",
+			}
 			require("nvim-web-devicons").setup({
 				color_icons = true,
 				override_by_extension = {
@@ -47,6 +53,9 @@ return { -- UI components and other visual elements are declared here
 					},
 					["prolog"] = prolog_icon,
 					["pro"] = prolog_icon,
+					["lisp"] = lisp_icon,
+					["lsp"] = lisp_icon,
+					["asd"] = lisp_icon,
 				},
 			})
 		end,

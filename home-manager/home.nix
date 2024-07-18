@@ -1,16 +1,17 @@
 # This Is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
+{ inputs
+, outputs
+, lib
+, config
+, pkgs
+, unstablePkgs
+, ...
+}:
+let
+  monaspaceFont = pkgs.callPackage ../modules/monaspice_font.nix { };
+in
 {
-  inputs,
-  outputs,
-  lib,
-  config,
-  pkgs,
-  unstablePkgs,
-  ...
-}: let
-  monaspaceFont = pkgs.callPackage ../modules/monaspice_font.nix {};
-in {
   # You can import other home-manager modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
@@ -82,7 +83,7 @@ in {
       kitty-themes
       # Python packages
       pypy3
-      (python3.withPackages(
+      (python3.withPackages (
         python-pkgs: [
           python-pkgs.pip
           python-pkgs.pkginfo
@@ -110,8 +111,8 @@ in {
       niv
       nixpkgs-fmt
       ouch
+      passh
       php83
-      php83Packages.composer
       poetry
       poetryPlugins.poetry-plugin-up
       poetryPlugins.poetry-plugin-export
@@ -144,6 +145,7 @@ in {
       # rust-analyzer
       taplo
       yaml-language-server
+      zed-editor
     ]) ++ (with unstablePkgs; [
       vimPlugins.mason-lspconfig-nvim
       obsidian
