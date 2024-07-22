@@ -68,6 +68,8 @@ in
       spotify
       steam-run
       vscode
+      zathura
+      zettlr
       # theming
       phinger-cursors
       tokyo-night-gtk
@@ -93,6 +95,7 @@ in
         ]
       ))
       # Backend dev tools
+      brotli
       cmake
       elixir
       erlang_26
@@ -133,9 +136,7 @@ in
       vivaldi-ffmpeg-codecs
       widevine-cdm
       xclip
-      zathura
       zellij
-      zettlr
       # Language Server Protocols
       elixir-ls
       fortls
@@ -253,6 +254,10 @@ in
   };
   xdg.configFile."wezterm" = {
     source = ./dotfiles/.config/wezterm;
+    recursive = true;
+  };
+  xdg.configFile."hg" = {
+    source = ./dotfiles/.config/hg;
     recursive = true;
   };
   xdg.configFile."electron-flags.conf".source = ./dotfiles/.config/electron-flags.conf;
