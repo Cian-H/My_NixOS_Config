@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, pkgs }:
+{ stdenv, pkgs }:
 stdenv.mkDerivation {
   name = "monaspace-nerd-font";
   src = pkgs.fetchurl {
@@ -8,6 +8,7 @@ stdenv.mkDerivation {
 
   unpackPhase = ''
     mkdir -p $out/share/fonts/
+    chmod +rw $out/share/fonts/
     tar -xf $src -C $out/share/fonts/
   '';
 
