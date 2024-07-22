@@ -248,6 +248,10 @@ in
     source = ./dotfiles/.config/zellij;
     recursive = true;
   };
+  xdg.configFile."git" = {
+    source = ./dotfiles/.config/git;
+    recursive = true;
+  };
   xdg.configFile."lazygit" = {
     source = ./dotfiles/.config/lazygit;
     recursive = true;
@@ -262,7 +266,6 @@ in
   };
   xdg.configFile."electron-flags.conf".source = ./dotfiles/.config/electron-flags.conf;
   home.file.".bashrc".source = ./dotfiles/.bashrc;
-  home.file.".gitconfig".source = ./dotfiles/.gitconfig;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
