@@ -58,6 +58,7 @@ $env.BAT_THEME = "tokyonight_night"
 $env.YAOURT_COLORS = "nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
 # $env.LD_LIBRARY_PATH = ["/opt/cuda/lib64"]
 $env.XDG_CONFIG_HOME = $"($env.HOME)/.config"
+$env.RYE_HOME = $"($env.XDG_CONFIG_HOME)/.rye"
 # Config for less
 $env.LESS_TERMCAP_mb = (ansi --escape "01;31m")     # begin blinking
 $env.LESS_TERMCAP_md = (ansi --escape "01;31m")     # begin bold

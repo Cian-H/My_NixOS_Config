@@ -124,9 +124,11 @@ in
       rm-improved
       ruff
       rustup
+      rye
       starship
       stylua
       tree-sitter
+      uv
       wget
       wl-clipboard
       (vivaldi.override {
@@ -225,6 +227,11 @@ in
   home.file."pypoetry" = {
     source = ./dotfiles/.config/pypoetry;
     target = ".config/pypoetry";
+    recursive = true;
+  };
+  home.file."rye" = {
+    source = ./dotfiles/.config/.rye;
+    target = ".config/.rye";
     recursive = true;
   };
   xdg.configFile."starship.toml".source = ./dotfiles/.config/starship.toml;
