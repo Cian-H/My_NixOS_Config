@@ -11,7 +11,7 @@
 	helper = store
 	# helper = !/usr/bin/gh auth git-credential
 [credential "https://gitlab.com"]
-	helper = !usr/bin/env glab auth git-credential
+	helper = !/usr/bin/env glab auth git-credential
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
