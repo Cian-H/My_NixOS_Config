@@ -5,8 +5,12 @@ use ~/.config/nushell/init.nu *
 $env.config = (
     (default_config) | merge (theme) | merge (my_config)
 )
-# Add shell extra utilities, if present
-source ~/.config/nushell/atuin.nu
-source ~/.config/nushell/zoxide.nu
+# Initialise the plugins
+source ~/.config/nushell/nu_scripts.nu
+# initialise the completion plugins
+source ~/.config/nushell/completions/atuin.nu
+source ~/.config/nushell/completions/zoxide.nu
+source ~/.config/nushell/completions/rye.nu
+source ~/.config/nushell/completions/nu_scripts.nu
 # Finally, we run a system info fetch
 sysfetch

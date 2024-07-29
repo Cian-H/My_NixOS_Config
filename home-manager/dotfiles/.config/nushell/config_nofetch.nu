@@ -5,7 +5,9 @@ use ~/.config/nushell/init.nu *
 $env.config = (
     (default_config) | merge (theme) | merge (my_config)
 )
+# Initialise the plugins
+source ~/.config/nushell/nu_scripts.nu
 # Finally, initialise the completion plugins
 source ~/.config/nushell/completions/atuin.nu
 source ~/.config/nushell/completions/zoxide.nu
-source ~/.config/nushell/completions/jj.nu
+source ~/.config/nushell/completions/rye.nu

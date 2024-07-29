@@ -1,0 +1,16 @@
+source ~/.config/nushell/nu_scripts/custom-completions/bitwarden-cli/bitwarden-cli-completions.nu
+source ~/.config/nushell/nu_scripts/custom-completions/btm/btm-completions.nu
+source ~/.config/nushell/nu_scripts/custom-completions/cargo/cargo-completions.nu
+source ~/.config/nushell/nu_scripts/custom-completions/gh/gh-completions.nu
+source ~/.config/nushell/nu_scripts/custom-completions/git/git-completions.nu
+source ~/.config/nushell/nu_scripts/custom-completions/glow/glow-completions.nu
+source ~/.config/nushell/nu_scripts/custom-completions/make/make-completions.nu
+source ~/.config/nushell/nu_scripts/custom-completions/man/man-completions.nu
+source ~/.config/nushell/nu_scripts/custom-completions/nano/nano-completions.nu
+source ~/.config/nushell/nu_scripts/custom-completions/nix/nix-completions.nu
+source ~/.config/nushell/nu_scripts/custom-completions/poetry/poetry-completions.nu
+source ~/.config/nushell/nu_scripts/custom-completions/rustup/rustup-completions.nu
+source ~/.config/nushell/nu_scripts/custom-completions/rye/rye-completions.nu
+source ~/.config/nushell/nu_scripts/custom-completions/tealdeer/tldr-completions.nu
+source ~/.config/nushell/nu_scripts/custom-completions/vscode/vscode-completions.nu
+source ~/.config/nushell/nu_scripts/custom-completions/zellij/zellij-completions.nu

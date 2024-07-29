@@ -1,0 +1,3 @@
+[submodule "home-manager/dotfiles/.config/nushell/nu_scripts"]
+	path = home-manager/dotfiles/.config/nushell/nu_scripts
+	url = https://github.com/nushell/nu_scripts.git
