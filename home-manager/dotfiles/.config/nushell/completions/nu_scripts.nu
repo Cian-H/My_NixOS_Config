@@ -4,7 +4,6 @@ source ~/.config/nushell/nu_scripts/custom-completions/cargo/cargo-completions.n
 source ~/.config/nushell/nu_scripts/custom-completions/gh/gh-completions.nu
 source ~/.config/nushell/nu_scripts/custom-completions/git/git-completions.nu
 source ~/.config/nushell/nu_scripts/custom-completions/glow/glow-completions.nu
-source ~/.config/nushell/nu_scripts/custom-completions/make/make-completions.nu
 source ~/.config/nushell/nu_scripts/custom-completions/man/man-completions.nu
 source ~/.config/nushell/nu_scripts/custom-completions/nano/nano-completions.nu
 source ~/.config/nushell/nu_scripts/custom-completions/nix/nix-completions.nu

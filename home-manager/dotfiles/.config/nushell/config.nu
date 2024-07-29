@@ -10,7 +10,6 @@ source ~/.config/nushell/nu_scripts.nu
 # initialise the completion plugins
 source ~/.config/nushell/completions/atuin.nu
 source ~/.config/nushell/completions/zoxide.nu
-source ~/.config/nushell/completions/rye.nu
 source ~/.config/nushell/completions/nu_scripts.nu
 # Finally, we run a system info fetch
 sysfetch

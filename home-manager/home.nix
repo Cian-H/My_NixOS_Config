@@ -216,11 +216,6 @@ in
     target = ".config/nushell";
     recursive = true;
   };
-  home.file."nu_scripts" = {
-    source = ./dotfiles/.config/nushell/nu_scripts;
-    target = ".config/nushell/nu_scripts";
-    recursive = true;
-  };
   # Neovim also needs to be mutable, since we're managing it using lazy.
   home.file."nvim" = {
     source = ./dotfiles/.config/nvim;
