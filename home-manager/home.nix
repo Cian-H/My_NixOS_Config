@@ -33,7 +33,6 @@ in
       bitwarden
       bitwarden-cli
       blueman
-      caffeine-ng
       chromium
       cinnamon.warpinator
       delta
@@ -51,7 +50,6 @@ in
       libreoffice
       lua53Packages.lua
       lynx
-      mendeley
       mermaid-cli
       navi
       nixd
@@ -62,7 +60,6 @@ in
       podman-desktop
       podman-tui
       slack
-      spice-vdagent
       spotify
       steam-run
       vscode
