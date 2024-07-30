@@ -94,7 +94,7 @@
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.desktopManager.gnome.enable = false;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -166,14 +166,13 @@
     ranger
     ripgrep
     tealdeer
-    thefuck
     unzip
     vial
     xcp
     zoxide
     # package managers
     flatpak
-    gnome.gnome-software
+    # gnome.gnome-software
     # fonts
     corefonts
     liberation_ttf
@@ -204,13 +203,13 @@
   ]);
 
   # Remove unwanted gnome packages
-  environment.gnome.excludePackages = with pkgs; [
-    gnome.epiphany
-    gnome.geary
-    gnome.gnome-music
-    gnome-tour
-    gnome.yelp
-  ];
+  # environment.gnome.excludePackages = with pkgs; [
+  #   gnome.epiphany
+  #   gnome.geary
+  #   gnome.gnome-music
+  #   gnome-tour
+  #   gnome.yelp
+  # ];
 
   hardware.keyboard.qmk.enable = true;
 
@@ -232,8 +231,8 @@
   # Enable the OpenSSH daemon and other remote tools.
   services.openssh.enable = true;
   programs.mosh.enable = true;
-  services.gnome.gnome-remote-desktop.enable = true;
-  services.gnome.gnome-user-share.enable = true;
+  # services.gnome.gnome-remote-desktop.enable = true;
+  # services.gnome.gnome-user-share.enable = true;
 
   virtualisation = {
     containers.enable = true;

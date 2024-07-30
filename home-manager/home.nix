@@ -43,16 +43,14 @@ in
       git-extras
       github-desktop
       glow
-      gnome.gnome-boxes
       helix
       hyperfine
       imagemagick
       inkscape-with-extensions
       krita
       libreoffice
-      lua51Packages.lua
+      lua53Packages.lua
       lynx
-      marker
       mendeley
       mermaid-cli
       navi
@@ -74,17 +72,16 @@ in
       phinger-cursors
       tokyo-night-gtk
       # gnome extensions
-      gnome.gnome-tweaks
-      gnome.dconf-editor
-      gnomeExtensions.caffeine
-      gnomeExtensions.freon
-      gnomeExtensions.smile-complementary-extension
-      gnomeExtensions.user-themes
+      # gnome.gnome-tweaks
+      # gnome.dconf-editor
+      # gnomeExtensions.caffeine
+      # gnomeExtensions.freon
+      # gnomeExtensions.smile-complementary-extension
+      # gnomeExtensions.user-themes
       # kitty extensions
       kitty-img
       kitty-themes
       # Python packages
-      pypy3
       (python3.withPackages (
         python-pkgs: [
           python-pkgs.pip
