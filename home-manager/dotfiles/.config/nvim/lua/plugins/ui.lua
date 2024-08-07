@@ -30,32 +30,20 @@ return { -- UI components and other visual elements are declared here
 	{
 		"nvim-tree/nvim-web-devicons",
 		config = function()
-			local prolog_icon = {
-				icon = "",
-				color = "#e4b854",
-				cterm_color = "179",
-				name = "Prolog",
-			}
-			local lisp_icon = {
-				icon = "",
-				color = "#c40904",
-				cterm_color = "160",
-				name = "Lisp",
-			}
+			local icons = require("tables.icons")
 			require("nvim-web-devicons").setup({
 				color_icons = true,
 				override_by_extension = {
-					["scl"] = {
-						icon = "",
-						color = "#ffa6c9",
-						cterm_color = "225",
-						name = "Scallop",
-					},
-					["prolog"] = prolog_icon,
-					["pro"] = prolog_icon,
-					["lisp"] = lisp_icon,
-					["lsp"] = lisp_icon,
-					["asd"] = lisp_icon,
+					["scl"] = icons.Scallop,
+					["prolog"] = icons.Prolog,
+					["pro"] = icons.Prolog,
+					["lisp"] = icons.Lisp,
+					["lsp"] = icons.Lisp,
+					["asd"] = icons.Lisp,
+					["f"] = icons.Fortran,
+					["f77"] = icons.Fortran,
+					["f90"] = icons.Fortran,
+					["f18"] = icons.Fortran,
 				},
 			})
 		end,
