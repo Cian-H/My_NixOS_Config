@@ -23,4 +23,10 @@ return {
 		cterm_color = "96",
 		name = "Fortran",
 	},
+	Ada = {
+		icon = "",
+		color = "#b89843",
+		cterm_color = "137",
+		name = "Ada",
+	},
 }

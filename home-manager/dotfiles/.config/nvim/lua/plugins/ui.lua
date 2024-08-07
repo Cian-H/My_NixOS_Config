@@ -44,6 +44,8 @@ return { -- UI components and other visual elements are declared here
 					["f77"] = icons.Fortran,
 					["f90"] = icons.Fortran,
 					["f18"] = icons.Fortran,
+					["adb"] = icons.Ada,
+					["ads"] = icons.Ada,
 				},
 			})
 		end,
