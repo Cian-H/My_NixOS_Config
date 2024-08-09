@@ -15,6 +15,7 @@ return { -- General programming utilities go here
 			end,
 		},
 	},
+	"smoka7/multicursors.nvim", -- Add multi-cursor support, this is a glaring omission from vim
 	-- Privilege escalation plugin
 	"lambdalisue/suda.vim",
 	{

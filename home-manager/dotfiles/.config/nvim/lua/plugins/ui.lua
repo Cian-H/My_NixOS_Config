@@ -22,7 +22,6 @@ return { -- UI components and other visual elements are declared here
 				["<leader>o"] = { name = "[O]verseer", _ = "which_key_ignore" },
 				["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
 				["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },
-				["<leader>t"] = { name = "[T]ree", _ = "which_key_ignore" },
 				["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
 			})
 		end,
@@ -59,27 +58,9 @@ return { -- UI components and other visual elements are declared here
 			"MunifTanjim/nui.nvim",
 		},
 		config = function()
-			vim.keymap.set("n", "<leader>tt", function()
-				vim.api.nvim_command("Neotree toggle")
-			end, { desc = "[T]ree [T]oggle" })
-			vim.keymap.set("n", "<leader>ts", function()
-				vim.api.nvim_command("Neotree show")
-			end, { desc = "[T]ree [S]how" })
-			vim.keymap.set("n", "<leader>tc", function()
-				vim.api.nvim_command("Neotree close")
-			end, { desc = "[T]ree [C]lose" })
-			vim.keymap.set("n", "<leader>tf", function()
-				vim.api.nvim_command("Neotree focus")
-			end, { desc = "[T]ree [F]ocus" })
-			vim.keymap.set("n", "<leader>tf", function()
-				vim.api.nvim_command("Neotree filesystem")
-			end, { desc = "[T]ree [F]ilesystem" })
-			vim.keymap.set("n", "<leader>tg", function()
-				vim.api.nvim_command("Neotree git_status")
-			end, { desc = "[T]ree [G]it Status" })
-			vim.keymap.set("n", "<leader>tb", function()
-				vim.api.nvim_command("Neotree buffers")
-			end, { desc = "[T]ree [B]uffers" })
+			local wk = require("which-key")
+			local keys = require("tables.keys").neotree
+			wk.add(keys)
 		end,
 	},
 	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
