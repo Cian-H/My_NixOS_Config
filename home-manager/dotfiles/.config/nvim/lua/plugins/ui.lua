@@ -83,23 +83,30 @@ return { -- UI components and other visual elements are declared here
 		end,
 	},
 	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
-		"lewis6991/gitsigns.nvim",
-		opts = {
-			signs = {
-				add = { text = "+" },
-				change = { text = "~" },
-				delete = { text = "_" },
-				topdelete = { text = "‾" },
-				changedelete = { text = "~" },
-			},
-		},
+		"mhinz/vim-signify",
+		config = function()
+			-- defer config for 5ms. Old vim plugins can be janky in neovim
+			vim.defer_fn(function()
+				vim.g.signify_sign_show_count = 0
+				vim.g.signify_sign_add = "┃"
+				vim.g.signify_sign_change = "┃"
+				vim.g.signify_sign_delete = "_"
+				vim.g.signify_sign_delete_first_line = "‾"
+				vim.g.signify_sign_change_delete = "~"
+				vim.cmd.highlight({ "SignifySignAdd", "guifg=#449dab" })
+				vim.cmd.highlight({ "SignifySignChange", "guifg=#6183bb" })
+				vim.cmd.highlight({ "SignifySignDelete", "guifg=#914c54" })
+				vim.cmd.highlight({ "link", "SignifySignDeleteFirstLine", "SignifySignDelete" })
+				vim.cmd.highlight({ "link", "SignifySignChangeDelete", "SignifySignChange" })
+			end, 5)
+		end,
 	},
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			local hl_color = require("tokyonight").load({ style = "night" }).orange
-			vim.cmd("highlight LualineHarpoonActive guifg=" .. hl_color)
+			vim.cmd.highlight({ "LualineHarpoonActive", "guifg=" .. hl_color })
 
 			require("lualine").setup({
 				options = {

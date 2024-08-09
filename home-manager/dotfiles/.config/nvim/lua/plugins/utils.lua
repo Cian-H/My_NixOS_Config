@@ -24,6 +24,7 @@ return { -- General programming utilities go here
 		opts = { signs = false },
 	},
 	"tpope/vim-fugitive", -- Also want to add fugitive, since it's apparently a great git plugin
+	"jlfwong/vim-mercenary", -- Mercenary is the mercurial equivalent of fugitive
 	{
 		"kdheepak/lazygit.nvim",
 		cmd = {
