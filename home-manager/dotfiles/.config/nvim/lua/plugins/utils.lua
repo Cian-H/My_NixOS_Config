@@ -15,7 +15,23 @@ return { -- General programming utilities go here
 			end,
 		},
 	},
-	"smoka7/multicursors.nvim", -- Add multi-cursor support, this is a glaring omission from vim
+	{ -- Add multi-cursor support, this is a glaring omission from vim
+		"smoka7/multicursors.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"nvimtools/hydra.nvim",
+		},
+		opts = {},
+		cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
+		keys = {
+			{
+				mode = { "v", "n" },
+				"<Leader>m",
+				"<cmd>MCstart<cr>",
+				desc = "Create a selection for selected text or word under the cursor",
+			},
+		},
+	},
 	-- Privilege escalation plugin
 	"lambdalisue/suda.vim",
 	{
