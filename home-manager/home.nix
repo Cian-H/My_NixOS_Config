@@ -68,13 +68,6 @@ in
       # theming
       phinger-cursors
       tokyo-night-gtk
-      # gnome extensions
-      # gnome.gnome-tweaks
-      # gnome.dconf-editor
-      # gnomeExtensions.caffeine
-      # gnomeExtensions.freon
-      # gnomeExtensions.smile-complementary-extension
-      # gnomeExtensions.user-themes
       # kitty extensions
       kitty-img
       kitty-themes
@@ -221,6 +214,11 @@ in
   home.file."pypoetry" = {
     source = ./dotfiles/.config/pypoetry;
     target = ".config/pypoetry";
+    recursive = true;
+  };
+  home.file."Thunar" = {
+    source = ./dotfiles/.config/Thunar;
+    target = ".config/Thunar";
     recursive = true;
   };
   home.file."rye" = {

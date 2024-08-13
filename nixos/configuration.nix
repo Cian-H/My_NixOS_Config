@@ -147,6 +147,7 @@
     git-extras
     glab
     grub2_efi
+    gvfs
     jq
     killall
     less
@@ -169,10 +170,12 @@
     unzip
     vial
     xcp
+    xfce.thunar
+    xfce.tumbler
+    xfce.xfconf
     zoxide
     # package managers
     flatpak
-    # gnome.gnome-software
     # fonts
     corefonts
     liberation_ttf
@@ -202,15 +205,6 @@
     xdg-desktop-portal-hyprland
   ]);
 
-  # Remove unwanted gnome packages
-  # environment.gnome.excludePackages = with pkgs; [
-  #   gnome.epiphany
-  #   gnome.geary
-  #   gnome.gnome-music
-  #   gnome-tour
-  #   gnome.yelp
-  # ];
-
   hardware.keyboard.qmk.enable = true;
 
   # Activate alternative DEs
@@ -219,6 +213,17 @@
     xwayland.enable = true;
     # enableNvidiaPatches = true; # <- no longer necessary, apparently
   };
+
+  # Enable my preferred DE utilities
+  programs.thunar.enable = true;
+  programs.thunar.plugins = with pkgs.xfce; [
+    thunar-volman
+    thunar-archive-plugin
+    thunar-media-tags-plugin
+  ];
+  services.gvfs.enable = true;
+  services.tumbler.enable = true;
+  programs.xfconf.enable = true;
 
   # Lets also activate some handy devenv tools
   programs.direnv.enable = true;
@@ -231,8 +236,6 @@
   # Enable the OpenSSH daemon and other remote tools.
   services.openssh.enable = true;
   programs.mosh.enable = true;
-  # services.gnome.gnome-remote-desktop.enable = true;
-  # services.gnome.gnome-user-share.enable = true;
 
   virtualisation = {
     containers.enable = true;
