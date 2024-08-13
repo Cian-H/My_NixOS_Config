@@ -194,7 +194,10 @@
     # alternative DEs and accompanying tools
     hyprcursor
     hyprland
+    hyprlock
     hyprpaper
+    hyprpicker
+    hyprshot
     iwgtk
     libnotify
     qt6ct
