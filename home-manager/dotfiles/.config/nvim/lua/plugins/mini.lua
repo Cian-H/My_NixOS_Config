@@ -33,13 +33,13 @@ return { -- Mini is so varied it's hard to categorise. So i dumped my mini insta
 			-- end
 
 			-- Setup of mini.notify
-			local notify = require("mini.notify")
-			notify.setup()
-			vim.notify = notify.make_notify({
-				ERROR = { duration = 5000 },
-				WARN = { duration = 4000 },
-				INFO = { duration = 3000 },
-			})
+			-- local notify = require("mini.notify")
+			-- notify.setup()
+			-- vim.notify = notify.make_notify({
+			-- 	ERROR = { duration = 5000 },
+			-- 	WARN = { duration = 4000 },
+			-- 	INFO = { duration = 3000 },
+			-- })
 
 			-- Some other mini.nvim plugins that look useful to me
 			require("mini.clue").setup()

@@ -15,5 +15,5 @@ vim.keymap.set("n", "<C-n>", "<C-w>s", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-;>", "<C-w>x", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-q>", ":q<CR>", { noremap = true, silent = true })
 -- Non standard key mappings are here
-vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "[D]iagnostics" })
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { desc = "[F]ormat" })

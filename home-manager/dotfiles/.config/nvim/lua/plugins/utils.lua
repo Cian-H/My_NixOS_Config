@@ -23,14 +23,7 @@ return { -- General programming utilities go here
 		},
 		opts = {},
 		cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
-		keys = {
-			{
-				mode = { "v", "n" },
-				"<Leader>m",
-				"<cmd>MCstart<cr>",
-				desc = "Create a selection for selected text or word under the cursor",
-			},
-		},
+		keys = require("config.keys").multicursors,
 	},
 	-- Privilege escalation plugin
 	"lambdalisue/suda.vim",
@@ -55,17 +48,13 @@ return { -- General programming utilities go here
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
-		keys = {
-			{ "<leader>l", "<cmd>LazyGit<cr>", desc = "[L]azyGit" },
-		},
+		keys = require("config.keys").lazygit,
 	},
 	{ -- Oil is a very nice buffer-based filetree editor
 		"stevearc/oil.nvim",
 		opts = {},
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		callback = function()
-			vim.keymap.set("n", "<leader>te", vim.cmd.Oil, { desc = "[T]ree [E]dit" })
-		end,
+		keys = require("config.keys").oil,
 	},
 	{ -- Harpoon, because i keep losing track of my markers
 		"theprimeagen/harpoon",
@@ -74,51 +63,7 @@ return { -- General programming utilities go here
 		config = function()
 			require("harpoon"):setup({})
 		end,
-		keys = {
-			{
-				"<leader>ha",
-				function()
-					require("harpoon"):list():add()
-				end,
-				desc = "[H]arpoon [A]dd file",
-			},
-			{
-				"<leader>hq",
-				function()
-					local harpoon = require("harpoon")
-					harpoon.ui:toggle_quick_menu(harpoon:list())
-				end,
-				desc = "[H]arpoon [Q]uick menu",
-			},
-			{
-				"<C-h>",
-				function()
-					require("harpoon"):list():select(1)
-				end,
-				desc = "Harpoon file 1",
-			},
-			{
-				"<C-j>",
-				function()
-					require("harpoon"):list():select(2)
-				end,
-				desc = "Harpoon file 2",
-			},
-			{
-				"<C-k>",
-				function()
-					require("harpoon"):list():select(3)
-				end,
-				desc = "Harpoon file 3",
-			},
-			{
-				"<C-l>",
-				function()
-					require("harpoon"):list():select(4)
-				end,
-				desc = "Harpoon file 4",
-			},
-		},
+		keys = require("config.keys").harpoon,
 	},
 	-- Snippets
 	"SirVer/ultisnips",
@@ -137,13 +82,8 @@ return { -- General programming utilities go here
 					},
 				},
 			})
-
-			vim.api.nvim_set_keymap("n", "<Leader>gd", ":lua require('neogen').generate()<CR>", {
-				noremap = true,
-				silent = true,
-				desc = "[G]enerate [D]ocumentation",
-			})
 		end,
+		keys = require("config.keys").neogen,
 	},
 	{ -- Autoformat
 		"stevearc/conform.nvim",
@@ -293,12 +233,7 @@ return { -- General programming utilities go here
 		config = function()
 			require("overseer").setup()
 		end,
-		keys = {
-			{ "<leader>ob", vim.cmd.OverseerBuild, desc = "[O]verseer [B]uild" },
-			{ "<leader>oc", vim.cmd.OverseerRunCmd, desc = "[O]verseer Run [C]ommand" },
-			{ "<leader>or", vim.cmd.OverseerRun, desc = "[O]verseer [R]un" },
-			{ "<leader>ot", vim.cmd.OverseerToggle, desc = "[O]verseer [T]oggle" },
-		},
+		keys = require("config.keys").overseer,
 	},
 	{ -- A plugin to integrate tests is helpful, so i'm adding neotest
 		"nvim-neotest/neotest",

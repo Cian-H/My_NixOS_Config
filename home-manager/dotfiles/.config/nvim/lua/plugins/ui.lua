@@ -9,27 +9,17 @@ return { -- UI components and other visual elements are declared here
 	},
 	{ -- Useful plugin to show you pending keybinds.
 		"folke/which-key.nvim",
-		event = "VimEnter", -- Sets the loading event to 'VimEnter'
-		config = function() -- This is the function that runs, AFTER loading
-			require("which-key").setup()
-
-			-- Document existing key chains
-			require("which-key").register({
-				["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
-				["<leader>d"] = { name = "[D]iagnostics", _ = "which_key_ignore" },
-				["<leader>g"] = { name = "[G]enerate", _ = "which_key_ignore" },
-				["<leader>h"] = { name = "[H]arpoon", _ = "which_key_ignore" },
-				["<leader>o"] = { name = "[O]verseer", _ = "which_key_ignore" },
-				["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
-				["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },
-				["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
-			})
+		event = "VimEnter",
+		config = function()
+			local wk = require("which-key")
+			local groups = require("config.keys").groups
+			wk.add(groups)
 		end,
 	},
 	{
 		"nvim-tree/nvim-web-devicons",
 		config = function()
-			local icons = require("tables.icons")
+			local icons = require("config.icons")
 			require("nvim-web-devicons").setup({
 				color_icons = true,
 				override_by_extension = {
@@ -57,11 +47,7 @@ return { -- UI components and other visual elements are declared here
 			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 			"MunifTanjim/nui.nvim",
 		},
-		config = function()
-			local wk = require("which-key")
-			local keys = require("tables.keys").neotree
-			wk.add(keys)
-		end,
+		keys = require("config.keys").neotree,
 	},
 	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
 		"mhinz/vim-signify",
@@ -137,16 +123,6 @@ return { -- UI components and other visual elements are declared here
 	{
 		"tris203/precognition.nvim",
 		event = "VimEnter",
-		config = function()
-			local function toggle()
-				if require("precognition").toggle() then
-					vim.notify("Precognition ON")
-				else
-					vim.notify("Precognition OFF")
-				end
-			end
-
-			vim.keymap.set("n", "<leader>p", toggle, { desc = "[P]recognition" })
-		end,
+		keys = require("config.keys").precognition,
 	},
 }
