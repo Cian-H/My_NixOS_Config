@@ -36,7 +36,6 @@ in
       chromium
       cinnamon.warpinator
       delta
-      feh
       ferdium
       gimp-with-plugins
       git-extras
@@ -59,6 +58,7 @@ in
       pavucontrol
       podman-desktop
       podman-tui
+      qimgv
       slack
       spotify
       steam-run
