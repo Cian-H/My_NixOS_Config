@@ -97,6 +97,12 @@ return { -- UI components and other visual elements are declared here
 						},
 						"filename",
 					},
+					lualine_x = {
+						{ "copilot", show_colors = true },
+						"encoding",
+						"fileformat",
+						"filetype",
+					},
 				},
 				extensions = {
 					"fugitive",
@@ -119,6 +125,10 @@ return { -- UI components and other visual elements are declared here
 				branch = "harpoon2",
 			},
 		},
+	},
+	{
+		"AndreM222/copilot-lualine",
+		dependencies = { "zbirenbaum/copilot.lua" },
 	},
 	{
 		"tris203/precognition.nvim",

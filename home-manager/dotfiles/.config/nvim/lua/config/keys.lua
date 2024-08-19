@@ -9,6 +9,7 @@ return {
 		{ "<leader>t", group = "[T]ree" },
 		{ "<leader>o", group = "[O]verseer" },
 		{ "<leader>h", group = "[H]arpoon" },
+		{ "<leader>|", group = "[|] Copilot" },
 	},
 	neotree = {
 		{
@@ -244,6 +245,16 @@ return {
 	},
 	lazygit = {
 		{ "<leader>l", "<cmd>LazyGit<cr>", desc = "[L]azyGit", mode = "n" },
+	},
+	copilot = {
+		{ "<leader>||", "<cmd>Copilot toggle<cr>", desc = "[||] Toggle Copilot", mode = "n" },
+		{
+			"<leader>|t",
+			"<cmd>Copilot suggestion toggle_auto_trigger<cr>",
+			desc = "[|] [T]oggle inline suggestions",
+			mode = "n",
+		},
+		{ "<leader>|p", "<cmd>Copilot panel<cr>", desc = "[|] [P]anel", mode = "n" },
 	},
 	multicursors = {
 		{
