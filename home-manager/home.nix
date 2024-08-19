@@ -264,6 +264,7 @@ in
     source = ./dotfiles/.config/hg;
     recursive = true;
   };
+  xdg.configFile."stylua.toml".source = ./dotfiles/.config/stylua.toml;
   xdg.configFile."electron-flags.conf".source = ./dotfiles/.config/electron-flags.conf;
   home.file.".bashrc".source = ./dotfiles/.bashrc;
 
