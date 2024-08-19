@@ -124,6 +124,7 @@ in
       })
       vivaldi-ffmpeg-codecs
       widevine-cdm
+      xarchiver
       xclip
       zellij
       # Language Server Protocols
