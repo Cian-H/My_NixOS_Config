@@ -8,35 +8,35 @@ vim.g.have_nerd_font = true
 vim.opt.undofile = true -- Save undo history
 -- Add custom commentstring definitions
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "nix,flake",
-	command = "setlocal commentstring=#\\ %s",
+    pattern = "nix,flake",
+    command = "setlocal commentstring=#\\ %s",
 })
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "scallop",
-	command = "setlocal commentstring=//%s",
+    pattern = "scallop",
+    command = "setlocal commentstring=//%s",
 })
 -- Add custom file types
 vim.filetype.add({
-	extension = {
-		scl = "scallop",
-		prolog = "prolog",
-		pro = "prolog",
-		nu = "nu",
-		mojo = "mojo",
-	},
+    extension = {
+        scl = "scallop",
+        prolog = "prolog",
+        pro = "prolog",
+        nu = "nu",
+        mojo = "mojo",
+    },
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
-	callback = function(args)
-		local bufnr = args.buf
-		local client = vim.lsp.get_client_by_id(args.data.client_id)
-		if client.server_capabilities.completionProvider then
-			vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
-		end
-		if client.server_capabilities.definitionProvider then
-			vim.bo[bufnr].tagfunc = "v:lua.vim.lsp.tagfunc"
-		end
-	end,
+    callback = function(args)
+        local bufnr = args.buf
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if client.server_capabilities.completionProvider then
+            vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
+        end
+        if client.server_capabilities.definitionProvider then
+            vim.bo[bufnr].tagfunc = "v:lua.vim.lsp.tagfunc"
+        end
+    end,
 })
 
 -- Case-insensitive searching UNLESS \C or capital in search
@@ -68,25 +68,25 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd("TextYankPost", {
-	desc = "Highlight when yanking (copying) text",
-	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-	callback = function()
-		vim.highlight.on_yank()
-	end,
+    desc = "Highlight when yanking (copying) text",
+    group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+    callback = function()
+        vim.highlight.on_yank()
+    end,
 })
 
 -- Diagnostics config
 vim.diagnostic.config({
-	float = {
-		focusable = false,
-		style = "minimal",
-		border = "rounded",
-		source = "always",
-		header = "",
-		prefix = "",
-	},
-	signs = true,
-	underline = true,
-	update_in_insert = true,
-	severity_sort = false,
+    float = {
+        focusable = false,
+        style = "minimal",
+        border = "rounded",
+        source = "always",
+        header = "",
+        prefix = "",
+    },
+    signs = true,
+    underline = true,
+    update_in_insert = true,
+    severity_sort = false,
 })
