@@ -197,6 +197,10 @@ in
     source = ./dotfiles/.config/micro;
     recursive = true;
   };
+  xdg.configFile."glow" = {
+    source = ./dotfiles/.config/glow;
+    recursive = true;
+  };
   # We enable nushell using `home.file` instead because this makes it mutable.
   # `xdg.configFile` makes the dir readonly, causing the shell to crash as it can't write to history.
   home.file."nushell" = {
