@@ -8,6 +8,7 @@ export alias cp = xcp
 export alias find = fd
 export alias top = btm
 export alias htop = btm
+export alias burn = rm # sometimes, you ACTUALLY need rm
 export alias rm = rip
 
 # Personal convenience aliases
