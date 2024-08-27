@@ -49,6 +49,15 @@ return { -- UI components and other visual elements are declared here
         },
         keys = require("config.keys").neotree,
     },
+    {
+        "s1n7ax/nvim-window-picker",
+        name = "window-picker",
+        event = "VeryLazy",
+        version = "2.*",
+        config = function()
+            require("window-picker").setup()
+        end,
+    },
     { -- Adds git related signs to the gutter, as well as utilities for managing changes
         "mhinz/vim-signify",
         config = function()

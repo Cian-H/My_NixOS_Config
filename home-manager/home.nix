@@ -33,7 +33,6 @@ in
       bitwarden
       bitwarden-cli
       blueman
-      chromium
       cinnamon.warpinator
       delta
       ferdium
