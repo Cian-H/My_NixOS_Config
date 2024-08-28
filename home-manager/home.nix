@@ -60,6 +60,7 @@ in
       podman-tui
       qimgv
       slack
+      smile
       spotify
       steam-run
       vscode
