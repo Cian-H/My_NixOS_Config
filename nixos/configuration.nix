@@ -146,6 +146,7 @@
     git
     git-extras
     glab
+    gnupg
     grub2_efi
     gvfs
     jq
@@ -159,6 +160,7 @@
     nodejs_22
     nushell
     onefetch
+    pinentry-curses
     podman-compose
     powertop
     qmk
@@ -239,6 +241,15 @@
   # Enable the OpenSSH daemon and other remote tools.
   services.openssh.enable = true;
   programs.mosh.enable = true;
+
+  # Enable GPG signing
+  services.gnome.gnome-keyring.enable = true;
+  services.pcscd.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-curses;
+    enableSSHSupport = true;
+  };
 
   virtualisation = {
     containers.enable = true;

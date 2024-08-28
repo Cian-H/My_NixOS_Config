@@ -3,15 +3,9 @@
 	email = chughes000@gmail.com
 [init]
 	defaultBranch = "main"
-[credential "https://github.com"]
-	username = Cian-H
-	helper = store
-	# helper = !/usr/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-	helper = store
-	# helper = !/usr/bin/gh auth git-credential
-[credential "https://gitlab.com"]
-	helper = !/usr/bin/env glab auth git-credential
+[credential]
+	helper = manager
+    credentialStore = gpg
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

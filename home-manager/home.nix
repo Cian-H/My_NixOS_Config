@@ -38,6 +38,7 @@ in
       ferdium
       gimp-with-plugins
       git-extras
+      git-credential-manager
       github-desktop
       glow
       helix
@@ -100,6 +101,7 @@ in
       niv
       nixpkgs-fmt
       ouch
+      pass
       passh
       php83
       poetry
