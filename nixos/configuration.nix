@@ -166,7 +166,6 @@
     qmk
     qmk_hid
     qmk-udev-rules
-    ranger
     ripgrep
     tealdeer
     unzip
@@ -175,6 +174,7 @@
     xfce.thunar
     xfce.tumbler
     xfce.xfconf
+    yazi
     zoxide
     # package managers
     flatpak
