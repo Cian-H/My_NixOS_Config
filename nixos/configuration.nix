@@ -152,6 +152,7 @@
     jq
     killall
     less
+    libsecret
     mosh
     netcat-gnu
     nix-index
@@ -244,6 +245,8 @@
 
   # Enable GPG signing
   services.gnome.gnome-keyring.enable = true;
+  programs.seahorse.enable = true; # enable the graphical frontend
+  security.pam.services.gdm.enableGnomeKeyring = true; # load gnome-keyring at startup
   services.pcscd.enable = true;
   programs.gnupg.agent = {
     enable = true;
