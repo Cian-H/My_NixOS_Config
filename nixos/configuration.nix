@@ -164,6 +164,7 @@
     pinentry-curses
     podman-compose
     powertop
+    pueue
     qmk
     qmk_hid
     qmk-udev-rules
