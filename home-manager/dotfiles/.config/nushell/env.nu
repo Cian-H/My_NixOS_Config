@@ -49,14 +49,13 @@ $env.NU_PLUGIN_DIRS = [
 ]
 
 # Personal env vars
-$env.EDITOR = nvim
-$env.GIT_EDITOR = nvim
+$env.EDITOR = "nvim"
+$env.GIT_EDITOR = "nvim"
 $env.PIPENV_VERBOSITY = -1
 $env.MAKEFLAGS = $"-j((nproc | into int) + 1)"
 $env.JULIA_NUM_THREADS = $"(nproc)"
 $env.BAT_THEME = "tokyonight_night"
 $env.YAOURT_COLORS = "nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
-# $env.LD_LIBRARY_PATH = ["/opt/cuda/lib64"]
 $env.XDG_CONFIG_HOME = $"($env.HOME)/.config"
 $env.GPG_TTY = $"(/usr/bin/env tty)"
 $env.PASSWORD_STORE_DIR = $"($env.HOME)/.cache/password-store"
@@ -82,7 +81,7 @@ $env.PATH = (
     | append (
         open $"($nu.default-config-dir)/path.env"
         | from csv --noheaders --trim all
-        | get "column1"
+        | get "column0"
         | path expand --no-symlink
     )
 )
