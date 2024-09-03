@@ -13,57 +13,61 @@
     hyprcursor-phinger.url = "github:jappie3/hyprcursor-phinger";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    nixpkgs-unstable,
-    home-manager,
-    ...
-  } @ inputs: let
-    inherit (self) outputs;
-  in {
-    # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#your-hostname'
-    nixosConfigurations = {
-      worklaptop = nixpkgs.lib.nixosSystem {
-        specialArgs = {
+  outputs =
+    { self
+    , nixpkgs
+    , nixpkgs-unstable
+    , home-manager
+    , ...
+    } @ inputs:
+    let
+      inherit (self) outputs;
+    in
+    {
+      # NixOS configuration entrypoint
+      # Available through 'nixos-rebuild --flake .#your-hostname'
+      nixosConfigurations = {
+        worklaptop = nixpkgs.lib.nixosSystem {
+          specialArgs = {
             inherit inputs outputs;
             unstablePkgs = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux;
+          };
+          modules = [
+            # > Our main nixos configuration file <
+            ./nixos/configuration.nix
+          ];
         };
-        modules = [
-          # > Our main nixos configuration file <
-          ./nixos/configuration.nix
-        ];
       };
-    };
 
-    # Standalone home-manager configuration entrypoint
-    # Available through 'home-manager --flake .#your-username@your-hostname'
-    homeConfigurations = {
-      "cianh@worklaptop" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { # Home-manager requires 'pkgs' instance
+      # Standalone home-manager configuration entrypoint
+      # Available through 'home-manager --flake .#your-username@your-hostname'
+      homeConfigurations = {
+        "cianh@worklaptop" = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            # Home-manager requires 'pkgs' instance
             system = "x86_64-linux";
             config = {
-                allowUnfree = true;
-                # Workaround for https://github.com/nix-community/home-manager/issues/2942
-                allowUnfreePredicate = _: true;
+              allowUnfree = true;
+              # Workaround for https://github.com/nix-community/home-manager/issues/2942
+              allowUnfreePredicate = _: true;
             };
-        };
-        extraSpecialArgs = {
+          };
+          extraSpecialArgs = {
             inherit inputs outputs;
-            unstablePkgs = import nixpkgs-unstable { # We also need to do the same for unstable
-                system = "x86_64-linux";
-                config = {
-                    allowUnfree = true;
-                    allowUnfreePredicate = _: true;
-                };
+            unstablePkgs = import nixpkgs-unstable {
+              # We also need to do the same for unstable
+              system = "x86_64-linux";
+              config = {
+                allowUnfree = true;
+                allowUnfreePredicate = _: true;
+              };
             };
+          };
+          modules = [
+            # > Our main home-manager configuration file <
+            ./home-manager/home.nix
+          ];
         };
-        modules = [
-          # > Our main home-manager configuration file <
-          ./home-manager/home.nix
-        ];
       };
     };
-  };
 }
