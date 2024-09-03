@@ -138,11 +138,11 @@ in
       # rust-analyzer
       taplo
       yaml-language-server
-      zed-editor
     ]) ++ (with unstablePkgs; [
       vimPlugins.mason-lspconfig-nvim
       obsidian
       jujutsu
+      zed-editor
       zotero
     ]) ++ [
       monaspaceFont
