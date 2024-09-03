@@ -2,8 +2,24 @@ export def main [] {
     {
         show_banner: false # disable the welcome banner at startup
         # For some reason wezterm adds a newline every keypress
-        shell_integration: (not ("WEZTERM_EXECUTABLE" in $env)) # true # enable shell integration
-        use_kitty_protocol: (("TERM" in $env) and ("kitty" in $env.TERM)) # use kitty protocol when running inside kitty
+        shell_integration: {
+            osc2: true
+            osc7: true
+            osc8: true
+            # OSC9.9 causes swaync to notify end of every commands
+            osc9_9: (("TERM" in $env) and ("kitty" in $env.TERM))
+            osc133: true
+            osc633: true
+            reset_application_mode: true
+        }
+        # use kitty protocol when running inside kitty or wezterm
+        use_kitty_protocol: (
+            (
+                ("TERM" in $env) and ("kitty" in $env.TERM)
+            ) or (
+                not ("WEZTERM_EXECUTABLE" in $env)
+            )
+        )
         history: {
             file_format: "sqlite"
         }

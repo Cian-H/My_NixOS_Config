@@ -146,6 +146,7 @@
     git
     git-extras
     glab
+    gnome.seahorse
     gnupg
     grub2_efi
     gvfs
@@ -159,7 +160,6 @@
     nix-ld
     nmap
     nodejs_22
-    nushell
     onefetch
     pinentry-curses
     podman-compose
@@ -203,6 +203,7 @@
     hyprshot
     iwgtk
     libnotify
+    nushell
     qt6ct
     swaylock
     swaynotificationcenter
