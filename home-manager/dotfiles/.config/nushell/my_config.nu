@@ -6,8 +6,8 @@ export def main [] {
             osc2: true
             osc7: true
             osc8: true
-            # OSC9.9 causes swaync to notify end of every commands
-            osc9_9: (("TERM" in $env) and ("kitty" in $env.TERM))
+            # OSC9.9 causes swaync to notify end of every command under kitty
+            osc9_9: (not (("TERM" in $env) and ("kitty" in $env.TERM)))
             osc133: true
             osc633: true
             reset_application_mode: true
