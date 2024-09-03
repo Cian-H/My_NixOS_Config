@@ -221,6 +221,7 @@
     xwayland.enable = true;
     # enableNvidiaPatches = true; # <- no longer necessary, apparently
   };
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Enable my preferred DE utilities
   programs.thunar.enable = true;
