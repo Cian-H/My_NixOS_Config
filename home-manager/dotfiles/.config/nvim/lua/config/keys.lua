@@ -75,14 +75,6 @@ return {
     lazygit = {
         { "<leader>l", "<cmd>LazyGit<cr>", desc = "[L]azyGit", mode = "n" },
     },
-    multicursors = {
-        {
-            "<Leader>m",
-            "<cmd>MCstart<cr>",
-            desc = "[M]ulticursor",
-            mode = { "v", "n" },
-        },
-    },
     neogen = {
         {
             "<Leader>gd",

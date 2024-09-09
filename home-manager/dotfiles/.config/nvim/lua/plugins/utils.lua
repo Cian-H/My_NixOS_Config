@@ -18,16 +18,6 @@ return { -- General programming utilities go here
             end,
         },
     },
-    { -- Add multi-cursor support, this is a glaring omission from vim
-        "smoka7/multicursors.nvim",
-        event = "VeryLazy",
-        dependencies = {
-            "nvimtools/hydra.nvim",
-        },
-        opts = {},
-        cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
-        keys = require("config.keys").multicursors,
-    },
     -- Privilege escalation plugin
     "lambdalisue/suda.vim",
     {
