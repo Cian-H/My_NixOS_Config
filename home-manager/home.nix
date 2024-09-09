@@ -154,6 +154,11 @@ in
   programs.git.enable = true;
   programs.hyprcursor-phinger.enable = true;
 
+  # Set default applications
+  xdg.mimeApps.defaultApplications = {
+    "inode/directory" = "thunar.desktop";
+  };
+
   # Properly install custom fonts
   home.file."monaspice" = {
     source = "${monaspaceFont}/.local/share/fonts/monaspace-nerd-font";
