@@ -193,7 +193,7 @@
     # front-end dev environment
     kitty
     micro
-    # temporarily moved to stable
+    # DE and accompanying tools
     hyprcursor
     hyprland
     hyprlock
@@ -201,15 +201,9 @@
     hyprpicker
     hyprshot
     xdg-desktop-portal-hyprland
+    xdg-desktop-portal-gnome
   ]) ++ (with unstablePkgs; [
     neovim
-    # alternative DEs and accompanying tools
-    # hyprcursor
-    # hyprland
-    # hyprlock
-    # hyprpaper
-    # hyprpicker
-    # hyprshot
     iwgtk
     libnotify
     nushell
@@ -218,7 +212,6 @@
     swaynotificationcenter
     waybar
     wofi
-    # xdg-desktop-portal-hyprland
   ]);
 
   hardware.keyboard.qmk.enable = true;
