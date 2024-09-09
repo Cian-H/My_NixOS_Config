@@ -26,6 +26,23 @@ return { -- Non programming quality of life utilities go here
             },
         },
     },
+    {
+        "MeanderingProgrammer/render-markdown.nvim",
+        opts = {},
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "echasnovski/mini.nvim",
+            "nvim-tree/nvim-web-devicons",
+        },
+    },
+    {
+        "Tweekism/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        ft = { "markdown" },
+        build = function()
+            vim.fn["mkdp#util#install"]()
+        end,
+    },
     { -- A cheatsheet will always be useful until im a bit more familiar with vim
         "sudormrfbin/cheatsheet.nvim",
         dependencies = {
