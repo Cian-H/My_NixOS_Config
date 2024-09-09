@@ -11,6 +11,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     # add phinger hyprcursor flake
     hyprcursor-phinger.url = "github:jappie3/hyprcursor-phinger";
+    # add zen browser flake
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
 
   outputs =
