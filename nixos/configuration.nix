@@ -201,7 +201,8 @@
     hyprpicker
     hyprshot
     xdg-desktop-portal-hyprland
-    xdg-desktop-portal-gnome
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-xapp
   ]) ++ (with unstablePkgs; [
     neovim
     iwgtk
@@ -234,6 +235,14 @@
   services.gvfs.enable = true;
   services.tumbler.enable = true;
   programs.xfconf.enable = true;
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
+    ];
+  };
 
   # Lets also activate some handy devenv tools
   programs.direnv.enable = true;
