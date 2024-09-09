@@ -28,6 +28,7 @@ return { -- Non programming quality of life utilities go here
     {
         "MeanderingProgrammer/render-markdown.nvim",
         opts = {},
+        ft = "markdown",
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
             "echasnovski/mini.nvim",
@@ -36,6 +37,7 @@ return { -- Non programming quality of life utilities go here
     },
     { -- A cheatsheet will always be useful until im a bit more familiar with vim
         "sudormrfbin/cheatsheet.nvim",
+        event = "VeryLazy",
         dependencies = {
             "nvim-telescope/telescope.nvim",
             "nvim-lua/popup.nvim",

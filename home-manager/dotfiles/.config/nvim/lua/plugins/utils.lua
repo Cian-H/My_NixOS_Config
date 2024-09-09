@@ -19,7 +19,7 @@ return { -- General programming utilities go here
         },
     },
     -- Privilege escalation plugin
-    "lambdalisue/suda.vim",
+    { "lambdalisue/suda.vim", event = "VeryLazy" },
     {
         "folke/todo-comments.nvim",
         event = "VimEnter",
@@ -45,6 +45,7 @@ return { -- General programming utilities go here
     },
     { -- Oil is a very nice buffer-based filetree editor
         "stevearc/oil.nvim",
+        event = "VeryLazy",
         opts = {},
         dependencies = { "nvim-tree/nvim-web-devicons" },
         keys = require("config.keys").oil,
@@ -59,10 +60,11 @@ return { -- General programming utilities go here
         keys = require("config.keys").harpoon,
     },
     -- Snippets
-    "SirVer/ultisnips",
-    "honza/vim-snippets",
+    { "SirVer/ultisnips", events = "VeryLazy" },
+    { "honza/vim-snippets", events = "VeryLazy" },
     { -- Package and devenv plugins
         "danymat/neogen",
+        event = "VimEnter",
         config = function()
             require("neogen").setup({
                 enabled = true,
@@ -80,6 +82,7 @@ return { -- General programming utilities go here
     },
     { -- Autoformat
         "stevearc/conform.nvim",
+        event = "VimEnter",
         opts = {
             notify_on_error = false,
             format_on_save = {
@@ -215,6 +218,7 @@ return { -- General programming utilities go here
     },
     { -- Undo tree
         "mbbill/undotree",
+        event = "VeryLazy",
         opts = {},
         config = function()
             vim.keymap.set("n", "U", vim.cmd.UndotreeToggle, { desc = "[U]ndotree" })
@@ -222,6 +226,7 @@ return { -- General programming utilities go here
     },
     { -- Add Overseer as a task running tool
         "stevearc/overseer.nvim",
+        event = "VeryLazy",
         opts = {},
         config = function()
             require("overseer").setup()
@@ -230,6 +235,7 @@ return { -- General programming utilities go here
     },
     { -- A plugin to integrate tests is helpful, so i'm adding neotest
         "nvim-neotest/neotest",
+        event = "VeryLazy",
         dependencies = {
             "nvim-neotest/nvim-nio",
             "nvim-lua/plenary.nvim",
@@ -262,5 +268,5 @@ return { -- General programming utilities go here
         keys = require("config.keys").copilot,
     },
     -- Rust tools like inlay hints are absolutely essential
-    "simrat39/rust-tools.nvim",
+    { "simrat39/rust-tools.nvim", ft = "rust" },
 }

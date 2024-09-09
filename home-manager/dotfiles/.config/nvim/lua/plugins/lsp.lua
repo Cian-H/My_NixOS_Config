@@ -231,7 +231,7 @@ return { -- LSP Config should be a standalone function, hence this module
         end,
     },
     -- Finally: add language and filetype specific plugins
-    { "LhKipp/nvim-nu", event = "FileType nu" },
-    { "fladson/vim-kitty", event = "FileType kitty" },
-    { "scallop-lang/vim-scallop", event = "FileType scallop" },
+    { "LhKipp/nvim-nu", ft = "nu" },
+    { "fladson/vim-kitty", ft = "kitty" },
+    { "scallop-lang/vim-scallop", ft = "scallop" },
 }

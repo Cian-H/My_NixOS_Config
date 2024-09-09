@@ -42,6 +42,7 @@ return { -- UI components and other visual elements are declared here
     { -- A file explorer, because i'm not used to the vim workflow yet
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v3.x",
+        event = "VimEnter",
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
@@ -60,6 +61,7 @@ return { -- UI components and other visual elements are declared here
     },
     { -- Adds git related signs to the gutter, as well as utilities for managing changes
         "mhinz/vim-signify",
+        event = "VimEnter",
         config = function()
             -- defer config for 5ms. Old vim plugins can be janky in neovim
             vim.defer_fn(function()
@@ -137,11 +139,11 @@ return { -- UI components and other visual elements are declared here
     },
     {
         "AndreM222/copilot-lualine",
+        event = "VeryLazy",
         dependencies = { "zbirenbaum/copilot.lua" },
     },
     {
         "tris203/precognition.nvim",
-        event = "VimEnter",
         keys = require("config.keys").precognition,
     },
 }
