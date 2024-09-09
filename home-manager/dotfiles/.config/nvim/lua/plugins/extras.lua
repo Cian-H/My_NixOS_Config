@@ -3,11 +3,10 @@ return { -- Non programming quality of life utilities go here
         "epwalsh/obsidian.nvim",
         version = "*",
         cmd = "Obsidian",
-        -- event = {
-        -- 	"BufReadPre " .. vim.fn.expand("~") .. "Documents/Work_Notes/**.md",
-        -- 	"BufNewFile " .. vim.fn.expand("~") .. "Documents/Work_Notes/**.md",
-        -- },
-        lazy = vim.fn.executable("obsidian") == 0,
+        event = "VeryLazy",
+        cond = function()
+            return vim.fn.executable("obsidian") == 1
+        end,
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope.nvim",
@@ -34,14 +33,6 @@ return { -- Non programming quality of life utilities go here
             "echasnovski/mini.nvim",
             "nvim-tree/nvim-web-devicons",
         },
-    },
-    {
-        "Tweekism/markdown-preview.nvim",
-        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-        ft = { "markdown" },
-        build = function()
-            vim.fn["mkdp#util#install"]()
-        end,
     },
     { -- A cheatsheet will always be useful until im a bit more familiar with vim
         "sudormrfbin/cheatsheet.nvim",
