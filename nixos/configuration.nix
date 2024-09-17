@@ -129,6 +129,12 @@
     description = "Cian Hughes";
     extraGroups = [ "networkmanager" "wheel" ];
   };
+  # The hack below sets the user profile image declaratively
+  system.activationScripts.script.text = ''
+    mkdir -p /var/lib/AccountsService/{icons,users}
+    cp /home/cianh/Pictures/face.png /var/lib/AccountsService/icons/cianh
+    echo -e "[User]\nIcon=/var/lib/AccountsService/icons/cianh\n" > /var/lib/AccountsService/users/cianh
+  '';
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
