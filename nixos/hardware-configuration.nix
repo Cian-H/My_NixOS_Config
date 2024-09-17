@@ -14,16 +14,17 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/526c41a3-66ec-4c6e-ad28-a32dfa99933e";
+    { device = "/dev/disk/by-uuid/1eec95dd-9663-4a46-8b6f-10f7754322fa";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/9958-7E09";
+    { device = "/dev/disk/by-uuid/056D-249D";
       fsType = "vfat";
+      options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  fileSystems."/home/cianh/Storage" =
+  fileSystems."/home" =
     { device = "/dev/disk/by-uuid/92c16a05-22ad-436d-a6ca-37d5f0c2cc3d";
       fsType = "ext4";
     };
@@ -35,7 +36,7 @@
       size = 24*1024;
     }
     {
-      device = "/home/cianh/Storage/.swapfile";
+      device = "/home/.swapfile";
       size = 64*1024;
     }
   ];
