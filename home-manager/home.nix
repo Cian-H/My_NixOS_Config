@@ -154,6 +154,7 @@ in
   programs.home-manager.enable = true;
   programs.git.enable = true;
   programs.hyprcursor-phinger.enable = true;
+  services.swaync.enable = true;
 
   # Set default applications
   xdg.mimeApps.defaultApplications = {
