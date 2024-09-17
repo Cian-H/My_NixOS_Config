@@ -167,6 +167,7 @@
     nmap
     nodejs_22
     onefetch
+    phinger-cursors
     pinentry-curses
     podman-compose
     powertop
