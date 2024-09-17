@@ -1,0 +1,12 @@
+Type=X-GNOME-Metatheme
+[Desktop Entry]
+Name=shell-Light
+Comment=An Flat Gtk+ theme based on Elegant Design
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=shell-Light
+MetacityTheme=shell-Light
+IconTheme=Tela-circle
+CursorTheme=shell-cursors
+ButtonLayout=close,minimize,maximize:menu

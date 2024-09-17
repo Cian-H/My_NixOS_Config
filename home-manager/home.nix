@@ -174,6 +174,11 @@ in
     source = ../home-manager;
     recursive = true;
   };
+  # Also, properly link theme files
+  xdg.configFile."gtk-4.0" = {
+    source = ./dotfiles/.local/share/themes/shell-Dark/gtk-4.0;
+    recursive = true;
+  };
   # Then, the rest of the dotfiles
   xdg.configFile."bat" = {
     source = ./dotfiles/.config/bat;
@@ -212,6 +217,14 @@ in
   };
   xdg.configFile."glamour" = {
     source = ./dotfiles/.config/glamour;
+    recursive = true;
+  };
+  xdg.dataFile."themes" = {
+    source = ./dotfiles/.local/share/themes;
+    recursive = true;
+  };
+  xdg.dataFile."icons" = {
+    source = ./dotfiles/.local/share/icons;
     recursive = true;
   };
   # We enable nushell using `home.file` instead because this makes it mutable.
