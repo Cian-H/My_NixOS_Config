@@ -163,7 +163,7 @@ in
 
   # Properly install custom fonts
   home.file."monaspice" = {
-    source = "${monaspaceFont}/.local/share/fonts/monaspace-nerd-font";
+    source = "${monaspaceFont}/share/fonts/";
     target = ".local/share/fonts/monaspace-nerd-font";
     recursive = true;
   };
