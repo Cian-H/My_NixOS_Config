@@ -69,7 +69,7 @@ in
       zettlr
       # theming
       phinger-cursors
-      tokyo-night-gtk
+      tokyonight-gtk-theme
       # kitty extensions
       kitty-img
       kitty-themes
@@ -157,8 +157,21 @@ in
     hyprcursor-phinger.enable = true;
   };
   services.swaync.enable = true;
-  gtk.theme.name = "shell-Dark";
-  gtk.iconTheme.name = "Tokyonight-Light";
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Tokyonight-Light";
+      package = pkgs.tokyonight-gtk-theme;
+    };
+    theme = {
+      name = "Tokyonight-Dark-BL-LB";
+      package = pkgs.tokyonight-gtk-theme;
+    };
+    cursorTheme = {
+      name = "phinger-cursors-dark";
+      package = pkgs.phinger-cursors;
+    };
+  };
 
   home = {
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
@@ -202,7 +215,6 @@ in
     };
     configFile = {
       "home-manager".source = ../home-manager;
-      "gtk-4.0".source = ./dotfiles/.local/share/themes/shell-Dark/gtk-4.0;
       "bat".source = ./dotfiles/.config/bat;
       "fastfetch".source = ./dotfiles/.config/fastfetch;
       "helix".source = ./dotfiles/.config/helix;
@@ -233,16 +245,6 @@ in
       "hg".source = ./dotfiles/.config/hg;
       "stylua.toml".source = ./dotfiles/.config/stylua.toml;
       "electron-flags.conf".source = ./dotfiles/.config/electron-flags.conf;
-    };
-    dataFile = {
-      "theme" = {
-        source = ./dotfiles/.local/share/themes/shell-Dark;
-        target = "themes/shell-Dark";
-      };
-      "icons" = {
-        source = ./dotfiles/.local/share/icons/Tokyonight-Light;
-        target = "icons/Tokyonight-Light";
-      };
     };
   };
 

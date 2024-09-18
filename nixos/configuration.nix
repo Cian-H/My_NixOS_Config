@@ -191,7 +191,6 @@
     xcp
     xfce.thunar
     xfce.tumbler
-    xfce.xfconf
     yazi
     zoxide
     # package managers
