@@ -128,15 +128,22 @@
     hashedPasswordFile = "/etc/hashedPasswordFile";
     description = "Cian Hughes";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = unstablePkgs.nushell;
   };
-  # The hack below sets the user profile image declaratively
+  # # The hack below sets the user profile image declaratively
   system.activationScripts.script.text = ''
     mkdir -p /var/lib/AccountsService/{icons,users}
     cp /home/cianh/Pictures/face.png /var/lib/AccountsService/icons/cianh
-    echo -e "[User]\nIcon=/var/lib/AccountsService/icons/cianh\n" > /var/lib/AccountsService/users/cianh
+    echo "[User]
+    Session=
+    Icon=/var/lib/AccountsService/icons/cianh
+    SystemAccount=false" > /var/lib/AccountsService/users/cianh
+    chown root:root /var/lib/AccountsService/users/cianh
+    chmod 0600 /var/lib/AccountsService/users/cianh
+    chown root:root /var/lib/AccountsService/icons/cianh
+    chmod 0444 /var/lib/AccountsService/icons/cianh
   '';
 
-  # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = (with pkgs; [
     # shell env programs
@@ -152,10 +159,12 @@
     git
     git-extras
     glab
+    gnome.gdm
     gnome.seahorse
     gnupg
     grub2_efi
     gvfs
+    initool
     jq
     killall
     less
