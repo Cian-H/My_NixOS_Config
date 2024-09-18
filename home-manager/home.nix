@@ -29,6 +29,7 @@ in
   home = {
     username = "cianh";
     homeDirectory = "/home/cianh";
+
     packages = (with pkgs; [
       bitwarden
       bitwarden-cli
@@ -150,157 +151,101 @@ in
     ];
   };
 
-  # Enable programs and modules
-  programs.home-manager.enable = true;
-  programs.git.enable = true;
-  programs.hyprcursor-phinger.enable = true;
+  programs = {
+    home-manager.enable = true;
+    git.enable = true;
+    hyprcursor-phinger.enable = true;
+  };
   services.swaync.enable = true;
+  gtk.theme.name = "shell-Dark";
+  gtk.iconTheme.name = "Tokyonight-Light";
 
-  # Set default applications
-  xdg.mimeApps.defaultApplications = {
-    "inode/directory" = "thunar.desktop";
+  home = {
+    # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+    stateVersion = "23.11";
+    file = {
+      ".bashrc".source = ./dotfiles/.bashrc;
+      "monaspice" = {
+        source = "${monaspaceFont}/share/fonts/";
+        target = ".local/share/fonts/monaspace-nerd-font";
+      };
+      "nushell" = {
+        source = ./dotfiles/.config/nushell;
+        target = ".config/nushell";
+        recursive = true;
+      };
+      "nvim" = {
+        source = ./dotfiles/.config/nvim;
+        target = ".config/nvim";
+        recursive = true;
+      };
+      "pypoetry" = {
+        source = ./dotfiles/.config/pypoetry;
+        target = ".config/pypoetry";
+        recursive = true;
+      };
+      "Thunar" = {
+        source = ./dotfiles/.config/Thunar;
+        target = ".config/Thunar";
+      };
+      "rye" = {
+        source = ./dotfiles/.config/.rye;
+        target = ".config/.rye";
+      };
+    };
   };
 
-  # Properly install custom fonts
-  home.file."monaspice" = {
-    source = "${monaspaceFont}/share/fonts/";
-    target = ".local/share/fonts/monaspace-nerd-font";
-    recursive = true;
+  xdg = {
+    # Set default applications
+    mimeApps.defaultApplications = {
+      "inode/directory" = "thunar.desktop";
+    };
+    configFile = {
+      "home-manager".source = ../home-manager;
+      "gtk-4.0".source = ./dotfiles/.local/share/themes/shell-Dark/gtk-4.0;
+      "bat".source = ./dotfiles/.config/bat;
+      "fastfetch".source = ./dotfiles/.config/fastfetch;
+      "helix".source = ./dotfiles/.config/helix;
+      "hypr" = {
+        source = ./dotfiles/.config/hypr;
+        recursive = true;
+        # Here, we use OnChange, because we don't want the config to be mutable but we do want it to
+        #   manage modifiable state at runtime
+        onChange = ''
+          rm -f ${config.xdg.configHome}/hypr/inputs.conf
+          cp ${config.xdg.configHome}/hypr/HomeManagerInit_inputs.conf ${config.xdg.configHome}/hypr/inputs.conf
+          chmod u+w ${config.xdg.configHome}/hypr/inputs.conf
+        '';
+      };
+      "kitty".source = ./dotfiles/.config/kitty;
+      "micro".source = ./dotfiles/.config/micro;
+      "glow".source = ./dotfiles/.config/glow;
+      "glamour".source = ./dotfiles/.config/glamour;
+      "starship.toml".source = ./dotfiles/.config/starship.toml;
+      "waybar".source = ./dotfiles/.config/waybar;
+      "euporie".source = ./dotfiles/.config/euporie;
+      "bottom".source = ./dotfiles/.config/bottom;
+      "swaync".source = ./dotfiles/.config/swaync;
+      "zellij".source = ./dotfiles/.config/zellij;
+      "git".source = ./dotfiles/.config/git;
+      "lazygit".source = ./dotfiles/.config/lazygit;
+      "wezterm".source = ./dotfiles/.config/wezterm;
+      "hg".source = ./dotfiles/.config/hg;
+      "stylua.toml".source = ./dotfiles/.config/stylua.toml;
+      "electron-flags.conf".source = ./dotfiles/.config/electron-flags.conf;
+    };
+    dataFile = {
+      "theme" = {
+        source = ./dotfiles/.local/share/themes/shell-Dark;
+        target = "themes/shell-Dark";
+      };
+      "icons" = {
+        source = ./dotfiles/.local/share/icons/Tokyonight-Light;
+        target = "icons/Tokyonight-Light";
+      };
+    };
   };
-
-  # Symlink dotfiles (managed this way so i can easily move back to stow if i want)
-  # First, symlink home-manager to where it expects to be
-  xdg.configFile."home-manager" = {
-    source = ../home-manager;
-    recursive = true;
-  };
-  # Also, properly link theme files
-  xdg.configFile."gtk-4.0" = {
-    source = ./dotfiles/.local/share/themes/shell-Dark/gtk-4.0;
-    recursive = true;
-  };
-  # Then, the rest of the dotfiles
-  xdg.configFile."bat" = {
-    source = ./dotfiles/.config/bat;
-    recursive = true;
-  };
-  xdg.configFile."fastfetch" = {
-    source = ./dotfiles/.config/fastfetch;
-    recursive = true;
-  };
-  xdg.configFile."helix" = {
-    source = ./dotfiles/.config/helix;
-    recursive = true;
-  };
-  xdg.configFile."hypr" = {
-    source = ./dotfiles/.config/hypr;
-    recursive = true;
-    # Here, we use OnChange, because we don't want the config to be mutable but we do want it to
-    #   manage modifiable state at runtime
-    onChange = ''
-      rm -f ${config.xdg.configHome}/hypr/inputs.conf
-      cp ${config.xdg.configHome}/hypr/HomeManagerInit_inputs.conf ${config.xdg.configHome}/hypr/inputs.conf
-      chmod u+w ${config.xdg.configHome}/hypr/inputs.conf
-    '';
-  };
-  xdg.configFile."kitty" = {
-    source = ./dotfiles/.config/kitty;
-    recursive = true;
-  };
-  xdg.configFile."micro" = {
-    source = ./dotfiles/.config/micro;
-    recursive = true;
-  };
-  xdg.configFile."glow" = {
-    source = ./dotfiles/.config/glow;
-    recursive = true;
-  };
-  xdg.configFile."glamour" = {
-    source = ./dotfiles/.config/glamour;
-    recursive = true;
-  };
-  xdg.dataFile."themes" = {
-    source = ./dotfiles/.local/share/themes;
-    recursive = true;
-  };
-  xdg.dataFile."icons" = {
-    source = ./dotfiles/.local/share/icons;
-    recursive = true;
-  };
-  # We enable nushell using `home.file` instead because this makes it mutable.
-  # `xdg.configFile` makes the dir readonly, causing the shell to crash as it can't write to history.
-  home.file."nushell" = {
-    source = ./dotfiles/.config/nushell;
-    target = ".config/nushell";
-    recursive = true;
-  };
-  # Neovim also needs to be mutable, since we're managing it using lazy.
-  home.file."nvim" = {
-    source = ./dotfiles/.config/nvim;
-    target = ".config/nvim";
-    recursive = true;
-  };
-  # Similar situation to nushell here. Needs to be read/write so we can manage plugins
-  # However, in this case the files themselves also need to be read/write so making a symlink
-  home.file."pypoetry" = {
-    source = ./dotfiles/.config/pypoetry;
-    target = ".config/pypoetry";
-    recursive = true;
-  };
-  home.file."Thunar" = {
-    source = ./dotfiles/.config/Thunar;
-    target = ".config/Thunar";
-    recursive = true;
-  };
-  home.file."rye" = {
-    source = ./dotfiles/.config/.rye;
-    target = ".config/.rye";
-    recursive = true;
-  };
-  xdg.configFile."starship.toml".source = ./dotfiles/.config/starship.toml;
-  xdg.configFile."waybar" = {
-    source = ./dotfiles/.config/waybar;
-    recursive = true;
-  };
-  xdg.configFile."euporie" = {
-    source = ./dotfiles/.config/euporie;
-    recursive = true;
-  };
-  xdg.configFile."bottom" = {
-    source = ./dotfiles/.config/bottom;
-    recursive = true;
-  };
-  xdg.configFile."swaync" = {
-    source = ./dotfiles/.config/swaync;
-    recursive = true;
-  };
-  xdg.configFile."zellij" = {
-    source = ./dotfiles/.config/zellij;
-    recursive = true;
-  };
-  xdg.configFile."git" = {
-    source = ./dotfiles/.config/git;
-    recursive = true;
-  };
-  xdg.configFile."lazygit" = {
-    source = ./dotfiles/.config/lazygit;
-    recursive = true;
-  };
-  xdg.configFile."wezterm" = {
-    source = ./dotfiles/.config/wezterm;
-    recursive = true;
-  };
-  xdg.configFile."hg" = {
-    source = ./dotfiles/.config/hg;
-    recursive = true;
-  };
-  xdg.configFile."stylua.toml".source = ./dotfiles/.config/stylua.toml;
-  xdg.configFile."electron-flags.conf".source = ./dotfiles/.config/electron-flags.conf;
-  home.file.".bashrc".source = ./dotfiles/.bashrc;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
-
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.11";
 }
