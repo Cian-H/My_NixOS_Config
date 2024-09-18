@@ -41,8 +41,6 @@
   boot.loader.grub.useOSProber = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
   boot.loader.efi.canTouchEfiVariables = true;
-  # Enable hibernation
-  boot.resumeDevice = "/dev/disk/by-uuid/526c41a3-66ec-4c6e-ad28-a32dfa99933e";
 
   networking.hostName = "worklaptop"; # Define your hostname.
 
