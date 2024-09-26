@@ -198,6 +198,7 @@ in
       "rye" = {
         source = ./dotfiles/.config/.rye;
         target = ".config/.rye";
+        recursive = true;
       };
     };
   };
