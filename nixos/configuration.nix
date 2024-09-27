@@ -185,7 +185,6 @@
     ripgrep
     tealdeer
     unzip
-    vial
     xcp
     xfce.thunar
     xfce.tumbler
