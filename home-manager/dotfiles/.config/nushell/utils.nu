@@ -23,20 +23,35 @@ export def 'sysfetch' [] {
     }
 }
 
-export def 'register-plugins' [] {
-    for plugin_dir in $env.NU_PLUGIN_DIRS {
-        for plugin_path in (ls $"($env.NU_PLUGIN_DIRS.0)/nu_plugin_*").name {
-            nu -c $"register ($plugin_path)"
-        }
+export def 'try_git_fetch' [] {
+    if (".git" | path exists) {
+        onefetch
+        return true
+    }
+    # Return is solely to ensure scripts await finish of this command
+    return false
+}
+
+export def 'try_direnv_load' [] {
+    if ((".envrc" | path exists) and (exists direnv)) {
+        direnv export json | from json | default {} | load-env
     }
 }
 
+export def 'register-plugins' [] {
+for plugin_dir in $env.NU_PLUGIN_DIRS {
+    for plugin_path in (ls $"($env.NU_PLUGIN_DIRS.0)/nu_plugin_*").name {
+        nu -c $"register ($plugin_path)"
+    }
+}
+}
+
 export def 'build-plugins' [] {
-    let curdir = pwd
-    let plugin_dir = $env.NU_PLUGIN_DIRS.0
-    cd $plugin_dir
-    cargo build --release
-    cd $curdir
-    register-plugins
+let curdir = pwd
+let plugin_dir = $env.NU_PLUGIN_DIRS.0
+cd $plugin_dir
+cargo build --release
+cd $curdir
+register-plugins
 }
 

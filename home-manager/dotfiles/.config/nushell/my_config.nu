@@ -1,3 +1,6 @@
+use utils.nu try_git_fetch
+use utils.nu try_direnv_load
+
 export def main [] {
     {
         show_banner: false # disable the welcome banner at startup
@@ -27,15 +30,9 @@ export def main [] {
         hooks: {
             env_change: {
                 PWD: [
-                    {|before, after| # This hook runs onefetch when the current directory is a git repository
-                        if ".git\n" in ($after | ls -a | str join) {
-                            ^onefetch
-                        }
-                    },
-                    {||
-                        if (exists direnv) {
-                            direnv export json | from json | default {} | load-env
-                        }
+                    {|before, after|
+                        try_direnv_load
+                        try_git_fetch
                     }
                 ]
             }
