@@ -20,6 +20,12 @@
       fsType = "ext4";
     };
 
+  fileSystems."/boot/efi" =
+    {
+      device = "/dev/disk/by-uuid/056D-249D";
+      fsType = "vfat";
+    };
+
   fileSystems."/home" =
     {
       device = "/dev/disk/by-uuid/92c16a05-22ad-436d-a6ca-37d5f0c2cc3d";

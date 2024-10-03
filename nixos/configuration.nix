@@ -20,9 +20,6 @@
     driSupport32Bit = true;
   };
 
-  # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = [ "nvidia" ]; # or "nvidiaLegacy470 etc.
-
   hardware.nvidia = {
     # Modesetting is required.
     modesetting.enable = true;
@@ -35,12 +32,20 @@
   hardware.nvidia-container-toolkit.enable = true;
 
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.efiSupport = true;
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.useOSProber = true;
-  boot.loader.efi.efiSysMountPoint = "/boot";
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    loader = {
+      grub = {
+        enable = true;
+        efiSupport = true;
+        device = "nodev";
+        useOSProber = true;
+      };
+      efi = {
+        efiSysMountPoint = "/boot/efi";
+        canTouchEfiVariables = true;
+      };
+    };
+  };
 
   networking.hostName = "worklaptop"; # Define your hostname.
 
@@ -87,17 +92,18 @@
     auto-optimise-store = true;
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = false;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "ie";
-    variant = "";
+  # Load nvidia driver for Xorg and Wayland
+  services = {
+    xserver = {
+      videoDrivers = [ "nvidia" ]; # or "nvidiaLegacy470 etc.
+      enable = true;
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = false;
+      xkb = {
+        layout = "ie";
+        variant = "";
+      };
+    };
   };
 
   # Configure console keymap
@@ -206,13 +212,17 @@
     kitty
     micro
     # DE and accompanying tools
-    hyprcursor
+    wayland
+    wayland-utils
+    sway
     hyprland
+    hyprcursor
     hyprlock
     hyprpaper
     hyprpicker
     hyprshot
     xdg-desktop-portal-hyprland
+    xdg-desktop-portal-wlr
     xdg-desktop-portal-gtk
     xdg-desktop-portal-xapp
   ]) ++ (with unstablePkgs; [
@@ -229,12 +239,16 @@
 
   hardware.keyboard.qmk.enable = true;
 
-  # Activate alternative DEs
+  # Activate DEs
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-    # enableNvidiaPatches = true; # <- no longer necessary, apparently
   };
+  programs.sway = {
+    enable = true;
+    extraOptions = [ "--unsupported-gpu" ];
+  };
+  programs.waybar.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Enable my preferred DE utilities
