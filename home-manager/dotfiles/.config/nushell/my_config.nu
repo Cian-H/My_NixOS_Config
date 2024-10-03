@@ -29,7 +29,7 @@ export def main [] {
                 PWD: [
                     {|before, after| # This hook runs onefetch when the current directory is a git repository
                         if ".git\n" in ($after | ls -a | str join) {
-                            ^onefetch
+                            print (^onefetch)
                         }
                     },
                     {||
