@@ -112,9 +112,7 @@ in
       poetryPlugins.poetry-audit-plugin
       pre-commit
       rm-improved
-      ruff
       rustup
-      rye
       starship
       stylua
       tree-sitter
@@ -137,6 +135,8 @@ in
       vimPlugins.mason-lspconfig-nvim
       obsidian
       jujutsu
+      ruff
+      rye
       zed-editor
       zotero
     ]) ++ [

@@ -282,6 +282,18 @@
   services.openssh.enable = true;
   programs.mosh.enable = true;
 
+  # Add custom services
+  systemd.services.pueued = {
+    enable = true;
+    description = "Pueue Daemon - CLI process scheduler and manager";
+    wantedBy = [ "default.target" ];
+    serviceConfig = {
+      Restart = "no";
+      ExecStart = "${pkgs.pueue.outPath}/bin/pueued -vv";
+    };
+  };
+
+
   # Enable GPG signing
   services.gnome.gnome-keyring.enable = true;
   programs.seahorse.enable = true; # enable the graphical frontend

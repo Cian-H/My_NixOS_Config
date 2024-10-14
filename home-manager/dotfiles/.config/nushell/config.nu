@@ -11,5 +11,7 @@ source ~/.config/nushell/nu_scripts.nu
 source ~/.config/nushell/completions/atuin.nu
 source ~/.config/nushell/completions/zoxide.nu
 source ~/.config/nushell/completions/nu_scripts.nu
+# inport nushell libs
+use task.nu
 # Finally, we run a system info fetch
 sysfetch
