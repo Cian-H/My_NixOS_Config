@@ -1,0 +1,12 @@
+[plugin]
+prepend_previewers = [
+  { name = "*.md", run = "glow" },
+  { name = "*.bin", run = "hexyl" },
+]
+append_previewers = [
+  { name = "*", run = "hexyl" },
+]
+prepend_fetchers = [
+    { id   = "git", name = "*", run  = "git" },
+    { id   = "git", name = "*/", run  = "git" },
+]
