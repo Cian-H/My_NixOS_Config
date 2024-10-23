@@ -153,7 +153,9 @@
     # shell env programs
     atuin
     bat
+    bitwarden-cli
     bottom
+    delta
     du-dust
     duf
     fastfetch
@@ -163,11 +165,13 @@
     git
     git-extras
     glab
+    glow
     gnome.gdm
     gnome.seahorse
     gnupg
     grub2_efi
     gvfs
+    hexyl
     initool
     jq
     killall
@@ -179,22 +183,29 @@
     nix-ld
     nmap
     nodejs_22
-    onefetch
+    ouch
+    pass
+    passh
     phinger-cursors
     pinentry-curses
     podman-compose
     powertop
     pueue
     qmk
-    qmk_hid
     qmk-udev-rules
+    qmk_hid
     ripgrep
+    rm-improved
+    starship
     tealdeer
     unzip
+    wget
+    wl-clipboard
+    xclip
     xcp
     xfce.thunar
     xfce.tumbler
-    yazi
+    zellij
     zoxide
     # package managers
     flatpak
@@ -230,11 +241,14 @@
     iwgtk
     libnotify
     nushell
+    onefetch
     qt6ct
+    serie
     swaylock
     swaynotificationcenter
     waybar
     wofi
+    yazi
   ]);
 
   hardware.keyboard.qmk.enable = true;

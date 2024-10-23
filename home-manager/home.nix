@@ -32,16 +32,13 @@ in
 
     packages = (with pkgs; [
       bitwarden
-      bitwarden-cli
       blueman
       cinnamon.warpinator
-      delta
       ferdium
       gimp-with-plugins
       git-extras
       git-credential-manager
       github-desktop
-      glow
       helix
       hyperfine
       imagemagick
@@ -50,8 +47,8 @@ in
       libreoffice
       lua53Packages.lua
       lynx
+      meld
       mermaid-cli
-      navi
       nixd
       nwg-look
       obs-studio
@@ -102,26 +99,17 @@ in
       nil
       niv
       nixpkgs-fmt
-      ouch
-      pass
-      passh
       php83
       poetry
       poetryPlugins.poetry-plugin-up
       poetryPlugins.poetry-plugin-export
       poetryPlugins.poetry-audit-plugin
       pre-commit
-      rm-improved
       rustup
-      starship
       stylua
       tree-sitter
       uv
-      wget
-      wl-clipboard
       xarchiver
-      xclip
-      zellij
       # Language Server Protocols
       elixir-ls
       fortls
@@ -134,7 +122,6 @@ in
     ]) ++ (with unstablePkgs; [
       vimPlugins.mason-lspconfig-nvim
       obsidian
-      jujutsu
       ruff
       rye
       zed-editor
@@ -244,6 +231,7 @@ in
       "lazygit".source = ./dotfiles/.config/lazygit;
       "wezterm".source = ./dotfiles/.config/wezterm;
       "hg".source = ./dotfiles/.config/hg;
+      "yazi".source = ./dotfiles/.config/yazi;
       "stylua.toml".source = ./dotfiles/.config/stylua.toml;
       "electron-flags.conf".source = ./dotfiles/.config/electron-flags.conf;
     };
