@@ -1,9 +1,10 @@
-{ inputs
-, lib
-, config
-, pkgs
-, unstablePkgs
-, ...
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  unstablePkgs,
+  ...
 }: {
   imports = [
     # Include the results of the hardware scan.
@@ -72,18 +73,18 @@
 
   # Add each flake input as a registry
   # This makes nix3 commands consistent with your flake
-  nix.registry = (lib.mapAttrs (_: flake: { inherit flake; })) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
+  nix.registry = (lib.mapAttrs (_: flake: {inherit flake;})) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
 
   # This will additionally add the inputs to the system's legacy channels
   # Making legacy nix commands consistent as well
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
   environment.etc =
     lib.mapAttrs'
-      (name: value: {
-        name = "nix/path/${name}";
-        value.source = value.flake;
-      })
-      config.nix.registry;
+    (name: value: {
+      name = "nix/path/${name}";
+      value.source = value.flake;
+    })
+    config.nix.registry;
 
   nix.settings = {
     # Enable flakes and new 'nix' command
@@ -95,7 +96,7 @@
   # Load nvidia driver for Xorg and Wayland
   services = {
     xserver = {
-      videoDrivers = [ "nvidia" ]; # or "nvidiaLegacy470 etc.
+      videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
       enable = true;
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = false;
@@ -131,7 +132,7 @@
     isNormalUser = true;
     hashedPasswordFile = "/etc/hashedPasswordFile";
     description = "Cian Hughes";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     shell = unstablePkgs.nushell;
   };
   # # The hack below sets the user profile image declaratively
@@ -149,108 +150,110 @@
   '';
 
   # $ nix search wget
-  environment.systemPackages = (with pkgs; [
-    # shell env programs
-    atuin
-    bat
-    bitwarden-cli
-    bottom
-    delta
-    du-dust
-    duf
-    fastfetch
-    fd
-    fzf
-    gh
-    git
-    git-extras
-    glab
-    glow
-    gnome.gdm
-    gnome.seahorse
-    gnupg
-    grub2_efi
-    gvfs
-    hexyl
-    initool
-    jq
-    killall
-    less
-    libsecret
-    mosh
-    netcat-gnu
-    nix-index
-    nix-ld
-    nmap
-    nodejs_22
-    ouch
-    pass
-    passh
-    phinger-cursors
-    pinentry-curses
-    podman-compose
-    powertop
-    pueue
-    qmk
-    qmk-udev-rules
-    qmk_hid
-    ripgrep
-    rm-improved
-    starship
-    tealdeer
-    unzip
-    wget
-    wl-clipboard
-    xclip
-    xcp
-    xfce.thunar
-    xfce.tumbler
-    zellij
-    zoxide
-    # package managers
-    flatpak
-    # fonts
-    corefonts
-    liberation_ttf
-    monaspace
-    nerdfonts
-    nerd-font-patcher
-    noto-fonts
-    noto-fonts-color-emoji
-    vistafonts
-    winePackages.fonts
-    # front-end dev environment
-    kitty
-    micro
-    # DE and accompanying tools
-    wayland
-    wayland-utils
-    sway
-    hyprland
-    hyprcursor
-    hyprlock
-    hyprpaper
-    hyprpicker
-    hyprshot
-    xdg-desktop-portal-hyprland
-    xdg-desktop-portal-wlr
-    xdg-desktop-portal-gtk
-    xdg-desktop-portal-xapp
-  ]) ++ (with unstablePkgs; [
-    neovim
-    iwgtk
-    libllvm
-    libnotify
-    nushell
-    onefetch
-    qt6ct
-    serie
-    swaylock
-    swaynotificationcenter
-    waybar
-    wofi
-    yazi
-  ]);
+  environment.systemPackages =
+    (with pkgs; [
+      # shell env programs
+      atuin
+      bat
+      bitwarden-cli
+      bottom
+      delta
+      du-dust
+      duf
+      fastfetch
+      fd
+      fzf
+      gh
+      git
+      git-extras
+      glab
+      glow
+      gnome.gdm
+      gnome.seahorse
+      gnupg
+      grub2_efi
+      gvfs
+      hexyl
+      initool
+      jq
+      killall
+      less
+      libsecret
+      mosh
+      netcat-gnu
+      nix-index
+      nix-ld
+      nmap
+      nodejs_22
+      ouch
+      pass
+      passh
+      phinger-cursors
+      pinentry-curses
+      podman-compose
+      powertop
+      pueue
+      qmk
+      qmk-udev-rules
+      qmk_hid
+      ripgrep
+      rm-improved
+      starship
+      tealdeer
+      unzip
+      wget
+      wl-clipboard
+      xclip
+      xcp
+      xfce.thunar
+      xfce.tumbler
+      zellij
+      zoxide
+      # package managers
+      flatpak
+      # fonts
+      corefonts
+      liberation_ttf
+      monaspace
+      nerdfonts
+      nerd-font-patcher
+      noto-fonts
+      noto-fonts-color-emoji
+      vistafonts
+      winePackages.fonts
+      # front-end dev environment
+      kitty
+      micro
+      # DE and accompanying tools
+      wayland
+      wayland-utils
+      sway
+      hyprland
+      hyprcursor
+      hyprlock
+      hyprpaper
+      hyprpicker
+      hyprshot
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-wlr
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-xapp
+    ])
+    ++ (with unstablePkgs; [
+      neovim
+      iwgtk
+      libllvm
+      libnotify
+      nushell
+      onefetch
+      qt6ct
+      serie
+      swaylock
+      swaynotificationcenter
+      waybar
+      wofi
+      yazi
+    ]);
 
   hardware.keyboard.qmk.enable = true;
 
@@ -261,7 +264,7 @@
   };
   programs.sway = {
     enable = true;
-    extraOptions = [ "--unsupported-gpu" ];
+    extraOptions = ["--unsupported-gpu"];
   };
   programs.waybar.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -301,13 +304,12 @@
   systemd.services.pueued = {
     enable = true;
     description = "Pueue Daemon - CLI process scheduler and manager";
-    wantedBy = [ "default.target" ];
+    wantedBy = ["default.target"];
     serviceConfig = {
       Restart = "no";
       ExecStart = "${pkgs.pueue.outPath}/bin/pueued -vv";
     };
   };
-
 
   # Enable GPG signing
   services.gnome.gnome-keyring.enable = true;
@@ -343,9 +345,9 @@
 
     fontconfig = {
       defaultFonts = {
-        serif = [ "NotoSerifNerdFont" ];
-        sansSerif = [ "NotoSansNerdFont" ];
-        monospace = [ "MonaspiceArNerdFontMono" ];
+        serif = ["NotoSerifNerdFont"];
+        sansSerif = ["NotoSansNerdFont"];
+        monospace = ["MonaspiceArNerdFontMono"];
       };
     };
   };

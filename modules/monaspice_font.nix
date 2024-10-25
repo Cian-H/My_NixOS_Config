@@ -1,4 +1,7 @@
-{ stdenv, pkgs }:
+{
+  stdenv,
+  pkgs,
+}:
 stdenv.mkDerivation {
   name = "monaspace-nerd-font";
   src = pkgs.fetchurl {

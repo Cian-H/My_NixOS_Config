@@ -1,17 +1,16 @@
 # This Is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{ inputs
-, outputs
-, lib
-, config
-, pkgs
-, unstablePkgs
-, ...
-}:
-let
-  monaspaceFont = pkgs.callPackage ../modules/monaspice_font.nix { };
-in
 {
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  unstablePkgs,
+  ...
+}: let
+  monaspaceFont = pkgs.callPackage ../modules/monaspice_font.nix {};
+in {
   # You can import other home-manager modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
@@ -30,105 +29,108 @@ in
     username = "cianh";
     homeDirectory = "/home/cianh";
 
-    packages = (with pkgs; [
-      alejandra
-      bitwarden
-      blueman
-      cinnamon.warpinator
-      ferdium
-      gimp-with-plugins
-      git-extras
-      git-credential-manager
-      github-desktop
-      helix
-      hyperfine
-      imagemagick
-      inkscape-with-extensions
-      krita
-      libreoffice
-      lua53Packages.lua
-      lynx
-      meld
-      mermaid-cli
-      nixd
-      nwg-look
-      obs-studio
-      pandoc
-      pavucontrol
-      podman-desktop
-      podman-tui
-      qimgv
-      slack
-      smile
-      spotify
-      vscode
-      zathura
-      zettlr
-      # theming
-      phinger-cursors
-      tokyonight-gtk-theme
-      # kitty extensions
-      kitty-img
-      kitty-themes
-      # Python packages
-      (python3.withPackages (
-        python-pkgs: [
-          python-pkgs.pip
-          python-pkgs.pkginfo
-          python-pkgs.python-lsp-server
-          python-pkgs.pynvim
-          python-pkgs.setuptools
-        ]
-      ))
-      # Backend dev tools
-      brotli
-      cmake
-      elixir
-      erlang_26
-      evcxr
-      fortran-fpm
-      gcc
-      # gfortran
-      gleam
-      gnumake
-      go
-      julia
-      lazygit
-      luajitPackages.luarocks
-      mypy
-      niv
-      php83
-      poetry
-      poetryPlugins.poetry-plugin-up
-      poetryPlugins.poetry-plugin-export
-      poetryPlugins.poetry-audit-plugin
-      pre-commit
-      rustup
-      stylua
-      tree-sitter
-      uv
-      xarchiver
-      # Language Server Protocols
-      elixir-ls
-      fortls
-      nodePackages_latest.bash-language-server
-      lua-language-server
-      ruff-lsp
-      # rust-analyzer
-      taplo
-      yaml-language-server
-    ]) ++ (with unstablePkgs; [
-      vimPlugins.mason-lspconfig-nvim
-      obsidian
-      ruff
-      rye
-      steam-run-free
-      zed-editor
-      zotero
-    ]) ++ [
-      monaspaceFont
-      inputs.zen-browser.packages.x86_64-linux.specific
-    ];
+    packages =
+      (with pkgs; [
+        alejandra
+        bitwarden
+        blueman
+        cinnamon.warpinator
+        ferdium
+        gimp-with-plugins
+        git-extras
+        git-credential-manager
+        github-desktop
+        helix
+        hyperfine
+        imagemagick
+        inkscape-with-extensions
+        krita
+        libreoffice
+        lua53Packages.lua
+        lynx
+        meld
+        mermaid-cli
+        nixd
+        nwg-look
+        obs-studio
+        pandoc
+        pavucontrol
+        podman-desktop
+        podman-tui
+        qimgv
+        slack
+        smile
+        spotify
+        vscode
+        zathura
+        zettlr
+        # theming
+        phinger-cursors
+        tokyonight-gtk-theme
+        # kitty extensions
+        kitty-img
+        kitty-themes
+        # Python packages
+        (python3.withPackages (
+          python-pkgs: [
+            python-pkgs.pip
+            python-pkgs.pkginfo
+            python-pkgs.python-lsp-server
+            python-pkgs.pynvim
+            python-pkgs.setuptools
+          ]
+        ))
+        # Backend dev tools
+        brotli
+        cmake
+        elixir
+        erlang_26
+        evcxr
+        fortran-fpm
+        gcc
+        # gfortran
+        gleam
+        gnumake
+        go
+        julia
+        lazygit
+        luajitPackages.luarocks
+        mypy
+        niv
+        php83
+        poetry
+        poetryPlugins.poetry-plugin-up
+        poetryPlugins.poetry-plugin-export
+        poetryPlugins.poetry-audit-plugin
+        pre-commit
+        rustup
+        stylua
+        tree-sitter
+        uv
+        xarchiver
+        # Language Server Protocols
+        elixir-ls
+        fortls
+        nodePackages_latest.bash-language-server
+        lua-language-server
+        ruff-lsp
+        # rust-analyzer
+        taplo
+        yaml-language-server
+      ])
+      ++ (with unstablePkgs; [
+        vimPlugins.mason-lspconfig-nvim
+        obsidian
+        ruff
+        rye
+        steam-run-free
+        zed-editor
+        zotero
+      ])
+      ++ [
+        monaspaceFont
+        inputs.zen-browser.packages.x86_64-linux.specific
+      ];
   };
 
   programs = {
