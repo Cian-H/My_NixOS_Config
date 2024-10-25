@@ -31,6 +31,7 @@ in
     homeDirectory = "/home/cianh";
 
     packages = (with pkgs; [
+      alejandra
       bitwarden
       blueman
       cinnamon.warpinator
@@ -60,7 +61,6 @@ in
       slack
       smile
       spotify
-      steam-run
       vscode
       zathura
       zettlr
@@ -96,9 +96,7 @@ in
       lazygit
       luajitPackages.luarocks
       mypy
-      nil
       niv
-      nixpkgs-fmt
       php83
       poetry
       poetryPlugins.poetry-plugin-up
@@ -124,6 +122,7 @@ in
       obsidian
       ruff
       rye
+      steam-run-free
       zed-editor
       zotero
     ]) ++ [

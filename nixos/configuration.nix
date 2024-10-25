@@ -76,7 +76,7 @@
 
   # This will additionally add the inputs to the system's legacy channels
   # Making legacy nix commands consistent as well
-  nix.nixPath = [ "/etc/nix/path" ];
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
   environment.etc =
     lib.mapAttrs'
       (name: value: {
@@ -239,6 +239,7 @@
   ]) ++ (with unstablePkgs; [
     neovim
     iwgtk
+    libllvm
     libnotify
     nushell
     onefetch
