@@ -222,7 +222,6 @@
       vistafonts
       winePackages.fonts
       # front-end dev environment
-      kitty
       micro
       # DE and accompanying tools
       wayland
@@ -242,6 +241,7 @@
     ++ (with unstablePkgs; [
       neovim
       iwgtk
+      kitty
       libllvm
       libnotify
       nushell

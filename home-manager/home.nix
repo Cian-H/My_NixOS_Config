@@ -67,9 +67,6 @@ in {
         # theming
         phinger-cursors
         tokyonight-gtk-theme
-        # kitty extensions
-        kitty-img
-        kitty-themes
         # Python packages
         (python3.withPackages (
           python-pkgs: [
@@ -126,6 +123,9 @@ in {
         rye
         zed-editor
         zotero
+        # kitty extensions
+        kitty-img
+        kitty-themes
       ])
       ++ [
         monaspaceFont
