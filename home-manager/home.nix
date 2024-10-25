@@ -104,6 +104,7 @@ in {
         poetryPlugins.poetry-audit-plugin
         pre-commit
         rustup
+        steam-run
         stylua
         tree-sitter
         uv
@@ -123,7 +124,6 @@ in {
         obsidian
         ruff
         rye
-        steam-run-free
         zed-editor
         zotero
       ])
