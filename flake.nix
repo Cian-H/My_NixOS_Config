@@ -12,7 +12,7 @@
     # add phinger hyprcursor flake
     hyprcursor-phinger.url = "github:jappie3/hyprcursor-phinger";
     # add zen browser flake
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
+    zen-browser.url = "github:ch4og/zen-browser-flake";
   };
 
   outputs = {
