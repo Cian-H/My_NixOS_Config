@@ -104,7 +104,6 @@ in {
         steam-run
         stylua
         tree-sitter
-        uv
         xarchiver
         # Language Server Protocols
         elixir-ls
@@ -120,7 +119,7 @@ in {
         vimPlugins.mason-lspconfig-nvim
         obsidian
         ruff
-        rye
+        uv
         zed-editor
         zotero
         # kitty extensions
