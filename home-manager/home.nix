@@ -110,7 +110,6 @@ in {
         fortls
         nodePackages_latest.bash-language-server
         lua-language-server
-        ruff-lsp
         # rust-analyzer
         taplo
         yaml-language-server
@@ -118,8 +117,6 @@ in {
       ++ (with unstablePkgs; [
         vimPlugins.mason-lspconfig-nvim
         obsidian
-        ruff
-        uv
         zed-editor
         zotero
         # kitty extensions

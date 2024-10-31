@@ -247,9 +247,11 @@
       nushell
       onefetch
       qt6ct
+      ruff
       serie
       swaylock
       swaynotificationcenter
+      uv
       waybar
       wofi
       yazi
