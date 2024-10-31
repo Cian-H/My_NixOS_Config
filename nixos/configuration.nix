@@ -293,7 +293,34 @@
   # Lets also activate some handy devenv tools
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
-  programs.nix-ld.enable = true;
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      acl
+      alsa-lib
+      at-spi2-core
+      attr
+      bzip2
+      curl
+      dbus
+      expat
+      glib
+      libsodium
+      libssh
+      libxml2
+      nspr
+      nss
+      openssl
+      pango
+      stdenv.cc
+      systemd
+      util-linux
+      vulkan-loader
+      xz
+      zlib
+      zstd
+    ];
+  };
 
   # Enable flatpaks
   services.flatpak.enable = true;
