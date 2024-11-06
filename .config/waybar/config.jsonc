@@ -1,0 +1,227 @@
+[{
+    "output": "!DP-6",
+    "layer": "top",
+    "position": "top",
+    "height": 43,
+    "margin-top": 6,
+    "margin-left": 6,
+    "margin-right": 6,
+    "margin-bottom": 0,
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["wireplumber", "temperature", "cpu", "memory", "hyprland/language", "battery", "network", "custom/notification"],
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "disable-markup": false,
+        "format": "{icon}",
+        "format-icons": {
+            "1":  "<b>1</b> ",
+            "2":  "<b>2</b> ",
+            "3":  "<b>3</b> ",
+            "4":  "<b>4</b> ",
+            "5":  "<b>5</b> ",
+            "6":  "<b>6</b> ",
+            "7":  "<b>7</b> ",
+            "8":  "<b>8</b> ",
+            "9":  "<b>9</b> ",
+            "10": "<b>0</b> "
+        }
+    },
+    "hyprland/window": {
+        "max-length": 60,
+        "tooltip": false
+    },
+    "hyprland/language": {
+        "format": {},
+        "format-en": "",
+        "format-ie": "󰠖",
+        "on-click": "$HOME/.config/hypr/utils/cycle_kb_layout -c ../inputs.conf -l ../kb_layouts.txt"
+    },
+    "clock": {
+        "format": "<b>{:%a %d %b - %H:%M}</b>",
+        "tooltip": true,
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+    "cpu": {
+        "interval": 5,
+    "format": "︁ <b>{usage:02}%</b>",
+        "max-length": 10
+    },
+    "memory": {
+        "interval": 15,
+        "format": "󰍛 <b>{used:0.1f}G/{total:0.1f}G</b>",
+        "tooltip": false
+    },
+    "battery": {
+        "format": "<span style=icon>{icon}</span>",
+        "format-icons": ["", "", "", "", ""],
+        "format-time": "({H}h{M}m)",
+        "format-charging": "{icon}",
+        "format-full": "",
+        "interval": 15,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "tooltip": true
+    },
+    "network": {
+        "format": "{icon}",
+        "format-alt": "󰩠 <b>{ipaddr}/{cidr}</b> {icon}",
+        "format-alt-click": "click-left",
+        "format-wifi": " <b>{essid} ({signalStrength}%)</b>",
+        "format-ethernet": "󰈀 <b>{ifname}</b>",
+        "format-disconnected": "⚠ Disconnected",
+        "tooltip": false
+    },
+    "wireplumber": {
+        "format": "{icon} <b>{volume}%</b>",
+        "format-muted": "󰝟",
+        "format-icons": [ "", "", "" ],
+        "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol",
+    },
+    "temperature": {
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 75,
+        "interval": 5,
+        "format": "{icon} <b>{temperatureC}°</b>",
+        "tooltip": false,
+        "format-icons": [
+            "", // Icon: temperature-empty
+            "", // Icon: temperature-quarter
+            "", // Icon: temperature-half
+            "", // Icon: temperature-three-quarters
+            ""  // Icon: temperature-full
+        ]
+    },
+    "custom/notification": { // This button allows access to the swaync panel
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "<span foreground='red'><sup></sup></span>",
+            "none": "",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": "",
+            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    }
+}, {
+    "output": "DP-6",
+    "layer": "top",
+    "position": "top",
+    "height": 43,
+    "margin-top": 6,
+    "margin-left": 6,
+    "margin-right": 6,
+    "margin-bottom": 0,
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["wireplumber", "hyprland/language", "custom/notification"],
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "disable-markup": false,
+        "format": "{icon}",
+        "format-icons": {
+            "1":  "<b>1</b> ",
+            "2":  "<b>2</b> ",
+            "3":  "<b>3</b> ",
+            "4":  "<b>4</b> ",
+            "5":  "<b>5</b> ",
+            "6":  "<b>6</b> ",
+            "7":  "<b>7</b> ",
+            "8":  "<b>8</b> ",
+            "9":  "<b>9</b> ",
+            "10": "<b>0</b> "
+        }
+    },
+    "hyprland/language": {
+        "format": {},
+        "format-en": "  ",
+        "format-ie": " 󰠖 ",
+        "on-click": "$HOME/.config/hypr/utils/cycle_kb_layout -c ../inputs.conf -l ../kb_layouts.txt"
+    },
+    "clock": {
+        "format": "<b>{:%a %d %b - %H:%M}</b>",
+        "tooltip": true,
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+    "wireplumber": {
+        "format": "{icon} ",
+        "format-muted": "󰝟",
+        "format-icons": [ "", "", "" ],
+        "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "org.pipewire.Helvum",
+    },
+    "custom/notification": { // This button allows access to the swaync panel
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "<span foreground='red'><sup></sup></span>",
+            "none": "",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": "",
+            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    }
+}]

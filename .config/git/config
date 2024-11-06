@@ -1,0 +1,29 @@
+[user]
+	name = Cian Hughes
+	email = chughes000@gmail.com
+[init]
+	defaultBranch = "main"
+[credential]
+	helper = manager
+    credentialStore = gpg
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+    pager = delta
+[diff]
+    tool = delta
+[difftool]
+    prompt = false
+    trustExitCode = true
+[merge]
+    conflictstyle = diff3
+    tool = meld
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true
+    line-numbers = true
+    side-by-side = true
