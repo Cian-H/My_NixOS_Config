@@ -71,13 +71,18 @@
     LC_TIME = "en_IE.UTF-8";
   };
 
-  # Add each flake input as a registry
-  # This makes nix3 commands consistent with your flake
-  nix.registry = (lib.mapAttrs (_: flake: {inherit flake;})) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
+  nix = {
+    registry = (lib.mapAttrs (_: flake: {inherit flake;})) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
+    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+    settings = {
+      experimental-features = "nix-command flakes";
+      auto-optimise-store = true;
+    };
+    extraOptions = ''
+      trusted-users = root cianh
+    '';
+  };
 
-  # This will additionally add the inputs to the system's legacy channels
-  # Making legacy nix commands consistent as well
-  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
   environment.etc =
     lib.mapAttrs'
     (name: value: {
@@ -85,13 +90,6 @@
       value.source = value.flake;
     })
     config.nix.registry;
-
-  nix.settings = {
-    # Enable flakes and new 'nix' command
-    experimental-features = "nix-command flakes";
-    # Deduplicate and optimize nix store
-    auto-optimise-store = true;
-  };
 
   # Load nvidia driver for Xorg and Wayland
   services = {
@@ -132,7 +130,7 @@
     isNormalUser = true;
     hashedPasswordFile = "/etc/hashedPasswordFile";
     description = "Cian Hughes";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "libvirtd"];
     shell = unstablePkgs.nushell;
   };
   # # The hack below sets the user profile image declaratively
@@ -239,6 +237,7 @@
       xdg-desktop-portal-xapp
     ])
     ++ (with unstablePkgs; [
+      devenv
       neovim
       iwgtk
       kitty
@@ -361,7 +360,10 @@
       # Required for containers under podman-compose to be able to talk to each other.
       defaultNetwork.settings.dns_enabled = true;
     };
+
+    libvirtd.enable = true;
   };
+  programs.virt-manager.enable = true;
 
   system.stateVersion = "23.11"; # Did you read the comment?
   system.autoUpgrade.enable = true;
