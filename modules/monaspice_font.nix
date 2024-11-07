@@ -16,7 +16,7 @@ stdenv.mkDerivation {
   '';
 
   installPhase = ''
-    find $out/share/fonts -name '*.ttf' -exec mv {} $out/share/fonts/truetype \;
-    find $out/share/fonts -name '*.otf' -exec mv {} $out/share/fonts/opentype \;
+    find $out/share/fonts -name '*.ttf' -exec mv {} $out/share/fonts/truetype/ \;
+    find $out/share/fonts -name '*.otf' -exec mv {} $out/share/fonts/opentype/ \;
   '';
 }

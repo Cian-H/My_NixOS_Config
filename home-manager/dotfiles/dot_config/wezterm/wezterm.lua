@@ -5,6 +5,7 @@ config.enable_wayland = false
 config.default_prog = { "nu" }
 config.color_scheme = "Tokyo Night"
 config.enable_kitty_keyboard = true
+config.font = wezterm.font("MonaspiceNeNerdFontMono")
 config.font_size = 16
 
 return config
