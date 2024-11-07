@@ -90,7 +90,7 @@
         "format": "{icon}",
         "format-alt": "󰩠 <b>{ipaddr}/{cidr}</b> {icon}",
         "format-alt-click": "click-left",
-        "format-wifi": " <b>{essid} ({signalStrength}%)</b>",
+        "format-wifi": "  <b>{essid} ({signalStrength}%)</b>",
         "format-ethernet": "󰈀 <b>{ifname}</b>",
         "format-disconnected": "⚠ Disconnected",
         "tooltip": false
