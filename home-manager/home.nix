@@ -217,6 +217,7 @@ in {
       };
       "kitty".source = ./dotfiles/dot_config/kitty;
       "micro".source = ./dotfiles/dot_config/micro;
+      "neovide".source = ./dotfiles/dot_config/neovide;
       "glow".source = ./dotfiles/dot_config/glow;
       "glamour".source = ./dotfiles/dot_config/glamour;
       "starship.toml".source = ./dotfiles/dot_config/starship.toml;
