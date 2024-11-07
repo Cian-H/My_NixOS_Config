@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<submenu></submenu>
+	<unique-id>1723548740136882-1</unique-id>
+	<command>kitty -d %f</command>
+	<description>Open terminal in current directory</description>
+	<range></range>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>text-x-script</icon>
+	<name>Open Neovim Here</name>
+	<submenu></submenu>
+	<unique-id>1723551422453301-1</unique-id>
+	<command>kitty -d %f nvim</command>
+	<description>Start an instance of neovim running in this directory</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>text-x-script</icon>
+	<name>Open in Neovim</name>
+	<submenu></submenu>
+	<unique-id>1723551959204741-2</unique-id>
+	<command>kitty -d %D nvim %f</command>
+	<description>Open the selected file in Neovim</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<other-files/>
+	<text-files/>
+</action>
+</actions>

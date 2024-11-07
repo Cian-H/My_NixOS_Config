@@ -1,0 +1,214 @@
+/* Define constants for stylesheet */
+@define-color base           rgb(26, 27, 38);
+@define-color text-color     #7aa2f7;
+@define-color text-color-2   rgba(169, 177, 214, 1);
+@define-color urgent         #b02c36;
+@define-color primary_orange #fe9000;
+@define-color primary_yellow #ffdd4a;
+@define-color primary_red    #da1b2b;
+@define-color primary_blue   #afd2e9;
+@define-color primary_blue_2 #6fadd6;
+
+@keyframes blink-warning {
+    70% {
+        color: white;
+    }
+
+    to {
+        color: white;
+        background-color: orange;
+    }
+}
+
+@keyframes blink-critical {
+    70% {
+      color: white;
+    }
+
+    to {
+        color: white;
+        background-color: red;
+    }
+}
+
+/* Base style */
+* {
+    font-family: "MonaspaceArgon Nerd Font, Bold", Cantarell, Noto Sans, sans-serif;
+    font-size: 16px;
+    border: none;
+    border-radius: 0;
+    margin: 1px;
+    min-height: 0;
+    padding: 0;
+    background: transparent;
+}
+
+tooltip {
+     border-radius: 8px;
+     background-color: @base;
+}
+
+.modules-center {
+    color: @text-color-2;
+}
+
+/* Custom font size for builtin display */
+window.eDP-1 * { font-size: 12px; }
+
+#window {
+    padding: 0 8px;
+}
+
+#waybar {
+    background: transparent;
+    color: @text-color;
+    background-color: @base;
+    font-family: "MonaspaceArgon Nerd Font";
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+#workspaces {
+    margin-top: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-bottom: 0;
+}
+
+#workspaces button {
+    padding: 0 4px;
+    color: #565f89;
+    border: 2px solid rgba(9, 85, 225, 0);
+    border-radius: 10px;
+    min-width: 56px;
+}
+
+#workspaces button.visible {
+    color: #34548a;
+}
+
+#workspaces button.urgent {
+    background-color: #a96d1f;
+    color: white;
+}
+
+#workspaces button:hover {
+    box-shadow: inherit;
+    border-color: #bb9af7;
+    color: #bb9af7;
+}
+
+#workspaces button.active {
+    color: @text-color;
+}
+
+#workspaces button {
+    border-bottom: 3px solid @primary_blue_2;
+    margin-bottom: 0px;
+    padding:0px;
+}
+
+#workspaces button.focused {
+    border-bottom: 3px solid  @primary_yellow;
+    margin-bottom: 0px;
+    padding-left:0;
+}
+
+#workspaces button.urgent {
+    border-color: @primary_red;
+    color: @primary_red;
+}
+
+/* Shared theming for widgets */
+#tray,
+#mode,
+#battery,
+#temperature,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#idle_inhibitor,
+#sway-language,
+#backlight,
+#custom-storage,
+#custom-cpu_speed,
+#custom-powermenu,
+#custom-spotify,
+#custom-weather,
+#custom-mail,
+#custom-media,
+#hyprland-language,
+#custom-notification {
+    padding:0.5rem 0.6rem;
+    margin: 1px 0px;
+    /* border-top: 3px solid rgba(217, 216, 216, 0.5); */
+}
+
+/* Widget specific theming */
+#battery {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.warning {
+    color: @primary_orange;
+}
+
+#battery.critical {
+    color: @primary_red;
+}
+
+#battery.warning.discharging {
+    animation-name: blink-warning;
+    animation-duration: 3s;
+}
+
+#battery.critical.discharging {
+    animation-name: blink-critical;
+    animation-duration: 2s;
+}
+
+#cpu.warning {
+    color: @primary_orange;
+}
+
+#cpu.critical {
+    color: @primary_red;
+}
+
+#memory {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#memory.warning {
+    color: @primary_orange;
+ }
+
+#memory.critical {
+    color: red;
+    animation-name: blink-critical;
+    animation-duration: 2s;
+    padding-left:5px;
+    padding-right:5px;
+}
+
+#network.disconnected {
+    color: @primary_orange;
+}
+
+#wireplumber.muted {
+    color: @primary_yellow;
+}
+
+#temperature.critical {
+    color: red;
+}
+
+#window {
+    font-weight: bold;
+}
+
