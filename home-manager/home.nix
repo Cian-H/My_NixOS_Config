@@ -46,7 +46,6 @@ in {
         inkscape-with-extensions
         krita
         libreoffice
-        lua54Packages.lua
         lynx
         meld
         mermaid-cli
@@ -91,6 +90,7 @@ in {
         go
         julia
         lazygit
+        lua54Packages.lua
         luajitPackages.luarocks
         mypy
         niv
