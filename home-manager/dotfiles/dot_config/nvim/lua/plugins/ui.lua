@@ -79,6 +79,7 @@ return { -- UI components and other visual elements are declared here
             end, 5)
         end,
     },
+    -- Modular, configurable status bar
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -142,6 +143,7 @@ return { -- UI components and other visual elements are declared here
         event = "VeryLazy",
         dependencies = { "zbirenbaum/copilot.lua" },
     },
+    -- Assistant for refreshers on vim motions
     {
         "tris203/precognition.nvim",
         keys = require("config.keys").precognition,

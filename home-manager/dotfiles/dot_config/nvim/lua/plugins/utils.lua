@@ -7,7 +7,8 @@ return { -- General programming utilities go here
             override = function(root_dir, library)
                 if
                     root_dir:find(
-                        os.getenv("XDG_CONFIG_HOME") .. "/nix/home-manager/dotfiles/.config/nvim/",
+                        os.getenv("XDG_CONFIG_HOME")
+                            .. "/nix/home-manager/dotfiles/dot_config/nvim/",
                         1,
                         true
                     ) == 1

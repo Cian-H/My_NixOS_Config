@@ -34,6 +34,8 @@ return { -- Non programming quality of life utilities go here
             "echasnovski/mini.nvim",
             "nvim-tree/nvim-web-devicons",
         },
+        ---@module 'render-markdown'
+        ---@type render.md.UserConfig
     },
     { -- A cheatsheet will always be useful until im a bit more familiar with vim
         "sudormrfbin/cheatsheet.nvim",
