@@ -46,7 +46,7 @@ in {
         inkscape-with-extensions
         krita
         libreoffice
-        lua53Packages.lua
+        lua54Packages.lua
         lynx
         meld
         mermaid-cli
