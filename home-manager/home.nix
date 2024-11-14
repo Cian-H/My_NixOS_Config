@@ -89,7 +89,6 @@ in {
         gnumake
         go
         julia
-        lazygit
         lua54Packages.lua
         luajitPackages.luarocks
         mypy
@@ -115,6 +114,7 @@ in {
         yaml-language-server
       ])
       ++ (with unstablePkgs; [
+        lazygit
         vimPlugins.mason-lspconfig-nvim
         obsidian
         zed-editor
