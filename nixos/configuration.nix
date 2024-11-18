@@ -170,10 +170,7 @@
       gnome.seahorse
       gnupg
       grub2_efi
-      gvfs
       hexyl
-      initool
-      jq
       killall
       less
       libsecret
@@ -182,7 +179,6 @@
       nix-index
       nix-ld
       nmap
-      nodejs_22
       ouch
       pass
       passh
@@ -198,7 +194,6 @@
       rm-improved
       starship
       tealdeer
-      unzip
       wget
       wl-clipboard
       xclip
@@ -219,12 +214,17 @@
       noto-fonts-color-emoji
       vistafonts
       winePackages.fonts
+      # back-end dev tools
+      brotli
+      gcc
+      gnumake
+      nodejs_22
       # front-end dev environment
       micro
       # DE and accompanying tools
       wayland
       wayland-utils
-      sway
+      sway # More stable, backup DE
       hyprland
       hyprcursor
       hyprlock
@@ -239,16 +239,12 @@
     ++ (with unstablePkgs; [
       devenv
       neovim
-      iwgtk
       kitty
-      libllvm
       libnotify
       nushell
       onefetch
-      qt6ct
       ruff
       serie
-      swaylock
       swaynotificationcenter
       uv
       waybar

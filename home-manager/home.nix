@@ -48,7 +48,6 @@ in {
         libreoffice
         lynx
         meld
-        mermaid-cli
         nixd
         nwg-look
         obs-studio
@@ -60,7 +59,6 @@ in {
         slack
         smile
         spotify
-        vscode
         zathura
         zettlr
         # theming
@@ -77,22 +75,10 @@ in {
           ]
         ))
         # Backend dev tools
-        brotli
-        cmake
-        elixir
-        erlang_26
-        evcxr
-        fortran-fpm
-        gcc
-        # gfortran
-        gleam
-        gnumake
         go
-        julia
         lua54Packages.lua
         luajitPackages.luarocks
         mypy
-        niv
         php83
         poetry
         poetryPlugins.poetry-plugin-up
@@ -109,7 +95,6 @@ in {
         fortls
         nodePackages_latest.bash-language-server
         lua-language-server
-        # rust-analyzer
         taplo
         yaml-language-server
       ])
