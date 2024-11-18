@@ -6,7 +6,7 @@ stdenv.mkDerivation {
   name = "monaspace-nerd-font";
   src = pkgs.fetchurl {
     url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Monaspace.tar.xz";
-    sha256 = "sha256-5dLoGA1d8f5HO1mO2sX2fOOLHZBiSJNus4bdMyozg0Y=";
+    sha256 = "sha256-+uuQeCeioHrmTI+hpcpIzZ5gyQhKJMSNd5owz2vQaTo=";
   };
 
   unpackPhase = ''
