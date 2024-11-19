@@ -25,6 +25,11 @@ in {
     inputs.hyprcursor-phinger.homeManagerModules.hyprcursor-phinger
   ];
 
+  nix = {
+    package = pkgs.nix;
+    settings.experimental-features = ["nix-command" "flakes"];
+  };
+
   home = {
     username = "cianh";
     homeDirectory = "/home/cianh";
