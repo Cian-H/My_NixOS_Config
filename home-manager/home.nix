@@ -219,6 +219,7 @@ in {
       "git".source = ./dotfiles/dot_config/git;
       "lazygit".source = ./dotfiles/dot_config/lazygit;
       "wezterm".source = ./dotfiles/dot_config/wezterm;
+      "alacritty".source = ./dotfiles/dot_config/alacritty;
       "hg".source = ./dotfiles/dot_config/hg;
       "yazi".source = ./dotfiles/dot_config/yazi;
       "stylua.toml".source = ./dotfiles/dot_config/stylua.toml;
