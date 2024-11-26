@@ -64,8 +64,32 @@
           };
         };
         modules = [
-          # > Our main home-manager configuration file <
-          ./home-manager/home.nix
+          ./home-manager/worklaptop.nix
+        ];
+      };
+      "cianh@core" = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          # Home-manager requires 'pkgs' instance
+          system = "x86_64-linux";
+          config = {
+            allowUnfree = true;
+            # Workaround for https://github.com/nix-community/home-manager/issues/2942
+            allowUnfreePredicate = _: true;
+          };
+        };
+        extraSpecialArgs = {
+          inherit inputs outputs;
+          unstablePkgs = import nixpkgs-unstable {
+            # We also need to do the same for unstable
+            system = "x86_64-linux";
+            config = {
+              allowUnfree = true;
+              allowUnfreePredicate = _: true;
+            };
+          };
+        };
+        modules = [
+          ./home-manager/core.nix
         ];
       };
     };

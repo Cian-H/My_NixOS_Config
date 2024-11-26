@@ -1,5 +1,3 @@
-# This Is your home-manager configuration file
-# Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 {
   inputs,
   outputs,
@@ -11,17 +9,8 @@
 }: let
   monaspaceFont = pkgs.callPackage ../modules/monaspice_font.nix {};
 in {
-  # You can import other home-manager modules here
   imports = [
-    # If you want to use modules your own flake exports (from modules/home-manager):
-    # outputs.homeManagerModules.example
-
-    # Or modules exported from other flakes (such as nix-colors):
-    # inputs.nix-colors.homeManagerModules.default
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
-
+    ./dotfiles.nix
     inputs.hyprcursor-phinger.homeManagerModules.hyprcursor-phinger
   ];
 
@@ -144,38 +133,6 @@ in {
   home = {
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     stateVersion = "23.11";
-    file = {
-      ".bashrc".source = ./dotfiles/dot_bashrc;
-      "monaspice" = {
-        source = "${monaspaceFont}/share/fonts/";
-        target = ".local/share/fonts/";
-        recursive = true;
-      };
-      "nushell" = {
-        source = ./dotfiles/dot_config/nushell;
-        target = ".config/nushell";
-        recursive = true;
-      };
-      "nvim" = {
-        source = ./dotfiles/dot_config/nvim;
-        target = ".config/nvim";
-        recursive = true;
-      };
-      "pypoetry" = {
-        source = ./dotfiles/dot_config/pypoetry;
-        target = ".config/pypoetry";
-        recursive = true;
-      };
-      "Thunar" = {
-        source = ./dotfiles/dot_config/Thunar;
-        target = ".config/Thunar";
-      };
-      "rye" = {
-        source = ./dotfiles/dot_config/.rye;
-        target = ".config/.rye";
-        recursive = true;
-      };
-    };
   };
 
   xdg = {
