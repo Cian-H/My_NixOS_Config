@@ -10,7 +10,7 @@ style = "Beam"
 vi_mode_style = { shape = "Block", blinking = "Off" }
 unfocused_hollow = true
 
-[shell]
+[terminal.shell]
 program = "/usr/bin/env"
 args = ["nu"]
 
