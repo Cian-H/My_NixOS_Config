@@ -1,0 +1,83 @@
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  unstablePkgs,
+  ...
+}: {
+  home.packages =
+    (with pkgs; [
+      bitwarden
+      blueman
+      cinnamon.warpinator
+      ferdium
+      gimp-with-plugins
+      github-desktop
+      hyperfine
+      imagemagick
+      inkscape-with-extensions
+      krita
+      libreoffice
+      lynx
+      nixd
+      nwg-look
+      obs-studio
+      pandoc
+      pavucontrol
+      podman-desktop
+      podman-tui
+      qimgv
+      slack
+      smile
+      spotify
+      zathura
+      zettlr
+      # theming
+      phinger-cursors
+      tokyonight-gtk-theme
+      # Python packages
+      (python3.withPackages (
+        python-pkgs: [
+          python-pkgs.pip
+          python-pkgs.pkginfo
+          python-pkgs.python-lsp-server
+          python-pkgs.pynvim
+          python-pkgs.setuptools
+        ]
+      ))
+      # Backend dev tools
+      go
+      lua54Packages.lua
+      luajitPackages.luarocks
+      mypy
+      php83
+      poetry
+      poetryPlugins.poetry-plugin-up
+      poetryPlugins.poetry-plugin-export
+      poetryPlugins.poetry-audit-plugin
+      pre-commit
+      rustup
+      steam-run
+      stylua
+      tree-sitter
+      xarchiver
+      # Language Server Protocols
+      elixir-ls
+      fortls
+      nodePackages_latest.bash-language-server
+      lua-language-server
+      taplo
+      yaml-language-server
+    ])
+    ++ (with unstablePkgs; [
+      vimPlugins.mason-lspconfig-nvim
+      obsidian
+      zed-editor
+      zotero
+    ])
+    ++ [
+      inputs.zen-browser.packages.x86_64-linux.specific
+    ];
+}

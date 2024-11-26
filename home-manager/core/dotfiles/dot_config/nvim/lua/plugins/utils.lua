@@ -8,7 +8,7 @@ return { -- General programming utilities go here
                 if
                     root_dir:find(
                         os.getenv("XDG_CONFIG_HOME")
-                            .. "/nix/home-manager/dotfiles/dot_config/nvim/",
+                            .. "/nix/home-manager/core/dotfiles/dot_config/nvim/",
                         1,
                         true
                     ) == 1
