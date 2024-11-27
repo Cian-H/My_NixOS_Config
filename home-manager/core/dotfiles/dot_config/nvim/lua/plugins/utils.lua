@@ -22,10 +22,23 @@ return { -- General programming utilities go here
     -- Privilege escalation plugin
     { "lambdalisue/suda.vim", event = "VeryLazy" },
     {
+        "folke/trouble.nvim",
+        cmd = { "Trouble" },
+        opts = {
+            modes = {
+                lsp = {
+                    win = { position = "right" },
+                },
+            },
+        },
+        keys = require("config.keys").trouble,
+    },
+    {
         "folke/todo-comments.nvim",
+        cmd = { "TodoTrouble", "TodoTelescope" },
         event = "VimEnter",
         dependencies = { "nvim-lua/plenary.nvim" },
-        opts = { signs = false },
+        keys = require("config.keys").todo_comments,
     },
     "tpope/vim-fugitive", -- Also want to add fugitive, since it's apparently a great git plugin
     "jlfwong/vim-mercenary", -- Mercenary is the mercurial equivalent of fugitive
@@ -61,8 +74,9 @@ return { -- General programming utilities go here
         keys = require("config.keys").harpoon,
     },
     -- Snippets
-    { "SirVer/ultisnips", events = "VeryLazy" },
-    { "honza/vim-snippets", events = "VeryLazy" },
+    "SirVer/ultisnips",
+    "honza/vim-snippets",
+    "rafamadriz/friendly-snippets",
     { -- Package and devenv plugins
         "danymat/neogen",
         event = "VimEnter",

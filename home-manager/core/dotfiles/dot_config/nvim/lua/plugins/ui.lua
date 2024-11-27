@@ -7,6 +7,7 @@ return { -- UI components and other visual elements are declared here
             vim.cmd.colorscheme("tokyonight-night")
         end,
     },
+    { "MunifTanjim/nui.nvim", lazy = true },
     { -- Useful plugin to show you pending keybinds.
         "folke/which-key.nvim",
         event = "VimEnter",

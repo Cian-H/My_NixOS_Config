@@ -9,6 +9,7 @@ return {
         { "<leader>t", group = "[T]ree" },
         { "<leader>o", group = "[O]verseer" },
         { "<leader>h", group = "[H]arpoon" },
+        { "<leader>x", group = "[X] Trouble" },
         { "<leader>|", group = "[|] Copilot" },
     },
     copilot = {
@@ -263,4 +264,80 @@ return {
             },
         }
     end,
+    todo_comments = {
+        {
+            "]t",
+            function()
+                require("todo-comments").jump_next()
+            end,
+            desc = "Next Todo Comment",
+        },
+        {
+            "[t",
+            function()
+                require("todo-comments").jump_prev()
+            end,
+            desc = "Previous Todo Comment",
+        },
+        { "<leader>xt", "<cmd>Trouble todo toggle<cr>", desc = "Todo" },
+        {
+            "<leader>xT",
+            "<cmd>Trouble todo toggle filter = {tag = {TODO,FIX,FIXME}}<cr>",
+            desc = "Todo/Fix/Fixme",
+        },
+        { "<leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
+        {
+            "<leader>sT",
+            "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>",
+            desc = "Todo/Fix/Fixme",
+        },
+    },
+    trouble = {
+        { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics" },
+        {
+            "<leader>xX",
+            "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+            desc = "Buffer Diagnostics (Trouble)",
+        },
+        { "<leader>cs", "<cmd>Trouble symbols toggle<cr>", desc = "Symbols" },
+        {
+            "<leader>cS",
+            "<cmd>Trouble lsp toggle<cr>",
+            desc = "LSP references/definitions/... (Trouble)",
+        },
+        { "<leader>xL", "<cmd>Trouble loclist toggle<cr>", desc = "Location List" },
+        { "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List" },
+        {
+            "[q",
+            function()
+                if require("trouble").is_open() then
+                    require("trouble").prev({ skip_groups = true, jump = true })
+                else
+                    local ok, err = pcall(vim.cmd.cprev)
+                    if not ok then
+                        vim.notify(err, vim.log.levels.ERROR)
+                    end
+                end
+            end,
+            desc = "Previous Trouble/Quickfix Item",
+        },
+        {
+            "]q",
+            function()
+                if require("trouble").is_open() then
+                    require("trouble").next({ skip_groups = true, jump = true })
+                else
+                    local ok, err = pcall(vim.cmd.cnext)
+                    if not ok then
+                        if err then
+                            vim.notify(err, vim.log.levels.ERROR)
+                        else
+                            vim.notify("An error occured but returned nil!", vim.log.levels.ERROR)
+                        end
+                    end
+                end
+            end,
+            desc = "Next Trouble/Quickfix Item",
+        },
+    },
 }
