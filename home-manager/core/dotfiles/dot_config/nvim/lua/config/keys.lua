@@ -297,7 +297,7 @@ return {
         {
             "<leader>xX",
             "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-            desc = "Buffer Diagnostics (Trouble)",
+            desc = "Buffer Diagnostics",
         },
         { "<leader>cs", "<cmd>Trouble symbols toggle<cr>", desc = "Symbols" },
         {
