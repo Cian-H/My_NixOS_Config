@@ -32,6 +32,7 @@
       slack
       smile
       spotify
+      vial
       zathura
       zettlr
       # theming
