@@ -33,8 +33,7 @@
           unstablePkgs = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux;
         };
         modules = [
-          # > Our main nixos configuration file <
-          ./nixos/configuration.nix
+          ./nixos/worklaptop/configuration.nix
         ];
       };
     };
