@@ -117,15 +117,15 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1731689537,
-        "narHash": "sha256-0wN39XFD5bVcNANh9uLoQYyKbp9r6xX+oON1qI+L9iI=",
-        "owner": "ch4og",
+        "lastModified": 1732798478,
+        "narHash": "sha256-07z6j/i1gpNf4Odohrl6tcnrdFMYkbIMr/HpeRMT8qE=",
+        "owner": "Cian-H",
         "repo": "zen-browser-flake",
-        "rev": "064be844324965da1d596a541fdd831efe4a3a32",
+        "rev": "165e375eb298c4d7490e1dfb60b757a5e2a6b58f",
         "type": "github"
       },
       "original": {
-        "owner": "ch4og",
+        "owner": "Cian-H",
         "repo": "zen-browser-flake",
         "type": "github"
       }
