@@ -14,13 +14,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Enable OpenGL
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
-
   hardware.nvidia = {
     # Modesetting is required.
     modesetting.enable = true;
@@ -112,7 +105,6 @@
   # services.printing.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -161,13 +153,12 @@
       fastfetch
       fd
       fzf
+      gdm
       gh
       git
       git-extras
       glab
       glow
-      gnome.gdm
-      gnome.seahorse
       gnupg
       grub2_efi
       hexyl
@@ -192,6 +183,7 @@
       qmk_hid
       ripgrep
       rm-improved
+      seahorse
       starship
       tealdeer
       wget

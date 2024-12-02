@@ -11,7 +11,6 @@
     (with pkgs; [
       bitwarden
       blueman
-      cinnamon.warpinator
       ferdium
       gimp-with-plugins
       github-desktop
@@ -33,6 +32,7 @@
       smile
       spotify
       vial
+      warpinator
       zathura
       zettlr
       # theming
