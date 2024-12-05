@@ -170,11 +170,13 @@
       nix-index
       nix-ld
       nmap
+      openssl
       ouch
       pass
       passh
       phinger-cursors
       pinentry-gnome3
+      pkg-config
       podman-compose
       powertop
       pueue
@@ -230,10 +232,10 @@
     ])
     ++ (with unstablePkgs; [
       devenv
-      neovim
       just
       kitty
       libnotify
+      neovim
       nushell
       onefetch
       ruff
