@@ -18,6 +18,9 @@ source ~/.config/nushell/nu_scripts/custom-completions/pytest/pytest-completions
 source ~/.config/nushell/nu_scripts/custom-completions/rg/rg-completions.nu
 source ~/.config/nushell/nu_scripts/custom-completions/rustup/rustup-completions.nu
 source ~/.config/nushell/nu_scripts/custom-completions/rye/rye-completions.nu
+source ~/.config/nushell/nu_scripts/custom-completions/ssh/ssh-completions.nu
+source ~/.config/nushell/nu_scripts/custom-completions/tar/tar-completions.nu
 source ~/.config/nushell/nu_scripts/custom-completions/tealdeer/tldr-completions.nu
 source ~/.config/nushell/nu_scripts/custom-completions/vscode/vscode-completions.nu
+source ~/.config/nushell/nu_scripts/custom-completions/winget/winget-completions.nu
 source ~/.config/nushell/nu_scripts/custom-completions/zellij/zellij-completions.nu
