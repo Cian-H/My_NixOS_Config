@@ -1,0 +1,31 @@
+[general]
+import = ["~/.config/alacritty/tokyo-night.toml"]
+
+[font]
+normal = { family = "MonaspiceNeNerdFontMono", style = "Regular" }
+size = 16.0
+
+[cursor]
+style = "Beam"
+vi_mode_style = { shape = "Block", blinking = "Off" }
+unfocused_hollow = true
+
+[terminal.shell]
+program = "/usr/bin/env"
+args = ["nu"]
+
+[mouse]
+hide_when_typing = true
+
+[keyboard]
+bindings = [
+    { action = "CreateNewWindow", key = "N", mods = "Alt" },
+    { action = "CreateNewWindow", key = "N", mods = "Alt" },
+    { action = "CreateNewTab", key = "T", mods = "Alt" },
+    { action = "SelectNextTab", key = "K", mods = "Alt" },
+    { action = "SelectNextTab", key = "ArrowUp", mods = "Alt" },
+    { action = "SelectPreviousTab", key = "J", mods = "Alt" },
+    { action = "SelectPreviousTab", key = "ArrowDown", mods = "Alt" },
+    { action = "CopySelection", key = "C", mods = "Control|Shift" },
+    { action = "PasteSelection", key = "V", mods = "Control|Shift" },
+]
