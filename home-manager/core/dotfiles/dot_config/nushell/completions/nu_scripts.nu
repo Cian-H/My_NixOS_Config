@@ -7,6 +7,7 @@ source ~/.config/nushell/nu_scripts/custom-completions/flutter/flutter-completio
 source ~/.config/nushell/nu_scripts/custom-completions/gh/gh-completions.nu
 source ~/.config/nushell/nu_scripts/custom-completions/git/git-completions.nu
 source ~/.config/nushell/nu_scripts/custom-completions/glow/glow-completions.nu
+source ~/.config/nushell/nu_scripts/custom-completions/just/just-completions.nu
 source ~/.config/nushell/nu_scripts/custom-completions/man/man-completions.nu
 source ~/.config/nushell/nu_scripts/custom-completions/mix/mix-completions.nu
 source ~/.config/nushell/nu_scripts/custom-completions/nano/nano-completions.nu
