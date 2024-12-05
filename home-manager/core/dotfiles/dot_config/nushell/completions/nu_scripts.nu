@@ -12,7 +12,6 @@ source ~/.config/nushell/nu_scripts/custom-completions/man/man-completions.nu
 source ~/.config/nushell/nu_scripts/custom-completions/mix/mix-completions.nu
 source ~/.config/nushell/nu_scripts/custom-completions/nano/nano-completions.nu
 source ~/.config/nushell/nu_scripts/custom-completions/nix/nix-completions.nu
-source ~/.config/nushell/nu_scripts/custom-completions/pass/pass-completions.nu
 source ~/.config/nushell/nu_scripts/custom-completions/poetry/poetry-completions.nu
 source ~/.config/nushell/nu_scripts/custom-completions/pre-commit/pre-commit-completions.nu
 source ~/.config/nushell/nu_scripts/custom-completions/pytest/pytest-completions.nu
