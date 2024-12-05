@@ -1,0 +1,4 @@
+mod? nix "~/.config/nix"
+
+default:
+    @just -g --list

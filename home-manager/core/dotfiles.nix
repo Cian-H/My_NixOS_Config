@@ -57,6 +57,7 @@ in {
         chmod u+w ${config.xdg.configHome}/hypr/inputs.conf
       '';
     };
+    "just".source = ./dotfiles/dot_config/just;
     "kitty".source = ./dotfiles/dot_config/kitty;
     "micro".source = ./dotfiles/dot_config/micro;
     "neovide".source = ./dotfiles/dot_config/neovide;

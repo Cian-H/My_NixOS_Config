@@ -231,6 +231,7 @@
     ++ (with unstablePkgs; [
       devenv
       neovim
+      just
       kitty
       libnotify
       nushell
