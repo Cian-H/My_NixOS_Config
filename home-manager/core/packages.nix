@@ -14,13 +14,14 @@ in {
       alejandra
       git-extras
       git-credential-manager
-      helix
       meld
     ])
     ++ (with unstablePkgs; [
+      devenv
       lazygit
       kitty-img
       kitty-themes
+      nixd
     ])
     ++ [
       monaspaceFont

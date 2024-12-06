@@ -231,7 +231,6 @@
       xdg-desktop-portal-xapp
     ])
     ++ (with unstablePkgs; [
-      devenv
       just
       kitty
       libnotify

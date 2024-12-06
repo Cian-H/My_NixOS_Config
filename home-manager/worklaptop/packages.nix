@@ -14,13 +14,13 @@
       ferdium
       gimp-with-plugins
       github-desktop
+      helix
       hyperfine
       imagemagick
       inkscape-with-extensions
       krita
       libreoffice
       lynx
-      nixd
       nwg-look
       obs-studio
       pandoc
