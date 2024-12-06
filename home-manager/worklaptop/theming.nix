@@ -14,7 +14,7 @@
       package = pkgs.tokyonight-gtk-theme;
     };
     theme = {
-      name = "Tokyonight-Dark-BL-LB";
+      name = "Tokyonight-Dark";
       package = pkgs.tokyonight-gtk-theme;
     };
     cursorTheme = {
