@@ -13,7 +13,8 @@ _update-root:
 update-root: prebuild _update-root
 
 _update-home:
-    home-manager switch --flake .#$USER@$HOSTNAME
+    home-manager switch --flake .#$USER@$HOSTNAME \
+    || home-manager switch --flake .#$USER@core
 
 update-home: prebuild _update-home
 
