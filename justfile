@@ -18,3 +18,7 @@ _update-home:
 update-home: prebuild _update-home
 
 update: prebuild _update-root _update-home
+
+cleanup:
+    nix-store --gc
+    nix-store --optimise
