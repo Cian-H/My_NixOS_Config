@@ -2,7 +2,11 @@ default:
     @just --list
 
 prebuild:
-    git add .
+    #!/usr/bin/env bash
+    if `git status --short | /usr/bin/env grep \?\?`; then
+        git add .
+    fi
+    git pull
     nix flake update
 
 _update-root:
