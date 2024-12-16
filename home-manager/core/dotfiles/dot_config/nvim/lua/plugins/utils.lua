@@ -42,21 +42,6 @@ return { -- General programming utilities go here
     },
     "tpope/vim-fugitive", -- Also want to add fugitive, since it's apparently a great git plugin
     "jlfwong/vim-mercenary", -- Mercenary is the mercurial equivalent of fugitive
-    {
-        "kdheepak/lazygit.nvim",
-        cmd = {
-            "LazyGit",
-            "LazyGitConfig",
-            "LazyGitCurrentFile",
-            "LazyGitFilter",
-            "LazyGitFilterCurrentFile",
-        },
-        -- optional for floating window border decoration
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-        keys = require("config.keys").lazygit,
-    },
     { -- Oil is a very nice buffer-based filetree editor
         "stevearc/oil.nvim",
         event = "VeryLazy",

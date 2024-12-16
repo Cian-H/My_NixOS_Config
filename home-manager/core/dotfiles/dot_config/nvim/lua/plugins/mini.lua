@@ -51,28 +51,15 @@ return { -- Mini is so varied it's hard to categorise. So i dumped my mini insta
             require("mini.trailspace").setup()
 
             -- My custom mini.starter config
-
-            -- This function runs a vim command then exits the buffer that called it
-            function _Launch_Vim_Cmd(cmd)
-                local startbuf = vim.api.nvim_get_current_buf()
-                vim.cmd(cmd)
-                vim.api.nvim_buf_delete(startbuf, {})
-            end
-
             local custom_items = {
                 {
-                    name = "Status",
-                    action = "Git status",
-                    section = "Git",
-                },
-                {
                     name = "Log",
-                    action = [[lua _Launch_Vim_Cmd("Git log --graph --pretty=oneline --abbrev-commit")]],
+                    action = [[lua Snacks.lazygit.log()]],
                     section = "Git",
                 },
                 {
                     name = "Lazygit",
-                    action = "LazyGit",
+                    action = [[lua Snacks.lazygit()]],
                     section = "Git",
                 },
                 {
@@ -96,7 +83,7 @@ return { -- Mini is so varied it's hard to categorise. So i dumped my mini insta
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣷⡀⠀⠀⠀⠀⢹⣿⣆⠀⠀⠀⠀⠀\
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⡇⠀⠀⠀⠀⠸⣿⣿⡄⠀⠀⠀⠀\
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀⠀⠀⡿⣿⣿⠀⠀⠀⠀\
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠀⠀⠀⠀⠀",
+⠀⠀⠀⠀⠀⠀⠀       ⠀⠀⠀⠀⠀⠀⠀⠈⠙⠀⠀⠀⠀⠀",
                 items = {
                     require("mini.starter").sections.telescope(),
                     custom_items,

@@ -74,7 +74,14 @@ return {
         },
     },
     lazygit = {
-        { "<leader>l", "<cmd>LazyGit<cr>", desc = "[L]azyGit", mode = "n" },
+        {
+            "<leader>l",
+            function()
+                vim.api.nvim_command("lua Snacks.lazygit()")
+            end,
+            desc = "[L]azyGit",
+            mode = "n",
+        },
     },
     neogen = {
         {
