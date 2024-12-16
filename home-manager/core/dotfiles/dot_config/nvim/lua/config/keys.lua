@@ -7,6 +7,7 @@ return {
         { "<leader>r", group = "[R]ename" },
         { "<leader>w", group = "[W]orkspace" },
         { "<leader>t", group = "[T]ree" },
+        { "<leader>l", group = "[L]azyGit" },
         { "<leader>o", group = "[O]verseer" },
         { "<leader>h", group = "[H]arpoon" },
         { "<leader>x", group = "[X] Trouble" },
@@ -75,11 +76,27 @@ return {
     },
     lazygit = {
         {
-            "<leader>l",
+            "<leader>lg",
             function()
                 vim.api.nvim_command("lua Snacks.lazygit()")
             end,
-            desc = "[L]azyGit",
+            desc = "[L]azy[G]it",
+            mode = "n",
+        },
+        {
+            "<leader>ll",
+            function()
+                vim.api.nvim_command("lua Snacks.lazygit.log()")
+            end,
+            desc = "[L]azyGit [L]og",
+            mode = "n",
+        },
+        {
+            "<leader>lf",
+            function()
+                vim.api.nvim_command("lua Snacks.lazygit.log_file()")
+            end,
+            desc = "[L]azyGit [F]ile Log",
             mode = "n",
         },
     },

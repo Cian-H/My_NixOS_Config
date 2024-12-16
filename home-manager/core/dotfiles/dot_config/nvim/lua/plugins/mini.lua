@@ -17,29 +17,14 @@ return { -- Mini is so varied it's hard to categorise. So i dumped my mini insta
             -- - sr)'  - [S]urround [R]eplace [)] [']
             require("mini.surround").setup()
 
-            -- Simple and easy statusline.
-            --  You could remove this setup call if you don't like it,
-            --  and try some other statusline plugin
-            -- local statusline = require("mini.statusline")
-            -- set use_icons to true if you have a Nerd Font
-            -- statusline.setup({ use_icons = vim.g.have_nerd_font })
-
-            -- You can configure sections in the statusline by overriding their
-            -- default behavior. For example, here we set the section for
-            -- cursor location to LINE:COLUMN
-            ---@diagnostic disable-next-line: duplicate-set-field
-            -- statusline.section_location = function()
-            -- 	return "%2l:%-2v"
-            -- end
-
             -- Setup of mini.notify
-            -- local notify = require("mini.notify")
-            -- notify.setup()
-            -- vim.notify = notify.make_notify({
-            -- 	ERROR = { duration = 5000 },
-            -- 	WARN = { duration = 4000 },
-            -- 	INFO = { duration = 3000 },
-            -- })
+            local notify = require("mini.notify")
+            notify.setup()
+            vim.notify = notify.make_notify({
+                ERROR = { duration = 5000 },
+                WARN = { duration = 4000 },
+                INFO = { duration = 3000 },
+            })
 
             -- Some other mini.nvim plugins that look useful to me
             require("mini.clue").setup()
@@ -51,7 +36,32 @@ return { -- Mini is so varied it's hard to categorise. So i dumped my mini insta
             require("mini.trailspace").setup()
 
             -- My custom mini.starter config
-            local custom_items = {
+            local starter_items = {
+                {
+                    action = "Telescope file_browser",
+                    name = "Tree",
+                    section = "Telescope",
+                },
+                {
+                    action = "Telescope live_grep",
+                    name = "Live grep",
+                    section = "Telescope",
+                },
+                {
+                    action = "Telescope find_files",
+                    name = "File grep",
+                    section = "Telescope",
+                },
+                {
+                    action = "Telescope command_history",
+                    name = "Command history",
+                    section = "Telescope",
+                },
+                {
+                    action = "Telescope help_tags",
+                    name = "Help tags",
+                    section = "Telescope",
+                },
                 {
                     name = "Log",
                     action = [[lua Snacks.lazygit.log()]],
@@ -60,6 +70,34 @@ return { -- Mini is so varied it's hard to categorise. So i dumped my mini insta
                 {
                     name = "Lazygit",
                     action = [[lua Snacks.lazygit()]],
+                    section = "Git",
+                },
+                {
+                    name = "Browser",
+                    action = function()
+                        local handle = io.popen("git remote show")
+                        if handle == nil then
+                            vim.notify("Failed to find remote", vim.log.levels.ERROR)
+                            return
+                        end
+                        local result = handle:read("*a")
+                        handle:close()
+                        local remote = vim.split(result, "\n")[1]
+                        handle = io.popen("git remote get-url " .. remote)
+                        if handle == nil then
+                            vim.notify("Failed to get url for " .. remote, vim.log.levels.ERROR)
+                            return
+                        end
+                        local url = handle:read("*a")
+                        handle:close()
+                        handle = io.popen("xdg-open " .. url)
+                        if handle == nil then
+                            vim.notify("Failed to open " .. url, vim.log.levels.ERROR)
+                            return
+                        end
+                        result = handle:read("*a")
+                        handle:close()
+                    end,
                     section = "Git",
                 },
                 {
@@ -84,10 +122,7 @@ return { -- Mini is so varied it's hard to categorise. So i dumped my mini insta
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⡇⠀⠀⠀⠀⠸⣿⣿⡄⠀⠀⠀⠀\
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀⠀⠀⡿⣿⣿⠀⠀⠀⠀\
 ⠀⠀⠀⠀⠀⠀⠀       ⠀⠀⠀⠀⠀⠀⠀⠈⠙⠀⠀⠀⠀⠀",
-                items = {
-                    require("mini.starter").sections.telescope(),
-                    custom_items,
-                },
+                items = starter_items,
                 footer = "",
             })
         end,
