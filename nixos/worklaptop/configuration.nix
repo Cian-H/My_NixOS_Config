@@ -212,7 +212,6 @@
       brotli
       gcc
       gnumake
-      nodejs_22
       # front-end dev environment
       micro
       # DE and accompanying tools
@@ -256,6 +255,15 @@
   programs.sway = {
     enable = true;
     extraOptions = ["--unsupported-gpu"];
+  };
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    withPython3 = true;
+    withNodeJs = true;
+    withRuby = true;
   };
   programs.waybar.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

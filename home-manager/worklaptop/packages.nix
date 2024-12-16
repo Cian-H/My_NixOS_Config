@@ -45,7 +45,6 @@
           python-pkgs.pip
           python-pkgs.pkginfo
           python-pkgs.python-lsp-server
-          python-pkgs.pynvim
           python-pkgs.setuptools
         ]
       ))
