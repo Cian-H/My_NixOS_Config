@@ -11,6 +11,7 @@
     (with pkgs; [
       bitwarden
       blueman
+      distrobox
       ferdium
       gimp-with-plugins
       github-desktop
