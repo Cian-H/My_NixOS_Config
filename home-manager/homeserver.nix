@@ -10,5 +10,6 @@
   imports = [
     ./core.nix
     ./homeserver/packages.nix
+    ./homeserver/programs.nix
   ];
 }

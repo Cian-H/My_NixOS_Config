@@ -10,7 +10,9 @@
   monaspaceFont = pkgs.callPackage ../../modules/monaspice_font.nix {};
 in {
   home.file = {
-    ".bashrc".source = ./dotfiles/dot_bashrc;
+    ".bashrc" = lib.mkIf (!config.programs.bash.enable) {
+      source = ./dotfiles/dot_bashrc;
+    };
     "monaspice" = {
       source = "${monaspaceFont}/share/fonts/";
       target = ".local/share/fonts/";

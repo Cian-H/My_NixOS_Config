@@ -21,10 +21,9 @@
         enable = true;
         efiSupport = true;
         device = "nodev";
-        useOSProber = true;
       };
       efi = {
-        efiSysMountPoint = "/boot/efi";
+        efiSysMountPoint = "/boot";
         canTouchEfiVariables = true;
       };
     };
