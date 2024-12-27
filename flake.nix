@@ -36,6 +36,15 @@
           ./nixos/worklaptop/configuration.nix
         ];
       };
+      homeserver = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs outputs;
+          unstablePkgs = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux;
+        };
+        modules = [
+          ./nixos/homeserver/configuration.nix
+        ];
+      };
     };
 
     # Standalone home-manager configuration entrypoint
