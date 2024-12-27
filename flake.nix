@@ -50,6 +50,31 @@
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
+      "cianh@core" = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          # Home-manager requires 'pkgs' instance
+          system = "x86_64-linux";
+          config = {
+            allowUnfree = true;
+            # Workaround for https://github.com/nix-community/home-manager/issues/2942
+            allowUnfreePredicate = _: true;
+          };
+        };
+        extraSpecialArgs = {
+          inherit inputs outputs;
+          unstablePkgs = import nixpkgs-unstable {
+            # We also need to do the same for unstable
+            system = "x86_64-linux";
+            config = {
+              allowUnfree = true;
+              allowUnfreePredicate = _: true;
+            };
+          };
+        };
+        modules = [
+          ./home-manager/core.nix
+        ];
+      };
       "cianh@worklaptop" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           # Home-manager requires 'pkgs' instance
@@ -75,7 +100,7 @@
           ./home-manager/worklaptop.nix
         ];
       };
-      "cianh@core" = home-manager.lib.homeManagerConfiguration {
+      "cianh@homeserver" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           # Home-manager requires 'pkgs' instance
           system = "x86_64-linux";
@@ -97,7 +122,7 @@
           };
         };
         modules = [
-          ./home-manager/core.nix
+          ./home-manager/homeserver.nix
         ];
       };
     };
