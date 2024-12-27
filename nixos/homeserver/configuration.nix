@@ -108,7 +108,6 @@
       gnupg
       grub2_efi
       hexyl
-      home-manager
       killall
       less
       libsecret
