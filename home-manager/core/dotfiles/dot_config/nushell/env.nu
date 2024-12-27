@@ -71,10 +71,6 @@ $env.LESS_TERMCAP_so = (ansi --escape "01;44;36m")  # begin standout-mode (botto
 $env.LESS_TERMCAP_se = (ansi --escape "0m")         # end standout-mode
 $env.LESS_TERMCAP_us = (ansi --escape "00;36m")     # begin underline
 $env.LESS_TERMCAP_ue = (ansi --escape "0m")         # end underline
-# Set a custom copy of TERM so that shells under multiplexors behave correctly
-if not ("MAIN_TERM" in $env) {
-    $env.MAIN_TERM = $env.TERM
-}
 
 # Finally, add session path variables
 $env.PATH = (
