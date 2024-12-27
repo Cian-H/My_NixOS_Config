@@ -82,6 +82,9 @@
     description = "Cian Hughes";
     extraGroups = ["networkmanager" "wheel" "libvirtd"];
     shell = unstablePkgs.nushell;
+    openssh.authorizedKeys.keyFiles = [
+      ./ssh/authorized_keys
+    ];
   };
 
   # $ nix search wget
@@ -157,7 +160,13 @@
   };
 
   # Enable the OpenSSH daemon and other remote tools.
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+    };
+  };
 
   # Add custom services
   systemd.services.pueued = {
