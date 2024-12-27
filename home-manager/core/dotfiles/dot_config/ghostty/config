@@ -1,0 +1,12 @@
+theme = dark:tokyonight,light:tokyonight-day
+font-family = MonaspiceNe Nerd Font Mono
+font-size = 16.0
+desktop-notifications = false
+
+keybind = ctrl+n=new_window
+keybind = ctrl+t=new_tab
+keybind = ctrl+j=previous_tab
+keybind = ctrl+down=previous_tab
+keybind = ctrl+k=next_tab
+keybind = ctrl+up=next_tab
+keybind = ctrl+q=toggle_quick_terminal

@@ -59,6 +59,7 @@ in {
     };
     "just".source = ./dotfiles/dot_config/just;
     "kitty".source = ./dotfiles/dot_config/kitty;
+    "ghostty".source = ./dotfiles/dot_config/ghostty;
     "micro".source = ./dotfiles/dot_config/micro;
     "neovide".source = ./dotfiles/dot_config/neovide;
     "glow".source = ./dotfiles/dot_config/glow;
