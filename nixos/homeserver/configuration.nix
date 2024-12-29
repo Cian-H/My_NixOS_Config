@@ -95,8 +95,8 @@
   system.activationScripts.linkRootJustfile = {
     text = ''
       ln -sf /etc/justfile /root/.justfile
-      mkdir -p /root/git
-      ln -sf /etc/root_gitconfig /root/git/config
+      mkdir -p /root/.config/git
+      ln -sf /etc/root_gitconfig /root/.config/git/config
     '';
     deps = [];
   };
