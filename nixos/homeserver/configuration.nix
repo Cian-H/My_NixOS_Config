@@ -75,15 +75,24 @@
   # Configure console keymap
   console.keyMap = "uk";
 
-  users.users.cianh = {
-    isNormalUser = true;
-    hashedPasswordFile = "/etc/hashedPasswordFile";
-    description = "Cian Hughes";
-    extraGroups = ["networkmanager" "wheel" "libvirtd"];
-    shell = unstablePkgs.nushell;
-    openssh.authorizedKeys.keyFiles = [
-      ./ssh/authorized_keys
-    ];
+  users.users = {
+    cianh = {
+      isNormalUser = true;
+      hashedPasswordFile = "/etc/hashedPasswordFile";
+      description = "Cian Hughes";
+      extraGroups = ["networkmanager" "wheel" "libvirtd"];
+      shell = unstablePkgs.nushell;
+      openssh.authorizedKeys.keyFiles = [
+        ./ssh/authorized_keys
+      ];
+    };
+
+    root = {
+      shell = pkgs.bashInteractive;
+      openssh.authorizedKeys.keyFiles = [
+        ./ssh/authorized_keys
+      ];
+    };
   };
 
   # $ nix search wget
