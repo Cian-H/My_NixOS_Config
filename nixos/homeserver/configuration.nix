@@ -125,7 +125,7 @@
       ouch
       pass
       passh
-      pinentry-curses
+      pinentry-tty
       pkg-config
       podman-compose
       powertop
@@ -190,7 +190,7 @@
   services.pcscd.enable = true;
   programs.gnupg.agent = {
     enable = true;
-    pinentryPackage = pkgs.pinentry-curses;
+    pinentryPackage = pkgs.pinentry-tty;
     enableSSHSupport = true;
   };
 
