@@ -70,7 +70,36 @@
       name = "nix/path/${name}";
       value.source = value.flake;
     })
-    config.nix.registry;
+    config.nix.registry
+    // {
+      "justfile" = {
+        text = ''
+          default:
+              @just -g --list
+
+          update-root:
+              if `/usr/bin/env grep -Rq "nixos" /etc/*-release`; then \
+                  nixos-rebuild switch --flake /home/cianh/.config/nix/#$HOSTNAME; \
+              fi
+        '';
+        mode = "0644";
+      };
+      "root_gitconfig" = {
+        text = ''
+          [safe]
+              directory = /home/cianh/.config/nix
+        '';
+      };
+    };
+
+  system.activationScripts.linkRootJustfile = {
+    text = ''
+      ln -sf /etc/justfile /root/.justfile
+      mkdir -p /root/git
+      ln -sf /etc/root_gitconfig /root/git/config
+    '';
+    deps = [];
+  };
 
   # Configure console keymap
   console.keyMap = "uk";

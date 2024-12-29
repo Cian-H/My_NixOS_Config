@@ -27,5 +27,3 @@
     navigate = true
     line-numbers = true
     side-by-side = true
-[safe]
-    directory = /home/cianh/.config/nix/
