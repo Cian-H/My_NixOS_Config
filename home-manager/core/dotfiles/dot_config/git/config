@@ -1,16 +1,16 @@
 [user]
-	name = Cian Hughes
-	email = chughes000@gmail.com
+    name = Cian Hughes
+    email = chughes000@gmail.com
 [init]
-	defaultBranch = "main"
+    defaultBranch = "main"
 [credential]
-	helper = manager
+    helper = manager
     credentialStore = gpg
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
 [core]
     pager = delta
 [diff]
@@ -27,3 +27,5 @@
     navigate = true
     line-numbers = true
     side-by-side = true
+[safe]
+    directory = /home/cianh/.config/nix/

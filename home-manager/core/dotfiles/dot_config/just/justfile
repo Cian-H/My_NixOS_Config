@@ -2,3 +2,6 @@ mod? nix "~/.config/nix"
 
 default:
     @just -g --list
+
+update-homeserver:
+    ssh root@homeserver just -g nix update
