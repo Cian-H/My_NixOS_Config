@@ -7,7 +7,7 @@
   unstablePkgs,
   ...
 }: {
-  containers = {
+  services.podman.containers = {
     portainer = {
       image = "portainer/portainer-ce:latest";
       volumes = [
@@ -18,9 +18,8 @@
         "8000:8000"
         "9443:9443"
       ];
-      extraOptions = [
-        "--restart=always"
-      ];
+      autoStart = true;
+      autoUpdate = "registry";
     };
   };
 }
