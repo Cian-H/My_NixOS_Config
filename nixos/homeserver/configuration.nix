@@ -109,7 +109,7 @@
       isNormalUser = true;
       hashedPasswordFile = "/etc/hashedPasswordFile";
       description = "Cian Hughes";
-      extraGroups = ["networkmanager" "wheel" "libvirtd"];
+      extraGroups = ["networkmanager" "wheel" "nixcfg"];
       shell = unstablePkgs.nushell;
       openssh.authorizedKeys.keyFiles = [
         ./ssh/authorized_keys
@@ -121,6 +121,7 @@
       openssh.authorizedKeys.keyFiles = [
         ./ssh/authorized_keys
       ];
+      extraGroups = ["nixcfg"];
     };
   };
 
