@@ -9,6 +9,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./firewall.nix
   ];
 
   # Allow unfree packages
@@ -109,7 +110,7 @@
       isNormalUser = true;
       hashedPasswordFile = "/etc/hashedPasswordFile";
       description = "Cian Hughes";
-      extraGroups = ["networkmanager" "wheel" "nixcfg"];
+      extraGroups = ["networkmanager" "wheel" "docker" "podman" "nixcfg"];
       shell = unstablePkgs.nushell;
       openssh.authorizedKeys.keyFiles = [
         ./ssh/authorized_keys
@@ -121,7 +122,7 @@
       openssh.authorizedKeys.keyFiles = [
         ./ssh/authorized_keys
       ];
-      extraGroups = ["nixcfg"];
+      extraGroups = ["docker" "podman" "nixcfg"];
     };
   };
 
