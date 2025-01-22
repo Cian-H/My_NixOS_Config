@@ -1,3 +1,3 @@
 [submodule "home-manager/core/dotfiles"]
 	path = home-manager/core/dotfiles
-	url = https://github.com/Cian-H/dotfiles
+	url = https://www.github.com/Cian-H/dotfiles.git
