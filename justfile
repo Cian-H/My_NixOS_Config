@@ -17,13 +17,13 @@ _update-root:
 update-root: prebuild _update-root
 
 install-home:
-    home-manager switch --flake .#$USER@core \
+    home-manager switch --flake .?submodules=1#$USER@core \
         --extra-experimental-features nix-command \
         --extra-experimental-features flakes
 
 _update-home:
-    home-manager switch --flake .#$USER@$HOSTNAME \
-    || home-manager switch --flake .#$USER@core
+    home-manager switch --flake .?submodules=1#$USER@$HOSTNAME \
+    || home-manager switch --flake .?submodules=1#$USER@core
 
 update-home: prebuild _update-home
 
