@@ -1,0 +1,3 @@
+[submodule "home-manager/core/dotfiles"]
+	path = home-manager/core/dotfiles
+	url = https://github.com/Cian-H/dotfiles

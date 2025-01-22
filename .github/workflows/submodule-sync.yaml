@@ -1,0 +1,48 @@
+name: Submodule push
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "home-manager/core/dotfiles/**"
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  sync-submodule:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        submodules: "recursive"
+        token: ${{ secrets.PUBLIC_REPO_SYNC_TOKEN }}
+
+    - name: Configure Git
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+    - name: Push changes to subtree remotes
+      run: |
+        COMMIT_MSG="Sync from parent repo
+
+        Parent commit: ${{ github.event.head_commit.message }}
+        SHA: ${{ github.sha }}
+        Author: ${{ github.event.head_commit.author.name }}
+        Workflow: ${{ github.workflow }}
+        "
+
+        git submodule foreach '
+          git add . &&
+          git diff --staged --quiet || (
+            git commit -m "$COMMIT_MSG" &&
+            git push
+          )'
+      env:
+        GITHUB_TOKEN: ${{ secrets.PUBLIC_REPO_SYNC_TOKEN }}
+
+    - name: Handle errors
+      if: failure()
+      run: |
+        echo "::error::Submodule sync failed. Manual intervention may be required."
