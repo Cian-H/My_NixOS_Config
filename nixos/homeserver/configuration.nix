@@ -45,6 +45,11 @@
   nix = {
     registry = (lib.mapAttrs (_: flake: {inherit flake;})) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
     nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+    gc = {
+      automatic = true;
+      dates = "daily";
+      options = "--delete-older-than 14d";
+    };
     settings = {
       experimental-features = "nix-command flakes";
       auto-optimise-store = true;
@@ -245,8 +250,11 @@
     };
   };
 
-  system.stateVersion = "24.11"; # Did you read the comment?
-  system.autoUpgrade.enable = true;
+  system = {
+    stateVersion = "24.11"; # Did you read the comment?
+    autoUpgrade.enable = true;
+    autoUpgrade.dates = "weekly";
+  };
 
   # Set user config settings
   users.defaultUserShell = pkgs.nushell;
