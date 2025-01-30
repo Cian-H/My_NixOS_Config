@@ -20,6 +20,7 @@
       lua54Packages.lua
       luajitPackages.luarocks
       nodejs-slim
+      sops
       stylua
     ])
     ++ (with unstablePkgs; [

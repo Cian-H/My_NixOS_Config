@@ -9,6 +9,8 @@
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    # Add sops for secret management
+    sops-nix.url = "github:Mic92/sops-nix";
     # add phinger hyprcursor flake
     hyprcursor-phinger.url = "github:jappie3/hyprcursor-phinger";
     # add zen browser flake
@@ -122,6 +124,16 @@
           };
         };
         modules = [
+          inputs.sops-nix.homeManagerModules.sops
+          {
+            sops = {
+              defaultSopsFile = ./secrets.yaml;
+              secrets = {
+                # Define your secrets here
+                vikunja_jwtsecret = {};
+              };
+            };
+          }
           ./home-manager/homeserver.nix
         ];
       };
