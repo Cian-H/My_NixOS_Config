@@ -12,5 +12,14 @@
     ./homeserver/packages.nix
     ./homeserver/programs.nix
     ./homeserver/containers.nix
+    inputs.sops-nix.homeManagerModules.sops
   ];
+
+  sops = {
+    age.keyFile = "/home/cianh/.config/sops/age/keys.txt";
+    defaultSopsFile = ./secrets.yaml;
+    secrets = {
+      vikunja_jwtsecret = {};
+    };
+  };
 }

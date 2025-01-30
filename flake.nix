@@ -124,16 +124,6 @@
           };
         };
         modules = [
-          inputs.sops-nix.homeManagerModules.sops
-          {
-            sops = {
-              defaultSopsFile = ./secrets.yaml;
-              secrets = {
-                # Define your secrets here
-                vikunja_jwtsecret = {};
-              };
-            };
-          }
           ./home-manager/homeserver.nix
         ];
       };
