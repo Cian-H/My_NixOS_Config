@@ -13,6 +13,8 @@
       22 # SSH
       3000 # Grafana
       3005 # Plex
+      3456 # Vikunja
+      3457 # Freshrss
       8080 # Caddy
       8081 # Nextcloud
       8096 # Jellyfin
@@ -25,6 +27,8 @@
     allowedUDPPorts = [
       1234 # temporary
       1900 # Plex
+      3456 # Vikunja
+      3457 # Freshrss
       8080 # Caddy
       8081 # Nextcloud
       8443 # Caddy
