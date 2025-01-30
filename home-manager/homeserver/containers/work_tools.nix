@@ -7,36 +7,67 @@
   unstablePkgs,
   ...
 }: {
-  services.podman.containers = {
-    vikunja = {
-      image = "docker.io/vikunja/vikunja:latest";
-      autoUpdate = "registry";
-      environment = {
-        VIKUNJA_SERVICE_JWTSECRET = config.sops.secrets.vikunja_jwtsecret.path;
-        VIKUNJA_SERVICE_PUBLICURL = "http://bulba.space/";
-        VIKUNJA_DATABASE_PATH = "/db/vikunja.db";
-      };
-      volumes = [
-        "/home/cianh/vikunja/files:/app/vikunja/files"
-        "/home/cianh/vikunja/db:/db"
-      ];
-      ports = ["3456:3456"];
+  services.podman = {
+    networks = {
+      vikunja-net = {};
     };
-    freshrss = {
-      image = "docker.io/freshrss/freshrss:latest";
-      autoUpdate = "registry";
-      environment = {
-        TZ = "Europe/Dublin";
-        CRON_MIN = "1,31";
+    containers = {
+      vikunja = {
+        image = "docker.io/vikunja/vikunja:latest";
+        autoUpdate = "registry";
+        network = "vikunja-net";
+        environment = {
+          VIKUNJA_SERVICE_JWTSECRET = config.sops.secrets.vikunja_jwtsecret.path;
+          VIKUNJA_SERVICE_PUBLICURL = "http://192.168.0.254:3456/";
+          VIKUNJA_DATABASE_PATH = "/db/vikunja.db";
+          VIKUNJA_DATABASE_TYPE = "mysql";
+          VIKUNJA_DATABASE_DATABASE = "vikunja";
+          VIKUNJA_DATABASE_HOST = "vikunja-db";
+          VIKUNJA_DATABASE_USER = "vikunja";
+          VIKUNJA_DATABASE_PASSWORD = config.sops.secrets.vikunja_dbpassword.path;
+        };
+        volumes = [
+          "/home/cianh/vikunja/files:/app/vikunja/files"
+        ];
+        ports = ["3456:3456"];
+        extraConfig = {
+          Unit = {
+            After = "podman-vikunja-db.service";
+            Requires = "podman-vikunja-db.service";
+          };
+        };
       };
-      volumes = [
-        "/home/cianh/freshrss/data:/var/www/FreshRSS/data"
-        "/home/cianh/freshrss/extensions:/var/www/FreshRSS/extensions"
-      ];
-      ports = ["3457:80"];
-      extraPodmanArgs = [
-        "--log-opt max-size=10m"
-      ];
+      vikunja-db = {
+        image = "docker.io/library/mariadb:10";
+        autoUpdate = "registry";
+        network = "vikunja-net";
+        exec = "--character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci";
+        environment = {
+          MYSQL_ROOT_PASSWORD = config.sops.secrets.vikunja-db_rootpassword.path;
+          MYSQL_USER = "vikunja";
+          MYSQL_PASSWORD = config.sops.secrets.vikunja_dbpassword.path;
+          MYSQL_DATABASE = "vikunja";
+        };
+        volumes = [
+          "/home/cianh/vikunja/db:/var/lib/mysql"
+        ];
+      };
+      freshrss = {
+        image = "docker.io/freshrss/freshrss:latest";
+        autoUpdate = "registry";
+        environment = {
+          TZ = "Europe/Dublin";
+          CRON_MIN = "1,31";
+        };
+        volumes = [
+          "/home/cianh/freshrss/data:/var/www/FreshRSS/data"
+          "/home/cianh/freshrss/extensions:/var/www/FreshRSS/extensions"
+        ];
+        ports = ["3457:80"];
+        extraPodmanArgs = [
+          "--log-opt max-size=10m"
+        ];
+      };
     };
   };
 }

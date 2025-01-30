@@ -20,6 +20,8 @@
     defaultSopsFile = ./secrets.yaml;
     secrets = {
       vikunja_jwtsecret = {};
+      vikunja_dbpassword = {};
+      vikunja-db_rootpassword = {};
     };
   };
 }
