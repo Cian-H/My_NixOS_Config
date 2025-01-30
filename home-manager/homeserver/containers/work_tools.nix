@@ -15,7 +15,10 @@
       vikunja = {
         image = "docker.io/vikunja/vikunja:latest";
         autoUpdate = "registry";
-        network = "vikunja-net";
+        network = [
+          "vikunja-net"
+          "proxy-net"
+        ];
         environment = {
           VIKUNJA_SERVICE_JWTSECRET = config.sops.secrets.vikunja_jwtsecret.path;
           VIKUNJA_SERVICE_PUBLICURL = "http://192.168.0.254:3456/";
