@@ -21,7 +21,9 @@
         ];
         environment = {
           VIKUNJA_SERVICE_JWTSECRET = config.sops.secrets.vikunja_jwtsecret.path;
-          VIKUNJA_SERVICE_PUBLICURL = "http://192.168.0.254:3456/";
+          VIKUNJA_SERVICE_PUBLICURL = "https://bulba.space/vikunja";
+          VIKUNJA_FRONTEND_BASE = "/vikunja";
+          VIKUNJA_SERVICE_FRONTENDURL = "https://bulba.space/vikunja";
           VIKUNJA_DATABASE_PATH = "/db/vikunja.db";
           VIKUNJA_DATABASE_TYPE = "mysql";
           VIKUNJA_DATABASE_DATABASE = "vikunja";
@@ -58,9 +60,12 @@
       freshrss = {
         image = "docker.io/freshrss/freshrss:latest";
         autoUpdate = "registry";
+        network = "proxy-net";
         environment = {
           TZ = "Europe/Dublin";
           CRON_MIN = "1,31";
+          TRUSTED_PROXY = "caddy";
+          FRESHRSS_SUBFOLDER = "/freshrss";
         };
         volumes = [
           "/home/cianh/freshrss/data:/var/www/FreshRSS/data"
