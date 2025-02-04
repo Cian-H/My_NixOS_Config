@@ -1,0 +1,3 @@
+vikunja.bulba.space {
+	reverse_proxy vikunja:3456
+}

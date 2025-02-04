@@ -20,8 +20,9 @@
       volumes = [
         "/home/cianh/caddy/config:/etc/caddy"
         "/home/cianh/caddy/data:/data:Z"
-        # "/home/cianh/caddy/placeholder_site/:/srv:ro"
       ];
     };
   };
+
+  home.file."caddy/config/Caddyfile".source = ./caddy_config/Caddyfile;
 }

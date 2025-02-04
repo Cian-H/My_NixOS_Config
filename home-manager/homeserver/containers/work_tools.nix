@@ -21,9 +21,9 @@
         ];
         environment = {
           VIKUNJA_SERVICE_JWTSECRET = config.sops.secrets.vikunja_jwtsecret.path;
-          VIKUNJA_SERVICE_PUBLICURL = "https://bulba.space/vikunja";
+          VIKUNJA_SERVICE_PUBLICURL = "https://vikunja.bulba.space";
           VIKUNJA_FRONTEND_BASE = "/vikunja";
-          VIKUNJA_SERVICE_FRONTENDURL = "https://bulba.space/vikunja";
+          VIKUNJA_SERVICE_FRONTENDURL = "https://vikunja.bulba.space";
           VIKUNJA_DATABASE_PATH = "/db/vikunja.db";
           VIKUNJA_DATABASE_TYPE = "mysql";
           VIKUNJA_DATABASE_DATABASE = "vikunja";
@@ -65,7 +65,7 @@
           TZ = "Europe/Dublin";
           CRON_MIN = "1,31";
           TRUSTED_PROXY = "caddy";
-          FRESHRSS_SUBFOLDER = "/freshrss";
+          FRESHRSS_ENV = "production";
         };
         volumes = [
           "/home/cianh/freshrss/data:/var/www/FreshRSS/data"
@@ -78,4 +78,7 @@
       };
     };
   };
+
+  home.file."caddy/config/subdomains/vikunja.caddyfile".source = ./caddy_config/subdomains/vikunja.caddyfile;
+  home.file."caddy/config/subdomains/freshrss.caddyfile".source = ./caddy_config/subdomains/freshrss.caddyfile;
 }
