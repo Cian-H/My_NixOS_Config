@@ -20,8 +20,6 @@ in {
     ++ (with unstablePkgs; [
       devenv
       lazygit
-      kitty-img
-      kitty-themes
       nixd
     ])
     ++ [

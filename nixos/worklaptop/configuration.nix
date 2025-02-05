@@ -228,7 +228,6 @@
     ++ (with unstablePkgs; [
       just
       ghostty
-      kitty
       libnotify
       neovim
       nushell
