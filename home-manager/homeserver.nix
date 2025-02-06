@@ -22,6 +22,7 @@
       vikunja_jwtsecret = {};
       vikunja_dbpassword = {};
       vikunja-db_rootpassword = {};
+      ghost_dbpassword = {};
     };
   };
 }
