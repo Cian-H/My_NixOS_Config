@@ -21,7 +21,6 @@
     ./containers/media.nix
     ./containers/data_handling.nix
     ./containers/caddy.nix
-    ./containers/site.nix
     ./containers/work_tools.nix
     ./containers/blog.nix
   ];
