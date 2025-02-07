@@ -23,6 +23,4 @@
       ];
     };
   };
-
-  home.file."caddy/config/Caddyfile".source = ./caddy_config/Caddyfile;
 }

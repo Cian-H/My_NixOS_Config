@@ -1,3 +1,0 @@
-bulba.space {
-	reverse_proxy bulbaspace-site:80
-}

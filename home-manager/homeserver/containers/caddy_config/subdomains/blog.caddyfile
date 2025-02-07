@@ -1,3 +1,0 @@
-blog.bulba.space {
-	reverse_proxy ghost:2368
-}

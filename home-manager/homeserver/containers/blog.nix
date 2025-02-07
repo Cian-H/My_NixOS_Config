@@ -44,6 +44,4 @@
       };
     };
   };
-
-  home.file."caddy/config/subdomains/blog.caddyfile".source = ./caddy_config/subdomains/blog.caddyfile;
 }

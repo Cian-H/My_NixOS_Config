@@ -17,6 +17,4 @@
       ];
     };
   };
-
-  home.file."caddy/config/subdomains/site.caddyfile".source = ./caddy_config/subdomains/site.caddyfile;
 }

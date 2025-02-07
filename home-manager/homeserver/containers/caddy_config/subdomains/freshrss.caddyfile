@@ -1,3 +1,0 @@
-freshrss.bulba.space {
-	reverse_proxy freshrss:80
-}

@@ -78,7 +78,4 @@
       };
     };
   };
-
-  home.file."caddy/config/subdomains/vikunja.caddyfile".source = ./caddy_config/subdomains/vikunja.caddyfile;
-  home.file."caddy/config/subdomains/freshrss.caddyfile".source = ./caddy_config/subdomains/freshrss.caddyfile;
 }
