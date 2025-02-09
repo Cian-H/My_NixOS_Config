@@ -21,6 +21,7 @@ in {
       devenv
       lazygit
       nixd
+      nushell
     ])
     ++ [
       monaspaceFont
