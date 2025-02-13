@@ -22,7 +22,6 @@
       vikunja_jwtsecret = {};
       vikunja-db_password = {};
       vikunja-db_rootpassword = {};
-      ghost_dbpassword = {};
       nextcloud_admin_password = {};
       nextcloud-db_password = {};
       nextcloud-db_rootpassword = {};
