@@ -22,5 +22,6 @@
     ./containers/data_handling.nix
     ./containers/caddy.nix
     ./containers/work_tools.nix
+    ./containers/nextcloud.nix
   ];
 }

@@ -29,7 +29,7 @@
           VIKUNJA_DATABASE_DATABASE = "vikunja";
           VIKUNJA_DATABASE_HOST = "vikunja-db";
           VIKUNJA_DATABASE_USER = "vikunja";
-          VIKUNJA_DATABASE_PASSWORD = config.sops.secrets.vikunja_dbpassword.path;
+          VIKUNJA_DATABASE_PASSWORD = config.sops.secrets.vikunja-db_password.path;
         };
         volumes = [
           "/home/cianh/vikunja/files:/app/vikunja/files"
@@ -50,7 +50,7 @@
         environment = {
           MYSQL_ROOT_PASSWORD = config.sops.secrets.vikunja-db_rootpassword.path;
           MYSQL_USER = "vikunja";
-          MYSQL_PASSWORD = config.sops.secrets.vikunja_dbpassword.path;
+          MYSQL_PASSWORD = config.sops.secrets.vikunja-db_password.path;
           MYSQL_DATABASE = "vikunja";
         };
         volumes = [
