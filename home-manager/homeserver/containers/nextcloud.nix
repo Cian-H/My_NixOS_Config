@@ -25,7 +25,7 @@
         environment = {
           NEXTCLOUD_URL = "nextcloud.bulba.space";
           TRUSTED_DOMAINS = "nextcloud.bulba.space";
-          TRUSTED_PROXIES = "caddy";
+          TRUSTED_PROXIES = "192.168.12.254";
           MYSQL_HOST = "nextcloud-db";
           MYSQL_DATABASE = "nextcloud";
           MYSQL_USER = "nextcloud";
