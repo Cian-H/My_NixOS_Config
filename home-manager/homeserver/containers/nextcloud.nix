@@ -42,7 +42,7 @@
         };
       };
       nextcloud-db = {
-        image = "docker.io/library/mariadb:latest";
+        image = "docker.io/library/mariadb:11.4.5";
         autoUpdate = "registry";
         network = ["nextcloud-net"];
         environment = {
