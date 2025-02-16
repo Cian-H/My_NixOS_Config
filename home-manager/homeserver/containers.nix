@@ -13,7 +13,9 @@
     autoUpdate.enable = true;
     # A network for exposing endpoints to the reverse proxy
     networks = {
-      proxy-net = {};
+      proxy-net = {
+        subnet = "192.168.12.0/24";
+      };
     };
   };
 

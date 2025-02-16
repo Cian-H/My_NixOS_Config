@@ -12,6 +12,7 @@
       image = "docker.io/library/caddy:latest";
       autoUpdate = "registry";
       network = "proxy-net";
+      ip4 = "192.168.12.254";
       ports = [
         "8080:80"
         "8443:443"
