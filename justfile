@@ -7,6 +7,7 @@ prebuild:
         git add .
     fi
     git pull
+    git submodule update --remote --recursive
     nix flake update
 
 _update-root:
