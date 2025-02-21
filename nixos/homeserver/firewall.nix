@@ -9,7 +9,6 @@
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [
-      1234 # temporary
       22 # SSH
       3000 # Grafana
       3005 # Plex
@@ -20,6 +19,7 @@
       8096 # Jellyfin
       8324 # Plex
       8443 # Caddy
+      9980 # collabora
       32400 # Plex
       32469 # Plex
       11000 # Nextcloud
@@ -32,6 +32,7 @@
       8080 # Caddy
       8081 # Nextcloud
       8443 # Caddy
+      9980 # collabora
       11000 # Nextcloud
       32410 # Plex
       32412 # Plex

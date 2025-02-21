@@ -33,6 +33,7 @@
       nextcloud_signaling_secret = {};
       nextcloud_turn_secret = {};
       nextcloud_whiteboard_secret = {};
+      nextcloud-collabora_password = {};
     };
   };
 }

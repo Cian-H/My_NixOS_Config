@@ -55,6 +55,24 @@
           "/home/cianh/nextcloud_db:/var/lib/mysql"
         ];
       };
+      nextcloud-collabora = {
+        image = "docker.io/collabora/code:latest";
+        autoUpdate = "registry";
+        network = [
+          "nextcloud-net"
+          "proxy-net"
+        ];
+        ports = [
+          "9980:9980"
+        ];
+        environment = {
+          username = "admin";
+          password = config.sops.secrets.nextcloud-collabora_password.path;
+          aliasgroup1 = "https://nextcloud.bulba.space";
+          aliasgroup2 = "https://collabora.bulba.space";
+          server_name = "collabora.bulba.space";
+        };
+      };
     };
   };
 }
