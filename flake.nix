@@ -83,6 +83,7 @@
           system = "x86_64-linux";
           config = {
             allowUnfree = true;
+            cudaSupport = true;
             # Workaround for https://github.com/nix-community/home-manager/issues/2942
             allowUnfreePredicate = _: true;
           };
@@ -92,6 +93,7 @@
           unstablePkgs = import nixpkgs-unstable {
             # We also need to do the same for unstable
             system = "x86_64-linux";
+            cudaSupport = true;
             config = {
               allowUnfree = true;
               allowUnfreePredicate = _: true;
