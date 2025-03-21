@@ -24,6 +24,7 @@
       neovide
       nwg-look
       obs-studio
+      onlyoffice-desktopeditors
       pandoc
       pavucontrol
       podman-desktop
