@@ -76,6 +76,7 @@
       yaml-language-server
     ])
     ++ (with unstablePkgs; [
+      nextcloud-client
       vimPlugins.mason-lspconfig-nvim
       (writeShellScriptBin "obsidian" ''        # Patch for obsiidan GPU issues
                exec ${unstablePkgs.obsidian}/bin/obsidian --disable-gpu "$@"
