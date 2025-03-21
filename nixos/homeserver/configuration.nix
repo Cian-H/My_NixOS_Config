@@ -149,6 +149,7 @@
       ouch
       pass
       passh
+      pueue
       pinentry-tty
       pkg-config
       podman-compose
