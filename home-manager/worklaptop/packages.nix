@@ -74,6 +74,7 @@
       lua-language-server
       taplo
       yaml-language-server
+      zed-editor
     ])
     ++ (with unstablePkgs; [
       nextcloud-client
@@ -81,7 +82,6 @@
       (writeShellScriptBin "obsidian" ''        # Patch for obsiidan GPU issues
                exec ${unstablePkgs.obsidian}/bin/obsidian --disable-gpu "$@"
       '')
-      zed-editor
       zotero
     ])
     ++ [
