@@ -63,6 +63,7 @@
       poetryPlugins.poetry-audit-plugin
       pre-commit
       rustup
+      sshs
       steam-run
       stylua
       tree-sitter
