@@ -82,6 +82,7 @@
       (writeShellScriptBin "obsidian" ''        # Patch for obsiidan GPU issues
                exec ${unstablePkgs.obsidian}/bin/obsidian --disable-gpu "$@"
       '')
+      zoom-us
       zotero
     ])
     ++ [
