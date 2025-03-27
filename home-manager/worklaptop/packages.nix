@@ -80,6 +80,8 @@
     ++ (with unstablePkgs; [
       nextcloud-client
       vimPlugins.mason-lspconfig-nvim
+      vivaldi
+      vivaldi-ffmpeg-codecs
       (writeShellScriptBin "obsidian" ''        # Patch for obsiidan GPU issues
                exec ${unstablePkgs.obsidian}/bin/obsidian --disable-gpu "$@"
       '')
