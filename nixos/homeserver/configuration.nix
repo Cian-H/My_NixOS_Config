@@ -165,8 +165,6 @@
       xcp
       zellij
       zoxide
-      monaspace
-      nerdfonts
       brotli
       gcc
       gnumake
@@ -263,5 +261,8 @@
     enableDefaultPackages = true;
     fontDir.enable = true;
     fontconfig.defaultFonts.monospace = ["MonaspiceArNerdFontMono"];
+    packages = with pkgs; [
+      nerdfonts
+    ];
   };
 }

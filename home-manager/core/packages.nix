@@ -6,9 +6,7 @@
   pkgs,
   unstablePkgs,
   ...
-}: let
-  monaspaceFont = pkgs.callPackage ../../modules/monaspice_font.nix {};
-in {
+}: {
   home.packages =
     (with pkgs; [
       alejandra
@@ -22,8 +20,5 @@ in {
       lazygit
       nixd
       nushell
-    ])
-    ++ [
-      monaspaceFont
-    ];
+    ]);
 }

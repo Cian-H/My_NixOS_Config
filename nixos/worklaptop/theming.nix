@@ -23,20 +23,21 @@
         monospace = ["MonaspiceArNerdFontMono"];
       };
     };
+
+    packages = with pkgs; [
+      corefonts
+      liberation_ttf
+      nerdfonts
+      nerd-font-patcher
+      noto-fonts
+      noto-fonts-color-emoji
+      vistafonts
+      winePackages.fonts
+    ];
   };
 
   # Theming packages
   environment.systemPackages = with pkgs; [
-    # fonts
-    corefonts
-    liberation_ttf
-    monaspace
-    nerdfonts
-    nerd-font-patcher
-    noto-fonts
-    noto-fonts-color-emoji
-    vistafonts
-    winePackages.fonts
     # Cursor
     hyprcursor
     # QT
