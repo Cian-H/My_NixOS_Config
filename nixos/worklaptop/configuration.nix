@@ -16,6 +16,7 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.cudaSupport = true;
 
+  hardware.graphics.enable = true;
   hardware.nvidia = {
     # Modesetting is required.
     modesetting.enable = true;
