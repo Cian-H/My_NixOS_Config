@@ -4,3 +4,6 @@
 [submodule "nixos/core/programs/yazi/plugins/hexyl.yazi"]
 	path = nixos/core/programs/yazi/plugins/hexyl.yazi
 	url = https://github.com/Reledia/hexyl.yazi
+[submodule "nixos/core/programs/yazi/plugins/max-preview.yazi"]
+	path = nixos/core/programs/yazi/plugins/max-preview.yazi
+	url = https://github.com/SUSTech-data/max-preview.yazi
