@@ -9,8 +9,13 @@
   imports = [
     ./core.nix
     ./homeserver/hardware-configuration.nix
+    ./homeserver/packages.nix
+    ./homeserver/programs.nix
+    ./homeserver/services.nix
     ./homeserver/filesystems.nix
     ./homeserver/firewall.nix
+    ./homeserver/virtualisation.nix
+    ./homeserver/environment.nix
   ];
 
   # Allow unfree packages
@@ -59,34 +64,6 @@
     '';
   };
 
-  environment.etc =
-    lib.mapAttrs'
-    (name: value: {
-      name = "nix/path/${name}";
-      value.source = value.flake;
-    })
-    config.nix.registry
-    // {
-      "justfile" = {
-        text = ''
-          default:
-              @just -g --list
-
-          update-root:
-              if `/usr/bin/env grep -Rq "nixos" /etc/*-release`; then \
-                  nixos-rebuild switch --flake /home/cianh/.config/nix/#$HOSTNAME; \
-              fi
-        '';
-        mode = "0644";
-      };
-      "root_gitconfig" = {
-        text = ''
-          [safe]
-              directory = /home/cianh/.config/nix
-        '';
-      };
-    };
-
   system.activationScripts.linkRootJustfile = {
     text = ''
       ln -sf /etc/justfile /root/.justfile
@@ -117,71 +94,6 @@
         ./ssh/authorized_keys
       ];
       extraGroups = ["docker" "podman" "nixcfg"];
-    };
-  };
-
-  # $ nix search wget
-  environment.systemPackages = [
-    pkgs.pinentry-tty
-  ];
-
-  # Enable the OpenSSH daemon and other remote tools.
-  services.openssh = {
-    enable = true;
-    settings = {
-      PasswordAuthentication = false;
-      KbdInteractiveAuthentication = false;
-    };
-    extraConfig = "UsePAM yes";
-  };
-  # Modify the SSH service to prioritise because server is headless
-  systemd.services.sshd = {
-    requires = []; # Remove any non-essential dependencies
-    after = ["network.target"]; # Only need to wait for networking (obviously)
-    serviceConfig = {
-      # If SSH dies, we want to restart it asap
-      Restart = "always";
-      RestartSec = "3";
-      StartLimitIntervalSec = "0";
-      # The CPU should never be too busy to respond to SSH
-      CPUSchedulingPolicy = "rr";
-      CPUSchedulingPriority = "99";
-      IOSchedulingClass = "realtime";
-      IOSchedulingPriority = "0";
-      # Finally, if the system hits an OOM, for the love of god dont kill SSH until last
-      OOMScoreAdjust = "-1000";
-    };
-  };
-
-  # Add custom services
-  systemd.services.pueued = {
-    enable = true;
-    description = "Pueue Daemon - CLI process scheduler and manager";
-    wantedBy = ["default.target"];
-    serviceConfig = {
-      Restart = "no";
-      ExecStart = "${pkgs.pueue.outPath}/bin/pueued -vv";
-    };
-  };
-
-  # Enable GPG signing
-  services.pcscd.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    pinentryPackage = pkgs.pinentry-tty;
-    enableSSHSupport = true;
-  };
-
-  virtualisation = {
-    containers.enable = true;
-
-    podman = {
-      enable = true;
-      # Create a `docker` alias for podman, to use it as a drop-in replacement
-      dockerCompat = true;
-      dockerSocket.enable = true;
-      # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings.dns_enabled = true;
     };
   };
 

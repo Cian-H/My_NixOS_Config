@@ -9,6 +9,11 @@
   imports = [
     ./core.nix
     ./worklaptop/hardware-configuration.nix
+    ./worklaptop/packages.nix
+    ./worklaptop/programs.nix
+    ./worklaptop/services.nix
+    ./worklaptop/virtualisation.nix
+    ./worklaptop/environment.nix
     ./worklaptop/theming.nix
   ];
 
@@ -47,11 +52,6 @@
     };
   };
   hardware.nvidia-container-toolkit.enable = true;
-  environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "iHD";
-    NIXOS_OZONE_WL = "1";
-    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-  };
 
   # Bootloader.
   boot = {
@@ -109,47 +109,11 @@
     '';
   };
 
-  environment.etc =
-    lib.mapAttrs'
-    (name: value: {
-      name = "nix/path/${name}";
-      value.source = value.flake;
-    })
-    config.nix.registry;
-
-  # Load nvidia driver for Xorg and Wayland
-  services = {
-    xserver = {
-      videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
-      enable = true;
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = false;
-      xkb = {
-        layout = "ie";
-        variant = "";
-      };
-    };
-  };
-
   # Configure console keymap
   console.keyMap = "ie";
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
 
   users.users.cianh = {
     isNormalUser = true;
@@ -172,67 +136,7 @@
     chmod 0444 /var/lib/AccountsService/icons/cianh
   '';
 
-  # $ nix search wget
-  environment.systemPackages = [
-    pkgs.flatpak
-    pkgs.gdm
-    pkgs.grub2_efi
-    pkgs.hyprland
-    pkgs.hyprlock
-    pkgs.hyprpaper
-    pkgs.hyprpicker
-    pkgs.hyprshot
-    pkgs.mosh
-    pkgs.nix-ld
-    pkgs.nmap
-    pkgs.nodejs
-    pkgs.phinger-cursors
-    pkgs.pinentry-gnome3
-    pkgs.qmk
-    pkgs.qmk-udev-rules
-    pkgs.qmk_hid
-    pkgs.seahorse
-    pkgs.sway # More stable, backup DE
-    pkgs.wayland
-    pkgs.wayland-utils
-    pkgs.xdg-desktop-portal-gtk
-    pkgs.xdg-desktop-portal-hyprland
-    pkgs.xdg-desktop-portal-wlr
-    pkgs.xdg-desktop-portal-xapp
-    pkgs.xfce.thunar
-    pkgs.xfce.tumbler
-    unstablePkgs.ghostty
-    unstablePkgs.libnotify
-    unstablePkgs.ruff
-    unstablePkgs.swaynotificationcenter
-    unstablePkgs.uv
-    unstablePkgs.waybar
-    unstablePkgs.wofi
-  ];
-
   hardware.keyboard.qmk.enable = true;
-
-  # Activate DEs
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-  programs.sway = {
-    enable = true;
-    extraOptions = ["--unsupported-gpu"];
-  };
-  programs.waybar.enable = true;
-
-  # Enable my preferred DE utilities
-  programs.thunar.enable = true;
-  programs.thunar.plugins = [
-    pkgs.xfce.thunar-volman
-    pkgs.xfce.thunar-archive-plugin
-    pkgs.xfce.thunar-media-tags-plugin
-  ];
-  services.gvfs.enable = true;
-  services.tumbler.enable = true;
-  programs.xfconf.enable = true;
   xdg.portal = {
     enable = true;
     wlr.enable = true;
@@ -241,86 +145,6 @@
       pkgs.xdg-desktop-portal-gtk
     ];
   };
-
-  # Disable automatically activated programs i dont want
-  programs.foot.enable = false;
-
-  # Lets also activate some handy devenv tools
-  programs.direnv.enable = true;
-  programs.direnv.nix-direnv.enable = true;
-  programs.nix-ld = {
-    enable = true;
-    libraries = [
-      pkgs.acl
-      pkgs.alsa-lib
-      pkgs.at-spi2-core
-      pkgs.attr
-      pkgs.bzip2
-      pkgs.curl
-      pkgs.dbus
-      pkgs.expat
-      pkgs.glib
-      pkgs.libsodium
-      pkgs.libssh
-      pkgs.libxml2
-      pkgs.nspr
-      pkgs.nss
-      pkgs.openssl
-      pkgs.pango
-      pkgs.stdenv.cc
-      pkgs.systemd
-      pkgs.util-linux
-      pkgs.vulkan-loader
-      pkgs.xz
-      pkgs.zlib
-      pkgs.zstd
-    ];
-  };
-
-  # Enable flatpaks
-  services.flatpak.enable = true;
-
-  # Enable the OpenSSH daemon and other remote tools.
-  services.openssh.enable = true;
-  programs.mosh.enable = true;
-
-  # Add custom services
-  systemd.services.pueued = {
-    enable = true;
-    description = "Pueue Daemon - CLI process scheduler and manager";
-    wantedBy = ["default.target"];
-    serviceConfig = {
-      Restart = "no";
-      ExecStart = "${pkgs.pueue.outPath}/bin/pueued -vv";
-    };
-  };
-
-  # Enable GPG signing
-  services.gnome.gnome-keyring.enable = true;
-  programs.seahorse.enable = true; # enable the graphical frontend
-  security.pam.services.gdm.enableGnomeKeyring = true; # load gnome-keyring at startup
-  services.pcscd.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    pinentryPackage = pkgs.pinentry-gnome3;
-    enableSSHSupport = true;
-  };
-
-  virtualisation = {
-    containers.enable = true;
-
-    podman = {
-      enable = true;
-      # Create a `docker` alias for podman, to use it as a drop-in replacement
-      dockerCompat = true;
-      dockerSocket.enable = true;
-      # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings.dns_enabled = true;
-    };
-
-    libvirtd.enable = true;
-  };
-  programs.virt-manager.enable = true;
 
   system = {
     stateVersion = "23.11"; # Did you read the comment?
