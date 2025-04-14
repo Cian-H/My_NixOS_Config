@@ -12,7 +12,7 @@ prebuild:
 
 _update-root:
     if `/usr/bin/env grep -Rq "nixos" /etc/*-release`; then \
-        sudo nixos-rebuild switch --flake .#$HOSTNAME; \
+        sudo nixos-rebuild switch --flake .?submodules=1#$HOSTNAME; \
     fi
 
 update-root: prebuild _update-root
