@@ -7,3 +7,6 @@
 [submodule "nixos/core/programs/yazi/plugins/max-preview.yazi"]
 	path = nixos/core/programs/yazi/plugins/max-preview.yazi
 	url = https://github.com/SUSTech-data/max-preview.yazi
+[submodule "nixos/core/programs/yazi/flavors/tokyo-night.yazi"]
+	path = nixos/core/programs/yazi/flavors/tokyo-night.yazi
+	url = https://github.com/BennyOe/tokyo-night.yazi.git
