@@ -35,7 +35,7 @@
           unstablePkgs = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux;
         };
         modules = [
-          ./nixos/worklaptop/configuration.nix
+          ./nixos/worklaptop.nix
         ];
       };
       homeserver = nixpkgs.lib.nixosSystem {
@@ -44,7 +44,7 @@
           unstablePkgs = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux;
         };
         modules = [
-          ./nixos/homeserver/configuration.nix
+          ./nixos/homeserver.nix
         ];
       };
     };

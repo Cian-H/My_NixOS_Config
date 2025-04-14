@@ -7,9 +7,9 @@
   ...
 }: {
   imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-    ./theming.nix
+    ./core.nix
+    ./worklaptop/hardware-configuration.nix
+    ./worklaptop/theming.nix
   ];
 
   # Allow unfree packages

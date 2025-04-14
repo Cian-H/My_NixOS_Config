@@ -7,10 +7,10 @@
   ...
 }: {
   imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-    ./filesystems.nix
-    ./firewall.nix
+    ./core.nix
+    ./homeserver/hardware-configuration.nix
+    ./homeserver/filesystems.nix
+    ./homeserver/firewall.nix
   ];
 
   # Allow unfree packages
