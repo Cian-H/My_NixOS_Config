@@ -16,7 +16,22 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.cudaSupport = true;
 
-  hardware.graphics.enable = true;
+  boot.blacklistedKernelModules = ["nouveau"];
+  hardware.enableRedistributableFirmware = true;
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+    extraPackages = with pkgs; [
+      intel-compute-runtime
+      intel-media-driver
+      libglvnd
+      libvdpau-va-gl
+      mesa
+      nvidia-vaapi-driver
+      vaapiIntel
+      vaapiVdpau
+    ];
+  };
   hardware.nvidia = {
     # Modesetting is required.
     modesetting.enable = true;
@@ -32,6 +47,11 @@
     };
   };
   hardware.nvidia-container-toolkit.enable = true;
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "iHD";
+    NIXOS_OZONE_WL = "1";
+    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+  };
 
   # Bootloader.
   boot = {
@@ -269,7 +289,6 @@
     withRuby = true;
   };
   programs.waybar.enable = true;
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Enable my preferred DE utilities
   programs.thunar.enable = true;
