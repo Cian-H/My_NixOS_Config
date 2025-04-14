@@ -1,3 +1,6 @@
 [submodule "home-manager/core/dotfiles"]
 	path = home-manager/core/dotfiles
 	url = https://github.com/Cian-H/dotfiles.git
+[submodule "nixos/core/programs/yazi/plugins/hexyl.yazi"]
+	path = nixos/core/programs/yazi/plugins/hexyl.yazi
+	url = https://github.com/Reledia/hexyl.yazi
