@@ -8,6 +8,7 @@
   ...
 }: {
   imports = [
+    ./core/packages.nix
     ./core/programs.nix
   ];
 }

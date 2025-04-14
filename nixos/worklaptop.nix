@@ -174,93 +174,38 @@
 
   # $ nix search wget
   environment.systemPackages = [
-    # shell env programs
-    pkgs.atuin
-    pkgs.bat
-    pkgs.bitwarden-cli
-    pkgs.bottom
-    pkgs.delta
-    pkgs.du-dust
-    pkgs.duf
-    pkgs.fastfetch
-    pkgs.fd
-    pkgs.fzf
-    pkgs.gdm
-    pkgs.gh
-    pkgs.git
-    pkgs.git-extras
-    pkgs.glab
-    pkgs.glow
-    pkgs.gnupg
-    pkgs.grub2_efi
-    pkgs.hexyl
-    pkgs.killall
-    pkgs.less
-    pkgs.libsecret
-    pkgs.mosh
-    pkgs.netcat-gnu
-    pkgs.nix-index
-    pkgs.nix-ld
-    pkgs.nmap
-    pkgs.nodejs
-    pkgs.openssl
-    pkgs.ouch
-    pkgs.pass
-    pkgs.passh
-    pkgs.phinger-cursors
-    pkgs.pinentry-gnome3
-    pkgs.pkg-config
-    pkgs.podman-compose
-    pkgs.powertop
-    pkgs.pueue
-    pkgs.qmk
-    pkgs.qmk-udev-rules
-    pkgs.qmk_hid
-    pkgs.ripgrep
-    pkgs.rm-improved
-    pkgs.seahorse
-    pkgs.starship
-    pkgs.tealdeer
-    pkgs.wget
-    pkgs.wl-clipboard
-    pkgs.xclip
-    pkgs.xcp
-    pkgs.xfce.thunar
-    pkgs.xfce.tumbler
-    pkgs.zellij
-    pkgs.zoxide
-    unstablePkgs.yazi
-    # package managers
     pkgs.flatpak
-    # back-end dev tools
-    pkgs.brotli
-    pkgs.gcc
-    pkgs.gnumake
-    unstablePkgs.just
-    unstablePkgs.ruff
-    unstablePkgs.serie
-    unstablePkgs.uv
-    # front-end dev environment
-    pkgs.micro
-    unstablePkgs.ghostty
-    unstablePkgs.neovim
-    unstablePkgs.nushell
-    unstablePkgs.onefetch
-    # DE and accompanying tools
-    pkgs.wayland
-    pkgs.wayland-utils
-    pkgs.sway # More stable, backup DE
+    pkgs.gdm
+    pkgs.grub2_efi
     pkgs.hyprland
     pkgs.hyprlock
     pkgs.hyprpaper
     pkgs.hyprpicker
     pkgs.hyprshot
+    pkgs.mosh
+    pkgs.nix-ld
+    pkgs.nmap
+    pkgs.nodejs
+    pkgs.phinger-cursors
+    pkgs.pinentry-gnome3
+    pkgs.qmk
+    pkgs.qmk-udev-rules
+    pkgs.qmk_hid
+    pkgs.seahorse
+    pkgs.sway # More stable, backup DE
+    pkgs.wayland
+    pkgs.wayland-utils
+    pkgs.xdg-desktop-portal-gtk
     pkgs.xdg-desktop-portal-hyprland
     pkgs.xdg-desktop-portal-wlr
-    pkgs.xdg-desktop-portal-gtk
     pkgs.xdg-desktop-portal-xapp
+    pkgs.xfce.thunar
+    pkgs.xfce.tumbler
+    unstablePkgs.ghostty
     unstablePkgs.libnotify
+    unstablePkgs.ruff
     unstablePkgs.swaynotificationcenter
+    unstablePkgs.uv
     unstablePkgs.waybar
     unstablePkgs.wofi
   ];
