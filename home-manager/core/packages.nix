@@ -7,18 +7,15 @@
   unstablePkgs,
   ...
 }: {
-  home.packages =
-    (with pkgs; [
-      alejandra
-      git-extras
-      git-credential-manager
-      meld
-      unzip
-    ])
-    ++ (with unstablePkgs; [
-      devenv
-      lazygit
-      nixd
-      nushell
-    ]);
+  home.packages = [
+    pkgs.alejandra
+    pkgs.git-extras
+    pkgs.git-credential-manager
+    pkgs.meld
+    pkgs.unzip
+    unstablePkgs.devenv
+    unstablePkgs.lazygit
+    unstablePkgs.nixd
+    unstablePkgs.nushell
+  ];
 }

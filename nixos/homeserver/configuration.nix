@@ -121,63 +121,60 @@
   };
 
   # $ nix search wget
-  environment.systemPackages =
-    (with pkgs; [
-      atuin
-      bat
-      bitwarden-cli
-      bottom
-      delta
-      du-dust
-      duf
-      fastfetch
-      fd
-      fzf
-      gh
-      git
-      git-extras
-      glab
-      glow
-      gnupg
-      hexyl
-      killall
-      less
-      libsecret
-      netcat-gnu
-      nix-index
-      openssl
-      ouch
-      pass
-      passh
-      pueue
-      pinentry-tty
-      pkg-config
-      podman-compose
-      powertop
-      pueue
-      ripgrep
-      rm-improved
-      starship
-      tealdeer
-      wget
-      wl-clipboard
-      xclip
-      xcp
-      zellij
-      zoxide
-      brotli
-      gcc
-      gnumake
-      micro
-    ])
-    ++ (with unstablePkgs; [
-      just
-      neovim
-      nushell
-      onefetch
-      serie
-      yazi
-    ]);
+  environment.systemPackages = [
+    pkgs.atuin
+    pkgs.bat
+    pkgs.bitwarden-cli
+    pkgs.bottom
+    pkgs.delta
+    pkgs.du-dust
+    pkgs.duf
+    pkgs.fastfetch
+    pkgs.fd
+    pkgs.fzf
+    pkgs.gh
+    pkgs.git
+    pkgs.git-extras
+    pkgs.glab
+    pkgs.glow
+    pkgs.gnupg
+    pkgs.hexyl
+    pkgs.killall
+    pkgs.less
+    pkgs.libsecret
+    pkgs.netcat-gnu
+    pkgs.nix-index
+    pkgs.openssl
+    pkgs.ouch
+    pkgs.pass
+    pkgs.passh
+    pkgs.pueue
+    pkgs.pinentry-tty
+    pkgs.pkg-config
+    pkgs.podman-compose
+    pkgs.powertop
+    pkgs.pueue
+    pkgs.ripgrep
+    pkgs.rm-improved
+    pkgs.starship
+    pkgs.tealdeer
+    pkgs.wget
+    pkgs.wl-clipboard
+    pkgs.xclip
+    pkgs.xcp
+    pkgs.zellij
+    pkgs.zoxide
+    pkgs.brotli
+    pkgs.gcc
+    pkgs.gnumake
+    pkgs.micro
+    unstablePkgs.just
+    unstablePkgs.neovim
+    unstablePkgs.nushell
+    unstablePkgs.onefetch
+    unstablePkgs.serie
+    unstablePkgs.yazi
+  ];
 
   programs.neovim = {
     enable = true;
@@ -261,8 +258,8 @@
     enableDefaultPackages = true;
     fontDir.enable = true;
     fontconfig.defaultFonts.monospace = ["MonaspiceArNerdFontMono"];
-    packages = with pkgs; [
-      nerdfonts
+    packages = [
+      pkgs.nerdfonts
     ];
   };
 }

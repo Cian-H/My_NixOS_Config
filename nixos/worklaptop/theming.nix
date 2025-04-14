@@ -24,27 +24,27 @@
       };
     };
 
-    packages = with pkgs; [
-      corefonts
-      liberation_ttf
-      nerdfonts
-      nerd-font-patcher
-      noto-fonts
-      noto-fonts-color-emoji
-      vistafonts
-      winePackages.fonts
+    packages = [
+      pkgs.corefonts
+      pkgs.liberation_ttf
+      pkgs.nerdfonts
+      pkgs.nerd-font-patcher
+      pkgs.noto-fonts
+      pkgs.noto-fonts-color-emoji
+      pkgs.vistafonts
+      pkgs.winePackages.fonts
     ];
   };
 
   # Theming packages
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = [
     # Cursor
-    hyprcursor
+    pkgs.hyprcursor
     # QT
-    libsForQt5.qtstyleplugin-kvantum
-    qt6Packages.qtstyleplugin-kvantum
+    pkgs.libsForQt5.qtstyleplugin-kvantum
+    pkgs.qt6Packages.qtstyleplugin-kvantum
     # Adwaita (i love gnome, but god damn is adwaita annoying on other DEs)
-    adwaita-icon-theme
-    libadwaita
+    pkgs.adwaita-icon-theme
+    pkgs.libadwaita
   ];
 }

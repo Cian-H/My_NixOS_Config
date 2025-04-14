@@ -21,15 +21,15 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    extraPackages = with pkgs; [
-      intel-compute-runtime
-      intel-media-driver
-      libglvnd
-      libvdpau-va-gl
-      mesa
-      nvidia-vaapi-driver
-      vaapiIntel
-      vaapiVdpau
+    extraPackages = [
+      pkgs.intel-compute-runtime
+      pkgs.intel-media-driver
+      pkgs.libglvnd
+      pkgs.libvdpau-va-gl
+      pkgs.mesa
+      pkgs.nvidia-vaapi-driver
+      pkgs.vaapiIntel
+      pkgs.vaapiVdpau
     ];
   };
   hardware.nvidia = {
@@ -173,100 +173,97 @@
   '';
 
   # $ nix search wget
-  environment.systemPackages =
-    (with pkgs; [
-      # shell env programs
-      atuin
-      bat
-      bitwarden-cli
-      bottom
-      delta
-      du-dust
-      duf
-      fastfetch
-      fd
-      fzf
-      gdm
-      gh
-      git
-      git-extras
-      glab
-      glow
-      gnupg
-      grub2_efi
-      hexyl
-      killall
-      less
-      libsecret
-      mosh
-      netcat-gnu
-      nix-index
-      nix-ld
-      nmap
-      nodejs
-      openssl
-      ouch
-      pass
-      passh
-      phinger-cursors
-      pinentry-gnome3
-      pkg-config
-      podman-compose
-      powertop
-      pueue
-      qmk
-      qmk-udev-rules
-      qmk_hid
-      ripgrep
-      rm-improved
-      seahorse
-      starship
-      tealdeer
-      wget
-      wl-clipboard
-      xclip
-      xcp
-      xfce.thunar
-      xfce.tumbler
-      zellij
-      zoxide
-      # package managers
-      flatpak
-      # back-end dev tools
-      brotli
-      gcc
-      gnumake
-      # front-end dev environment
-      micro
-      # DE and accompanying tools
-      wayland
-      wayland-utils
-      sway # More stable, backup DE
-      hyprland
-      hyprlock
-      hyprpaper
-      hyprpicker
-      hyprshot
-      xdg-desktop-portal-hyprland
-      xdg-desktop-portal-wlr
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-xapp
-    ])
-    ++ (with unstablePkgs; [
-      just
-      ghostty
-      libnotify
-      neovim
-      nushell
-      onefetch
-      ruff
-      serie
-      swaynotificationcenter
-      uv
-      waybar
-      wofi
-      yazi
-    ]);
+  environment.systemPackages = [
+    # shell env programs
+    pkgs.atuin
+    pkgs.bat
+    pkgs.bitwarden-cli
+    pkgs.bottom
+    pkgs.delta
+    pkgs.du-dust
+    pkgs.duf
+    pkgs.fastfetch
+    pkgs.fd
+    pkgs.fzf
+    pkgs.gdm
+    pkgs.gh
+    pkgs.git
+    pkgs.git-extras
+    pkgs.glab
+    pkgs.glow
+    pkgs.gnupg
+    pkgs.grub2_efi
+    pkgs.hexyl
+    pkgs.killall
+    pkgs.less
+    pkgs.libsecret
+    pkgs.mosh
+    pkgs.netcat-gnu
+    pkgs.nix-index
+    pkgs.nix-ld
+    pkgs.nmap
+    pkgs.nodejs
+    pkgs.openssl
+    pkgs.ouch
+    pkgs.pass
+    pkgs.passh
+    pkgs.phinger-cursors
+    pkgs.pinentry-gnome3
+    pkgs.pkg-config
+    pkgs.podman-compose
+    pkgs.powertop
+    pkgs.pueue
+    pkgs.qmk
+    pkgs.qmk-udev-rules
+    pkgs.qmk_hid
+    pkgs.ripgrep
+    pkgs.rm-improved
+    pkgs.seahorse
+    pkgs.starship
+    pkgs.tealdeer
+    pkgs.wget
+    pkgs.wl-clipboard
+    pkgs.xclip
+    pkgs.xcp
+    pkgs.xfce.thunar
+    pkgs.xfce.tumbler
+    pkgs.zellij
+    pkgs.zoxide
+    unstablePkgs.yazi
+    # package managers
+    pkgs.flatpak
+    # back-end dev tools
+    pkgs.brotli
+    pkgs.gcc
+    pkgs.gnumake
+    unstablePkgs.just
+    unstablePkgs.ruff
+    unstablePkgs.serie
+    unstablePkgs.uv
+    # front-end dev environment
+    pkgs.micro
+    unstablePkgs.ghostty
+    unstablePkgs.neovim
+    unstablePkgs.nushell
+    unstablePkgs.onefetch
+    # DE and accompanying tools
+    pkgs.wayland
+    pkgs.wayland-utils
+    pkgs.sway # More stable, backup DE
+    pkgs.hyprland
+    pkgs.hyprlock
+    pkgs.hyprpaper
+    pkgs.hyprpicker
+    pkgs.hyprshot
+    pkgs.xdg-desktop-portal-hyprland
+    pkgs.xdg-desktop-portal-wlr
+    pkgs.xdg-desktop-portal-gtk
+    pkgs.xdg-desktop-portal-xapp
+    unstablePkgs.libnotify
+    unstablePkgs.swaynotificationcenter
+    unstablePkgs.waybar
+    unstablePkgs.wofi
+  ];
 
   hardware.keyboard.qmk.enable = true;
 
@@ -292,10 +289,10 @@
 
   # Enable my preferred DE utilities
   programs.thunar.enable = true;
-  programs.thunar.plugins = with pkgs.xfce; [
-    thunar-volman
-    thunar-archive-plugin
-    thunar-media-tags-plugin
+  programs.thunar.plugins = [
+    pkgs.xfce.thunar-volman
+    pkgs.xfce.thunar-archive-plugin
+    pkgs.xfce.thunar-media-tags-plugin
   ];
   services.gvfs.enable = true;
   services.tumbler.enable = true;
@@ -317,30 +314,30 @@
   programs.direnv.nix-direnv.enable = true;
   programs.nix-ld = {
     enable = true;
-    libraries = with pkgs; [
-      acl
-      alsa-lib
-      at-spi2-core
-      attr
-      bzip2
-      curl
-      dbus
-      expat
-      glib
-      libsodium
-      libssh
-      libxml2
-      nspr
-      nss
-      openssl
-      pango
-      stdenv.cc
-      systemd
-      util-linux
-      vulkan-loader
-      xz
-      zlib
-      zstd
+    libraries = [
+      pkgs.acl
+      pkgs.alsa-lib
+      pkgs.at-spi2-core
+      pkgs.attr
+      pkgs.bzip2
+      pkgs.curl
+      pkgs.dbus
+      pkgs.expat
+      pkgs.glib
+      pkgs.libsodium
+      pkgs.libssh
+      pkgs.libxml2
+      pkgs.nspr
+      pkgs.nss
+      pkgs.openssl
+      pkgs.pango
+      pkgs.stdenv.cc
+      pkgs.systemd
+      pkgs.util-linux
+      pkgs.vulkan-loader
+      pkgs.xz
+      pkgs.zlib
+      pkgs.zstd
     ];
   };
 
