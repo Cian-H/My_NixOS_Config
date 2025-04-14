@@ -23,6 +23,7 @@
       lynx
       neovide
       nwg-look
+      obsidian
       obs-studio
       onlyoffice-desktopeditors
       pandoc
@@ -34,6 +35,8 @@
       smile
       spotify
       vial
+      vivaldi
+      vivaldi-ffmpeg-codecs
       warpinator
       zathura
       zettlr
@@ -80,30 +83,9 @@
     ++ (with unstablePkgs; [
       nextcloud-client
       vimPlugins.mason-lspconfig-nvim
-      vivaldi
-      vivaldi-ffmpeg-codecs
-      (writeShellScriptBin "obsidian" ''        # Patch for obsiidan GPU issues
-               exec ${unstablePkgs.obsidian}/bin/obsidian --disable-gpu "$@"
-      '')
-      zoom-us
       zotero
     ])
     ++ [
       inputs.zen-browser.packages.x86_64-linux.default
     ];
-
-  # manually add desktop file for patched obsidian
-  home.file.".local/share/applications/obsidian.desktop".text = ''
-    [Desktop Entry]
-    Name=Obsidian
-    Exec=${pkgs.writeShellScriptBin "obsidian-launcher" ''
-      exec ${pkgs.obsidian}/bin/obsidian --disable-gpu "$@"
-    ''}/bin/obsidian-launcher %U
-    Icon=${pkgs.obsidian}/share/icons/hicolor/512x512/apps/obsidian.png
-    Terminal=false
-    Type=Application
-    Categories=Office;
-    MimeType=x-scheme-handler/obsidian;
-    Keywords=obsidian;notes;
-  '';
 }
