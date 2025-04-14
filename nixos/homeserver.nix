@@ -176,16 +176,6 @@
     unstablePkgs.yazi
   ];
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    withPython3 = true;
-    withNodeJs = true;
-    withRuby = true;
-  };
-
   # Enable the OpenSSH daemon and other remote tools.
   services.openssh = {
     enable = true;

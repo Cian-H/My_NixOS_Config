@@ -276,15 +276,6 @@
     enable = true;
     extraOptions = ["--unsupported-gpu"];
   };
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    withPython3 = true;
-    withNodeJs = true;
-    withRuby = true;
-  };
   programs.waybar.enable = true;
 
   # Enable my preferred DE utilities
