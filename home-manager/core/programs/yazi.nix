@@ -9,7 +9,7 @@
   programs.yazi = {
     enable = true;
     package = unstablePkgs.yazi;
-    programs.yazi.enableNushellIntegration = true;
+    enableNushellIntegration = true;
     initLua = ./yazi/init.lua;
     # plugins = {
     #   chmod = ./yazi/plugins/core/chmod.yazi;
