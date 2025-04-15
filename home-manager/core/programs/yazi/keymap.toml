@@ -487,3 +487,8 @@ desc = "Chmod on selected files"
 on = "T"
 run = "plugin --sync max-preview"
 desc = "Maximize or restore preview"
+
+[[manager.prepend_keymap]]
+on = "<C-y>"
+run = ["plugin wl-clipboard"]
+desc = "Yank to wl-clipboard"

@@ -22,3 +22,9 @@
 [submodule "home-manager/core/programs/yazi/plugins/glow.yazi"]
 	path = home-manager/core/programs/yazi/plugins/glow.yazi
 	url = https://github.com/Reledia/glow.yazi
+[submodule "home-manager/core/programs/yazi/plugins/wl-clipboard.yazi"]
+	path = home-manager/core/programs/yazi/plugins/wl-clipboard.yazi
+	url = https://github.com/grappas/wl-clipboard.yazi
+[submodule "home-manager/core/programs/yazi/plugins/rich-preview.yazi"]
+	path = home-manager/core/programs/yazi/plugins/rich-preview.yazi
+	url = https://github.com/AnirudhG07/rich-preview.yazi
