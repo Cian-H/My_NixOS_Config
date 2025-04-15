@@ -20,10 +20,10 @@
     #   max-preview = ./yazi/plugins/core/max-preview.yazi;
     #   mime-ext = ./yazi/plugins/core/mime-ext.yazi;
     #   ouch = ./yazi/plugins/ouch.yazi;
-    #   rich-preview = ./yazi/plugins/core/rich-preview.yazi;
+    #   rich-preview = ./yazi/plugins/rich-preview.yazi;
     #   starship = ./yazi/plugins/starship.yazi;
     #   sudo = ./yazi/plugins/sudo.yazi;
-    #   wl-clipboard = ./yazi/plugins/core/wl-clipboard.yazi;
+    #   wl-clipboard = ./yazi/plugins/wl-clipboard.yazi;
     # };
     # flavors = {
     #   tokyo-night = ./yazi/flavors/tokyo-night.yazi;
@@ -45,10 +45,10 @@
     "yazi/plugins/max-preview.yazi".source = ./yazi/plugins/core/max-preview.yazi;
     "yazi/plugins/mime-ext.yazi".source = ./yazi/plugins/core/mime-ext.yazi;
     "yazi/plugins/ouch.yazi".source = ./yazi/plugins/ouch.yazi;
-    "yazi/plugins/rich-preview.yazi".source = ./yazi/plugins/core/rich-preview.yazi;
+    "yazi/plugins/rich-preview.yazi".source = ./yazi/plugins/rich-preview.yazi;
     "yazi/plugins/starship.yazi".source = ./yazi/plugins/starship.yazi;
     "yazi/plugins/sudo.yazi".source = ./yazi/plugins/sudo.yazi;
-    "yazi/plugins/wl-clipboard.yazi".source = ./yazi/plugins/core/wl-clipboard.yazi;
+    "yazi/plugins/wl-clipboard.yazi".source = ./yazi/plugins/wl-clipboard.yazi;
     "yazi/flavors/tokyo-night.yazi".source = ./yazi/flavors/tokyo-night.yazi;
   };
 }
