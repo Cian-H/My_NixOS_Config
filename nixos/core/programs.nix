@@ -7,7 +7,6 @@
   ...
 }: {
   imports = [
-    ./programs/yazi.nix
     ./programs/neovim.nix
   ];
 }
