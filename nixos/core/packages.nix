@@ -22,6 +22,7 @@
     pkgs.gh
     pkgs.git
     pkgs.git-extras
+    pkgs.git-filter-repo
     pkgs.glab
     pkgs.glow
     pkgs.gnumake
