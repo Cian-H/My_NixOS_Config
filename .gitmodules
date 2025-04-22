@@ -1,30 +1,3 @@
 [submodule "home-manager/core/dotfiles"]
 	path = home-manager/core/dotfiles
 	url = https://github.com/Cian-H/dotfiles.git
-[submodule "nixos/core/programs/yazi/plugins/hexyl.yazi"]
-	path = home-manager/core/programs/yazi/plugins/hexyl.yazi
-	url = https://github.com/Reledia/hexyl.yazi
-[submodule "nixos/core/programs/yazi/flavors/tokyo-night.yazi"]
-	path = home-manager/core/programs/yazi/flavors/tokyo-night.yazi
-	url = https://github.com/BennyOe/tokyo-night.yazi.git
-[submodule "home-manager/core/programs/yazi/plugins/sudo.yazi"]
-	path = home-manager/core/programs/yazi/plugins/sudo.yazi
-	url = https://github.com/TD-Sky/sudo.yazi
-[submodule "home-manager/core/programs/yazi/plugins/core"]
-	path = home-manager/core/programs/yazi/plugins/core
-	url = https://github.com/yazi-rs/plugins
-[submodule "home-manager/core/programs/yazi/plugins/ouch"]
-	path = home-manager/core/programs/yazi/plugins/ouch.yazi
-	url = https://github.com/ndtoan96/ouch.yazi
-[submodule "home-manager/core/programs/yazi/plugins/starship.yazi"]
-	path = home-manager/core/programs/yazi/plugins/starship.yazi
-	url = https://github.com/Rolv-Apneseth/starship.yazi
-[submodule "home-manager/core/programs/yazi/plugins/glow.yazi"]
-	path = home-manager/core/programs/yazi/plugins/glow.yazi
-	url = https://github.com/Reledia/glow.yazi
-[submodule "home-manager/core/programs/yazi/plugins/wl-clipboard.yazi"]
-	path = home-manager/core/programs/yazi/plugins/wl-clipboard.yazi
-	url = https://github.com/grappas/wl-clipboard.yazi
-[submodule "home-manager/core/programs/yazi/plugins/rich-preview.yazi"]
-	path = home-manager/core/programs/yazi/plugins/rich-preview.yazi
-	url = https://github.com/AnirudhG07/rich-preview.yazi
