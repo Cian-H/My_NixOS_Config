@@ -12,7 +12,6 @@
     pkgs.blueman
     pkgs.distrobox
     pkgs.ferdium
-    pkgs.gimp-with-plugins
     pkgs.github-desktop
     pkgs.helix
     pkgs.hyperfine
@@ -40,6 +39,7 @@
     pkgs.zathura
     pkgs.zed-editor
     pkgs.zettlr
+    unstablePkgs.gimp3
     unstablePkgs.nextcloud-client
     unstablePkgs.zotero
     inputs.zen-browser.packages.x86_64-linux.default
