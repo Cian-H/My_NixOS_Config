@@ -14,7 +14,10 @@
     # add phinger hyprcursor flake
     hyprcursor-phinger.url = "github:jappie3/hyprcursor-phinger";
     # add zen browser flake
-    zen-browser.url = "github:Cian-H/zen-browser-flake";
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs = {
