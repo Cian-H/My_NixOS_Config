@@ -41,6 +41,7 @@
     "bat".source = ./dotfiles/dot_config/bat;
     "fastfetch".source = ./dotfiles/dot_config/fastfetch;
     "helix".source = ./dotfiles/dot_config/helix;
+    "home-manager".source = ./dotfiles/dot_config/home-manager;
     "hypr" = {
       source = ./dotfiles/dot_config/hypr;
       recursive = true;
