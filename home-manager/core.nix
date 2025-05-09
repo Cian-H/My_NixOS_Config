@@ -12,6 +12,7 @@
     ./core/user.nix
     ./core/packages.nix
     ./core/programs.nix
+    ./core/services.nix
     inputs.hyprcursor-phinger.homeManagerModules.hyprcursor-phinger
   ];
 
