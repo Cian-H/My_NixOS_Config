@@ -112,7 +112,6 @@
   # Configure console keymap
   console.keyMap = "ie";
 
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
 
   users.users.cianh = {

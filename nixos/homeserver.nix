@@ -110,7 +110,7 @@
     fontDir.enable = true;
     fontconfig.defaultFonts.monospace = ["MonaspiceArNerdFontMono"];
     packages = [
-      pkgs.nerdfonts
+      pkgs.nerd-fonts.monaspace
     ];
   };
 }

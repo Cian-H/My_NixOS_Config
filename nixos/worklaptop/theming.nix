@@ -27,7 +27,10 @@
     packages = [
       pkgs.corefonts
       pkgs.liberation_ttf
-      pkgs.nerdfonts
+      pkgs.nerd-fonts.monaspace
+      pkgs.nerd-fonts.inconsolata
+      pkgs.nerd-fonts.fira-code
+      pkgs.nerd-fonts.jetbrains-mono
       pkgs.nerd-font-patcher
       pkgs.noto-fonts
       pkgs.noto-fonts-color-emoji
