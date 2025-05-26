@@ -2,11 +2,7 @@ default:
     @just --list
 
 prebuild:
-    #!/usr/bin/env bash
-    if `git status --short | /usr/bin/env grep \?\?`; then
-        git add .
-    fi
-    git pull
+    git pull --recurse
     git submodule update --remote --recursive
     nix flake update
 
