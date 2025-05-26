@@ -11,6 +11,7 @@
     pkgs.bitwarden
     pkgs.blueman
     pkgs.distrobox
+    pkgs.feh
     pkgs.ferdium
     pkgs.github-desktop
     pkgs.helix
@@ -28,7 +29,6 @@
     pkgs.pavucontrol
     pkgs.podman-desktop
     pkgs.podman-tui
-    pkgs.qimgv
     pkgs.slack
     pkgs.smile
     pkgs.spotify
