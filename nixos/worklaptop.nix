@@ -22,36 +22,39 @@
   nixpkgs.config.cudaSupport = true;
 
   boot.blacklistedKernelModules = ["nouveau"];
-  hardware.enableRedistributableFirmware = true;
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-    extraPackages = [
-      pkgs.intel-compute-runtime
-      pkgs.intel-media-driver
-      pkgs.libglvnd
-      pkgs.libvdpau-va-gl
-      pkgs.mesa
-      pkgs.nvidia-vaapi-driver
-      pkgs.vaapiIntel
-      pkgs.vaapiVdpau
-    ];
-  };
-  hardware.nvidia = {
-    # Modesetting is required.
-    modesetting.enable = true;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-    open = false;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-    prime = {
-      sync.enable = true;
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
+  hardware = {
+    keyboard.qmk.enable = true;
+    enableRedistributableFirmware = true;
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+      extraPackages = [
+        pkgs.intel-compute-runtime
+        pkgs.intel-media-driver
+        pkgs.libglvnd
+        pkgs.libvdpau-va-gl
+        pkgs.mesa
+        pkgs.nvidia-vaapi-driver
+        pkgs.vaapiIntel
+        pkgs.vaapiVdpau
+      ];
     };
+    nvidia = {
+      # Modesetting is required.
+      modesetting.enable = true;
+      powerManagement.enable = false;
+      powerManagement.finegrained = false;
+      open = false;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      prime = {
+        sync.enable = true;
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
+      };
+    };
+    nvidia-container-toolkit.enable = true;
   };
-  hardware.nvidia-container-toolkit.enable = true;
 
   # Bootloader.
   boot = {
@@ -135,7 +138,6 @@
     chmod 0444 /var/lib/AccountsService/icons/cianh
   '';
 
-  hardware.keyboard.qmk.enable = true;
   xdg.portal = {
     enable = true;
     wlr.enable = true;
