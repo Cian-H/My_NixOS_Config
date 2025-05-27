@@ -24,6 +24,7 @@
   boot.blacklistedKernelModules = ["nouveau"];
   hardware = {
     keyboard.qmk.enable = true;
+    bluetooth.enable = true;
     enableRedistributableFirmware = true;
     graphics = {
       enable = true;
