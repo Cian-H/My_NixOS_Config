@@ -36,9 +36,7 @@
     pkgs.xh
     unstablePkgs.ghostty
     unstablePkgs.libnotify
-    unstablePkgs.ruff
     unstablePkgs.swaynotificationcenter
-    unstablePkgs.uv
     unstablePkgs.waybar
     unstablePkgs.wofi
   ];

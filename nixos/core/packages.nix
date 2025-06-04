@@ -11,7 +11,6 @@
     pkgs.bat
     pkgs.bitwarden-cli
     pkgs.bottom
-    pkgs.brotli
     pkgs.delta
     pkgs.du-dust
     pkgs.duf
@@ -25,11 +24,9 @@
     pkgs.git-filter-repo
     pkgs.glab
     pkgs.glow
-    pkgs.gnumake
     pkgs.gnupg
     pkgs.hexyl
     pkgs.killall
-    pkgs.less
     pkgs.libsecret
     pkgs.micro
     pkgs.netcat-gnu
@@ -40,7 +37,6 @@
     pkgs.passh
     pkgs.pkg-config
     pkgs.podman-compose
-    pkgs.powertop
     pkgs.pueue
     pkgs.ripgrep
     pkgs.rm-improved
