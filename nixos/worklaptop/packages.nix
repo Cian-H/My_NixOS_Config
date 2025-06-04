@@ -17,7 +17,7 @@
     pkgs.hyprshot
     pkgs.nix-ld
     pkgs.nmap
-    pkgs.nodejs
+    pkgs.nodejs-slim_latest
     pkgs.phinger-cursors
     pkgs.pinentry-gnome3
     pkgs.qmk
