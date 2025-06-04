@@ -34,6 +34,7 @@
     pkgs.xdg-desktop-portal-xapp
     pkgs.xfce.thunar
     pkgs.xfce.tumbler
+    pkgs.xh
     unstablePkgs.ghostty
     unstablePkgs.libnotify
     unstablePkgs.ruff
