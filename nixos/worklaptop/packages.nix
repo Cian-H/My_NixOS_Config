@@ -15,7 +15,6 @@
     pkgs.hyprpaper
     pkgs.hyprpicker
     pkgs.hyprshot
-    pkgs.mosh
     pkgs.nix-ld
     pkgs.nmap
     pkgs.nodejs

@@ -61,8 +61,6 @@
     ];
   };
 
-  programs.mosh.enable = true;
-
   programs.seahorse.enable = true; # enable the graphical frontend
   programs.gnupg.agent = {
     enable = true;
