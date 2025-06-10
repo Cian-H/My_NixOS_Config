@@ -84,14 +84,14 @@
       extraGroups = ["networkmanager" "wheel" "docker" "podman" "nixcfg"];
       shell = unstablePkgs.nushell;
       openssh.authorizedKeys.keyFiles = [
-        ./ssh/authorized_keys
+        ./homeserver/ssh/authorized_keys
       ];
     };
 
     root = {
       shell = pkgs.bashInteractive;
       openssh.authorizedKeys.keyFiles = [
-        ./ssh/authorized_keys
+        ./homeserver/ssh/authorized_keys
       ];
       extraGroups = ["docker" "podman" "nixcfg"];
     };
