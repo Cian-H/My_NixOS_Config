@@ -48,7 +48,6 @@ in {
     pkgs.zathura
     pkgs.zed-editor
     pkgs.zettlr
-    unstablePkgs.gimp3-with-plugins
     unstablePkgs.zotero
     inputs.zen-browser.packages.x86_64-linux.default
     # theming
