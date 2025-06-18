@@ -27,8 +27,6 @@ in {
     pkgs.has
     pkgs.hyperfine
     pkgs.imagemagick
-    pkgs.inkscape-with-extensions
-    pkgs.krita
     pkgs.kubectl
     pkgs.lynx
     pkgs.minikube
@@ -41,7 +39,6 @@ in {
     pkgs.podman-compose
     pkgs.podman-desktop
     pkgs.smile
-    pkgs.spotify
     pkgs.sshs
     pkgs.vial
     vivaldi-wayland
