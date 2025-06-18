@@ -29,7 +29,9 @@ in {
     pkgs.imagemagick
     pkgs.inkscape-with-extensions
     pkgs.krita
+    pkgs.kubectl
     pkgs.lynx
+    pkgs.minikube
     pkgs.neovide
     pkgs.nwg-look
     pkgs.obsidian
