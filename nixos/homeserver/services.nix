@@ -15,9 +15,9 @@
         KbdInteractiveAuthentication = false;
       };
       extraConfig = "UsePAM yes";
-      # Enable GPG signing
-      pcscd.enable = true;
     };
+    # Enable GPG signing
+    pcscd.enable = true;
   };
   # Modify the SSH service to prioritise because server is headless
   systemd.services.sshd = {
