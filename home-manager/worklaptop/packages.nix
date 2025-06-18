@@ -36,6 +36,7 @@ in {
     pkgs.onlyoffice-desktopeditors
     pkgs.pandoc
     pkgs.pavucontrol
+    pkgs.podman-compose
     pkgs.podman-desktop
     pkgs.smile
     pkgs.spotify

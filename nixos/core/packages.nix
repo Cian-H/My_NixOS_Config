@@ -36,7 +36,6 @@
     pkgs.pass
     pkgs.passh
     pkgs.pkg-config
-    pkgs.podman-compose
     pkgs.pueue
     pkgs.ripgrep
     pkgs.rm-improved
