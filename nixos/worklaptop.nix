@@ -18,8 +18,10 @@
   ];
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.cudaSupport = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    cudaSupport = true;
+  };
 
   boot.blacklistedKernelModules = ["nouveau"];
   hardware = {
