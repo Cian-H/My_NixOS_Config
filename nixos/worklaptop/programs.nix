@@ -9,11 +9,8 @@
   # Activate DEs
   programs.hyprland = {
     enable = true;
+    withUWSM = true;
     xwayland.enable = true;
-  };
-  programs.sway = {
-    enable = true;
-    extraOptions = ["--unsupported-gpu"];
   };
   programs.waybar.enable = true;
 

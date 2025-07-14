@@ -24,7 +24,6 @@
     pkgs.qmk-udev-rules
     pkgs.qmk_hid
     pkgs.seahorse
-    pkgs.sway # More stable, backup DE
     pkgs.wayland
     pkgs.wayland-utils
     pkgs.xdg-desktop-portal-gtk
