@@ -7,5 +7,9 @@
   unstablePkgs,
   ...
 }: {
-  services.swaync.enable = true;
+  services = {
+    swaync.enable = true;
+    pueue.enable = true;
+    hyprpaper.enable = true;
+  };
 }

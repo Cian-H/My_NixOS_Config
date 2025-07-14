@@ -12,7 +12,6 @@
     withUWSM = true;
     xwayland.enable = true;
   };
-  programs.waybar.enable = true;
 
   # Enable my preferred DE utilities
   programs.thunar.enable = true;
