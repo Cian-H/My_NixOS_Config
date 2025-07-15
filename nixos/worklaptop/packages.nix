@@ -9,6 +9,7 @@
   environment.systemPackages = [
     pkgs.flatpak
     pkgs.gdm
+    pkgs.grim
     pkgs.grub2_efi
     pkgs.hyprland
     pkgs.hyprlock
