@@ -7,6 +7,7 @@
   ...
 }: {
   services = {
+    displayManager.defaultSession = "hyprland-uwsm";
     xserver = {
       videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
       enable = true;
