@@ -127,19 +127,6 @@
     extraGroups = ["networkmanager" "wheel" "libvirtd"];
     shell = unstablePkgs.nushell;
   };
-  # # The hack below sets the user profile image declaratively
-  system.activationScripts.script.text = ''
-    mkdir -p /var/lib/AccountsService/{icons,users}
-    cp /home/cianh/Pictures/face.png /var/lib/AccountsService/icons/cianh
-    echo "[User]
-    Session=
-    Icon=/var/lib/AccountsService/icons/cianh
-    SystemAccount=false" > /var/lib/AccountsService/users/cianh
-    chown root:root /var/lib/AccountsService/users/cianh
-    chmod 0600 /var/lib/AccountsService/users/cianh
-    chown root:root /var/lib/AccountsService/icons/cianh
-    chmod 0444 /var/lib/AccountsService/icons/cianh
-  '';
 
   xdg.portal = {
     enable = true;
