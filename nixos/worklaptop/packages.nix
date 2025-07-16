@@ -35,6 +35,7 @@
     pkgs.xfce.tumbler
     pkgs.xh
     unstablePkgs.ghostty
+    unstablePkgs.kitty
     unstablePkgs.libnotify
     unstablePkgs.swaynotificationcenter
     unstablePkgs.waybar
