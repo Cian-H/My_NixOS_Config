@@ -11,11 +11,6 @@
     pkgs.gdm
     pkgs.grim
     pkgs.grub2_efi
-    pkgs.hyprland
-    pkgs.hyprlock
-    pkgs.hyprpaper
-    pkgs.hyprpicker
-    pkgs.hyprshot
     pkgs.nix-ld
     pkgs.nmap
     pkgs.nodejs-slim_latest
@@ -36,9 +31,15 @@
     pkgs.xh
     unstablePkgs.ghostty
     unstablePkgs.kitty
+    unstablePkgs.hyprland
+    unstablePkgs.hyprlock
+    unstablePkgs.hyprpaper
+    unstablePkgs.hyprpicker
+    unstablePkgs.hyprshot
     unstablePkgs.libnotify
     unstablePkgs.swaynotificationcenter
     unstablePkgs.waybar
     unstablePkgs.wofi
+    unstablePkgs.xdg-desktop-portal-hyprland
   ];
 }
