@@ -23,14 +23,12 @@
     pkgs.wayland
     pkgs.wayland-utils
     pkgs.xdg-desktop-portal-gtk
-    pkgs.xdg-desktop-portal-hyprland
     pkgs.xdg-desktop-portal-wlr
     pkgs.xdg-desktop-portal-xapp
     pkgs.xfce.thunar
     pkgs.xfce.tumbler
     pkgs.xh
     unstablePkgs.ghostty
-    unstablePkgs.kitty
     unstablePkgs.hyprland
     unstablePkgs.hyprlock
     unstablePkgs.hyprpaper
