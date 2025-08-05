@@ -7,6 +7,7 @@
   ...
 }: {
   environment.systemPackages = [
+    pkgs.cargo
     pkgs.flatpak
     pkgs.gdm
     pkgs.grim
