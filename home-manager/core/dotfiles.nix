@@ -74,5 +74,6 @@
     "stylua.toml".source = ./dotfiles/dot_config/stylua.toml;
     "electron-flags.conf".source = ./dotfiles/dot_config/electron-flags.conf;
     "Kvantum".source = ./dotfiles/dot_config/Kvantum;
+    "foot".source = ./dotfiles/dot_config/foot;
   };
 }
