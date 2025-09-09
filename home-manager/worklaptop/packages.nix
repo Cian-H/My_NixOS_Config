@@ -46,8 +46,8 @@ in {
     pkgs.warpinator
     pkgs.xarchiver
     pkgs.zathura
-    pkgs.zed-editor
     pkgs.zettlr
+    unstablePkgs.zed-editor
     unstablePkgs.zotero
     inputs.zen-browser.packages.x86_64-linux.default
     # theming
