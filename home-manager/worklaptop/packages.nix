@@ -32,7 +32,7 @@ in {
     pkgs.minikube
     pkgs.neovide
     pkgs.nwg-look
-    pkgs.obsidian
+    unstablePkgs.obsidian
     pkgs.onlyoffice-desktopeditors
     pkgs.pandoc
     pkgs.pavucontrol
