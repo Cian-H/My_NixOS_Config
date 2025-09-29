@@ -89,10 +89,6 @@
             cudaSupport = true;
             # Workaround for https://github.com/nix-community/home-manager/issues/2942
             allowUnfreePredicate = _: true;
-            # Temporary until obsidian gets updated
-            permittedInsecurePackages = [
-              "electron-34.5.8"
-            ];
           };
         };
         extraSpecialArgs = {
