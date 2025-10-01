@@ -36,8 +36,9 @@ in {
     pkgs.onlyoffice-desktopeditors
     pkgs.pandoc
     pkgs.pavucontrol
-    pkgs.podman-compose
-    pkgs.podman-desktop
+    unstablePkgs.podman-compose
+    unstablePkgs.podman-desktop
+    unstablePkgs.podman-tui
     pkgs.smile
     pkgs.sshs
     pkgs.vial
