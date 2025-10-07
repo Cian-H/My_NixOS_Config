@@ -39,6 +39,7 @@
       pkgs.bzip2
       pkgs.curl
       pkgs.dbus
+      pkgs.eget
       pkgs.expat
       pkgs.glib
       pkgs.libsodium
