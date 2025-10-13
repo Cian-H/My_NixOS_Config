@@ -39,6 +39,7 @@ in {
     unstablePkgs.podman-compose
     unstablePkgs.podman-desktop
     unstablePkgs.podman-tui
+    pkgs.popsicle
     pkgs.smile
     pkgs.sshs
     pkgs.vial

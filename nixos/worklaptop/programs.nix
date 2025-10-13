@@ -49,7 +49,6 @@
       pkgs.nss
       pkgs.openssl
       pkgs.pango
-      pkgs.popsicle
       pkgs.stdenv.cc
       pkgs.systemd
       pkgs.util-linux
