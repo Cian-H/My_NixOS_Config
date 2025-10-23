@@ -7,12 +7,12 @@
   unstablePkgs,
   ...
 }: {
-  services.gitea = {
+  services.podman = {
     networks = {
       gitea-net = {};
     };
     containers = {
-      nextcloud = {
+      gitea = {
         image = "docker.gitea.com/gitea:latest-rootless";
         autoUpdate = "registry";
         network = [
