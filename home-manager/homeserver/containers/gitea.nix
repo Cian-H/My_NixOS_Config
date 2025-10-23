@@ -7,7 +7,7 @@
   unstablePkgs,
   ...
 }: {
-  services.podman = {
+  services.gitea = {
     networks = {
       gitea-net = {};
     };
