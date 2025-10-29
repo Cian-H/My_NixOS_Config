@@ -23,7 +23,6 @@
     cudaSupport = true;
   };
 
-  boot.blacklistedKernelModules = ["nouveau"];
   hardware = {
     keyboard.qmk.enable = true;
     bluetooth.enable = true;
@@ -73,6 +72,7 @@
         canTouchEfiVariables = true;
       };
     };
+    blacklistedKernelModules = ["nouveau"];
   };
 
   networking.hostName = "worklaptop"; # Define your hostname.
