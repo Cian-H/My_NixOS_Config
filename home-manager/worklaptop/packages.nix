@@ -30,6 +30,7 @@ in {
     pkgs.kubectl
     pkgs.lynx
     pkgs.minikube
+    unstablePkgs.mission-center
     pkgs.neovide
     pkgs.nwg-look
     unstablePkgs.obsidian
@@ -42,7 +43,6 @@ in {
     pkgs.popsicle
     pkgs.smile
     pkgs.sshs
-    pkgs.stacer
     pkgs.vial
     vivaldi-wayland
     pkgs.vivaldi-ffmpeg-codecs
