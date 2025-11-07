@@ -42,6 +42,7 @@ in {
     pkgs.popsicle
     pkgs.smile
     pkgs.sshs
+    pkgs.stacer
     pkgs.vial
     vivaldi-wayland
     pkgs.vivaldi-ffmpeg-codecs
