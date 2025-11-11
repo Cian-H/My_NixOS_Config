@@ -131,11 +131,7 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    extraPortals = [
-      unstablePkgs.xdg-desktop-portal-hyprland
-      unstablePkgs.xdg-desktop-portal-gtk
-      unstablePkgs.xdg-desktop-portal-xapp
-    ];
+    extraPortals = [unstablePkgs.xdg-desktop-portal-xapp];
   };
 
   system = {

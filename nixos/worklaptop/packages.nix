@@ -23,9 +23,6 @@
     pkgs.seahorse
     pkgs.wayland
     pkgs.wayland-utils
-    pkgs.xdg-desktop-portal-gtk
-    pkgs.xdg-desktop-portal-wlr
-    pkgs.xdg-desktop-portal-xapp
     pkgs.xfce.thunar
     pkgs.xfce.tumbler
     pkgs.xh
@@ -40,6 +37,5 @@
     unstablePkgs.swaynotificationcenter
     unstablePkgs.waybar
     unstablePkgs.wofi
-    unstablePkgs.xdg-desktop-portal-hyprland
   ];
 }
