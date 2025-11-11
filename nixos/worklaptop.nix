@@ -132,9 +132,9 @@
     enable = true;
     wlr.enable = true;
     extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-xapp
+      unstablePkgs.xdg-desktop-portal-hyprland
+      unstablePkgs.xdg-desktop-portal-gtk
+      unstablePkgs.xdg-desktop-portal-xapp
     ];
   };
 
