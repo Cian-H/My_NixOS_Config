@@ -13,7 +13,7 @@
     };
     containers = {
       gitea = {
-        image = "docker.gitea.com/gitea:latest-rootless";
+        image = "docker.gitea.com/gitea:latest";
         autoUpdate = "registry";
         network = [
           "gitea-net"
@@ -21,12 +21,13 @@
         ];
         ports = [
           "3000:3000"
-          "2222:2222"
+          "2222:22"
         ];
+        environment = {
+          TZ = "Europe/Dublin";
+        };
         volumes = [
-          "/home/cianh/gitea/data:/var/lib/gitea"
-          "/home/cianh/gitea/config:/etc/gitea"
-          "/etc/timezone:/etc/timezone:ro"
+          "/home/cianh/gitea:/data"
           "/etc/localtime:/etc/localtime:ro"
         ];
       };
