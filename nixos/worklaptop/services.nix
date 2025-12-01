@@ -8,11 +8,11 @@
 }: {
   services = {
     displayManager.defaultSession = "hyprland-uwsm";
+    desktopManager.gnome.enable = false;
+    displayManager.gdm.enable = true;
     xserver = {
       videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
       enable = true;
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = false;
       xkb = {
         layout = "ie";
         variant = "";

@@ -37,8 +37,8 @@
         pkgs.libvdpau-va-gl
         pkgs.mesa
         pkgs.nvidia-vaapi-driver
-        pkgs.vaapiIntel
-        pkgs.vaapiVdpau
+        pkgs.intel-vaapi-driver
+        pkgs.libva-vdpau-driver
       ];
     };
     nvidia = {

@@ -20,7 +20,7 @@
   };
 in {
   home.packages = [
-    pkgs.bitwarden
+    pkgs.bitwarden-desktop
     pkgs.blueman
     pkgs.distrobox
     pkgs.feh

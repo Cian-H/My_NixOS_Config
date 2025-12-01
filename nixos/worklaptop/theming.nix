@@ -34,7 +34,7 @@
       pkgs.nerd-font-patcher
       pkgs.noto-fonts
       pkgs.noto-fonts-color-emoji
-      pkgs.vistafonts
+      pkgs.vista-fonts
       pkgs.winePackages.fonts
     ];
   };

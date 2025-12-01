@@ -12,7 +12,7 @@
     pkgs.bitwarden-cli
     pkgs.bottom
     pkgs.delta
-    pkgs.du-dust
+    pkgs.dust
     pkgs.duf
     pkgs.fastfetch
     pkgs.fd
