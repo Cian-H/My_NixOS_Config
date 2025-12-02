@@ -11,7 +11,9 @@
     jellyfin = {
       image = "docker.io/jellyfin/jellyfin:latest";
       autoUpdate = "registry";
-      ports = ["8096:8096/tcp"];
+      network = [
+        "proxy-net"
+      ];
       volumes = [
         "/home/cianh/TV_Archive/data:/media:Z"
         "/home/cianh/TV_Archive/jf_config:/config:Z"

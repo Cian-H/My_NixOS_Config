@@ -19,9 +19,6 @@
           "nextcloud-net"
           "proxy-net"
         ];
-        ports = [
-          "9000:9000"
-        ];
         environment = {
           NEXTCLOUD_URL = "nextcloud.bulba.space";
           TRUSTED_DOMAINS = "nextcloud.bulba.space";

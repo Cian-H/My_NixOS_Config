@@ -34,7 +34,6 @@
         volumes = [
           "/home/cianh/vikunja/files:/app/vikunja/files"
         ];
-        ports = ["3456:3456"];
         extraConfig = {
           Unit = {
             After = "podman-vikunja-db.service";

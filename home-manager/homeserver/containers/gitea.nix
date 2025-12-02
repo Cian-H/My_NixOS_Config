@@ -19,10 +19,6 @@
           "gitea-net"
           "proxy-net"
         ];
-        ports = [
-          "3000:3000"
-          "2222:22"
-        ];
         environment = {
           TZ = "Europe/Dublin";
         };
