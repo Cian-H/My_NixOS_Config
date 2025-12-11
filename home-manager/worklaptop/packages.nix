@@ -31,6 +31,7 @@ in {
     pkgs.blueman
     pkgs.distrobox
     pkgs.feh
+    pkgs.go
     pkgs.has
     pkgs.hyperfine
     pkgs.imagemagick
@@ -39,6 +40,7 @@ in {
     pkgs.minikube
     unstablePkgs.mission-center
     pkgs.neovide
+    pkgs.nodejs_24
     pkgs.nwg-look
     unstablePkgs.obsidian
     pkgs.onlyoffice-desktopeditors
