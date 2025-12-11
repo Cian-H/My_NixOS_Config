@@ -8,12 +8,11 @@
   ...
 }: {
   home.packages = [
-    (pkgs.python314.withPackages (
+    (pkgs.python3.withPackages (
       python-pkgs: [
         python-pkgs.pkginfo
         python-pkgs.python-lsp-server
         python-pkgs.setuptools
-        python-pkgs.uv
       ]
     ))
     pkgs.lua54Packages.lua

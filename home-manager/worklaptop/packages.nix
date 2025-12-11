@@ -18,6 +18,13 @@
         --add-flags "--ozone-platform=wayland --enable-features=UseOzonePlatform --ozone-platform-hint=auto"
     '';
   };
+  python = pkgs.python314.withPackages (
+    python-pkgs: [
+      python-pkgs.pkginfo
+      python-pkgs.setuptools
+      python-pkgs.uv
+    ]
+  );
 in {
   home.packages = [
     pkgs.bitwarden-desktop
@@ -41,6 +48,7 @@ in {
     unstablePkgs.podman-desktop
     unstablePkgs.podman-tui
     pkgs.popsicle
+    python
     pkgs.smile
     pkgs.sshs
     pkgs.vial
