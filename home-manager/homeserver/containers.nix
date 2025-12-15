@@ -21,7 +21,7 @@
 
   imports = [
     ./containers/media.nix
-    ./containers/monitoring.nix
+    ./containers/metrics.nix
     ./containers/caddy.nix
     ./containers/work_tools.nix
     ./containers/nextcloud.nix

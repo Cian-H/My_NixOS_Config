@@ -22,6 +22,7 @@
         "/home/cianh/caddy/config:/etc/caddy"
         "/home/cianh/caddy/data:/data:Z"
         "/home/cianh/caddy/placeholder_site:/var/www/site:Z"
+        "/home/cianh/caddy/logs:/var/log/caddy"
         "/home/cianh/blog:/var/www/blog:Z"
         "/home/cianh/Nextcloud:/var/www/nextcloud:Z"
       ];
