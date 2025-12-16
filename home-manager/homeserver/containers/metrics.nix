@@ -13,15 +13,15 @@
     };
     containers = {
       goaccess = {
-        image = "allinurl/goaccess:latest";
-        command = "/var/log/caddy/access.log -o /var/www/goaccess/index.html --log-format=CADDY --tz=Europe/Dublin --anonymize-ip --real-time-html --ws-url=wss://metrics.example.com/ws --port=7890";
+        image = "docker.io/allinurl/goaccess:latest";
+        exec = "--output=/var/www/goaccess/index.html --log-file=/var/log/caddy/access.log --log-format=CADDY --tz=Europe/Dublin --anonymize-ip --real-time-html --ws-url=wss://metrics.example.com/ws --origin=https://metrics.bulba.space --port=7890";
         autoUpdate = "registry";
         network = [
-          "metrics-net"
+          "proxy-net"
         ];
         volumes = [
           "/home/cianh/caddy/logs:/var/log/caddy"
-          "/home/cianh/goaccess/data:/var/www/goaccess"
+          "/home/cianh/goaccess/site:/var/www/goaccess"
         ];
       };
     };
