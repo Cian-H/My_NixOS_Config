@@ -23,9 +23,11 @@
           baseName = baseNameOf name;
         in
           ! (
-            (lib.hasPrefix "." baseName)
+            (lib.hasPrefix "*/nvim/.*" name)
+            || (lib.hasPrefix "." baseName)
             || (lib.hasPrefix "devenv" baseName)
-            || (isRoot && (lib.hasSuffix ".toml" baseName || lib.hasSuffix ".yml" baseName))
+            || (lib.hasSuffix ".toml" baseName)
+            || (lib.hasSuffix ".yml" baseName)
           );
       };
       target = ".config/nvim";
