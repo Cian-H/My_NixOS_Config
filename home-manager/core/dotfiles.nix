@@ -17,7 +17,17 @@
       recursive = true;
     };
     "nvim" = {
-      source = ./dotfiles/dot_config/nvim;
+      source = lib.cleanSourceWith {
+        src = ./dotfiles/dot_config/nvim;
+        filter = name: type: let
+          baseName = baseNameOf name;
+        in
+          ! (
+            (lib.hasPrefix "." baseName)
+            || (lib.hasPrefix "devenv" baseName)
+            || (isRoot && (lib.hasSuffix ".toml" baseName || lib.hasSuffix ".yml" baseName))
+          );
+      };
       target = ".config/nvim";
       recursive = true;
     };
