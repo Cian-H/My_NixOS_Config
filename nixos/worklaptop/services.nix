@@ -32,6 +32,9 @@
     # Enable flatpaks
     flatpak.enable = true;
 
+    # Add guix, as it is a common tool for reproducibility in comp sci
+    guix.enable = true;
+
     # Enable the OpenSSH daemon and other remote tools.
     openssh.enable = true;
 
