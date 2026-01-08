@@ -9,7 +9,7 @@
   environment.systemPackages = [
     pkgs.cargo
     pkgs.flatpak
-    pkgs.gdm
+    pkgs.greetd
     pkgs.grim
     pkgs.grub2_efi
     pkgs.nix-ld
@@ -20,6 +20,7 @@
     pkgs.qmk
     pkgs.qmk-udev-rules
     pkgs.qmk_hid
+    pkgs.regreet
     pkgs.seahorse
     pkgs.wayland
     pkgs.wayland-utils

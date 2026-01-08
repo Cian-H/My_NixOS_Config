@@ -5,22 +5,23 @@
   config,
   pkgs,
   unstablePkgs,
+  theme,
   ...
 }: {
   # GTK theming
   gtk = {
     enable = true;
     iconTheme = {
-      name = "Tokyonight-Light";
-      package = pkgs.tokyonight-gtk-theme;
+      name = theme.iconTheme.name;
+      package = theme.iconTheme.package;
     };
     theme = {
-      name = "Tokyonight-Dark";
-      package = pkgs.tokyonight-gtk-theme;
+      name = theme.theme.name;
+      package = theme.theme.package;
     };
     cursorTheme = {
-      name = "phinger-cursors-dark";
-      package = pkgs.phinger-cursors;
+      name = theme.cursorTheme.name;
+      package = theme.cursorTheme.package;
     };
     gtk2.extraConfig = ''
       gtk-theme-name="Tokyonight-Dark"
@@ -42,9 +43,9 @@
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
-      gtk-theme = "Tokyonight-Dark";
-      icon-theme = "Tokyonight-Light";
-      cursor-theme = "phinger-cursors-dark";
+      gtk-theme = theme.theme.name;
+      icon-theme = theme.iconTheme.name;
+      cursor-theme = theme.cursorTheme.name;
     };
   };
 }

@@ -4,12 +4,14 @@
   config,
   pkgs,
   unstablePkgs,
+  theme,
   ...
 }: {
   services = {
     displayManager.defaultSession = "hyprland-uwsm";
     desktopManager.gnome.enable = false;
-    displayManager.gdm.enable = true;
+    displayManager.gdm.enable = false;
+    greetd.enable = true;
     xserver = {
       videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
       enable = true;
@@ -44,21 +46,31 @@
 
   # Add custom services
   systemd.services = {
-    setup-user-icon = {
-      description = "Set user profile icon";
-      wantedBy = ["multi-user.target"];
+    greetd = {
+      after = ["setup-user-vars.service"];
+      requires = ["setup-user-vars.service"];
+    };
+    setup-user-vars = {
+      description = "Set user profile vars";
+      wantedBy = [
+        "multi-user.target"
+        "graphical-session.target"
+      ];
       after = ["home.mount"];
       serviceConfig = {
         Type = "oneshot";
         ExecStart = ''
           ${pkgs.bash}/bin/bash -c " \
-            mkdir -p /var/lib/AccountsService/{icons,users} && \
-            cp /home/cianh/Pictures/face.png /var/lib/AccountsService/icons/cianh && \
-            echo '[User]\nSession=\nIcon=/var/lib/AccountsService/icons/cianh\nSystemAccount=false' > /var/lib/AccountsService/users/cianh && \
+            mkdir -p /var/lib/AccountsService/{icons,users,wallpaper} && \
+            cp ${theme.avatarSource} ${theme.avatar} && \
+            echo '[User]\nSession=\nIcon=${theme.avatar}\nSystemAccount=false' > /var/lib/AccountsService/users/cianh && \
             chown root:root /var/lib/AccountsService/users/cianh && \
             chmod 0600 /var/lib/AccountsService/users/cianh && \
-            chown root:root /var/lib/AccountsService/icons/cianh && \
-            chmod 0444 /var/lib/AccountsService/icons/cianh \
+            chown root:root ${theme.avatar} && \
+            chmod 0444 ${theme.avatar} && \
+            cp ${theme.wallpaperSource} ${theme.wallpaper} && \
+            chown root:root ${theme.wallpaper} && \
+            chmod 0444 ${theme.wallpaper} \
           "
         '';
       };

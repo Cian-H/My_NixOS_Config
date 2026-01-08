@@ -3,10 +3,11 @@
   lib,
   pkgs,
   modulesPath,
+  theme,
   ...
 }: {
   # GTK theming
-  environment.sessionVariables.GTK_THEME = "Tokyonight-Dark";
+  environment.sessionVariables.GTK_THEME = theme.theme.name;
 
   # Delegate QT theming to kvantum
   environment.sessionVariables.QT_STYLE_OVERRIDE = "kvantum";
@@ -18,9 +19,9 @@
 
     fontconfig = {
       defaultFonts = {
-        serif = ["NotoSerifNerdFont"];
-        sansSerif = ["NotoSansNerdFont"];
-        monospace = ["MonaspiceArNerdFontMono"];
+        serif = [theme.fonts.serif];
+        sansSerif = [theme.fonts.sansSerif];
+        monospace = [theme.fonts.monospace];
       };
     };
 
