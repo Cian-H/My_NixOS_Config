@@ -22,7 +22,6 @@
     python-pkgs: [
       python-pkgs.pkginfo
       python-pkgs.setuptools
-      python-pkgs.uv
     ]
   );
 in {
@@ -53,6 +52,7 @@ in {
     python
     pkgs.smile
     pkgs.sshs
+    unstablePkgs.uv
     pkgs.vial
     vivaldi-wayland
     pkgs.vivaldi-ffmpeg-codecs
