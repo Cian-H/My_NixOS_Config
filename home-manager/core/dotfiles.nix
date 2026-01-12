@@ -23,7 +23,7 @@
           baseName = baseNameOf name;
         in
           ! (
-            (lib.hasPrefix "*/nvim/.*" name)
+            (lib.hasPrefix "*/nvim/*" name)
             || (lib.hasPrefix "." baseName)
             || (lib.hasPrefix "devenv" baseName)
             || (lib.hasSuffix ".toml" baseName)
