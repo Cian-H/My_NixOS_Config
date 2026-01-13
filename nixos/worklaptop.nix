@@ -141,5 +141,5 @@
   };
 
   # Set user config settings
-  users.defaultUserShell = pkgs.nushell;
+  users.defaultUserShell = unstablePkgs.nushell;
 }

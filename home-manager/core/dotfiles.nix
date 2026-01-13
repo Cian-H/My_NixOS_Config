@@ -13,7 +13,7 @@
     };
     "nushell" = {
       source = ./dotfiles/dot_config/nushell;
-      target = ".config/nushell";
+      target = ".config/nushell/my_config";
       recursive = true;
     };
     "nvim" = {
