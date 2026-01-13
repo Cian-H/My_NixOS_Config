@@ -5,7 +5,7 @@ flake := "true"
 flatpak := "true"
 
 default:
-    @just --list
+    @just --choose
 
 _git-sync:
     git pull --recurse
