@@ -69,6 +69,9 @@
     "kitty".source = ./dotfiles/dot_config/kitty;
     "ghostty".source = ./dotfiles/dot_config/ghostty;
     "micro".source = ./dotfiles/dot_config/micro;
+    "nushell/lsp.nu".text = ''
+      source ~/.config/nushell/my_config/lsp.nu
+    '';
     "neovide".source = ./dotfiles/dot_config/neovide;
     "glow".source = ./dotfiles/dot_config/glow;
     "glamour".source = ./dotfiles/dot_config/glamour;
