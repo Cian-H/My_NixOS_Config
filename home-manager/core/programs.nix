@@ -31,5 +31,14 @@
       '';
     };
     git.enable = true;
+    zoxide = {
+      enable = true;
+      enableNushellIntegration = true;
+    };
+    lazygit = {
+      enable = true;
+      package = unstablePkgs.lazygit;
+      enableNushellIntegration = true;
+    };
   };
 }

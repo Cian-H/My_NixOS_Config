@@ -10,5 +10,6 @@
   home = {
     username = "cianh";
     homeDirectory = "/home/cianh";
+    shell.enableNushellIntegration = true;
   };
 }

@@ -12,6 +12,10 @@
       enable = true;
       enableNushellIntegration = true;
     };
+    direnv = {
+      enable = true;
+      enableNushellIntegration = true;
+    };
     waybar = {
       enable = true;
       systemd.enable = true;

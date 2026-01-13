@@ -74,7 +74,7 @@
     "glamour".source = ./dotfiles/dot_config/glamour;
     "starship.toml".source = ./dotfiles/dot_config/starship.toml;
     "waybar".source = ./dotfiles/dot_config/waybar;
-    "euporie".source = ./dotfiles/dot_config/euporie;
+    # "euporie".source = ./dotfiles/dot_config/euporie;
     "bottom".source = ./dotfiles/dot_config/bottom;
     "swaync".source = ./dotfiles/dot_config/swaync;
     "zellij".source = ./dotfiles/dot_config/zellij;
