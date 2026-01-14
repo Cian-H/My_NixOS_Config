@@ -42,6 +42,33 @@ _update-home:
 
 update-home: prebuild _update-home
 
+quick-update-root:
+    just git=false flake=false update-root
+
+quick-update-home:
+    just git=false flake=false update-home
+
+quick-update:
+    just git=false flake=false update
+
+nogit-update-root:
+    just git=false update-root
+
+nogit-update-home:
+    just git=false update-home
+
+nogit-update:
+    just git=false update
+
+noflake-update-root:
+    just flake=false update-root
+
+noflake-update-home:
+    just flake=false update-home
+
+noflake-update:
+    just flake=false update
+
 update-flatpaks:
     @if [ "{{flatpak}}" == "true" ] && command -v flatpak &> /dev/null; then \
         echo ">> Updating Flatpaks..."; \
