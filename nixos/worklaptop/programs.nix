@@ -11,7 +11,10 @@
 in {
   # Activate DEs
   programs = {
-    uwsm.enable = true;
+    uwsm = {
+      enable = true;
+      waylandCompositors.hyprland.binPath = lib.mkForce "/run/current-system/sw/bin/start-hyprland";
+    };
     regreet = {
       enable = true;
       theme = {
@@ -43,6 +46,7 @@ in {
       withUWSM = true;
       xwayland.enable = true;
     };
+    iio-hyprland.enable = true;
 
     # Enable my preferred DE utilities
     thunar = {
