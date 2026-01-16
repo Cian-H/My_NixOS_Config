@@ -65,8 +65,10 @@ in {
     unstablePkgs.zotero
     inputs.zen-browser.packages.x86_64-linux.default
     # theming
+    pkgs.adwaita-icon-theme
     pkgs.gtk-engine-murrine
     pkgs.gtk_engines
+    pkgs.hicolor-icon-theme
     pkgs.phinger-cursors
     pkgs.tokyonight-gtk-theme
     # Backend dev tools
