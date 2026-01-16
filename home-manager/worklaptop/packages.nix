@@ -28,6 +28,7 @@ in {
   home.packages = [
     pkgs.bitwarden-desktop
     pkgs.blueman
+    pkgs.clapper
     pkgs.distrobox
     pkgs.feh
     pkgs.go
