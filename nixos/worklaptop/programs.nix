@@ -38,7 +38,10 @@ in {
       settings = {
         GTK.application_prefer_dark_theme = true;
         appearance.greeting_msg = "Hello ${username}, welcome back to '${config.networking.hostName}'!";
-        background.path = theme.wallpaper;
+        background = {
+          path = theme.wallpaper;
+          fit = "Cover";
+        };
       };
     };
     hyprland = {
