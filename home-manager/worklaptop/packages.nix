@@ -56,12 +56,14 @@ in {
     unstablePkgs.uv
     pkgs.vial
     vivaldi-wayland
+    unstablePkgs.visidata
     pkgs.vivaldi-ffmpeg-codecs
     pkgs.warpinator
     pkgs.xarchiver
     pkgs.zathura
-    pkgs.zettlr
+    unstablePkgs.zeal
     unstablePkgs.zed-editor
+    pkgs.zettlr
     unstablePkgs.zotero
     inputs.zen-browser.packages.x86_64-linux.default
     # theming
