@@ -20,6 +20,7 @@
   };
   python = pkgs.python314.withPackages (
     python-pkgs: [
+      python-pkgs.euporie
       python-pkgs.pkginfo
       python-pkgs.setuptools
     ]
@@ -27,19 +28,32 @@
 in {
   home.packages = [
     pkgs.bitwarden-desktop
+    pkgs.bat-extras.batman
+    pkgs.bat-extras.batdiff
+    pkgs.bat-extras.batgrep
+    pkgs.bat-extras.prettybat
     pkgs.blueman
+    pkgs.broot
     pkgs.clapper
+    pkgs.cliphist
     pkgs.distrobox
+    pkgs.dvc
     pkgs.feh
+    pkgs.git-lfs
     pkgs.go
     pkgs.has
     pkgs.hyperfine
     pkgs.imagemagick
+    pkgs.jujutsu
     pkgs.kubectl
+    pkgs.lnav
     pkgs.lynx
     pkgs.minikube
     unstablePkgs.mission-center
     pkgs.neovide
+    pkgs.nix-output-monitor
+    pkgs.nix-tree
+    pkgs.nh
     pkgs.nodejs_24
     pkgs.nwg-look
     unstablePkgs.obsidian
@@ -51,8 +65,10 @@ in {
     unstablePkgs.podman-tui
     pkgs.popsicle
     python
+    unstablePkgs.ruff
     pkgs.smile
     pkgs.sshs
+    pkgs.swayosd
     unstablePkgs.uv
     pkgs.vial
     vivaldi-wayland
@@ -63,7 +79,6 @@ in {
     pkgs.zathura
     unstablePkgs.zeal
     unstablePkgs.zed-editor
-    pkgs.zettlr
     unstablePkgs.zotero
     inputs.zen-browser.packages.x86_64-linux.default
     # theming
