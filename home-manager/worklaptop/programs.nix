@@ -20,6 +20,10 @@
       enable = true;
       systemd.enable = true;
     };
+    walker = {
+      enable = true;
+      runAsService = true;
+    };
     hyprcursor-phinger.enable = true;
   };
 }

@@ -22,6 +22,7 @@
     pkgs.qmk_hid
     pkgs.regreet
     pkgs.seahorse
+    pkgs.walker
     pkgs.wayland
     pkgs.wayland-utils
     pkgs.xfce.thunar
@@ -37,6 +38,5 @@
     unstablePkgs.libnotify
     unstablePkgs.swaynotificationcenter
     unstablePkgs.waybar
-    unstablePkgs.wofi
   ];
 }

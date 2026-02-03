@@ -14,5 +14,6 @@
     ./worklaptop/programs.nix
     ./worklaptop/defaultapps.nix
     ./worklaptop/theming.nix
+    inputs.walker.homeManagerModules.default
   ];
 }

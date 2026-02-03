@@ -76,6 +76,8 @@
     "glow".source = ./dotfiles/dot_config/glow;
     "glamour".source = ./dotfiles/dot_config/glamour;
     "starship.toml".source = ./dotfiles/dot_config/starship.toml;
+    "elephant/websearch.toml".source = ./dotfiles/dot_config/elephant/websearch.toml;
+    "walker".source = ./dotfiles/dot_config/walker;
     "waybar".source = ./dotfiles/dot_config/waybar;
     # "euporie".source = ./dotfiles/dot_config/euporie;
     "bottom".source = ./dotfiles/dot_config/bottom;
