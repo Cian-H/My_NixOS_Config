@@ -11,9 +11,15 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     # Add sops for secret management
     sops-nix.url = "github:Mic92/sops-nix";
-    # add phinger hyprcursor flake
+    # Add phinger hyprcursor flake
     hyprcursor-phinger.url = "github:jappie3/hyprcursor-phinger";
-    # add zen browser flake
+    # Add walker as an option for a launcher
+    elephant.url = "github:abenz1267/elephant";
+    walker = {
+      url = "github:abenz1267/walker";
+      inputs.elephant.follows = "elephant";
+    };
+    # Add zen browser flake
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -34,8 +40,8 @@
         package = pkgs.tokyonight-gtk-theme;
       };
       iconTheme = {
-        name = "Tokyonight-Light";
-        package = pkgs.tokyonight-gtk-theme;
+        name = "Papirus-Dark";
+        package = pkgs.papirus-icon-theme;
       };
       cursorTheme = {
         name = "phinger-cursors-dark";

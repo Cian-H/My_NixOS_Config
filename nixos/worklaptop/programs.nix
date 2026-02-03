@@ -25,11 +25,10 @@ in {
         name = theme.cursorTheme.name;
         package = theme.cursorTheme.package;
       };
-      iconTheme.name = "Adwaita";
-      # iconTheme = {
-      #   name = theme.iconTheme.name;
-      #   package = theme.iconTheme.package;
-      # };
+      iconTheme = {
+        name = theme.iconTheme.name;
+        package = theme.iconTheme.package;
+      };
       font = {
         name = "Noto Sans";
         size = 16;
