@@ -34,6 +34,7 @@
         volumes = [
           "/home/cianh/vikunja/files:/app/vikunja/files"
         ];
+        extraPodmanArgs = ["--userns=keep-id"];
         extraConfig = {
           Unit = {
             After = "podman-vikunja-db.service";
