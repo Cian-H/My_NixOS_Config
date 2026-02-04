@@ -20,7 +20,6 @@
   };
   python = pkgs.python314.withPackages (
     python-pkgs: [
-      python-pkgs.euporie
       python-pkgs.pkginfo
       python-pkgs.setuptools
     ]
@@ -68,7 +67,6 @@ in {
     unstablePkgs.ruff
     pkgs.smile
     pkgs.sshs
-    pkgs.swayosd
     unstablePkgs.uv
     pkgs.vial
     vivaldi-wayland
