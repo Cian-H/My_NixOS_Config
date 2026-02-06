@@ -9,7 +9,6 @@
   environment.systemPackages = [
     pkgs.atuin
     pkgs.bat
-    pkgs.bitwarden-cli
     pkgs.bottom
     pkgs.delta
     pkgs.dust
@@ -37,12 +36,14 @@
     pkgs.passh
     pkgs.pkg-config
     pkgs.pueue
+    pkgs.rbw
     pkgs.ripgrep
     pkgs.rm-improved
     pkgs.starship
     pkgs.tealdeer
     pkgs.wget
     pkgs.wl-clipboard
+    pkgs.wtype
     pkgs.xclip
     pkgs.xcp
     pkgs.zellij
