@@ -42,6 +42,11 @@
 
     gnome.gnome-keyring.enable = true;
     pcscd.enable = true;
+    udev = {
+      packages = [
+        pkgs.yubikey-personalization
+      ];
+    };
   };
 
   # Add custom services
