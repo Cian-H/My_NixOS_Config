@@ -18,10 +18,14 @@
       enable = true;
       package = pkgStream.nushell;
       plugins = with pkgStream.nushellPlugins; [
+        bson
+        desktop_notifications
         formats
         gstat
+        highlight
         polars
         query
+        semver
       ];
       extraConfig = ''
         source ~/.config/nushell/my_config/config.nu
