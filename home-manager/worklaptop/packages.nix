@@ -43,6 +43,7 @@ in {
     pkgs.has
     pkgs.hyperfine
     pkgs.imagemagick
+    pkgs.impala
     pkgs.jujutsu
     pkgs.kubectl
     pkgs.lnav
