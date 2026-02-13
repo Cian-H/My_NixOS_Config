@@ -106,5 +106,9 @@ in {
       enableSSHSupport = true;
     };
     virt-manager.enable = true;
+    yubikey-touch-detector = {
+      enable = true;
+      libnotify = true;
+    };
   };
 }

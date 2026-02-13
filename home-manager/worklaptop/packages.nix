@@ -75,6 +75,8 @@ in {
     pkgs.vivaldi-ffmpeg-codecs
     pkgs.warpinator
     pkgs.xarchiver
+    pkgs.yubikey-agent
+    pkgs.yubikey-manager
     pkgs.zathura
     unstablePkgs.zeal
     unstablePkgs.zed-editor
