@@ -9,7 +9,6 @@
 }: {
   home.file = {
     ".bashrc".source = ./dotfiles/dot_bashrc;
-    ".brushrc".source = ./dotfiles/dot_brushrc;
     ".zshrc".source = ./dotfiles/dot_zshrc;
     "nushell" = {
       source = ./dotfiles/dot_config/nushell;
