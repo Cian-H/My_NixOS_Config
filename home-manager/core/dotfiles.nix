@@ -8,12 +8,16 @@
   ...
 }: {
   home.file = {
-    ".bashrc" = lib.mkIf (!config.programs.bash.enable) {
-      source = ./dotfiles/dot_bashrc;
-    };
+    ".bashrc".source = ./dotfiles/dot_bashrc;
+    ".zshrc".source = ./dotfiles/dot_zshrc;
     "nushell" = {
       source = ./dotfiles/dot_config/nushell;
       target = ".config/nushell/my_config";
+      recursive = true;
+    };
+    "fish" = {
+      source = ./dotfiles/dot_config/fish;
+      target = ".config/fish";
       recursive = true;
     };
     "nvim" = {
@@ -51,6 +55,7 @@
 
   xdg.configFile = {
     "bat".source = ./dotfiles/dot_config/bat;
+    "path.env".source = ./dotfiles/dot_config/path.env;
     "fastfetch".source = ./dotfiles/dot_config/fastfetch;
     "helix".source = ./dotfiles/dot_config/helix;
     "home-manager".source = ./dotfiles/dot_config/home-manager;
