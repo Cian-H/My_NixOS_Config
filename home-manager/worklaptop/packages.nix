@@ -7,23 +7,7 @@
   unstablePkgs,
   ...
 }: let
-  # Patch vivaldi to ensure reliability on wayland
-  vivaldi-wayland = pkgs.symlinkJoin {
-    name = "vivaldi-wayland";
-    paths = [pkgs.vivaldi];
-    buildInputs = [pkgs.makeWrapper];
-    postBuild = ''
-      wrapProgram $out/bin/vivaldi \
-        --set NIXOS_OZONE_WL 1 \
-        --add-flags "--ozone-platform=wayland --enable-features=UseOzonePlatform --ozone-platform-hint=auto"
-    '';
-  };
-  python = pkgs.python314.withPackages (
-    python-pkgs: [
-      python-pkgs.pkginfo
-      python-pkgs.setuptools
-    ]
-  );
+  myPkgs = import ./packages/my_pkgs.nix {inherit pkgs;};
 in {
   home.packages = [
     pkgs.bitwarden-desktop
@@ -64,13 +48,14 @@ in {
     unstablePkgs.podman-desktop
     unstablePkgs.podman-tui
     pkgs.popsicle
-    python
+    myPkgs.python
+    myPkgs.rbw-autofill
     unstablePkgs.ruff
     pkgs.smile
     pkgs.sshs
     unstablePkgs.uv
     pkgs.vial
-    vivaldi-wayland
+    myPkgs.vivaldi-wayland
     unstablePkgs.visidata
     pkgs.vivaldi-ffmpeg-codecs
     pkgs.warpinator
