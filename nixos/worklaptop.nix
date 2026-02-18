@@ -75,10 +75,21 @@
     blacklistedKernelModules = ["nouveau"];
   };
 
-  networking.hostName = "worklaptop"; # Define your hostname.
-
-  # Enable networking
-  networking.networkmanager.enable = true;
+  # Configure networking
+  networking = {
+    hostName = "worklaptop"; # Define your hostname.
+    networkmanager.enable = false;
+    wireless.iwd = {
+      enable = true;
+      settings = {
+        General.EnableNetworkConfiguration = true;
+        Network = {
+          EnableIPv6 = true;
+          NameResolvingService = "systemd";
+        };
+      };
+    };
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Dublin";

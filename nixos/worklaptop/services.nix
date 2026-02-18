@@ -20,6 +20,7 @@
         variant = "";
       };
     };
+    resolved.enable = true;
     pulseaudio.enable = false;
     pipewire = {
       enable = true;
