@@ -10,7 +10,6 @@
   imports = [
     ./core.nix
     ./homeserver/packages.nix
-    ./homeserver/programs.nix
     ./homeserver/containers.nix
     inputs.sops-nix.homeManagerModules.sops
   ];
