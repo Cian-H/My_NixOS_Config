@@ -11,6 +11,7 @@
 in {
   home.packages = [
     pkgs.bitwarden-desktop
+    unstablePkgs.babashka
     pkgs.bat-extras.batman
     pkgs.bat-extras.batdiff
     pkgs.bat-extras.batgrep
@@ -58,6 +59,7 @@ in {
     myPkgs.vivaldi-wayland
     unstablePkgs.visidata
     pkgs.vivaldi-ffmpeg-codecs
+    myPkgs.walker-obsidian-search
     pkgs.warpinator
     pkgs.xarchiver
     pkgs.yubikey-agent
