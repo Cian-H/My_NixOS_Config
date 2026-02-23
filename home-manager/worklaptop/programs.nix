@@ -7,7 +7,7 @@
   unstablePkgs,
   ...
 }: let
-  myPkgs = import ./packages/my_pkgs.nix {inherit pkgs;};
+  myPkgs = import ./packages/default.nix {inherit pkgs;};
 in {
   programs = {
     nix-your-shell = {

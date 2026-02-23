@@ -11,7 +11,7 @@
 in {
   home.packages = [
     pkgs.bitwarden-desktop
-    unstablePkgs.babashka
+    pkgs.babashka
     pkgs.bat-extras.batman
     pkgs.bat-extras.batdiff
     pkgs.bat-extras.batgrep
