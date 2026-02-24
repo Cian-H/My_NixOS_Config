@@ -107,11 +107,11 @@
         "zen-browser": "zen-browser"
       },
       "locked": {
-        "lastModified": 1771892203,
-        "narHash": "sha256-BpSgISyEgHgUIpYxATGC8RQvFxk9qDKR/u2m8ZdtAeE=",
+        "lastModified": 1771928247,
+        "narHash": "sha256-LkyNLrd5SEE4/JDH9sih5O6cuQ302b5q7I2BzVEAwos=",
         "owner": "Cian-H",
         "repo": "Nixers",
-        "rev": "e9e7eb48cc9a0c6f543218af8ae50a9aa4fcec9e",
+        "rev": "9b5b4b1804b045a7d33152b4ca68584571cb3038",
         "type": "github"
       },
       "original": {

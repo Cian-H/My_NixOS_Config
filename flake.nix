@@ -104,13 +104,13 @@
             inherit inputs outputs;
             unstablePkgs = import nixpkgs-unstable {
               # We also need to do the same for unstable
-              system = pkgs.system;
+              system = pkgs.stdenv.hostPlatform.system;
               config = {
                 allowUnfree = true;
                 allowUnfreePredicate = _: true;
               };
             };
-            nixers = inputs.nixers-repo.packages.${pkgs.system};
+            nixers = inputs.nixers-repo.packages.${pkgs.stdenv.hostPlatform.system};
           };
           modules = [
             ./home-manager/core.nix
@@ -139,7 +139,7 @@
                 allowUnfreePredicate = _: true;
               };
             };
-            nixers = inputs.nixers-repo.packages.${pkgs.system};
+            nixers = inputs.nixers-repo.packages.${pkgs.stdenv.hostPlatform.system};
             theme = worklaptopTheme pkgs;
           };
 
@@ -170,7 +170,7 @@
                 allowUnfreePredicate = _: true;
               };
             };
-            nixers = inputs.nixers-repo.packages.${pkgs.system};
+            nixers = inputs.nixers-repo.packages.${pkgs.stdenv.hostPlatform.system};
           };
           modules = [
             ./home-manager/homeserver.nix

@@ -5,10 +5,9 @@
   config,
   pkgs,
   unstablePkgs,
+  nixers,
   ...
-}: let
-  myPkgs = import ./packages/default.nix {inherit pkgs;};
-in {
+}: {
   programs = {
     nix-your-shell = {
       enable = true;
@@ -30,7 +29,7 @@ in {
       enable = true;
       settings = {
         email = "chughes000@gmail.com";
-        pinentry = myPkgs.rbw-autofill;
+        pinentry = nixers.rbw-autofill;
       };
     };
     hyprcursor-phinger.enable = true;
