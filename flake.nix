@@ -6,30 +6,20 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     # Nixpkgs-unstable
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    # Nixers
+    nixers-repo.url = "github:Cian-H/Nixers";
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     # Add sops for secret management
     sops-nix.url = "github:Mic92/sops-nix";
-    # Add phinger hyprcursor flake
-    hyprcursor-phinger.url = "github:jappie3/hyprcursor-phinger";
-    # Add walker as an option for a launcher
-    elephant.url = "github:abenz1267/elephant";
-    walker = {
-      url = "github:abenz1267/walker";
-      inputs.elephant.follows = "elephant";
-    };
-    # Add zen browser flake
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
   };
 
   outputs = {
     self,
     nixpkgs,
     nixpkgs-unstable,
+    nixers-repo,
     home-manager,
     ...
   } @ inputs: let
@@ -75,6 +65,7 @@
           specialArgs = {
             inherit inputs outputs;
             unstablePkgs = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux;
+            nixers = inputs.nixers-repo.packages.x86_64-linux;
             theme = worklaptopTheme pkgs;
           };
           modules = [
@@ -85,6 +76,7 @@
         specialArgs = {
           inherit inputs outputs;
           unstablePkgs = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux;
+          nixers = inputs.nixers-repo.packages.x86_64-linux;
         };
         modules = [
           ./nixos/homeserver.nix
@@ -95,7 +87,7 @@
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
-      "cianh@core" = home-manager.lib.homeManagerConfiguration {
+      "cianh@core" = let
         pkgs = import nixpkgs {
           # Home-manager requires 'pkgs' instance
           system = "x86_64-linux";
@@ -105,21 +97,25 @@
             allowUnfreePredicate = _: true;
           };
         };
-        extraSpecialArgs = {
-          inherit inputs outputs;
-          unstablePkgs = import nixpkgs-unstable {
-            # We also need to do the same for unstable
-            system = "x86_64-linux";
-            config = {
-              allowUnfree = true;
-              allowUnfreePredicate = _: true;
+      in
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = {
+            inherit inputs outputs;
+            unstablePkgs = import nixpkgs-unstable {
+              # We also need to do the same for unstable
+              system = pkgs.system;
+              config = {
+                allowUnfree = true;
+                allowUnfreePredicate = _: true;
+              };
             };
+            nixers = inputs.nixers-repo.packages.${pkgs.system};
           };
+          modules = [
+            ./home-manager/core.nix
+          ];
         };
-        modules = [
-          ./home-manager/core.nix
-        ];
-      };
       "cianh@worklaptop" = let
         pkgs = import nixpkgs {
           system = "x86_64-linux";
@@ -143,6 +139,7 @@
                 allowUnfreePredicate = _: true;
               };
             };
+            nixers = inputs.nixers-repo.packages.${pkgs.system};
             theme = worklaptopTheme pkgs;
           };
 
@@ -150,7 +147,7 @@
             ./home-manager/worklaptop.nix
           ];
         };
-      "cianh@homeserver" = home-manager.lib.homeManagerConfiguration {
+      "cianh@homeserver" = let
         pkgs = import nixpkgs {
           # Home-manager requires 'pkgs' instance
           system = "x86_64-linux";
@@ -160,21 +157,25 @@
             allowUnfreePredicate = _: true;
           };
         };
-        extraSpecialArgs = {
-          inherit inputs outputs;
-          unstablePkgs = import nixpkgs-unstable {
-            # We also need to do the same for unstable
-            system = "x86_64-linux";
-            config = {
-              allowUnfree = true;
-              allowUnfreePredicate = _: true;
+      in
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = {
+            inherit inputs outputs;
+            unstablePkgs = import nixpkgs-unstable {
+              # We also need to do the same for unstable
+              system = "x86_64-linux";
+              config = {
+                allowUnfree = true;
+                allowUnfreePredicate = _: true;
+              };
             };
+            nixers = inputs.nixers-repo.packages.${pkgs.system};
           };
+          modules = [
+            ./home-manager/homeserver.nix
+          ];
         };
-        modules = [
-          ./home-manager/homeserver.nix
-        ];
-      };
     };
   };
 }

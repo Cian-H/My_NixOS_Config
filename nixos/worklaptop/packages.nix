@@ -4,6 +4,7 @@
   config,
   pkgs,
   unstablePkgs,
+  nixers,
   ...
 }: {
   environment.systemPackages = [
@@ -22,7 +23,7 @@
     pkgs.qmk_hid
     pkgs.regreet
     pkgs.seahorse
-    pkgs.walker
+    nixers.walker
     pkgs.wayland
     pkgs.wayland-utils
     pkgs.xfce.thunar

@@ -5,9 +5,9 @@
   config,
   pkgs,
   unstablePkgs,
+  nixers,
   ...
 }: let
-  myPkgs = import ./packages/my_pkgs.nix {inherit pkgs;};
 in {
   home.packages = [
     pkgs.bitwarden-desktop
@@ -49,17 +49,17 @@ in {
     unstablePkgs.podman-desktop
     unstablePkgs.podman-tui
     pkgs.popsicle
-    myPkgs.python
-    myPkgs.rbw-autofill
+    nixers.python
+    nixers.rbw-autofill
     unstablePkgs.ruff
     pkgs.smile
     pkgs.sshs
     unstablePkgs.uv
     pkgs.vial
-    myPkgs.vivaldi-wayland
+    nixers.vivaldi-wayland
     unstablePkgs.visidata
     pkgs.vivaldi-ffmpeg-codecs
-    myPkgs.walker-obsidian-search
+    nixers.walker-obsidian-search
     pkgs.warpinator
     pkgs.xarchiver
     pkgs.yubikey-agent
@@ -68,7 +68,7 @@ in {
     unstablePkgs.zeal
     unstablePkgs.zed-editor
     unstablePkgs.zotero
-    inputs.zen-browser.packages.x86_64-linux.default
+    nixers.zen-browser.packages.x86_64-linux.default
     # theming
     pkgs.adwaita-icon-theme
     pkgs.gtk-engine-murrine
