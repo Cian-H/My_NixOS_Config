@@ -49,7 +49,7 @@ in {
     unstablePkgs.podman-desktop
     unstablePkgs.podman-tui
     pkgs.popsicle
-    nixers.python
+    nixers.python-env
     nixers.rbw-autofill
     unstablePkgs.ruff
     pkgs.smile
@@ -68,7 +68,7 @@ in {
     unstablePkgs.zeal
     unstablePkgs.zed-editor
     unstablePkgs.zotero
-    nixers.zen-browser.packages.x86_64-linux.default
+    nixers.zen-browser
     # theming
     pkgs.adwaita-icon-theme
     pkgs.gtk-engine-murrine
