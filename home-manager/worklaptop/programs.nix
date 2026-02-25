@@ -17,7 +17,6 @@
       enable = true;
       enableNushellIntegration = true;
     };
-    ghostty.systemd.enable = true;
     waybar = {
       enable = true;
       systemd.enable = true;
