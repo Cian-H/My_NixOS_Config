@@ -107,11 +107,11 @@
         "zen-browser": "zen-browser"
       },
       "locked": {
-        "lastModified": 1771928247,
-        "narHash": "sha256-LkyNLrd5SEE4/JDH9sih5O6cuQ302b5q7I2BzVEAwos=",
+        "lastModified": 1772125727,
+        "narHash": "sha256-J41Xm8ewrCn16r0bDtOX+qu+uhNiOp9EAvy4FJ6mhKY=",
         "owner": "Cian-H",
         "repo": "Nixers",
-        "rev": "9b5b4b1804b045a7d33152b4ca68584571cb3038",
+        "rev": "918d6b2bf5fbe032fda2bf989e0716de4d68e057",
         "type": "github"
       },
       "original": {
@@ -262,11 +262,11 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1771889317,
-        "narHash": "sha256-YV17Q5lEU0S9ppw08Y+cs4eEQJBuc79AzblFoHORLMU=",
+        "lastModified": 1772048434,
+        "narHash": "sha256-/wA0OaH6kZ/pFA+nXR/tvg5oupOmEDmMS5us79JT60o=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "b027513c32e5b39b59f64626b87fbe168ae02094",
+        "rev": "334daa7c273dd8bf7a0cd370e4e16022b64e55e9",
         "type": "github"
       },
       "original": {

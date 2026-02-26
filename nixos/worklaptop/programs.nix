@@ -18,8 +18,8 @@ in {
     regreet = {
       enable = true;
       theme = {
-        name = theme.theme.name;
-        package = theme.theme.package;
+        name = theme.gtkTheme.name;
+        package = theme.gtkTheme.package;
       };
       cursorTheme = {
         name = theme.cursorTheme.name;

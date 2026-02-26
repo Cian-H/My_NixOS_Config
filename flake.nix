@@ -24,10 +24,18 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-    worklaptopTheme = pkgs: {
-      theme = {
+    worklaptopTheme = {
+      pkgs,
+      unstablePkgs,
+      nixers,
+    }: {
+      gtkTheme = {
         name = "Tokyonight-Dark";
         package = pkgs.tokyonight-gtk-theme;
+      };
+      qtTheme = {
+        name = "Kvantum-Tokyo-Night";
+        package = nixers.tokyonight-kvantum-theme;
       };
       iconTheme = {
         name = "Papirus-Dark";
@@ -62,11 +70,12 @@
         };
       in
         nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs;
+          specialArgs = let
             unstablePkgs = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux;
             nixers = inputs.nixers-repo.packages.x86_64-linux;
-            theme = worklaptopTheme pkgs;
+          in {
+            inherit inputs outputs unstablePkgs nixers;
+            theme = worklaptopTheme {inherit pkgs unstablePkgs nixers;};
           };
           modules = [
             ./nixos/worklaptop.nix
@@ -129,8 +138,7 @@
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
 
-          extraSpecialArgs = {
-            inherit inputs outputs;
+          extraSpecialArgs = let
             unstablePkgs = import nixpkgs-unstable {
               system = "x86_64-linux";
               cudaSupport = true;
@@ -140,7 +148,9 @@
               };
             };
             nixers = inputs.nixers-repo.packages.${pkgs.stdenv.hostPlatform.system};
-            theme = worklaptopTheme pkgs;
+          in {
+            inherit inputs outputs unstablePkgs nixers;
+            theme = worklaptopTheme {inherit pkgs unstablePkgs nixers;};
           };
 
           modules = [

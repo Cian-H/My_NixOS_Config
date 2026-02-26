@@ -6,11 +6,14 @@
   theme,
   ...
 }: {
-  # GTK theming
-  environment.sessionVariables.GTK_THEME = theme.theme.name;
+  # Session Variable for GTK
+  environment.sessionVariables.GTK_THEME = theme.gtkTheme.name;
 
-  # Delegate QT theming to kvantum
-  environment.sessionVariables.QT_STYLE_OVERRIDE = "kvantum";
+  # QT config
+  qt = {
+    enable = true;
+    style = "kvantum";
+  };
 
   # Fonts
   fonts = {
@@ -50,5 +53,10 @@
     # Adwaita (i love gnome, but god damn is adwaita annoying on other DEs)
     pkgs.adwaita-icon-theme
     pkgs.libadwaita
+    # My theme packages set at the top level
+    theme.gtkTheme.package
+    theme.qtTheme.package
+    theme.iconTheme.package
+    theme.cursorTheme.package
   ];
 }

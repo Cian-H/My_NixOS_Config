@@ -16,8 +16,8 @@
       package = theme.iconTheme.package;
     };
     theme = {
-      name = theme.theme.name;
-      package = theme.theme.package;
+      name = theme.gtkTheme.name;
+      package = theme.gtkTheme.package;
     };
     cursorTheme = {
       name = theme.cursorTheme.name;
@@ -39,13 +39,34 @@
       '';
     };
   };
+
+  # QT theming
+  qt = {
+    enable = true;
+    platformTheme.name = "kvantum";
+    style.name = "kvantum";
+  };
+
+  xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
+    [General]
+    theme=${theme.qtTheme.name}
+  '';
+
   # dconf theming settings
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
-      gtk-theme = theme.theme.name;
+      gtk-theme = theme.gtkTheme.name;
       icon-theme = theme.iconTheme.name;
       cursor-theme = theme.cursorTheme.name;
     };
   };
+
+  # Ensure theming packages are installed
+  home.packages = [
+    theme.gtkTheme.package
+    theme.qtTheme.package
+    theme.iconTheme.package
+    theme.cursorTheme.package
+  ];
 }

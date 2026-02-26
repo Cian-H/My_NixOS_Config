@@ -73,8 +73,6 @@ in {
     pkgs.gtk-engine-murrine
     pkgs.gtk_engines
     pkgs.hicolor-icon-theme
-    pkgs.phinger-cursors
-    pkgs.tokyonight-gtk-theme
     # Backend dev tools
     pkgs.lua54Packages.lua
     pkgs.luajitPackages.luarocks
