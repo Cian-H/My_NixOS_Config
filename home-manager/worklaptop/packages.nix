@@ -52,7 +52,6 @@ in {
     nixers.python-env
     nixers.rbw-autofill
     unstablePkgs.ruff
-    pkgs.smile
     pkgs.sshs
     unstablePkgs.uv
     pkgs.vial
