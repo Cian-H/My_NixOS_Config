@@ -155,6 +155,7 @@
       fi
     '';
   };
+  zramSwap.enable = true; # enable RAM compression
 
   # Set user config settings
   users.defaultUserShell = unstablePkgs.nushell;
