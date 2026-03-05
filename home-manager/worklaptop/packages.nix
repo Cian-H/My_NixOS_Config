@@ -25,6 +25,7 @@ in {
     pkgs.feh
     pkgs.git-lfs
     pkgs.go
+    unstablePkgs.gurk-rs
     pkgs.has
     pkgs.hyperfine
     pkgs.imagemagick
@@ -52,6 +53,7 @@ in {
     nixers.python-env
     nixers.rbw-autofill
     unstablePkgs.ruff
+    pkgs.signal-desktop
     pkgs.sshs
     unstablePkgs.uv
     pkgs.vial
