@@ -66,7 +66,7 @@ in {
     pkgs.yubikey-agent
     pkgs.yubikey-manager
     pkgs.zathura
-    unstablePkgs.zeal
+    pkgs.zeal
     unstablePkgs.zed-editor
     unstablePkgs.zotero
     nixers.zen-browser
