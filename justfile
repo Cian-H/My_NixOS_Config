@@ -99,12 +99,12 @@ cleanup days="":
 
 # Open the editor (nvim, yazi, or heh) for a target
 edit target:
-    @scripts/edit.py "{{target}}"
+    @direnv exec . scripts/edit.py "{{target}}"
 
 # Edit packages.nix for a specific system/user (run 'just packages help' for flags)
 packages *flags:
-    @scripts/packages.bb {{flags}}
+    @direnv exec . scripts/packages.bb {{flags}}
 
 # Bootstrap a fresh system from the repo
 bootstrap:
-    @scripts/bootstrap.py
+    @direnv exec . scripts/bootstrap.py

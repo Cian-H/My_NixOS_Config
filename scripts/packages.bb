@@ -1,5 +1,4 @@
-#!/usr/bin/env nix-shell
-#!nix-shell -i bb -p babashka
+#!/usr/bin/env bb
 
 (require '[babashka.cli :as cli]
          '[babashka.process :refer [shell]]
