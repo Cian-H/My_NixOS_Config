@@ -49,6 +49,7 @@
     pkgs.xcp
     pkgs.zellij
     pkgs.zoxide
+    unstablePkgs.binsider
     unstablePkgs.just
     unstablePkgs.neovim
     unstablePkgs.nushell
