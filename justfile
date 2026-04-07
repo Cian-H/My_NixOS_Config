@@ -10,11 +10,15 @@ default:
 
 _git-sync:
     @if [ -n "$(git status --porcelain)" ]; then \
-        echo ">> Error: Git working directory is not clean. Stash or commit your changes first."; \
-        exit 1; \
+        echo ">> Stashing local changes..."; \
+        git stash; \
+        git pull --ff-only --recurse-submodules; \
+        git submodule update --remote --recursive; \
+        git stash pop; \
+    else \
+        git pull --ff-only --recurse-submodules; \
+        git submodule update --remote --recursive; \
     fi
-    git pull --ff-only --recurse-submodules
-    git submodule update --remote --recursive
 
 _flake-update:
     nix flake update
@@ -82,6 +86,10 @@ repl:
 
 # Fully update the system, home-manager, and flatpaks
 update: prebuild _update-root _update-home update-flatpaks
+
+# Preview system changes without activating them
+dry-run: prebuild
+    sudo nixos-rebuild dry-activate --flake .?submodules=1#$(hostname)
 
 # Run Nix and Flatpak garbage collection. Optionally specify age (e.g., 'just cleanup 7d')
 cleanup days="":

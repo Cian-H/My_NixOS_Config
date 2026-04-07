@@ -35,7 +35,7 @@ def clone_repository(repo_url: str, target_dir: str):
     """Clone the configuration repository and enter the directory."""
     print(f">> Cloning {repo_url} into {target_dir}...")
     try:
-        subprocess.run(["git", "clone", repo_url, target_dir], check=True)
+        subprocess.run(["git", "clone", "--recursive", repo_url, target_dir], check=True)
     except subprocess.CalledProcessError:
         print("Error: Failed to clone repository.", file=sys.stderr)
         sys.exit(1)

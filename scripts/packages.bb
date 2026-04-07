@@ -1,6 +1,7 @@
 #!/usr/bin/env bb
 
 (require '[babashka.cli :as cli]
+         '[babashka.fs :as fs]
          '[babashka.process :refer [shell]]
          '[clojure.string :as str])
 
@@ -12,7 +13,7 @@
 
 (def cli-spec
   {:spec {:home    {:coerce :boolean :desc "Edit home-manager config instead of NixOS config"}
-          :sys     {:desc "Specify system (defaults to current hostname)"} ; Removed :default from spec
+          :sys     {:desc "Specify system (defaults to current hostname)"}
           :user    {:default (System/getProperty "user.name")
                     :desc "Specify user (defaults to current user)"}
           :update  {:coerce :boolean :default true
@@ -34,11 +35,19 @@
                  (str "home-manager/" sys "/packages.nix")
                  (str "nixos/" sys "/packages.nix"))]
 
-    (println ">> Editing" target "...")
-    (shell "just" "edit" target)
-
-    (if (:update opts)
+    (if-not (fs/exists? target)
       (do
-        (println ">> Applying updates...")
-        (shell "just" "quick-update"))
-      (println ">> Skipping update (no-update provided)."))))
+        (binding [*out* *err*]
+          (println (str ">> Error: Target file does not exist: " target))
+          (println ">> Please ensure this system profile has been bootstrapped or configured first."))
+        (System/exit 1))
+
+      (do
+        (println ">> Editing" target "...")
+        (shell "just" "edit" target)
+
+        (if (:update opts)
+          (do
+            (println ">> Applying updates...")
+            (shell "just" "quick-update"))
+          (println ">> Skipping update (no-update provided)."))))))

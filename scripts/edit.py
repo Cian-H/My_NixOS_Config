@@ -5,20 +5,23 @@ from pathlib import Path
 import mimetypes
 
 
-def is_text_file(filepath):
+def is_text_file(filepath: str):
     mime_type, _ = mimetypes.guess_type(filepath)
     if mime_type:
         return mime_type.startswith("text/")
 
     try:
-        with open(filepath, "tr") as f:
-            f.read(1024)
+        with open(filepath, "rb") as f:
+            chunk = f.read(1024)
+            if b"\0" in chunk:
+                return False  # Null bytes usually mean binary
         return True
-    except (UnicodeDecodeError, IsADirectoryError):
+    except IsADirectoryError:
         return False
 
 
 app = typer.Typer()
+
 
 @app.command()
 def edit(target: Path = typer.Argument(..., help="File or directory to edit")):
@@ -34,6 +37,7 @@ def edit(target: Path = typer.Argument(..., help="File or directory to edit")):
         subprocess.run(["nvim", str(target)])
     else:
         subprocess.run(["heh", str(target)])
+
 
 if __name__ == "__main__":
     app()
