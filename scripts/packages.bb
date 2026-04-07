@@ -20,16 +20,14 @@
                     :desc "Run auto-update after editing"}
           :help    {:alias :h :coerce :boolean :desc "Show this help message"}}})
 
-(let [parsed (cli/parse-opts *command-line-args* cli-spec)
-      opts   (:opts parsed)]
+(let [opts (cli/parse-opts *command-line-args* cli-spec)]
 
   (when (:help opts)
     (println "Usage: just packages [OPTIONS]")
     (println (cli/format-opts cli-spec))
     (System/exit 0))
 
-  (let [
-        sys    (let [s (:sys opts)]
+  (let [sys    (let [s (:sys opts)]
                  (if (str/blank? s) (get-hostname) s))
         target (if (:home opts)
                  (str "home-manager/" sys "/packages.nix")
@@ -41,7 +39,6 @@
           (println (str ">> Error: Target file does not exist: " target))
           (println ">> Please ensure this system profile has been bootstrapped or configured first."))
         (System/exit 1))
-
       (do
         (println ">> Editing" target "...")
         (shell "just" "edit" target)
