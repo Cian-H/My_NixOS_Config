@@ -24,6 +24,7 @@
     pkgs.glab
     pkgs.glow
     pkgs.gnupg
+    pkgs.heh
     pkgs.hexyl
     pkgs.killall
     pkgs.libsecret
