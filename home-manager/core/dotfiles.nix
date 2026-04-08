@@ -87,6 +87,7 @@
     "kitty".source = ./dotfiles/dot_config/kitty;
     "ghostty".source = ./dotfiles/dot_config/ghostty;
     "micro".source = ./dotfiles/dot_config/micro;
+    "niri".source = ./dotfiles/dot_config/niri;
     "nushell/lsp.nu".text = ''
       source ~/.config/nushell/my_config/lsp.nu
     '';
