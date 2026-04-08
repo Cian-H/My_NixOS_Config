@@ -21,7 +21,6 @@
     "yazi/plugins/chmod.yazi".source = ../dotfiles/dot_config/yazi/plugins/core/chmod.yazi;
     "yazi/plugins/full-border.yazi".source = ../dotfiles/dot_config/yazi/plugins/core/full-border.yazi;
     "yazi/plugins/git.yazi".source = ../dotfiles/dot_config/yazi/plugins/core/git.yazi;
-    "yazi/plugins/glow.yazi".source = ../dotfiles/dot_config/yazi/plugins/glow.yazi;
     "yazi/plugins/hexyl.yazi".source = ../dotfiles/dot_config/yazi/plugins/hexyl.yazi;
     "yazi/plugins/max-preview.yazi".source = ../dotfiles/dot_config/yazi/plugins/max-preview.yazi;
     "yazi/plugins/mime-ext.yazi".source = ../dotfiles/dot_config/yazi/plugins/core/mime-ext.yazi;
