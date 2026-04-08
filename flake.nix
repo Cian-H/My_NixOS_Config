@@ -19,6 +19,11 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     # Add sops for secret management
     sops-nix.url = "github:Mic92/sops-nix";
+    # Add Noctalia input
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

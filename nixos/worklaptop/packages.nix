@@ -31,13 +31,9 @@
     pkgs.xh
     unstablePkgs.ghostty
     unstablePkgs.hyprland
-    unstablePkgs.hyprlock
-    unstablePkgs.hyprpaper
     unstablePkgs.hyprpicker
     unstablePkgs.hyprshot
     unstablePkgs.kitty
     unstablePkgs.libnotify
-    unstablePkgs.swaynotificationcenter
-    unstablePkgs.waybar
   ];
 }

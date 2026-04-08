@@ -78,16 +78,10 @@
   # Configure networking
   networking = {
     hostName = "worklaptop"; # Define your hostname.
-    networkmanager.enable = false;
-    wireless.iwd = {
+    wireless.iwd.enable = true;
+    networkmanager = {
       enable = true;
-      settings = {
-        General.EnableNetworkConfiguration = true;
-        Network = {
-          EnableIPv6 = true;
-          NameResolvingService = "systemd";
-        };
-      };
+      wifi.backend = "iwd";
     };
   };
 

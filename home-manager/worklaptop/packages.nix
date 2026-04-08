@@ -16,7 +16,6 @@ in {
     pkgs.bat-extras.batdiff
     pkgs.bat-extras.batgrep
     pkgs.bat-extras.prettybat
-    pkgs.blueman
     pkgs.broot
     pkgs.clapper
     pkgs.cliphist
@@ -29,7 +28,6 @@ in {
     pkgs.has
     pkgs.hyperfine
     pkgs.imagemagick
-    pkgs.impala
     pkgs.jujutsu
     pkgs.kubectl
     pkgs.lnav
@@ -54,6 +52,7 @@ in {
     nixers.rbw-autofill
     unstablePkgs.ruff
     pkgs.signal-desktop
+    unstablePkgs.spotify
     pkgs.sshs
     unstablePkgs.uv
     pkgs.vial

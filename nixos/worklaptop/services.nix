@@ -21,6 +21,8 @@
       };
     };
     resolved.enable = true;
+    upower.enable = true;
+    tuned.enable = true;
     pulseaudio.enable = false;
     pipewire = {
       enable = true;

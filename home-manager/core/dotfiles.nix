@@ -37,6 +37,19 @@
       target = ".config/nvim";
       recursive = true;
     };
+    "noctalia" = {
+      source = lib.cleanSourceWith {
+        src = ./dotfiles/dot_config/noctalia;
+        filter = name: type: let
+          baseName = baseNameOf name;
+        in
+          ! (
+            (lib.hasPrefix "*/plugins-repo/*" name)
+          );
+      };
+      target = ".config/noctalia";
+      recursive = true;
+    };
     "pypoetry" = {
       source = ./dotfiles/dot_config/pypoetry;
       target = ".config/pypoetry";

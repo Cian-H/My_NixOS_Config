@@ -8,6 +8,10 @@
   nixers,
   ...
 }: {
+  imports = [
+    inputs.noctalia.homeModules.default
+  ];
+
   programs = {
     nix-your-shell = {
       enable = true;
@@ -17,10 +21,7 @@
       enable = true;
       enableNushellIntegration = true;
     };
-    waybar = {
-      enable = true;
-      systemd.enable = true;
-    };
+    noctalia-shell.enable = true;
     walker = {
       enable = true;
       runAsService = true;
