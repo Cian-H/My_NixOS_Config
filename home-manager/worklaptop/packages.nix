@@ -52,7 +52,6 @@ in {
     nixers.rbw-autofill
     unstablePkgs.ruff
     pkgs.signal-desktop
-    unstablePkgs.spotify
     pkgs.sshs
     unstablePkgs.uv
     pkgs.vial
