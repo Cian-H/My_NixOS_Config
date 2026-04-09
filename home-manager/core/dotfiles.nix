@@ -50,6 +50,11 @@
       target = ".config/noctalia";
       recursive = true;
     };
+    "noctalia-cli" = {
+      source = ./dotfiles/dot_local/bin/executable_noctalia-cli;
+      target = ".local/bin/noctalia-cli";
+      executable = true;
+    };
     "pypoetry" = {
       source = ./dotfiles/dot_config/pypoetry;
       target = ".config/pypoetry";
