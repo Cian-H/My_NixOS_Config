@@ -9,7 +9,6 @@
 }: {
   services = {
     pueue.enable = true;
-    hyprpaper.enable = true;
   };
   # Custom version of ghostty service, to stop closing during update
   systemd.user.services."app-com.mitchellh.ghostty" = {
