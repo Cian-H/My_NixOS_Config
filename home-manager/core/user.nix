@@ -11,5 +11,8 @@
     username = "cianh";
     homeDirectory = "/home/cianh";
     shell.enableNushellIntegration = true;
+    sessionPath = [
+      "$HOME/.local/bin"
+    ];
   };
 }
