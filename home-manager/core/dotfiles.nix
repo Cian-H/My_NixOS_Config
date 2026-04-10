@@ -77,17 +77,7 @@
     "fastfetch".source = ./dotfiles/dot_config/fastfetch;
     "helix".source = ./dotfiles/dot_config/helix;
     "home-manager".source = ./dotfiles/dot_config/home-manager;
-    "hypr" = {
-      source = ./dotfiles/dot_config/hypr;
-      recursive = true;
-      # Here, we use OnChange, because we don't want the config to be mutable but we do want it to
-      #   manage modifiable state at runtime
-      onChange = ''
-        rm -f ${config.xdg.configHome}/hypr/inputs.conf
-        cp ${config.xdg.configHome}/hypr/HomeManagerInit_inputs.conf ${config.xdg.configHome}/hypr/inputs.conf
-        chmod u+w ${config.xdg.configHome}/hypr/inputs.conf
-      '';
-    };
+    "hypr" = ./dotfiles/dot_config/hypr;
     "just".source = ./dotfiles/dot_config/just;
     "kitty".source = ./dotfiles/dot_config/kitty;
     "ghostty".source = ./dotfiles/dot_config/ghostty;
