@@ -77,7 +77,7 @@
     "fastfetch".source = ./dotfiles/dot_config/fastfetch;
     "helix".source = ./dotfiles/dot_config/helix;
     "home-manager".source = ./dotfiles/dot_config/home-manager;
-    "hypr" = ./dotfiles/dot_config/hypr;
+    "hypr".source = ./dotfiles/dot_config/hypr;
     "just".source = ./dotfiles/dot_config/just;
     "kitty".source = ./dotfiles/dot_config/kitty;
     "ghostty".source = ./dotfiles/dot_config/ghostty;
