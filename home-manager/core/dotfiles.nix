@@ -15,30 +15,16 @@
 
   makeNoctaliaEntries = plugin: let
     pluginSource = ./dotfiles/dot_config/noctalia/plugins-repo + "/${plugin}";
-    settingsFile = ./dotfiles/dot_config/noctalia/plugins-settings + "/${plugin}/settings.json";
-    hasSettings = builtins.pathExists settingsFile;
-  in
-    [
-      {
-        name = "noctalia-plugin-${plugin}";
-        value = {
-          source = pluginSource;
-          target = ".config/noctalia/plugins/${plugin}";
-          recursive = true;
-        };
-      }
-    ]
-    ++ lib.optionals hasSettings [
-      {
-        name = "noctalia-settings-${plugin}";
-        value = {
-          source = settingsFile;
-          target = ".config/noctalia/plugins/${plugin}/settings.json";
-        };
-      }
-    ];
+  in {
+    name = "noctalia-plugin-${plugin}";
+    value = {
+      source = pluginSource;
+      target = ".config/noctalia/plugins/${plugin}";
+      recursive = true;
+    };
+  };
 
-  noctaliaPluginFiles = builtins.listToAttrs (builtins.concatMap makeNoctaliaEntries noctaliaPlugins);
+  noctaliaPluginFiles = builtins.listToAttrs (map makeNoctaliaEntries noctaliaPlugins);
 in {
   home.file =
     {
@@ -80,7 +66,7 @@ in {
             ! (
               (lib.hasInfix "/plugins/" name)
               || (lib.hasInfix "/plugins-repo/" name)
-              || (lib.hasInfix "/plugins-settings/" name)
+              # || (lib.hasInfix "/plugins-settings/" name)
             );
         };
         target = ".config/noctalia";
@@ -107,6 +93,12 @@ in {
       };
     }
     // noctaliaPluginFiles;
+
+  # Move across noctalia plugin settings as a writable overlay
+  home.activation.overlayNoctaliaSettings = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    mkdir -p "$HOME/.config/noctalia/plugins"
+    cp -rL --no-preserve=mode "$HOME/.config/noctalia/plugins-settings/"* "$HOME/.config/noctalia/plugins/"
+  '';
 
   xdg.configFile = {
     "bat".source = ./dotfiles/dot_config/bat;
