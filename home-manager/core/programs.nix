@@ -18,11 +18,11 @@
       enable = true;
       package = pkgStream.nushell;
       plugins = with pkgStream.nushellPlugins; [
-        bson
-        desktop_notifications
+        # bson
+        # desktop_notifications
         formats
         gstat
-        highlight
+        # highlight
         polars
         query
         semver
