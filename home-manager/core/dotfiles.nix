@@ -6,70 +6,107 @@
   pkgs,
   unstablePkgs,
   ...
-}: {
-  home.file = {
-    ".bashrc".source = ./dotfiles/dot_bashrc;
-    ".zshrc".source = ./dotfiles/dot_zshrc;
-    "nushell" = {
-      source = ./dotfiles/dot_config/nushell;
-      target = ".config/nushell/my_config";
-      recursive = true;
-    };
-    "fish" = {
-      source = ./dotfiles/dot_config/fish;
-      target = ".config/fish";
-      recursive = true;
-    };
-    "nvim" = {
-      source = lib.cleanSourceWith {
-        src = ./dotfiles/dot_config/nvim;
-        filter = name: type: let
-          baseName = baseNameOf name;
-        in
-          ! (
-            (lib.hasPrefix "*/nvim/*" name)
-            || (lib.hasPrefix "." baseName)
-            || (lib.hasPrefix "devenv" baseName)
-            || (lib.hasSuffix ".toml" baseName)
-            || (lib.hasSuffix ".yml" baseName)
-          );
+}: let
+  noctaliaPlugins = [
+    "keybind-cheatsheet"
+    "privacy-indicator"
+    "screen-toolkit"
+  ];
+
+  makeNoctaliaEntries = plugin: let
+    pluginSource = ./dotfiles/dot_config/noctalia/plugins-repo + "/${plugin}";
+    settingsFile = ./dotfiles/dot_config/noctalia/plugins-settings + "/${plugin}/settings.json";
+    hasSettings = builtins.pathExists settingsFile;
+  in
+    [
+      {
+        name = "noctalia-plugin-${plugin}";
+        value = {
+          source = pluginSource;
+          target = ".config/noctalia/plugins/${plugin}";
+          recursive = true;
+        };
+      }
+    ]
+    ++ lib.optionals hasSettings [
+      {
+        name = "noctalia-settings-${plugin}";
+        value = {
+          source = settingsFile;
+          target = ".config/noctalia/plugins/${plugin}/settings.json";
+        };
+      }
+    ];
+
+  noctaliaPluginFiles = builtins.listToAttrs (builtins.concatMap makeNoctaliaEntries noctaliaPlugins);
+in {
+  home.file =
+    {
+      ".bashrc".source = ./dotfiles/dot_bashrc;
+      ".zshrc".source = ./dotfiles/dot_zshrc;
+      "nushell" = {
+        source = ./dotfiles/dot_config/nushell;
+        target = ".config/nushell/my_config";
+        recursive = true;
       };
-      target = ".config/nvim";
-      recursive = true;
-    };
-    "noctalia" = {
-      source = lib.cleanSourceWith {
-        src = ./dotfiles/dot_config/noctalia;
-        filter = name: type: let
-          baseName = baseNameOf name;
-        in
-          ! (
-            (lib.hasPrefix "*/plugins-repo/*" name)
-          );
+      "fish" = {
+        source = ./dotfiles/dot_config/fish;
+        target = ".config/fish";
+        recursive = true;
       };
-      target = ".config/noctalia";
-      recursive = true;
-    };
-    "noctalia-cli" = {
-      source = ./dotfiles/dot_local/bin/executable_noctalia-cli;
-      target = ".local/bin/noctalia-cli";
-      executable = true;
-    };
-    "pypoetry" = {
-      source = ./dotfiles/dot_config/pypoetry;
-      target = ".config/pypoetry";
-      recursive = true;
-    };
-    "Thunar" = {
-      source = ./dotfiles/dot_config/Thunar;
-      target = ".config/Thunar";
-    };
-    "rye" = {
-      source = ./dotfiles/dot_config/.rye;
-      target = ".config/.rye";
-      recursive = true;
-    };
-  };
+      "nvim" = {
+        source = lib.cleanSourceWith {
+          src = ./dotfiles/dot_config/nvim;
+          filter = name: type: let
+            baseName = baseNameOf name;
+          in
+            ! (
+              (lib.hasInfix "/nvim/" name)
+              || (lib.hasPrefix "." baseName)
+              || (lib.hasPrefix "devenv" baseName)
+              || (lib.hasSuffix ".toml" baseName)
+              || (lib.hasSuffix ".yml" baseName)
+            );
+        };
+        target = ".config/nvim";
+        recursive = true;
+      };
+      "noctalia" = {
+        source = lib.cleanSourceWith {
+          src = ./dotfiles/dot_config/noctalia;
+          filter = name: type: let
+            baseName = baseNameOf name;
+          in
+            ! (
+              (lib.hasInfix "/plugins/" name)
+              || (lib.hasInfix "/plugins-repo/" name)
+              || (lib.hasInfix "/plugins-settings/" name)
+            );
+        };
+        target = ".config/noctalia";
+        recursive = true;
+      };
+      "noctalia-cli" = {
+        source = ./dotfiles/dot_local/bin/executable_noctalia-cli;
+        target = ".local/bin/noctalia-cli";
+        executable = true;
+      };
+      "pypoetry" = {
+        source = ./dotfiles/dot_config/pypoetry;
+        target = ".config/pypoetry";
+        recursive = true;
+      };
+      "Thunar" = {
+        source = ./dotfiles/dot_config/Thunar;
+        target = ".config/Thunar";
+      };
+      "rye" = {
+        source = ./dotfiles/dot_config/.rye;
+        target = ".config/.rye";
+        recursive = true;
+      };
+    }
+    // noctaliaPluginFiles;
 
   xdg.configFile = {
     "bat".source = ./dotfiles/dot_config/bat;
