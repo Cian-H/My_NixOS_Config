@@ -79,6 +79,7 @@
   users.users = {
     cianh = {
       isNormalUser = true;
+      linger = true;
       hashedPasswordFile = "/etc/hashedPasswordFile";
       description = "Cian Hughes";
       extraGroups = ["networkmanager" "wheel" "docker" "podman" "nixcfg"];
