@@ -25,7 +25,7 @@
         # highlight
         polars
         query
-        semver
+        # semver
       ];
       extraConfig = ''
         source ~/.config/nushell/my_config/config.nu
