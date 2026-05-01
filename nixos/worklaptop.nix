@@ -106,11 +106,6 @@
   nix = {
     registry = (lib.mapAttrs (_: flake: {inherit flake;})) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
     nixPath = ["nixpkgs=${inputs.nixpkgs}"];
-    gc = {
-      automatic = true;
-      dates = "daily";
-      options = "--delete-older-than 14d";
-    };
     settings = {
       experimental-features = "nix-command flakes";
       auto-optimise-store = true;

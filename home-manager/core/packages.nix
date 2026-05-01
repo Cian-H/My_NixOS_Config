@@ -17,5 +17,8 @@
     unstablePkgs.lazygit
     unstablePkgs.nixd
     unstablePkgs.nushell
+    unstablePkgs.nh
+    unstablePkgs.nix-output-monitor
+    unstablePkgs.nvd
   ];
 }

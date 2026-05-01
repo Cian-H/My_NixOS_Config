@@ -35,7 +35,6 @@ in {
     pkgs.minikube
     unstablePkgs.mission-center
     pkgs.neovide
-    pkgs.nix-output-monitor
     pkgs.nix-tree
     pkgs.nh
     pkgs.nodejs_24
