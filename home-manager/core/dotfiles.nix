@@ -25,6 +25,22 @@
   };
 
   noctaliaPluginFiles = builtins.listToAttrs (map makeNoctaliaEntries noctaliaPlugins);
+
+  customPluginsDir = ./dotfiles/dot_config/noctalia/plugins-custom;
+  customPlugins = builtins.attrNames (
+    lib.filterAttrs (name: type: type == "directory") (builtins.readDir customPluginsDir)
+  );
+
+  makeCustomEntries = plugin: {
+    name = "noctalia-custom-plugin-${plugin}";
+    value = {
+      source = customPluginsDir + "/${plugin}";
+      target = ".config/noctalia/plugins/${plugin}";
+      recursive = true;
+    };
+  };
+
+  customPluginFiles = builtins.listToAttrs (map makeCustomEntries customPlugins);
 in {
   home.file =
     {
@@ -66,6 +82,7 @@ in {
             ! (
               (lib.hasInfix "/plugins/" name)
               || (lib.hasInfix "/plugins-repo/" name)
+              || (lib.hasInfix "/plugins-custom/" name)
               # || (lib.hasInfix "/plugins-settings/" name)
             );
         };
@@ -92,7 +109,8 @@ in {
         recursive = true;
       };
     }
-    // noctaliaPluginFiles;
+    // noctaliaPluginFiles
+    // customPluginFiles;
 
   # Move across noctalia plugin settings as a writable overlay
   home.activation.overlayNoctaliaSettings = lib.hm.dag.entryAfter ["writeBoundary"] ''
