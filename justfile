@@ -10,11 +10,20 @@ default:
 
 _git-sync:
     @if [ -n "$(git status --porcelain)" ]; then \
-        echo ">> Stashing local changes..."; \
-        git stash; \
-        git pull --ff-only --recurse-submodules; \
-        git submodule update --remote --recursive; \
-        git stash pop; \
+        if git status --porcelain | grep -q "flake.lock"; then \
+            echo ">> flake.lock is dirty. Resetting to avoid pull conflicts..."; \
+            git checkout flake.lock; \
+        fi; \
+        if [ -n "$(git status --porcelain)" ]; then \
+            echo ">> Stashing remaining local changes..."; \
+            git stash; \
+            git pull --ff-only --recurse-submodules; \
+            git submodule update --remote --recursive; \
+            git stash pop; \
+        else \
+            git pull --ff-only --recurse-submodules; \
+            git submodule update --remote --recursive; \
+        fi; \
     else \
         git pull --ff-only --recurse-submodules; \
         git submodule update --remote --recursive; \
@@ -22,6 +31,11 @@ _git-sync:
 
 _flake-update:
     nix flake update
+
+# Safely commit the lockfile changes
+commit-lock:
+    git add flake.lock
+    git commit -m "chore: update flake.lock" || echo "No changes to commit"
 
 # Sync git and update flake inputs (override with git=false or flake=false)
 prebuild:
