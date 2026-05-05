@@ -29,6 +29,28 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+
+      extraConfig.pipewire."99-high-res-audio" = {
+        "context.properties" = {
+          "default.clock.rate" = 48000;
+          "default.clock.allowed-rates" = [44100 48000 88200 96000 176400 192000];
+        };
+      };
+
+      wireplumber.extraConfig."10-high-res-audio" = {
+        "monitor.alsa.rules" = [
+          {
+            matches = [
+              {"node.name" = "~alsa_output.*";}
+            ];
+            actions = {
+              update-props = {
+                "audio.format" = "S32LE";
+              };
+            };
+          }
+        ];
+      };
     };
 
     gvfs.enable = true;
