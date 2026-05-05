@@ -51,6 +51,7 @@ in {
     nixers.rbw-autofill
     unstablePkgs.ruff
     pkgs.signal-desktop
+    unstablePkgs.sone
     pkgs.sshs
     unstablePkgs.uv
     pkgs.vial
