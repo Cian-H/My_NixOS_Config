@@ -48,6 +48,7 @@ in {
     unstablePkgs.podman-tui
     pkgs.popsicle
     nixers.python-env
+    unstablePkgs.quarto
     nixers.rbw-autofill
     unstablePkgs.ruff
     pkgs.signal-desktop
