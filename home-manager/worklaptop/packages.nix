@@ -54,6 +54,7 @@ in {
     pkgs.signal-desktop
     unstablePkgs.sone
     pkgs.sshs
+    unstablePkgs.typst
     unstablePkgs.uv
     pkgs.vial
     nixers.vivaldi-wayland
