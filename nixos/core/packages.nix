@@ -42,6 +42,7 @@
     pkgs.rm-improved
     pkgs.starship
     pkgs.tealdeer
+    pkgs.tree-sitter
     pkgs.wget
     pkgs.wl-clipboard
     pkgs.wtype
