@@ -42,7 +42,7 @@
       ];
     };
     nvidia = {
-      branch = "stable";
+      branch = "legacy_535";
       # Modesetting is required.
       modesetting.enable = true;
       powerManagement.enable = false;
