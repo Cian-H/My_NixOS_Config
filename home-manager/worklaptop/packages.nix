@@ -10,7 +10,6 @@
 }: let
 in {
   home.packages = [
-    pkgs.bitwarden-desktop
     pkgs.babashka
     pkgs.bat-extras.batman
     pkgs.bat-extras.batdiff
