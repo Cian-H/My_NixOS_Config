@@ -16,7 +16,6 @@
       Description = "Ghostty Terminal Emulator";
       X-SwitchMethod = "keep-old";
       After = ["graphical-session.target"];
-      PartOf = ["graphical-session.target"];
     };
     Service = {
       ExecStart = "${lib.getExe config.programs.ghostty.package}";
@@ -29,5 +28,6 @@
     Install = {
       WantedBy = ["graphical-session.target"];
     };
+    restartIfChanged = false;
   };
 }
