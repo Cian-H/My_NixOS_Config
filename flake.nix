@@ -9,13 +9,13 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     # Nixpkgs-unstable
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # Nixers
     nixers-repo.url = "github:Cian-H/Nixers";
     # Home manager
-    home-manager.url = "github:nix-community/home-manager/release-25.11";
+    home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     # Add sops for secret management
     sops-nix.url = "github:Mic92/sops-nix";
