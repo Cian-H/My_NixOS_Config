@@ -15,6 +15,7 @@
     Unit = {
       Description = "Ghostty Terminal Emulator";
       X-SwitchMethod = "keep-old";
+      X-RestartIfChanged = false;
       After = ["graphical-session.target"];
     };
     Service = {
@@ -28,6 +29,5 @@
     Install = {
       WantedBy = ["graphical-session.target"];
     };
-    restartIfChanged = false;
   };
 }
