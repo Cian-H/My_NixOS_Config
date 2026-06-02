@@ -26,8 +26,8 @@
     nixers.walker
     pkgs.wayland
     pkgs.wayland-utils
-    pkgs.xfce.thunar
-    pkgs.xfce.tumbler
+    pkgs.thunar
+    pkgs.tumbler
     pkgs.xh
     unstablePkgs.ghostty
     unstablePkgs.hyprland

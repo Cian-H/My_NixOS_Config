@@ -58,9 +58,9 @@ in {
     thunar = {
       enable = true;
       plugins = [
-        pkgs.xfce.thunar-volman
-        pkgs.xfce.thunar-archive-plugin
-        pkgs.xfce.thunar-media-tags-plugin
+        pkgs.thunar-volman
+        pkgs.thunar-archive-plugin
+        pkgs.thunar-media-tags-plugin
       ];
     };
     xfconf.enable = true;
