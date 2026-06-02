@@ -10,6 +10,7 @@
     enable = true;
     package = unstablePkgs.yazi;
     enableNushellIntegration = true;
+    shellWrapperName = "y";
   };
 
   # Manually place plugins for now, until home-manager updates for newer yazi versions
