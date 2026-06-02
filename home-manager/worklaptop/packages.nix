@@ -6,6 +6,7 @@
   pkgs,
   unstablePkgs,
   nixers,
+  antigravityPkgs,
   ...
 }: let
 in {
@@ -80,5 +81,9 @@ in {
     pkgs.steam-run
     pkgs.tree-sitter
     unstablePkgs.vimPlugins.mason-lspconfig-nvim
+    # LLM Agentic DE
+    antigravityPkgs.google-antigravity-no-fhs
+    antigravityPkgs.google-antigravity-ide-no-fhs
+    antigravityPkgs.google-antigravity-cli
   ];
 }

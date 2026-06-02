@@ -24,6 +24,11 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Antigravity, for managing busywork and chores
+    antigravity-nix = {
+      url = "github:jacopone/antigravity-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -31,6 +36,7 @@
     nixpkgs,
     nixpkgs-unstable,
     nixers-repo,
+    antigravity-nix,
     home-manager,
     ...
   } @ inputs: let
@@ -170,8 +176,9 @@
               };
             };
             nixers = inputs.nixers-repo.packages.${pkgs.stdenv.hostPlatform.system};
+            antigravityPkgs = antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system};
           in {
-            inherit inputs outputs unstablePkgs nixers;
+            inherit inputs outputs unstablePkgs nixers antigravityPkgs;
             theme = worklaptopTheme {inherit pkgs unstablePkgs nixers;};
           };
 
