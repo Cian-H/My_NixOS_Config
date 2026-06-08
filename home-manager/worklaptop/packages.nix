@@ -22,6 +22,7 @@ in {
     pkgs.distrobox
     pkgs.dvc
     pkgs.feh
+    unstablePkgs.gimp-with-plugins
     pkgs.git-lfs
     pkgs.go
     unstablePkgs.gurk-rs
@@ -29,6 +30,7 @@ in {
     pkgs.hyperfine
     pkgs.imagemagick
     pkgs.jujutsu
+    unstablePkgs.krita
     pkgs.kubectl
     pkgs.lnav
     pkgs.lynx
