@@ -16,6 +16,7 @@ in {
     pkgs.bat-extras.batdiff
     pkgs.bat-extras.batgrep
     pkgs.bat-extras.prettybat
+    unstablePkgs.blender
     pkgs.broot
     pkgs.clapper
     pkgs.cliphist
