@@ -56,6 +56,7 @@ in {
     nixers.rbw-autofill
     unstablePkgs.ruff
     pkgs.signal-desktop
+    pkgs.sioyek
     unstablePkgs.sone
     pkgs.sshs
     unstablePkgs.typst
@@ -69,7 +70,6 @@ in {
     pkgs.xarchiver
     pkgs.yubikey-agent
     pkgs.yubikey-manager
-    pkgs.zathura
     pkgs.zeal
     unstablePkgs.zed-editor
     unstablePkgs.zotero
