@@ -30,6 +30,7 @@ in {
     pkgs.has
     pkgs.hyperfine
     pkgs.imagemagick
+    pkgs.imv
     unstablePkgs.inkscape
     pkgs.jujutsu
     unstablePkgs.krita
