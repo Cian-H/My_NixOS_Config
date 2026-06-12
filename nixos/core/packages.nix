@@ -21,6 +21,7 @@
     pkgs.git
     pkgs.git-extras
     pkgs.git-filter-repo
+    pkgs.git-lfs
     pkgs.glab
     pkgs.glow
     pkgs.gnupg
