@@ -51,6 +51,7 @@ in {
     unstablePkgs.podman-compose
     unstablePkgs.podman-desktop
     unstablePkgs.podman-tui
+    pkgs.poppler
     pkgs.popsicle
     nixers.python-env
     unstablePkgs.quarto
