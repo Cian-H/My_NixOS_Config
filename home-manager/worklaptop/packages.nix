@@ -60,6 +60,8 @@ in {
     pkgs.sioyek
     unstablePkgs.sone
     pkgs.sshs
+    pkgs.texliveFull
+    pkgs.texstudio
     unstablePkgs.typst
     unstablePkgs.uv
     pkgs.vial
