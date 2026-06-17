@@ -28,6 +28,10 @@
       "text/plain" = "neovide.desktop";
       "text/markdown" = "neovide.desktop";
 
+      # TeX and LaTeX (TeXstudio)
+      "text/x-tex" = "texstudio.desktop";
+      "text/x-latex" = "texstudio.desktop";
+
       # Images (imv)
       "image/jpeg" = "imv.desktop";
       "image/png" = "imv.desktop";
