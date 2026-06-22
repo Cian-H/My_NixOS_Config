@@ -20,6 +20,7 @@
         "/home/cianh/TV_Archive/jf_cache:/cache:Z"
       ];
       userNS = "keep-id";
+      devices = [ "/dev/dri:/dev/dri" ];
     };
   };
 }
