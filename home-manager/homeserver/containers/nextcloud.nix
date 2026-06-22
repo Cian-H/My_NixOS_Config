@@ -72,4 +72,30 @@
       };
     };
   };
+
+  systemd.user.services.nextcloud-cron = {
+    Unit = {
+      Description = "Nextcloud cron.php job";
+      Requires = [ "podman-nextcloud.service" ];
+      After = [ "podman-nextcloud.service" ];
+    };
+    Service = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.podman}/bin/podman exec --user www-data nextcloud php -f /var/www/html/cron.php";
+    };
+  };
+
+  systemd.user.timers.nextcloud-cron = {
+    Unit = {
+      Description = "Run Nextcloud cron.php every 5 minutes";
+    };
+    Timer = {
+      OnBootSec = "5m";
+      OnUnitActiveSec = "5m";
+      Unit = "nextcloud-cron.service";
+    };
+    Install = {
+      WantedBy = [ "timers.target" ];
+    };
+  };
 }
