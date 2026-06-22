@@ -71,7 +71,6 @@
           "/home/cianh/freshrss/data:/var/www/FreshRSS/data"
           "/home/cianh/freshrss/extensions:/var/www/FreshRSS/extensions"
         ];
-        ports = ["3457:80"];
         extraPodmanArgs = [
           "--log-opt max-size=10m"
         ];

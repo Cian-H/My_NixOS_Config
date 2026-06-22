@@ -59,9 +59,6 @@
           "nextcloud-net"
           "proxy-net"
         ];
-        ports = [
-          "9980:9980"
-        ];
         environment = {
           username = "admin";
           password = config.sops.secrets.nextcloud-collabora_password.path;
