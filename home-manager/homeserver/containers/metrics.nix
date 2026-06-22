@@ -20,6 +20,12 @@
           "/home/cianh/caddy/logs:/var/log/caddy:Z"
           "/home/cianh/goaccess/site:/var/www/goaccess"
         ];
+        extraConfig = {
+          Unit = {
+            After = "podman-caddy.service";
+            Requires = "podman-caddy.service";
+          };
+        };
       };
     };
   };
