@@ -27,14 +27,15 @@
           MYSQL_DATABASE = "nextcloud";
           MYSQL_USER = "nextcloud";
           MYSQL_PASSWORD = config.sops.secrets.nextcloud-db_password.path;
+          REDIS_HOST = "nextcloud-redis";
         };
         volumes = [
           "/home/cianh/Nextcloud/:/var/www/html"
         ];
         extraConfig = {
           Unit = {
-            After = "podman-nextcloud-db.service";
-            Requires = "podman-nextcloud-db.service";
+            After = [ "podman-nextcloud-db.service" "podman-nextcloud-redis.service" ];
+            Requires = [ "podman-nextcloud-db.service" "podman-nextcloud-redis.service" ];
           };
         };
       };
@@ -51,6 +52,11 @@
         volumes = [
           "/home/cianh/nextcloud_db:/var/lib/mysql"
         ];
+      };
+      nextcloud-redis = {
+        image = "docker.io/library/redis:alpine";
+        autoUpdate = "registry";
+        network = ["nextcloud-net"];
       };
       nextcloud-collabora = {
         image = "docker.io/collabora/code:latest";

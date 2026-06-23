@@ -5,47 +5,58 @@
         }
 }
 
+(security_headers) {
+        header {
+                X-Content-Type-Options "nosniff"
+                X-Frame-Options "SAMEORIGIN"
+                Referrer-Policy "no-referrer"
+                Strict-Transport-Security "max-age=15552000; includeSubDomains; preload"
+                X-XSS-Protection "1; mode=block"
+                X-Permitted-Cross-Domain-Policies "none"
+        }
+}
+
 bulba.space {
         root * /var/www/site
         file_server
         import web_analytics
+        import security_headers
 }
 
 freshrss.bulba.space {
         reverse_proxy freshrss:80
         import web_analytics
+        import security_headers
 }
 
 vikunja.bulba.space {
         reverse_proxy vikunja:3456
         import web_analytics
+        import security_headers
 }
 
 blog.bulba.space {
         root * /var/www/blog
         file_server
         import web_analytics
+        import security_headers
 }
 
 gitea.bulba.space {
         reverse_proxy gitea:3000
         import web_analytics
+        import security_headers
 }
 
 jellyfin.bulba.space {
         reverse_proxy jellyfin:8096
         import web_analytics
+        import security_headers
 }
 
 nextcloud.bulba.space {
         header {
                 X-Robots-Tag "noindex, nofollow"
-                X-Content-Type-Options "nosniff"
-                X-Frame-Options "SAMEORIGIN"
-                Referrer-Policy "no-referrer"
-                Strict-Transport-Security "max-age=15552000; includeSubDomains; preload"
-                X-XSS-Protection: "1; mode=block"
-                X-Permitted-Cross-Domain-Policies "none"
         }
 
         request_body {
@@ -82,9 +93,12 @@ nextcloud.bulba.space {
                 close
         }
         import web_analytics
+        import security_headers
 }
 
 metrics.bulba.space {
+        import security_headers
+        import web_analytics
         basic_auth {
                 admin $2a$14$/pMYYzIlniwZgFO7IvNCveax0OXzRpzROnE5krjtiZi5OhECQwpNi
         }
@@ -107,4 +121,5 @@ collabora.bulba.space {
                 }
         }
         import web_analytics
+        import security_headers
 }
