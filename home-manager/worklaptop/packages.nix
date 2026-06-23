@@ -9,6 +9,14 @@
   antigravityPkgs,
   ...
 }: let
+  patchedQuarto = pkgs.quarto.overrideAttrs (oldAttrs: {
+    postPatch =
+      (oldAttrs.postPatch or "")
+      + ''
+        substituteInPlace bin/quarto.js \
+          --replace-fail "syntax-highlighting" "highlight-style"
+      '';
+  });
 in {
   home.packages = [
     pkgs.babashka
@@ -40,6 +48,7 @@ in {
     pkgs.minikube
     unstablePkgs.mission-center
     pkgs.neovide
+    unstablePkgs.nil
     pkgs.nix-tree
     pkgs.nh
     pkgs.nodejs_24
@@ -54,7 +63,7 @@ in {
     pkgs.poppler
     pkgs.popsicle
     nixers.python-env
-    unstablePkgs.quarto
+    patchedQuarto
     nixers.rbw-autofill
     unstablePkgs.ruff
     pkgs.signal-desktop
