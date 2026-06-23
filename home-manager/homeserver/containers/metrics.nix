@@ -24,6 +24,7 @@
           Unit = {
             After = "podman-caddy.service";
             Requires = "podman-caddy.service";
+            PartOf = "podman-caddy.service";
           };
         };
       };
