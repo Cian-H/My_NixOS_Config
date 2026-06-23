@@ -7,8 +7,6 @@
   unstablePkgs,
   ...
 }: {
-  home.file."caddy/config/Caddyfile.persistent".source = ./caddy/Caddyfile.persistent;
-
   services.podman.containers = {
     caddy = {
       image = "docker.io/library/caddy:latest";
@@ -22,6 +20,7 @@
       ];
       volumes = [
         "/home/cianh/caddy/config:/etc/caddy"
+        "${./caddy/Caddyfile.persistent}:/etc/caddy/Caddyfile.persistent:ro"
         "/home/cianh/caddy/data:/data:Z"
         "/home/cianh/caddy/logs:/var/log/caddy"
         "/home/cianh/caddy/placeholder_site:/var/www/site:Z"
