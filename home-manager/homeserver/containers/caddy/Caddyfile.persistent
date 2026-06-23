@@ -1,0 +1,110 @@
+(web_analytics) {
+        log {
+                output file /var/log/caddy/access.log
+                format json
+        }
+}
+
+bulba.space {
+        root * /var/www/site
+        file_server
+        import web_analytics
+}
+
+freshrss.bulba.space {
+        reverse_proxy freshrss:80
+        import web_analytics
+}
+
+vikunja.bulba.space {
+        reverse_proxy vikunja:3456
+        import web_analytics
+}
+
+blog.bulba.space {
+        root * /var/www/blog
+        file_server
+        import web_analytics
+}
+
+gitea.bulba.space {
+        reverse_proxy gitea:3000
+        import web_analytics
+}
+
+jellyfin.bulba.space {
+        reverse_proxy jellyfin:8096
+        import web_analytics
+}
+
+nextcloud.bulba.space {
+        header {
+                X-Robots-Tag "noindex, nofollow"
+                X-Content-Type-Options "nosniff"
+                X-Frame-Options "SAMEORIGIN"
+                Referrer-Policy "no-referrer"
+                Strict-Transport-Security "max-age=15552000; includeSubDomains; preload"
+                X-XSS-Protection: "1; mode=block"
+                X-Permitted-Cross-Domain-Policies "none"
+        }
+
+        request_body {
+                max_size 5GB
+        }
+
+        root * /var/www/nextcloud/
+        file_server
+        php_fastcgi nextcloud:9000 {
+                root /var/www/html/
+
+                # This is required to inform Nextcloud that it shouldn't be setting
+                # headers itself. That's the job of the reverse proxy
+                env modHeadersAvailable true
+        }
+
+        redir /.well-known/carddav /remote.php/dav 301 permanent
+        redir /.well-known/caldav /remote.php/dav 301 permanent
+
+        @forbidden {
+                path /.htaccess
+                path /data/*
+                path /config/*
+                path /db_structure
+                path /.xml
+                path /README
+                path /3rdparty/*
+                path /lib/*
+                path /templates/*
+                path /occ
+                path /console.php
+        }
+        respond @forbidden "Access Denied" 403 {
+                close
+        }
+        import web_analytics
+}
+
+metrics.bulba.space {
+        basic_auth {
+                admin $2a$14$/pMYYzIlniwZgFO7IvNCveax0OXzRpzROnE5krjtiZi5OhECQwpNi
+        }
+
+        handle /ws* {
+                reverse_proxy goaccess:7890
+        }
+
+        handle {
+                root * /var/www/goaccess
+                file_server
+        }
+}
+
+collabora.bulba.space {
+        reverse_proxy https://nextcloud-collabora:9980 {
+                transport http {
+                        tls
+                        tls_insecure_skip_verify
+                }
+        }
+        import web_analytics
+}

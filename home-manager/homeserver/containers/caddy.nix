@@ -7,6 +7,8 @@
   unstablePkgs,
   ...
 }: {
+  home.file."caddy/config/Caddyfile.persistent".source = ./caddy/Caddyfile.persistent;
+
   services.podman.containers = {
     caddy = {
       image = "docker.io/library/caddy:latest";
