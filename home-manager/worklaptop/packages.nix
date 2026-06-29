@@ -72,7 +72,6 @@ in {
     pkgs.sshs
     pkgs.texliveFull
     pkgs.texstudio
-    unstablePkgs.ty
     unstablePkgs.typst
     unstablePkgs.uv
     pkgs.vial
