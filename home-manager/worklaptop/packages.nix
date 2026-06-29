@@ -66,7 +66,7 @@ in {
     patchedQuarto
     nixers.rbw-autofill
     unstablePkgs.ruff
-    pkgs.signal-desktop
+    unstablePkgs.signal-desktop
     pkgs.sioyek
     unstablePkgs.sone
     pkgs.sshs
