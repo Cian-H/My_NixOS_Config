@@ -50,7 +50,6 @@ in {
     pkgs.neovide
     unstablePkgs.nil
     pkgs.nix-tree
-    pkgs.nh
     pkgs.nodejs_24
     pkgs.nwg-look
     unstablePkgs.obsidian
