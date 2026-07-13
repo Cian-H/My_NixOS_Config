@@ -12,6 +12,7 @@
     pkgs.git-extras
     pkgs.git-credential-manager
     pkgs.meld
+    pkgs.statix
     pkgs.unzip
     unstablePkgs.devenv
     unstablePkgs.lazygit
