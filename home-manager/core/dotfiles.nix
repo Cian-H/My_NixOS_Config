@@ -73,6 +73,38 @@ in {
         target = ".config/nvim";
         recursive = true;
       };
+      "helix" = {
+        source = lib.cleanSourceWith {
+          src = ./dotfiles/dot_config/helix;
+          filter = name: type: let
+            baseName = baseNameOf name;
+          in
+            ! (
+              (lib.hasPrefix "*/helix/*" name)
+              || (lib.hasPrefix "." baseName)
+              || (lib.hasPrefix "devenv" baseName)
+            );
+        };
+        target = ".config/helix";
+        recursive = true;
+      };
+      "emacs" = {
+        source = lib.cleanSourceWith {
+          src = ./dotfiles/dot_config/emacs;
+          filter = name: type: let
+            baseName = baseNameOf name;
+          in
+            ! (
+              (lib.hasPrefix "*/emacs/*" name)
+              || (lib.hasPrefix "." baseName)
+              || (lib.hasPrefix "devenv" baseName)
+              || (lib.hasSuffix ".toml" baseName)
+              || (lib.hasSuffix ".yml" baseName)
+            );
+        };
+        target = ".config/emacs";
+        recursive = true;
+      };
       "noctalia" = {
         source = lib.cleanSourceWith {
           src = ./dotfiles/dot_config/noctalia;
@@ -122,7 +154,6 @@ in {
     "bat".source = ./dotfiles/dot_config/bat;
     "path.env".source = ./dotfiles/dot_config/path.env;
     "fastfetch".source = ./dotfiles/dot_config/fastfetch;
-    "helix".source = ./dotfiles/dot_config/helix;
     "home-manager".source = ./dotfiles/dot_config/home-manager;
     "hypr".source = ./dotfiles/dot_config/hypr;
     "just".source = ./dotfiles/dot_config/just;
