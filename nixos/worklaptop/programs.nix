@@ -22,16 +22,16 @@ in {
     regreet = {
       enable = true;
       theme = {
-        name = theme.gtkTheme.name;
-        package = theme.gtkTheme.package;
+        inherit (theme.gtkTheme) name;
+        inherit (theme.gtkTheme) package;
       };
       cursorTheme = {
-        name = theme.cursorTheme.name;
-        package = theme.cursorTheme.package;
+        inherit (theme.cursorTheme) name;
+        inherit (theme.cursorTheme) package;
       };
       iconTheme = {
-        name = theme.iconTheme.name;
-        package = theme.iconTheme.package;
+        inherit (theme.iconTheme) name;
+        inherit (theme.iconTheme) package;
       };
       font = {
         name = "Noto Sans";

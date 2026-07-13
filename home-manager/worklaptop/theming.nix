@@ -12,16 +12,16 @@
   gtk = {
     enable = true;
     iconTheme = {
-      name = theme.iconTheme.name;
-      package = theme.iconTheme.package;
+      inherit (theme.iconTheme) name;
+      inherit (theme.iconTheme) package;
     };
     theme = {
-      name = theme.gtkTheme.name;
-      package = theme.gtkTheme.package;
+      inherit (theme.gtkTheme) name;
+      inherit (theme.gtkTheme) package;
     };
     cursorTheme = {
-      name = theme.cursorTheme.name;
-      package = theme.cursorTheme.package;
+      inherit (theme.cursorTheme) name;
+      inherit (theme.cursorTheme) package;
     };
     gtk2.extraConfig = ''
       gtk-theme-name="Tokyonight-Dark"
@@ -34,7 +34,7 @@
       '';
     };
     gtk4 = {
-      theme = config.gtk.theme;
+      inherit (config.gtk) theme;
       extraConfig = {
         Settings = ''
           gtk-application-prefer-dark-theme=1

@@ -141,7 +141,7 @@
             inherit inputs outputs;
             unstablePkgs = import nixpkgs-unstable {
               # We also need to do the same for unstable
-              system = pkgs.stdenv.hostPlatform.system;
+              inherit (pkgs.stdenv.hostPlatform) system;
               config = {
                 allowUnfree = true;
                 allowUnfreePredicate = _: true;
