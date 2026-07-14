@@ -20,10 +20,10 @@
 in {
   home.packages = [
     pkgs.babashka
-    pkgs.bat-extras.batman
-    pkgs.bat-extras.batdiff
-    pkgs.bat-extras.batgrep
-    pkgs.bat-extras.prettybat
+    unstablePkgs.bat-extras.batman
+    unstablePkgs.bat-extras.batdiff
+    unstablePkgs.bat-extras.batgrep
+    unstablePkgs.bat-extras.prettybat
     unstablePkgs.blender
     pkgs.broot
     pkgs.clapper

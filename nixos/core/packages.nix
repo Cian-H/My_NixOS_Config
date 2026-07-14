@@ -8,7 +8,7 @@
 }: {
   environment.systemPackages = [
     pkgs.atuin
-    pkgs.bat
+    unstablePkgs.bat
     pkgs.bottom
     pkgs.delta
     pkgs.dust
