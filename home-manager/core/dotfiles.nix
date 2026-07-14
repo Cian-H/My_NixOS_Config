@@ -64,7 +64,7 @@ in {
           in
             ! (
               (lib.hasPrefix "*/nvim/*" name)
-              || (lib.hasPrefix "." baseName)
+              || ((lib.hasPrefix "." baseName) && (baseName != ".hotpot.fnl"))
               || (lib.hasPrefix "devenv" baseName)
               || (lib.hasSuffix ".toml" baseName)
               || (lib.hasSuffix ".yml" baseName)
