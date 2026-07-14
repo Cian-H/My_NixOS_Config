@@ -29,6 +29,7 @@
     pkgs.hexyl
     pkgs.killall
     pkgs.libsecret
+    pkgs.luaPackages.fennel
     pkgs.micro
     pkgs.netcat-gnu
     pkgs.nix-index
