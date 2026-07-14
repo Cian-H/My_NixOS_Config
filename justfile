@@ -39,6 +39,20 @@ commit-lock:
 
 # Sync git and update flake inputs (override with git=false or flake=false)
 prebuild:
+    @if [ -n "$(git ls-files --others --exclude-standard)" ]; then \
+        echo "⚠️  WARNING: You have untracked files in your repository."; \
+        echo "Nix flakes cannot see untracked files. They will not be included in this build."; \
+        echo "The untracked files are:"; \
+        git ls-files --others --exclude-standard; \
+        echo ""; \
+        read -p "Do you want to run 'git add -A' before building? (y/N) " choice; \
+        if [[ "$choice" == [Yy]* ]]; then \
+            echo ">> Staging files..."; \
+            git add -A; \
+        else \
+            echo ">> Proceeding without staging. Untracked files will be ignored by Nix."; \
+        fi; \
+    fi
     @if [ "{{git}}" == "true" ]; then \
         echo ">> Syncing Git..."; \
         just _git-sync; \
