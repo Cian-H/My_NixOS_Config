@@ -140,11 +140,6 @@ in {
         source = ./dotfiles/dot_config/Thunar;
         target = ".config/Thunar";
       };
-      "rye" = {
-        source = ./dotfiles/dot_config/.rye;
-        target = ".config/.rye";
-        recursive = true;
-      };
     }
     // noctaliaPluginFiles
     // customPluginFiles;
