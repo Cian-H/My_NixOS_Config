@@ -51,6 +51,11 @@ in {
         target = ".config/nushell/my_config";
         recursive = true;
       };
+      "atuin" = {
+        source = ./dotfiles/dot_config/atuin;
+        target = ".config/atuin";
+        recursive = true;
+      };
       "fish" = {
         source = ./dotfiles/dot_config/fish;
         target = ".config/fish";
