@@ -11,11 +11,7 @@
     cloudflared = {
       image = "cloudflare/cloudflared:latest";
       network = "proxy-net";
-      command = [
-        "tunnel"
-        "--no-autoupdate"
-        "run"
-      ];
+      exec = "tunnel --no-autoupdate run";
       extraConfig = {
         Container = {
           EnvironmentFile = [ config.sops.templates."cloudflare.env".path ];
