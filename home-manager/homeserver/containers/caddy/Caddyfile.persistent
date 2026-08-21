@@ -28,38 +28,38 @@ http://www.bulba.space {
         import security_headers
 }
 
-freshrss.bulba.space {
+http://freshrss.bulba.space {
         reverse_proxy freshrss:80
         import web_analytics
         import security_headers
 }
 
-vikunja.bulba.space {
+http://vikunja.bulba.space {
         reverse_proxy vikunja:3456
         import web_analytics
         import security_headers
 }
 
-blog.bulba.space {
+http://blog.bulba.space {
         root * /var/www/blog
         file_server
         import web_analytics
         import security_headers
 }
 
-gitea.bulba.space {
+http://gitea.bulba.space {
         reverse_proxy gitea:3000
         import web_analytics
         import security_headers
 }
 
-jellyfin.bulba.space {
+http://jellyfin.bulba.space {
         reverse_proxy jellyfin:8096
         import web_analytics
         import security_headers
 }
 
-nextcloud.bulba.space {
+http://nextcloud.bulba.space {
         header {
                 X-Robots-Tag "noindex, nofollow"
         }
@@ -101,7 +101,7 @@ nextcloud.bulba.space {
         import security_headers
 }
 
-metrics.bulba.space {
+http://metrics.bulba.space {
         import security_headers
         import web_analytics
         basic_auth {
@@ -118,7 +118,7 @@ metrics.bulba.space {
         }
 }
 
-collabora.bulba.space {
+http://collabora.bulba.space {
         reverse_proxy https://nextcloud-collabora:9980 {
                 transport http {
                         tls
