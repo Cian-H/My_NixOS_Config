@@ -16,7 +16,7 @@
         }
 }
 
-www.bulba.space {
+http://www.bulba.space {
         root * /var/www/site
         file_server
 

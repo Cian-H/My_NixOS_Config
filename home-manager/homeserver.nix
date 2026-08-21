@@ -33,6 +33,10 @@
       nextcloud_turn_secret = {};
       nextcloud_whiteboard_secret = {};
       nextcloud-collabora_password = {};
+      cloudflare_tunnel_token = {};
     };
+    templates."cloudflare.env".content = ''
+      TUNNEL_TOKEN=${config.sops.placeholder.cloudflare_tunnel_token}
+    '';
   };
 }

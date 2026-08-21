@@ -27,5 +27,6 @@
     ./containers/nextcloud.nix
     ./containers/gitea.nix
     ./containers/cv.nix
+    ./containers/cloudflared.nix
   ];
 }
