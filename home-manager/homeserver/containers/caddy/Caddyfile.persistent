@@ -16,6 +16,10 @@
         }
 }
 
+http://bulba.space {
+        redir http://www.bulba.space{uri} permanent
+}
+
 http://www.bulba.space {
         root * /var/www/site
         file_server
