@@ -19,6 +19,11 @@
 bulba.space {
         root * /var/www/site
         file_server
+
+        handle /api/* {
+                reverse_proxy cv-api:3000
+        }
+
         import web_analytics
         import security_headers
 }

@@ -26,5 +26,6 @@
     ./containers/work_tools.nix
     ./containers/nextcloud.nix
     ./containers/gitea.nix
+    ./containers/cv.nix
   ];
 }
