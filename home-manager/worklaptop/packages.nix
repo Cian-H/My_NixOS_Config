@@ -8,16 +8,7 @@
   nixers,
   antigravityPkgs,
   ...
-}: let
-  patchedQuarto = pkgs.quarto.overrideAttrs (oldAttrs: {
-    postPatch =
-      (oldAttrs.postPatch or "")
-      + ''
-        substituteInPlace bin/quarto.js \
-          --replace-fail "syntax-highlighting" "highlight-style"
-      '';
-  });
-in {
+}: {
   home.packages = [
     pkgs.babashka
     unstablePkgs.bat-extras.batman
@@ -62,7 +53,7 @@ in {
     pkgs.poppler
     pkgs.popsicle
     nixers.python-env
-    patchedQuarto
+    unstablePkgs.quarto
     nixers.rbw-autofill
     unstablePkgs.ruff
     unstablePkgs.signal-desktop
