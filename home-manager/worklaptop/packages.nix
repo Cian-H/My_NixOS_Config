@@ -40,6 +40,7 @@ in {
     pkgs.imagemagick
     pkgs.imv
     unstablePkgs.inkscape
+    unstablePkgs.julia
     pkgs.jujutsu
     unstablePkgs.krita
     pkgs.kubectl
