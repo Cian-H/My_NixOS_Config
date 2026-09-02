@@ -21,7 +21,7 @@
       enable = true;
       enableNushellIntegration = true;
     };
-    noctalia-shell.enable = true;
+    noctalia.enable = true;
     walker = {
       enable = true;
       runAsService = true;

@@ -21,7 +21,7 @@
     sops-nix.url = "github:Mic92/sops-nix";
     # Add Noctalia input
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell/legacy-v4";
+      url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Antigravity, for managing busywork and chores
