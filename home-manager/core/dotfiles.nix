@@ -11,6 +11,10 @@
     {
       ".bashrc".source = ./dotfiles/dot_bashrc;
       ".zshrc".source = ./dotfiles/dot_zshrc;
+      ".local/bin/bash" = {
+        source = ./dotfiles/dot_local/bin/bash;
+        executable = true;
+      };
       "nushell" = {
         source = ./dotfiles/dot_config/nushell;
         target = ".config/nushell/my_config";
@@ -93,6 +97,7 @@
 
   xdg.configFile = {
     "bat".source = ./dotfiles/dot_config/bat;
+    "brush".source = ./dotfiles/dot_config/brush;
     "path.env".source = ./dotfiles/dot_config/path.env;
     "fastfetch".source = ./dotfiles/dot_config/fastfetch;
     "home-manager".source = ./dotfiles/dot_config/home-manager;

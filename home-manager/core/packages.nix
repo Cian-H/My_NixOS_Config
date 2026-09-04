@@ -9,6 +9,7 @@
 }: {
   home.packages = [
     pkgs.alejandra
+    pkgs.brush
     pkgs.eza
     pkgs.git-extras
     pkgs.git-credential-manager
