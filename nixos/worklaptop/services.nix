@@ -16,7 +16,8 @@
       videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
       enable = true;
       xkb = {
-        layout = "ie";
+        layout = "us,ie";
+        options = "grp:alt_shift_toggle";
         variant = "";
       };
     };

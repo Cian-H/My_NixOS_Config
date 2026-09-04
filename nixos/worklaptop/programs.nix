@@ -38,7 +38,8 @@ in {
           size = 24;
         };
         keyboard = {
-          layout = "ie";
+          layout = "us,ie";
+          options = "grp:alt_shift_toggle";
         };
       };
     };
