@@ -41,6 +41,7 @@ in {
       xwayland.enable = true;
     };
     iio-hyprland.enable = true;
+    niri.enable = true;
 
     # Enable my preferred DE utilities
     thunar = {
