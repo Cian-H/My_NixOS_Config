@@ -83,6 +83,7 @@
     in
       pkgs.mkShell {
         packages = [
+          pkgs.bashInteractive
           pkgs.babashka
           (pkgs.python3.withPackages (ps: with ps; [typer rich]))
         ];
