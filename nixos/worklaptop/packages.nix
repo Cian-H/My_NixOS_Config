@@ -21,7 +21,6 @@
     pkgs.qmk
     pkgs.qmk-udev-rules
     pkgs.qmk_hid
-    pkgs.regreet
     pkgs.seahorse
     nixers.walker
     pkgs.wayland

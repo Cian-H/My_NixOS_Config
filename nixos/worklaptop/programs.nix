@@ -19,31 +19,26 @@ in {
         comment = "Hyprland managed by UWSM";
       };
     };
-    regreet = {
+    noctalia-greeter = {
       enable = true;
-      theme = {
-        inherit (theme.gtkTheme) name;
-        inherit (theme.gtkTheme) package;
-      };
-      cursorTheme = {
-        inherit (theme.cursorTheme) name;
-        inherit (theme.cursorTheme) package;
-      };
-      iconTheme = {
-        inherit (theme.iconTheme) name;
-        inherit (theme.iconTheme) package;
-      };
-      font = {
-        name = "Noto Sans";
-        size = 16;
-        package = pkgs.noto-fonts;
-      };
       settings = {
-        GTK.application_prefer_dark_theme = true;
-        appearance.greeting_msg = "Hello ${username}, welcome back to '${config.networking.hostName}'!";
-        background = {
-          path = theme.wallpaper;
-          fit = "Cover";
+        session.default = "Hyprland (uwsm-managed)";
+        user.default = username;
+        appearance = {
+          scheme = "Tokyo-Night";
+          theme_mode = "dark";
+          font_family = "MonaspiceNe Nerd Font";
+          wallpaper = {
+            path = theme.wallpaper;
+            fill_mode = "crop";
+          };
+        };
+        cursor = {
+          theme = theme.cursorTheme.name;
+          size = 24;
+        };
+        keyboard = {
+          layout = "ie";
         };
       };
     };

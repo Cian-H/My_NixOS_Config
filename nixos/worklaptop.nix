@@ -15,6 +15,7 @@
     ./worklaptop/virtualisation.nix
     ./worklaptop/environment.nix
     ./worklaptop/theming.nix
+    inputs.noctalia-greeter.nixosModules.default
   ];
 
   # Allow unfree packages

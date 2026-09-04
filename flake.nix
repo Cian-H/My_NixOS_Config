@@ -24,6 +24,10 @@
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    noctalia-greeter = {
+      url = "github:noctalia-dev/noctalia-greeter";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # Antigravity, for managing busywork and chores
     antigravity-nix = {
       url = "github:jacopone/antigravity-nix";
