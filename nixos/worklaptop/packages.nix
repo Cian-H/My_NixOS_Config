@@ -32,9 +32,9 @@
     unstablePkgs.hyprland
     unstablePkgs.hyprpicker
     unstablePkgs.hyprshot
+    unstablePkgs.jan
     unstablePkgs.kitty
     unstablePkgs.libnotify
-    unstablePkgs.ollama
     unstablePkgs.opencode
     unstablePkgs.opencode-desktop
   ];

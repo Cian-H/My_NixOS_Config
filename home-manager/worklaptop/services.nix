@@ -8,6 +8,10 @@
   ...
 }: {
   services = {
+    ollama = {
+      enable = true;
+      acceleration = "cuda";
+    };
     pueue.enable = true;
     podman = {
       enable = true;
@@ -16,11 +20,12 @@
       containers."9router" = {
         image = "decolua/9router:latest";
         autoStart = true;
+        network = "host";
         ports = [
           "20128:20128"
         ];
         volumes = [
-          "${config.home.homeDirectory}/.config/9router:/data"
+          "9router-data:/data"
         ];
       };
     };
