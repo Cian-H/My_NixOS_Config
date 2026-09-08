@@ -34,5 +34,8 @@
     unstablePkgs.hyprshot
     unstablePkgs.kitty
     unstablePkgs.libnotify
+    unstablePkgs.ollama
+    unstablePkgs.opencode
+    unstablePkgs.opencode-desktop
   ];
 }

@@ -9,6 +9,16 @@
 }: {
   services = {
     pueue.enable = true;
+    podman.containers."9router" = {
+      image = "decolua/9router:latest";
+      autoStart = true;
+      ports = [
+        "20128:20128"
+      ];
+      volumes = [
+        "${config.home.homeDirectory}/.config/9router:/data"
+      ];
+    };
   };
   # Custom version of ghostty service, to stop closing during update
   systemd.user.services."app-com.mitchellh.ghostty" = {
