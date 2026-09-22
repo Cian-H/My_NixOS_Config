@@ -8,7 +8,7 @@
         container: nextcloud
         widget:
           type: nextcloud
-          url: http://nextcloud:80
+          url: https://nextcloud.bulba.space
           username: "{{HOMEPAGE_VAR_NEXTCLOUD_USERNAME}}"
           password: "{{HOMEPAGE_VAR_NEXTCLOUD_PASSWORD}}"
     - Nextcloud Office:
@@ -27,9 +27,10 @@
         container: vikunja
         widget:
           type: vikunja
-          url: http://vikunja:3456
+          url: https://vikunja.bulba.space
           key: "{{HOMEPAGE_VAR_VIKUNJA_TOKEN}}"
           version: 2
+
 
 
 
@@ -38,23 +39,23 @@
         icon: gitea.png
         href: https://gitea.bulba.space
         description: Self-hosted Git service
-        ping: gitea
+        ping: https://gitea.bulba.space
         server: podman
         container: gitea
         widget:
           type: gitea
-          url: http://gitea:3000
+          url: https://gitea.bulba.space
           key: "{{HOMEPAGE_VAR_GITEA_TOKEN}}"
     - FreshRSS:
         icon: freshrss.png
         href: https://freshrss.bulba.space
         description: RSS feed aggregator
-        ping: freshrss
+        ping: https://freshrss.bulba.space
         server: podman
         container: freshrss
         widget:
           type: freshrss
-          url: http://freshrss:80
+          url: https://freshrss.bulba.space
           username: "{{HOMEPAGE_VAR_FRESHRSS_USERNAME}}"
           password: "{{HOMEPAGE_VAR_FRESHRSS_PASSWORD}}"
     - Blog:
@@ -74,7 +75,7 @@
         container: jellyfin
         widget:
           type: jellyfin
-          url: http://jellyfin:8096
+          url: https://jellyfin.bulba.space
           key: "{{HOMEPAGE_VAR_JELLYFIN_APIKEY}}"
           enableBlocks: true
 
@@ -83,21 +84,21 @@
         icon: caddy.png
         href: https://bulba.space
         description: Reverse proxy
-        ping: localhost
+        ping: https://bulba.space
         server: podman
         container: caddy
     - Cloudflared:
         icon: cloudflare.png
         href: https://dash.cloudflare.com
         description: Cloudflare Tunnel
-        ping: localhost
+        ping: https://dash.cloudflare.com
         server: podman
         container: cloudflared
     - CV Website:
         icon: mdi-web
         href: https://bulba.space
         description: Personal Website
-        ping: caddy
+        ping: https://bulba.space
     - CV API:
         icon: mdi-api
         href: https://bulba.space/api
