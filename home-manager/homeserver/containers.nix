@@ -27,5 +27,6 @@
     ./containers/gitea.nix
     ./containers/cv.nix
     ./containers/cloudflared.nix
+    ./containers/homepage.nix
   ];
 }

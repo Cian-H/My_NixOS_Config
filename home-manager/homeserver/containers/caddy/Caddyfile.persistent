@@ -100,3 +100,8 @@ http://collabora.bulba.space {
 	}
 	import security_headers
 }
+
+http://home.bulba.space {
+	reverse_proxy homepage:3000
+	import security_headers
+}
