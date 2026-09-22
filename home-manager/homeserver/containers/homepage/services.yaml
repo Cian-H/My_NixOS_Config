@@ -3,7 +3,7 @@
         icon: nextcloud.png
         href: https://nextcloud.bulba.space
         description: Cloud storage & productivity
-        ping: nextcloud
+        ping: https://nextcloud.bulba.space
         server: podman
         container: nextcloud
         widget:
@@ -15,14 +15,14 @@
         icon: collabora-online.png
         href: https://collabora.bulba.space
         description: Document collaboration engine
-        ping: nextcloud-collabora
+        ping: https://collabora.bulba.space
         server: podman
         container: nextcloud-collabora
     - Vikunja:
         icon: vikunja.png
         href: https://vikunja.bulba.space
         description: Tasks & project management
-        ping: vikunja
+        ping: https://vikunja.bulba.space
         server: podman
         container: vikunja
         widget:
@@ -30,9 +30,6 @@
           url: https://vikunja.bulba.space
           key: "{{HOMEPAGE_VAR_VIKUNJA_TOKEN}}"
           version: 2
-
-
-
 
 - Services:
     - Gitea:
@@ -70,7 +67,7 @@
         icon: jellyfin.png
         href: https://jellyfin.bulba.space
         description: Media streaming server
-        ping: jellyfin
+        ping: https://jellyfin.bulba.space
         server: podman
         container: jellyfin
         widget:
