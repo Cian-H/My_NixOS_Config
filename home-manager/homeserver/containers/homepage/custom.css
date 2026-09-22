@@ -1,0 +1,31 @@
+:root {
+  --color-50:  192 202 245;
+  --color-100: 169 177 214;
+  --color-200: 154 165 206;
+  --color-300: 120 124 153;
+  --color-400:  86  95 137;
+  --color-500:  65  72 104;
+  --color-600:  54  59  84;
+  --color-700:  41  46  66;
+  --color-800:  36  40  59;
+  --color-900:  31  35  53;
+  --color-950:  26  27  46;
+}
+
+.text-green-300, .text-green-400 { color: #9ece6a !important; }
+.bg-green-300,   .bg-green-400   { background-color: #9ece6a !important; }
+
+.text-red-300,   .text-red-400   { color: #f7768e !important; }
+.bg-red-300,     .bg-red-400     { background-color: #f7768e !important; }
+
+.text-yellow-300, .text-yellow-400 { color: #e0af68 !important; }
+.bg-yellow-300,   .bg-yellow-400   { background-color: #e0af68 !important; }
+
+.text-blue-300, .text-blue-400   { color: #7aa2f7 !important; }
+.text-purple-300                  { color: #bb9af7 !important; }
+.text-cyan-300                    { color: #7dcfff !important; }
+
+::-webkit-scrollbar              { width: 6px; height: 6px; }
+::-webkit-scrollbar-track        { background: #1a1b2e; }
+::-webkit-scrollbar-thumb        { background: #414868; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover  { background: #565f89; }

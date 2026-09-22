@@ -1,0 +1,18 @@
+title: "Homeserver"
+favicon: "https://bulba.space/favicon.ico"
+theme: dark
+color: slate
+headerStyle: boxed
+layout:
+  Cloud & Files:
+    style: row
+    columns: 3
+  Services:
+    style: row
+    columns: 3
+  Media:
+    style: row
+    columns: 1
+  Infrastructure:
+    style: row
+    columns: 4
