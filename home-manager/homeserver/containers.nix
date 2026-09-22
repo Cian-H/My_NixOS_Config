@@ -19,9 +19,25 @@
     };
   };
 
-  home.activation.enablePodmanSocket = lib.hm.dag.entryAfter ["reloadSystemd"] ''
-    ${pkgs.systemd}/bin/systemctl --user enable --now podman.socket || true
-  '';
+  systemd.user.sockets.podman = {
+    Socket = {
+      ListenStream = "%t/podman/podman.sock";
+      SocketMode = "0660";
+    };
+    Install.WantedBy = ["sockets.target"];
+  };
+
+  systemd.user.services.podman = {
+    Unit = {
+      Description = "Podman API Service";
+      Requires = ["podman.socket"];
+      After = ["podman.socket"];
+    };
+    Service = {
+      Type = "exec";
+      ExecStart = "${pkgs.podman}/bin/podman system service --time=0";
+    };
+  };
 
   imports = [
     ./containers/media.nix
