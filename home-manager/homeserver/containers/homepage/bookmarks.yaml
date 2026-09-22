@@ -1,15 +1,23 @@
 - Development:
     - GitHub:
-        - abbr: GH
+        - icon: github.png
+          abbr: GH
           href: https://github.com
+    - GitLab:
+        - icon: gitlab.png
+          abbr: GL
+          href: https://gitlab.com
     - NixOS Options:
-        - abbr: NX
+        - icon: nixos.png
+          abbr: NX
           href: https://search.nixos.org/options
     - NixOS Packages:
-        - abbr: NP
+        - icon: nixos.png
+          abbr: NP
           href: https://search.nixos.org/packages
     - Home Manager Options:
-        - abbr: HM
+        - icon: nixos.png
+          abbr: HM
           href: https://home-manager-options.extranix.com
 - Infrastructure:
     - Cloudflare:

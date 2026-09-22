@@ -1,6 +1,7 @@
 title: "Homeserver"
-favicon: "https://bulba.space/favicon.ico"
+favicon: "https://www.bulba.space/favicon.png"
 theme: dark
+hideVersion: true
 color: slate
 headerStyle: boxed
 layout:

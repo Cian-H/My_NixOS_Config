@@ -3,12 +3,14 @@
         icon: nextcloud.png
         href: https://nextcloud.bulba.space
         description: Cloud storage & productivity
-        siteMonitor: http://nextcloud:80
+        ping: http://caddy:80
         server: podman
         container: nextcloud
         widget:
           type: nextcloud
-          url: https://nextcloud.bulba.space
+          url: http://caddy:80
+          headers:
+            Host: nextcloud.bulba.space
           username: "{{HOMEPAGE_VAR_NEXTCLOUD_USERNAME}}"
           password: "{{HOMEPAGE_VAR_NEXTCLOUD_PASSWORD}}"
     - Nextcloud Office:
@@ -60,6 +62,7 @@
         href: https://blog.bulba.space
         description: Personal Blog & Notes
         siteMonitor: https://blog.bulba.space
+        favicon: https://blog.bulba.space/favicon.ico
 
 - Media:
     - Jellyfin:
