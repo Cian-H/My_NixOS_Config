@@ -15,5 +15,6 @@
       dateStyle: short
       hour12: false
 - search:
-    provider: duckduckgo
+    provider: custom
+    url: https://www.qwant.com/keys?q=
     target: _blank
