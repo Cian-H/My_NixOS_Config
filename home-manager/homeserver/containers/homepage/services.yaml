@@ -29,6 +29,7 @@
           type: vikunja
           url: http://vikunja:3456
           key: "{{HOMEPAGE_VAR_VIKUNJA_TOKEN}}"
+          version: 2
 
 - Services:
     - Gitea:

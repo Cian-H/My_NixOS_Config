@@ -36,8 +36,6 @@
       autoUpdate = "registry";
       network = [ "proxy-net" ];
       environment = {
-        PUID = "1000";
-        PGID = "100";
         HOMEPAGE_ALLOWED_HOSTS = "home.bulba.space,homepage:3000,localhost:3000";
       };
       volumes = [

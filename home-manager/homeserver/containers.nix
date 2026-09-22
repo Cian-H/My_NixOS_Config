@@ -22,7 +22,7 @@
   systemd.user.sockets.podman = {
     Socket = {
       ListenStream = "%t/podman/podman.sock";
-      SocketMode = "0660";
+      SocketMode = "0666";
     };
     Install.WantedBy = ["sockets.target"];
   };
