@@ -3,28 +3,26 @@
         icon: nextcloud.png
         href: https://nextcloud.bulba.space
         description: Cloud storage & productivity
-        ping: http://caddy:80
+        ping: nextcloud
         server: podman
         container: nextcloud
         widget:
           type: nextcloud
-          url: http://caddy:80
-          headers:
-            Host: nextcloud.bulba.space
+          url: http://nextcloud:80
           username: "{{HOMEPAGE_VAR_NEXTCLOUD_USERNAME}}"
           password: "{{HOMEPAGE_VAR_NEXTCLOUD_PASSWORD}}"
     - Nextcloud Office:
         icon: collabora-online.png
         href: https://collabora.bulba.space
         description: Document collaboration engine
-        ping: http://caddy:80
+        ping: nextcloud-collabora
         server: podman
         container: nextcloud-collabora
     - Vikunja:
         icon: vikunja.png
         href: https://vikunja.bulba.space
         description: Tasks & project management
-        ping: http://caddy:80
+        ping: vikunja
         server: podman
         container: vikunja
         widget:
@@ -34,12 +32,13 @@
           version: 2
 
 
+
 - Services:
     - Gitea:
         icon: gitea.png
         href: https://gitea.bulba.space
         description: Self-hosted Git service
-        ping: http://caddy:80
+        ping: gitea
         server: podman
         container: gitea
         widget:
@@ -50,7 +49,7 @@
         icon: freshrss.png
         href: https://freshrss.bulba.space
         description: RSS feed aggregator
-        ping: http://caddy:80
+        ping: freshrss
         server: podman
         container: freshrss
         widget:
@@ -70,14 +69,12 @@
         icon: jellyfin.png
         href: https://jellyfin.bulba.space
         description: Media streaming server
-        ping: http://caddy:80
+        ping: jellyfin
         server: podman
         container: jellyfin
         widget:
           type: jellyfin
-          url: http://caddy:80
-          headers:
-            Host: jellyfin.bulba.space
+          url: http://jellyfin:8096
           key: "{{HOMEPAGE_VAR_JELLYFIN_APIKEY}}"
           enableBlocks: true
 
@@ -86,21 +83,21 @@
         icon: caddy.png
         href: https://bulba.space
         description: Reverse proxy
-        ping: http://localhost:80
+        ping: localhost
         server: podman
         container: caddy
     - Cloudflared:
         icon: cloudflare.png
         href: https://dash.cloudflare.com
         description: Cloudflare Tunnel
-        ping: http://localhost:80
+        ping: localhost
         server: podman
         container: cloudflared
     - CV Website:
         icon: mdi-web
         href: https://bulba.space
         description: Personal Website
-        ping: http://caddy:80
+        ping: caddy
     - CV API:
         icon: mdi-api
         href: https://bulba.space/api
