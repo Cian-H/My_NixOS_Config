@@ -19,6 +19,10 @@
     };
   };
 
+  home.activation.enablePodmanSocket = lib.hm.dag.entryAfter ["reloadSystemd"] ''
+    ${pkgs.systemd}/bin/systemctl --user enable --now podman.socket || true
+  '';
+
   imports = [
     ./containers/media.nix
     ./containers/caddy.nix
