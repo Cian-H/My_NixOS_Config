@@ -19,8 +19,6 @@
     };
   };
 
-  systemd.user.sockets.podman.Install.WantedBy = ["sockets.target"];
-
   imports = [
     ./containers/media.nix
     ./containers/caddy.nix
