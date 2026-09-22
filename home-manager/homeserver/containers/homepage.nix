@@ -34,7 +34,11 @@
     homepage = {
       image = "ghcr.io/gethomepage/homepage:latest";
       autoUpdate = "registry";
-      network = [ "proxy-net" ];
+      network = [
+        "proxy-net"
+        "nextcloud-net"
+        "vikunja-net"
+      ];
       environment = {
         HOMEPAGE_ALLOWED_HOSTS = "home.bulba.space,homepage:3000,localhost:3000";
       };
@@ -51,7 +55,7 @@
       ];
       extraConfig = {
         Container = {
-          EnvironmentFile = [ config.sops.templates."homepage.env".path ];
+          EnvironmentFile = [config.sops.templates."homepage.env".path];
         };
       };
     };

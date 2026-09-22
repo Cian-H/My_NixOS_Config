@@ -3,7 +3,7 @@
         icon: nextcloud.png
         href: https://nextcloud.bulba.space
         description: Cloud storage & productivity
-        siteMonitor: https://nextcloud.bulba.space
+        siteMonitor: http://nextcloud:80
         server: podman
         container: nextcloud
         widget:
@@ -15,7 +15,7 @@
         icon: collabora-online.png
         href: https://collabora.bulba.space
         description: Document collaboration engine
-        siteMonitor: https://collabora.bulba.space
+        siteMonitor: http://nextcloud-collabora:9980
         server: podman
         container: nextcloud-collabora
     - Vikunja:
