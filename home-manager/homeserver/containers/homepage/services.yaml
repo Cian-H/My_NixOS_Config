@@ -89,6 +89,11 @@
         description: Cloudflare Tunnel
         server: podman
         container: cloudflared
+    - CV Website:
+        icon: mdi-web
+        href: https://bulba.space
+        description: Personal Website
+        siteMonitor: https://bulba.space
     - CV API:
         icon: mdi-api
         href: https://bulba.space/api
