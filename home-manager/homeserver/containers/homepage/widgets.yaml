@@ -16,5 +16,5 @@
       hour12: false
 - search:
     provider: custom
-    url: https://www.qwant.com/keys?q=
+    url: https://www.qwant.com/?q=
     target: _blank
