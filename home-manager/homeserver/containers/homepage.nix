@@ -11,7 +11,6 @@
     homepage_nextcloud_username = {};
     homepage_nextcloud_password = {};
     homepage_gitea_token = {};
-    homepage_jellyfin_apikey = {};
     homepage_freshrss_username = {};
     homepage_freshrss_password = {};
     homepage_vikunja_token = {};
@@ -23,7 +22,6 @@
       HOMEPAGE_VAR_NEXTCLOUD_USERNAME=${config.sops.placeholder.homepage_nextcloud_username}
       HOMEPAGE_VAR_NEXTCLOUD_PASSWORD=${config.sops.placeholder.homepage_nextcloud_password}
       HOMEPAGE_VAR_GITEA_TOKEN=${config.sops.placeholder.homepage_gitea_token}
-      HOMEPAGE_VAR_JELLYFIN_APIKEY=${config.sops.placeholder.homepage_jellyfin_apikey}
       HOMEPAGE_VAR_FRESHRSS_USERNAME=${config.sops.placeholder.homepage_freshrss_username}
       HOMEPAGE_VAR_FRESHRSS_PASSWORD=${config.sops.placeholder.homepage_freshrss_password}
       HOMEPAGE_VAR_VIKUNJA_TOKEN=${config.sops.placeholder.homepage_vikunja_token}
