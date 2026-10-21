@@ -44,7 +44,7 @@
     ./containers/caddy.nix
     ./containers/work_tools.nix
     ./containers/nextcloud.nix
-    ./containers/gitea.nix
+    ./containers/forgejo.nix
     ./containers/cv.nix
     ./containers/cloudflared.nix
     ./containers/homepage.nix

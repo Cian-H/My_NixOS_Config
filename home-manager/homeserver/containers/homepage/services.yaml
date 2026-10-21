@@ -33,17 +33,17 @@
 
 
 - Services:
-    - Gitea:
-        icon: gitea.png
-        href: https://gitea.bulba.space
+    - Forgejo:
+        icon: forgejo.png
+        href: https://git.bulba.space
         description: Self-hosted Git service
-        siteMonitor: https://gitea.bulba.space
+        siteMonitor: https://git.bulba.space
         server: podman
-        container: gitea
+        container: forgejo
         widget:
           type: gitea
-          url: https://gitea.bulba.space
-          key: "{{HOMEPAGE_VAR_GITEA_TOKEN}}"
+          url: https://git.bulba.space
+          key: "{{HOMEPAGE_VAR_FORGEJO_TOKEN}}"
     - FreshRSS:
         icon: freshrss.png
         href: https://freshrss.bulba.space
