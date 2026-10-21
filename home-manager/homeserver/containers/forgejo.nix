@@ -13,21 +13,29 @@
     source:
       github:
         - token: GITHUB_TOKEN
+          includeorgs:
+            - Cian-H
           wiki: true
     destination:
       gitlab:
         - token: GITLAB_TOKEN
+          mirror:
+            enabled: true
       gitea:
         - url: http://forgejo:3000
           token: FORGEJO_TOKEN
           user: Cian-H
-          createorg: true
           lfs: true
+          mirror:
+            enabled: true
     ---
     # 2. GitLab -> GitHub & Forgejo
     source:
       gitlab:
         - token: GITLAB_TOKEN
+          user: Cian-H
+          includeorgs:
+            - Cian-H
           wiki: true
     destination:
       github:
@@ -36,20 +44,26 @@
         - url: http://forgejo:3000
           token: FORGEJO_TOKEN
           user: Cian-H
-          createorg: true
           lfs: true
+          mirror:
+            enabled: true
     ---
     # 3. Forgejo -> GitHub & GitLab
     source:
       gitea:
         - url: http://forgejo:3000
           token: FORGEJO_TOKEN
+          user: Cian-H
+          includeorgs:
+            - Cian-H
           wiki: true
     destination:
       github:
         - token: GITHUB_TOKEN
       gitlab:
         - token: GITLAB_TOKEN
+          mirror:
+            enabled: true
   '';
 in {
   sops.secrets = {
