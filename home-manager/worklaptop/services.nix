@@ -8,10 +8,6 @@
   ...
 }: {
   services = {
-    ollama = {
-      enable = true;
-      acceleration = "cuda";
-    };
     pueue.enable = true;
     podman = {
       enable = true;
