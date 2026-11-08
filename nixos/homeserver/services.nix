@@ -7,6 +7,13 @@
   ...
 }: {
   services = {
+    # Tailscale mesh VPN
+    tailscale = {
+      enable = true;
+      useRoutingFeatures = "server";
+      openFirewall = true;
+    };
+
     # Enable the OpenSSH daemon and other remote tools.
     openssh = {
       enable = true;

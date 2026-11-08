@@ -63,6 +63,12 @@
     # Add guix, as it is a common tool for reproducibility in comp sci
     guix.enable = true;
 
+    # Enable Tailscale
+    tailscale = {
+      enable = true;
+      useRoutingFeatures = "client";
+    };
+
     # Enable the OpenSSH daemon and other remote tools.
     openssh.enable = true;
 
