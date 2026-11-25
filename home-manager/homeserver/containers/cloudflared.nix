@@ -9,7 +9,8 @@
 }: {
   services.podman.containers = {
     cloudflared = {
-      image = "cloudflare/cloudflared:latest";
+      image = "docker.io/cloudflare/cloudflared:latest";
+      autoUpdate = "registry";
       network = "proxy-net";
       exec = "tunnel --no-autoupdate run";
       extraConfig = {

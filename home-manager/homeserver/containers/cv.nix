@@ -10,6 +10,7 @@
   services.podman.containers = {
     cv-api = {
       image = "ghcr.io/cian-h/cv-api:latest";
+      autoUpdate = "registry";
       network = "proxy-net";
       environment = {
         CV_BIND = "0.0.0.0";

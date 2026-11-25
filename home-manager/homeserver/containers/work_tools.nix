@@ -7,6 +7,17 @@
   unstablePkgs,
   ...
 }: {
+  sops.templates = {
+    "vikunja.env".content = ''
+      VIKUNJA_SERVICE_SECRET=${config.sops.placeholder.vikunja_jwtsecret}
+      VIKUNJA_DATABASE_PASSWORD=${config.sops.placeholder.vikunja-db_password}
+    '';
+    "vikunja-db.env".content = ''
+      MYSQL_PASSWORD=${config.sops.placeholder.vikunja-db_password}
+      MYSQL_ROOT_PASSWORD=${config.sops.placeholder.vikunja-db_rootpassword}
+    '';
+  };
+
   services.podman = {
     networks = {
       vikunja-net = {};
@@ -20,7 +31,6 @@
           "proxy-net"
         ];
         environment = {
-          VIKUNJA_SERVICE_JWTSECRET = config.sops.secrets.vikunja_jwtsecret.path;
           VIKUNJA_SERVICE_PUBLICURL = "https://vikunja.bulba.space";
           VIKUNJA_FRONTEND_BASE = "/vikunja";
           VIKUNJA_SERVICE_FRONTENDURL = "https://vikunja.bulba.space";
@@ -29,13 +39,15 @@
           VIKUNJA_DATABASE_DATABASE = "vikunja";
           VIKUNJA_DATABASE_HOST = "vikunja-db";
           VIKUNJA_DATABASE_USER = "vikunja";
-          VIKUNJA_DATABASE_PASSWORD = config.sops.secrets.vikunja-db_password.path;
         };
         volumes = [
           "/home/cianh/vikunja/files:/app/vikunja/files"
         ];
         extraPodmanArgs = ["--userns=keep-id"];
         extraConfig = {
+          Container = {
+            EnvironmentFile = [ config.sops.templates."vikunja.env".path ];
+          };
           Unit = {
             After = "podman-vikunja-db.service";
             Requires = "podman-vikunja-db.service";
@@ -48,14 +60,17 @@
         network = "vikunja-net";
         exec = "--character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci";
         environment = {
-          MYSQL_ROOT_PASSWORD = config.sops.secrets.vikunja-db_rootpassword.path;
           MYSQL_USER = "vikunja";
-          MYSQL_PASSWORD = config.sops.secrets.vikunja-db_password.path;
           MYSQL_DATABASE = "vikunja";
         };
         volumes = [
           "/home/cianh/vikunja/db:/var/lib/mysql"
         ];
+        extraConfig = {
+          Container = {
+            EnvironmentFile = [ config.sops.templates."vikunja-db.env".path ];
+          };
+        };
       };
       freshrss = {
         image = "docker.io/freshrss/freshrss:latest";
